@@ -13,7 +13,9 @@ namespace WorldSmith.DataClasses
     {
         public static string VPKPath = "dota" + Path.DirectorySeparatorChar + "pak01_dir.vpk";
 
-        public static List<DotaUnit> Units = new List<DotaUnit>();
+        public static List<DotaUnit> DefaultUnits = new List<DotaUnit>();
+
+        public static List<DotaUnit> CustomUnits = new List<DotaUnit>();
 
         public static void LoadFromVPK(string vpkPath)
         {
@@ -60,7 +62,7 @@ namespace WorldSmith.DataClasses
 
                 DotaUnit unit = new DotaUnit();
                 unit.LoadFromKeyValues(kv);
-                Units.Add(unit);
+                DefaultUnits.Add(unit);
             }
 
         }

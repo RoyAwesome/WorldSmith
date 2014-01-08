@@ -28,21 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Default Units");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Default Heroes");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Custom Units");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Custom Heroes");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.addonConfig = new System.Windows.Forms.TabPage();
             this.unitTab = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemTab = new System.Windows.Forms.TabPage();
-            this.abilityTab = new System.Windows.Forms.TabPage();
-            this.modifierEditor = new System.Windows.Forms.TabPage();
-            this.unitPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.unitPropertyGrid = new System.Windows.Forms.PropertyGrid();
+            this.itemTab = new System.Windows.Forms.TabPage();
+            this.abilityTab = new System.Windows.Forms.TabPage();
+            this.modifierEditor = new System.Windows.Forms.TabPage();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.unitTreeView = new System.Windows.Forms.TreeView();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.unitTab.SuspendLayout();
@@ -65,6 +71,12 @@
             this.menuStrip1.Size = new System.Drawing.Size(916, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
             // 
             // tabControl1
             // 
@@ -118,63 +130,12 @@
             this.splitContainer1.SplitterDistance = 191;
             this.splitContainer1.TabIndex = 0;
             // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(191, 612);
-            this.listBox1.TabIndex = 0;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // itemTab
-            // 
-            this.itemTab.Location = new System.Drawing.Point(4, 22);
-            this.itemTab.Name = "itemTab";
-            this.itemTab.Size = new System.Drawing.Size(908, 643);
-            this.itemTab.TabIndex = 2;
-            this.itemTab.Text = "Item Editor";
-            this.itemTab.UseVisualStyleBackColor = true;
-            // 
-            // abilityTab
-            // 
-            this.abilityTab.Location = new System.Drawing.Point(4, 22);
-            this.abilityTab.Name = "abilityTab";
-            this.abilityTab.Size = new System.Drawing.Size(908, 643);
-            this.abilityTab.TabIndex = 3;
-            this.abilityTab.Text = "Ability Editor";
-            this.abilityTab.UseVisualStyleBackColor = true;
-            // 
-            // modifierEditor
-            // 
-            this.modifierEditor.Location = new System.Drawing.Point(4, 22);
-            this.modifierEditor.Name = "modifierEditor";
-            this.modifierEditor.Size = new System.Drawing.Size(908, 643);
-            this.modifierEditor.TabIndex = 4;
-            this.modifierEditor.Text = "Modifier Editor";
-            this.modifierEditor.UseVisualStyleBackColor = true;
-            // 
-            // unitPropertyGrid
-            // 
-            this.unitPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.unitPropertyGrid.Location = new System.Drawing.Point(0, 0);
-            this.unitPropertyGrid.Name = "unitPropertyGrid";
-            this.unitPropertyGrid.Size = new System.Drawing.Size(707, 637);
-            this.unitPropertyGrid.TabIndex = 0;
-            // 
             // toolStripContainer1
             // 
             // 
             // toolStripContainer1.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.listBox1);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.unitTreeView);
             this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(191, 612);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
@@ -206,6 +167,85 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // unitPropertyGrid
+            // 
+            this.unitPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.unitPropertyGrid.Location = new System.Drawing.Point(0, 0);
+            this.unitPropertyGrid.Name = "unitPropertyGrid";
+            this.unitPropertyGrid.Size = new System.Drawing.Size(707, 637);
+            this.unitPropertyGrid.TabIndex = 0;
+            // 
+            // itemTab
+            // 
+            this.itemTab.Location = new System.Drawing.Point(4, 22);
+            this.itemTab.Name = "itemTab";
+            this.itemTab.Size = new System.Drawing.Size(908, 643);
+            this.itemTab.TabIndex = 2;
+            this.itemTab.Text = "Item Editor";
+            this.itemTab.UseVisualStyleBackColor = true;
+            // 
+            // abilityTab
+            // 
+            this.abilityTab.Location = new System.Drawing.Point(4, 22);
+            this.abilityTab.Name = "abilityTab";
+            this.abilityTab.Size = new System.Drawing.Size(908, 643);
+            this.abilityTab.TabIndex = 3;
+            this.abilityTab.Text = "Ability Editor";
+            this.abilityTab.UseVisualStyleBackColor = true;
+            // 
+            // modifierEditor
+            // 
+            this.modifierEditor.Location = new System.Drawing.Point(4, 22);
+            this.modifierEditor.Name = "modifierEditor";
+            this.modifierEditor.Size = new System.Drawing.Size(908, 643);
+            this.modifierEditor.TabIndex = 4;
+            this.modifierEditor.Text = "Modifier Editor";
+            this.modifierEditor.UseVisualStyleBackColor = true;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "DefaultUnits.png");
+            this.imageList1.Images.SetKeyName(1, "CustomUnits.png");
+            // 
+            // unitTreeView
+            // 
+            this.unitTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.unitTreeView.ImageIndex = 0;
+            this.unitTreeView.ImageList = this.imageList1;
+            this.unitTreeView.Location = new System.Drawing.Point(0, 0);
+            this.unitTreeView.Name = "unitTreeView";
+            treeNode1.ImageIndex = 0;
+            treeNode1.Name = "defaultUnits";
+            treeNode1.Tag = "\"Folder\"";
+            treeNode1.Text = "Default Units";
+            treeNode1.ToolTipText = "Valve created Dota2 Units";
+            treeNode2.ImageIndex = 0;
+            treeNode2.Name = "defaultHeroes";
+            treeNode2.Tag = "\"Folder\"";
+            treeNode2.Text = "Default Heroes";
+            treeNode2.ToolTipText = "Valve created Dota2 Heroes";
+            treeNode3.ImageIndex = 1;
+            treeNode3.Name = "customUnits";
+            treeNode3.Tag = "\"Folder\"";
+            treeNode3.Text = "Custom Units";
+            treeNode3.ToolTipText = "Custom Units created by you";
+            treeNode4.ImageIndex = 1;
+            treeNode4.Name = "customHeroes";
+            treeNode4.Tag = "\"Folder\"";
+            treeNode4.Text = "Custom Heroes";
+            treeNode4.ToolTipText = "Custom Heroes created by you";
+            this.unitTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
+            this.unitTreeView.SelectedImageIndex = 0;
+            this.unitTreeView.Size = new System.Drawing.Size(191, 612);
+            this.unitTreeView.TabIndex = 0;
+            this.unitTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.unitTreeView_AfterSelect);
             // 
             // MainForm
             // 
@@ -246,7 +286,6 @@
         private System.Windows.Forms.TabPage addonConfig;
         private System.Windows.Forms.TabPage unitTab;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TabPage itemTab;
         private System.Windows.Forms.TabPage abilityTab;
         private System.Windows.Forms.TabPage modifierEditor;
@@ -254,6 +293,8 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.PropertyGrid unitPropertyGrid;
+        private System.Windows.Forms.TreeView unitTreeView;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 
