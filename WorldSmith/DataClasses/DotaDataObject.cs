@@ -10,7 +10,7 @@ using System.Reflection;
 namespace WorldSmith.DataClasses
 {
     class DotaDataObject
-    {
+    {       
         [Category("Base")]
         [Description("Class name for this object")]
         public string ClassName
@@ -25,11 +25,10 @@ namespace WorldSmith.DataClasses
         {
             get;
             set;
-        }
+        }        
 
         public virtual void LoadFromKeyValues(KeyValue kv)
         {
-
             PropertyInfo[] properties = this.GetType().GetProperties();
 
             ClassName = kv.Key;
@@ -37,6 +36,7 @@ namespace WorldSmith.DataClasses
             foreach(PropertyInfo info in properties)
             {
                 if (info.Name == "ClassName") continue;
+                if (info.Name == "WasModified") continue;
 
                 KeyValue subkey = kv[info.Name];
                 if(subkey == null || subkey.HasChildren) continue;
@@ -60,8 +60,50 @@ namespace WorldSmith.DataClasses
                 }
                 if(data != null) info.SetMethod.Invoke(this, new object[] { data });
 
-            }            
-           
+            } 
         }
+
+        public virtual KeyValue WriteToKVObject()
+        {
+            PropertyInfo[] properties = this.GetType().GetProperties();
+
+            KeyValue kv = new KeyValue(ClassName);
+
+            foreach (PropertyInfo info in properties)
+            {
+                if (info.Name == "ClassName") continue;
+                if (info.Name == "WasModified") continue;
+
+                KeyValue subkey = new KeyValue(info.Name);
+                
+                object data = null;
+                if (info.PropertyType == typeof(int))
+                {
+                    data = info.GetMethod.Invoke(this, new object[] { });
+                    subkey.Set((int)data);
+                }
+                if (info.PropertyType == typeof(float))
+                {
+                    data = info.GetMethod.Invoke(this, new object[] { });
+                    subkey.Set((float)data);
+                }
+                if (info.PropertyType == typeof(bool))
+                {
+                    data = info.GetMethod.Invoke(this, new object[] { });
+                    subkey.Set((bool)data);
+                }
+                if (info.PropertyType == typeof(string))
+                {
+                    data = info.GetMethod.Invoke(this, new object[] { });
+                    subkey.Set((string)data);
+                }
+                kv += subkey;
+
+            }
+
+            return kv;
+
+        }
+
     }
 }

@@ -13,19 +13,38 @@ namespace WorldSmith.DataClasses
     {
         public static string VPKPath = "dota" + Path.DirectorySeparatorChar + "pak01_dir.vpk";
 
+        #region Unit Data Lists
         public static List<DotaUnit> DefaultUnits = new List<DotaUnit>();
+
+        public static List<DotaUnit> OverriddenUnits = new List<DotaUnit>();
 
         public static List<DotaUnit> CustomUnits = new List<DotaUnit>();
 
         public static List<DotaHero> DefaultHeroes = new List<DotaHero>();
 
+        public static List<DotaHero> OverridenHeroes = new List<DotaHero>();
+
         public static List<DotaHero> CustomHeroes = new List<DotaHero>();
 
-        public static IEnumerable<DotaDataObject> AllClasses = DefaultUnits.Cast<DotaDataObject>()
-            .Union(CustomUnits.Cast<DotaDataObject>())
-            .Union(DefaultHeroes.Cast<DotaDataObject>())
-            .Union(CustomUnits.Cast<DotaDataObject>());
+        public static IEnumerable<DotaBaseUnit> AllDefaultUnits = DefaultUnits.Cast<DotaBaseUnit>()
+            .Union(DefaultHeroes.Cast<DotaBaseUnit>());
 
+        public static IEnumerable<DotaBaseUnit> AllOverridenUnits = OverriddenUnits.Cast<DotaBaseUnit>()
+            .Union(OverridenHeroes.Cast<DotaBaseUnit>());
+
+        public static IEnumerable<DotaBaseUnit> AllCustomUnits = CustomUnits.Cast<DotaBaseUnit>()
+            .Union(CustomHeroes.Cast<DotaBaseUnit>());
+
+        public static IEnumerable<DotaBaseUnit> AllUnits = AllDefaultUnits
+            .Union(AllOverridenUnits)
+            .Union(CustomUnits.Cast<DotaBaseUnit>())
+            .Union(CustomUnits.Cast<DotaBaseUnit>());
+            
+        #endregion
+
+        public static IEnumerable<DotaDataObject> AllClasses = AllUnits.Cast<DotaDataObject>();
+
+        #region HLLib Usage
         public static void LoadFromVPK(string vpkPath)
         {
             if(!Directory.Exists("cache")) Directory.CreateDirectory("cache");
@@ -47,11 +66,47 @@ namespace WorldSmith.DataClasses
             ErrorCheck(HLLib.hlBindPackage(PackageID));
 
             ErrorCheck(HLLib.hlPackageOpenFile(path, (uint)OpenMode));           
-
-
-
+            
         }
 
+
+        private static string ReadTextFromHLLibStream(IntPtr Stream)
+        {
+            HLLib.HLFileMode mode = HLLib.HLFileMode.HL_MODE_READ;
+
+            ErrorCheck(HLLib.hlStreamOpen(Stream, (uint)mode));
+
+            StringBuilder str = new StringBuilder();
+
+            char ch;
+            while (HLLib.hlStreamReadChar(Stream, out ch))
+            {
+                str.Append(ch);
+            }
+
+            HLLib.hlStreamClose(Stream);
+
+            return str.ToString();
+        }
+
+
+        public static void ErrorCheck(bool ret)
+        {
+            if (!ret)
+            {
+                MessageBox.Show("Error reading pak01_dir.vpk.\n\n The error reported was: " + HLLib.hlGetString(HLLib.HLOption.HL_ERROR_LONG_FORMATED), "Error opening .pak", MessageBoxButtons.OK);
+                Shutdown();
+                Application.Exit();
+            }
+        }
+
+        public static void Shutdown()
+        {
+            HLLib.hlShutdown();
+        }
+        #endregion
+
+        #region LoadData
         public static void ReadUnits()
         {
             IntPtr root = HLLib.hlPackageGetRoot();
@@ -98,41 +153,16 @@ namespace WorldSmith.DataClasses
                 DefaultHeroes.Add(unit);
             }
         }
+        #endregion
 
-
-        private static string ReadTextFromHLLibStream(IntPtr Stream)
+        #region SaveData
+        public static void SaveUnits()
         {
-            HLLib.HLFileMode mode = HLLib.HLFileMode.HL_MODE_READ;
-            
-            ErrorCheck(HLLib.hlStreamOpen(Stream, (uint)mode));
 
-            StringBuilder str = new StringBuilder();
 
-            char ch;
-            while(HLLib.hlStreamReadChar(Stream, out ch))
-            {
-                str.Append(ch);
-            }
-
-            HLLib.hlStreamClose(Stream);
-
-            return str.ToString();
         }
 
-        public static void ErrorCheck(bool ret)
-        { 
-            if(!ret)
-            {
-                MessageBox.Show("Error reading pak01_dir.vpk.\n\n The error reported was: " + HLLib.hlGetString(HLLib.HLOption.HL_ERROR_LONG_FORMATED), "Error opening .pak", MessageBoxButtons.OK);
-                Shutdown();
-                Application.Exit();
-            }
-        }
-
-        public static void Shutdown()
-        {
-            HLLib.hlShutdown();
-        }
+        #endregion
 
 
     }

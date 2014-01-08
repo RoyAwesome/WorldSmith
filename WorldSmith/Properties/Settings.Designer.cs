@@ -46,5 +46,17 @@ namespace WorldSmith.Properties {
                 this["ranonce"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AddonPath {
+            get {
+                return ((string)(this["AddonPath"]));
+            }
+            set {
+                this["AddonPath"] = value;
+            }
+        }
     }
 }
