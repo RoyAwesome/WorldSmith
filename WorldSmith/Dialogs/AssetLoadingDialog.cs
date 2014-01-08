@@ -34,11 +34,14 @@ namespace WorldSmith.Dialogs
             int totalsteps = 1;
 
 
-            backgroundWorker1.ReportProgress(5, "Loading pak01_dir.vpk");
+            backgroundWorker1.ReportProgress(5, "pak01_dir.vpk");
             DotaData.LoadFromVPK(Properties.Settings.Default.dotadir);
 
-            backgroundWorker1.ReportProgress(10, "Loading npc_units.txt");
+            backgroundWorker1.ReportProgress(10, "npc_units.txt");
             DotaData.ReadUnits();
+
+            backgroundWorker1.ReportProgress(15, "npc_heroes.txt");
+            DotaData.ReadHeroes();
             
         }
 

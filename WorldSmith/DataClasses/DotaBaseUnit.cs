@@ -9,7 +9,7 @@ namespace WorldSmith.DataClasses
 {
     class DotaBaseUnit : DotaDataObject
     {     
-        [Category("Unit Base")]
+        [Category("General")]
         [Description("No Description Set")]
         [DefaultValue("models/development/invisiblebox.mdl")]
         public string Model
@@ -19,7 +19,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("General")]
         [Description("No Description Set")]
         [DefaultValue("")]
         public string SoundSet
@@ -29,7 +29,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("General")]
         [Description("No Description Set")]
         [DefaultValue(1)]
         public int Level
@@ -39,7 +39,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("General")]
         [Description("No Description Set")]
         [DefaultValue(false)]
         public bool IsAncient
@@ -49,7 +49,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("General")]
         [Description("No Description Set")]
         [DefaultValue(false)]
         public bool IsNeutralUnitType
@@ -59,7 +59,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("General")]
         [Description("No Description Set")]
         [DefaultValue("")]
         public string SelectionGroup
@@ -69,7 +69,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("General")]
         [Description("No Description Set")]
         [DefaultValue(false)]
         public bool SelectOnSpawn
@@ -79,7 +79,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("General")]
         [Description("No Description Set")]
         [DefaultValue(true)]
         public bool CanBeDominated
@@ -89,7 +89,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("General")]
         [Description("No Description Set")]
         [DefaultValue(false)]
         public bool IgnoreAddSummonedToSelection
@@ -99,7 +99,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("General")]
         [Description("No Description Set")]
         [DefaultValue(true)]
         public bool AutoAttacksByDefault
@@ -109,7 +109,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Abilities")]
         [Description("No Description Set")]
         [DefaultValue("")]
         public string Ability1
@@ -119,7 +119,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Abilities")]
         [Description("No Description Set")]
         [DefaultValue("")]
         public string Ability2
@@ -129,7 +129,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Abilities")]
         [Description("No Description Set")]
         [DefaultValue("")]
         public string Ability3
@@ -139,7 +139,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Abilities")]
         [Description("No Description Set")]
         [DefaultValue("")]
         public string Ability4
@@ -149,7 +149,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Abilities")]
         [Description("No Description Set")]
         [DefaultValue("")]
         public string Ability5
@@ -159,7 +159,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Abilities")]
         [Description("No Description Set")]
         [DefaultValue("")]
         public string Ability6
@@ -169,7 +169,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Abilities")]
         [Description("No Description Set")]
         [DefaultValue("")]
         public string Ability7
@@ -179,7 +179,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Abilities")]
         [Description("No Description Set")]
         [DefaultValue("")]
         public string Ability8
@@ -189,7 +189,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Armor")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int ArmorPhysical
@@ -199,7 +199,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Armor")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int MagicalResistance
@@ -209,7 +209,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attack")]
         [Description("No Description Set")]
         [DefaultValue("DOTA_UNIT_CAP_NO_ATTACK")]
         public string AttackCapabilities
@@ -219,7 +219,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attack")]
         [Description("No Description Set")]
         [DefaultValue(1)]
         public int AttackDamageMin
@@ -229,7 +229,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attack")]
         [Description("No Description Set")]
         [DefaultValue(1)]
         public int AttackDamageMax
@@ -239,7 +239,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attack")]
         [Description("No Description Set")]
         [DefaultValue("DAMAGE_TYPE_ArmorPhysical")]
         public string AttackDamageType
@@ -249,7 +249,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attack")]
         [Description("No Description Set")]
         [DefaultValue(1.7)]
         public float AttackRate
@@ -259,7 +259,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attack")]
         [Description("No Description Set")]
         [DefaultValue(0.75)]
         public float AttackAnimationPoint
@@ -269,17 +269,17 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attack")]
         [Description("No Description Set")]
-        [DefaultValue(true)]
-        public bool AttackAcquisitionRange
+        [DefaultValue(800)]
+        public int AttackAcquisitionRange
         {
             get;
             set;
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attack")]
         [Description("No Description Set")]
         [DefaultValue(600)]
         public int AttackRange
@@ -289,7 +289,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attack")]
         [Description("No Description Set")]
         [DefaultValue(250)]
         public int AttackRangeBuffer
@@ -299,7 +299,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attack")]
         [Description("No Description Set")]
         [DefaultValue("")]
         public string ProjectileModel
@@ -309,7 +309,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attack")]
         [Description("No Description Set")]
         [DefaultValue(900)]
         public int ProjectileSpeed
@@ -319,7 +319,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attributes")]
         [Description("No Description Set")]
         [DefaultValue("DOTA_ATTRIBUTE_STRENGTH")]
         public string AttributePrimary
@@ -329,7 +329,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attributes")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int AttributeBaseStrength
@@ -339,7 +339,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attributes")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int AttributeStrengthGain
@@ -349,7 +349,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attributes")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int AttributeBaseIntelligence
@@ -359,7 +359,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attributes")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int AttributeIntelligenceGain
@@ -369,7 +369,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attributes")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int AttributeBaseAgility
@@ -379,7 +379,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Attributes")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int AttributeAgilityGain
@@ -389,7 +389,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Bounty")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int BountyXP
@@ -399,7 +399,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Bounty")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int BountyGoldMin
@@ -409,7 +409,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Bounty")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int BountyGoldMax
@@ -419,7 +419,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Bounds")]
         [Description("No Description Set")]
         [DefaultValue("DOTA_HULL_SIZE_HERO")]
         public string BoundsHullName
@@ -429,7 +429,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Bounds")]
         [Description("No Description Set")]
         [DefaultValue(50)]
         public int RingRadius
@@ -439,7 +439,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Bounds")]
         [Description("No Description Set")]
         [DefaultValue(-1)]
         public int HealthBarOffset
@@ -449,7 +449,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Movement")]
         [Description("No Description Set")]
         [DefaultValue("DOTA_UNIT_CAP_MOVE_NONE")]
         public string MovementCapabilities
@@ -459,7 +459,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Movement")]
         [Description("No Description Set")]
         [DefaultValue(300)]
         public int MovementSpeed
@@ -469,7 +469,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Movement")]
         [Description("No Description Set")]
         [DefaultValue(0.5)]
         public float MovementTurnRate
@@ -479,7 +479,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Movement")]
         [Description("No Description Set")]
         [DefaultValue(false)]
         public bool HasAggressiveStance
@@ -489,7 +489,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Movement")]
         [Description("No Description Set")]
         [DefaultValue(100)]
         public int FollowRange
@@ -499,7 +499,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Status")]
         [Description("No Description Set")]
         [DefaultValue(150)]
         public int StatusHealth
@@ -509,7 +509,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Status")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int StatusHealthRegen
@@ -519,7 +519,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Status")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int StatusMana
@@ -529,7 +529,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Status")]
         [Description("No Description Set")]
         [DefaultValue(0)]
         public int StatusManaRegen
@@ -539,7 +539,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Status")]
         [Description("No Description Set")]
         [DefaultValue(-1)]
         public int StatusStartingMana
@@ -549,7 +549,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Team")]
         [Description("No Description Set")]
         [DefaultValue("DOTA_TEAM_NEUTRALS")]
         public string TeamName
@@ -559,7 +559,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Team")]
         [Description("No Description Set")]
         [DefaultValue("DOTA_COMBAT_CLASS_ATTACK_HERO")]
         public string CombatClassAttack
@@ -569,7 +569,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Team")]
         [Description("No Description Set")]
         [DefaultValue("DOTA_COMBAT_CLASS_DEFEND_HERO")]
         public string CombatClassDefend
@@ -579,7 +579,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Team")]
         [Description("No Description Set")]
         [DefaultValue("DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT")]
         public string UnitRelationshipClass
@@ -589,27 +589,27 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("Vision")]
         [Description("No Description Set")]
-        [DefaultValue(true)]
-        public bool VisionDaytimeRange
+        [DefaultValue(575)]
+        public int VisionDaytimeRange
         {
             get;
             set;
         }
 
 
-        [Category("Unit Base")]
+        [Category("Vision")]
         [Description("No Description Set")]
-        [DefaultValue(true)]
-        public bool VisionNighttimeRange
+        [DefaultValue(575)]
+        public int VisionNighttimeRange
         {
             get;
             set;
         }
 
 
-        [Category("Unit Base")]
+        [Category("Bots")]
         [Description("No Description Set")]
         [DefaultValue(1)]
         public float AttackDesire
@@ -619,7 +619,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("General")]
         [Description("No Description Set")]
         [DefaultValue(false)]
         public bool HasInventory
@@ -629,7 +629,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("General")]
         [Description("No Description Set")]
         [DefaultValue(true)]
         public bool WakesNeutrals
@@ -639,7 +639,7 @@ namespace WorldSmith.DataClasses
         }
 
 
-        [Category("Unit Base")]
+        [Category("General")]
         [Description("No Description Set")]
         [DefaultValue("")]
         public string IdleSoundLoop

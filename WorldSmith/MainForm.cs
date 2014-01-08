@@ -34,6 +34,18 @@ namespace WorldSmith
                 n.Nodes.Add(newnode);
             }
 
+            n = unitTreeView.Nodes.Find("defaultHeroes", false)[0];
+            foreach (DotaHero unit in DotaData.DefaultHeroes)
+            {
+                TreeNode newnode = new TreeNode()
+                {
+                    Name = unit.ClassName,
+                    Text = unit.ClassName,
+                    Tag = "Item"
+                };
+                n.Nodes.Add(newnode);
+            }
+
         }     
 
         private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
@@ -43,7 +55,7 @@ namespace WorldSmith
 
         private void unitTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            unitPropertyGrid.SelectedObject = DotaData.DefaultUnits.FirstOrDefault(x => x.ClassName == e.Node.Name);
+            unitPropertyGrid.SelectedObject = DotaData.AllClasses.FirstOrDefault(x => x.ClassName == e.Node.Name);
         }
     }
 }

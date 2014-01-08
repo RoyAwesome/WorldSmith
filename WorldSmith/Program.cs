@@ -50,7 +50,7 @@ namespace WorldSmith
             DotaData.Shutdown();
         }
 
-
+        #region PropertyFinder
         static void GenerateDataPropertiesFromKeyValues(string file, string baseKey, string outputFile)
         {
             KVLib.KeyValue kv = KVLib.KVParser.ParseKeyValueText(File.ReadAllText(file));
@@ -163,5 +163,6 @@ namespace WorldSmith
 
             return "CANTDETERMINE";
         }
+        #endregion
     }
 }

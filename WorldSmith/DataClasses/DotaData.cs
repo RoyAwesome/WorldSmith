@@ -17,6 +17,15 @@ namespace WorldSmith.DataClasses
 
         public static List<DotaUnit> CustomUnits = new List<DotaUnit>();
 
+        public static List<DotaHero> DefaultHeroes = new List<DotaHero>();
+
+        public static List<DotaHero> CustomHeroes = new List<DotaHero>();
+
+        public static IEnumerable<DotaDataObject> AllClasses = DefaultUnits.Cast<DotaDataObject>()
+            .Union(CustomUnits.Cast<DotaDataObject>())
+            .Union(DefaultHeroes.Cast<DotaDataObject>())
+            .Union(CustomUnits.Cast<DotaDataObject>());
+
         public static void LoadFromVPK(string vpkPath)
         {
             if(!Directory.Exists("cache")) Directory.CreateDirectory("cache");
@@ -65,6 +74,29 @@ namespace WorldSmith.DataClasses
                 DefaultUnits.Add(unit);
             }
 
+        }
+
+        public static void ReadHeroes()
+        {
+            IntPtr root = HLLib.hlPackageGetRoot();
+
+            IntPtr file = HLLib.hlFolderGetItemByPath(root, "scripts/npc/npc_heroes.txt", HLLib.HLFindType.HL_FIND_FILES);
+
+            IntPtr stream;
+            ErrorCheck(HLLib.hlPackageCreateStream(file, out stream));
+
+            string unitsText = ReadTextFromHLLibStream(stream);
+
+            KeyValue rootkv = KVLib.KVParser.ParseKeyValueText(unitsText);
+
+            foreach (KeyValue kv in rootkv.Children)
+            {
+                if (!kv.HasChildren) continue; //Get rid of that pesky "Version" "1" key
+
+                DotaHero unit = new DotaHero();
+                unit.LoadFromKeyValues(kv);
+                DefaultHeroes.Add(unit);
+            }
         }
 
 
