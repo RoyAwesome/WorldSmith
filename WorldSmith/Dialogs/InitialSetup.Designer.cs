@@ -42,9 +42,9 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(293, 78);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome to Worldsmith\r\n\r\nThis appears to be your first time running Woldsmith.  \r" +
-    "\nPlease take some time right now to set up your dota directory\r\nand other applic" +
-    "ation settings.  \r\n\r\n";
+            this.label1.Text = "Welcome to Worldsmith\r\n\r\nThis appears to be your first time running Worldsmith.  " +
+    "\r\nPlease take some time right now to set up your dota directory\r\nand other appli" +
+    "cation settings.  \r\n\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox1
