@@ -51,6 +51,10 @@ namespace WorldSmith.DataClasses
 
         public static IEnumerable<DotaDataObject> AllClasses = AllUnits.Cast<DotaDataObject>();
 
+        public static string NPCScriptPath = "scripts" + Path.DirectorySeparatorChar + "npc" + Path.DirectorySeparatorChar;
+        public static string CustomHeroesFile = NPCScriptPath + "npc_heroes_custom.txt";
+        public static string CustomUnitsFile = NPCScriptPath + "npc_units_custom.txt";
+
         #region HLLib Usage
         public static void LoadFromVPK(string vpkPath)
         {
@@ -158,6 +162,22 @@ namespace WorldSmith.DataClasses
                 DotaHero unit = new DotaHero();
                 unit.LoadFromKeyValues(kv);
                 DefaultHeroes.Add(unit);
+            }
+        }
+       
+        public static void ReadOverride<T>(string file, List<T> ListToLoadInto) where T : DotaDataObject
+        {
+            ListToLoadInto.Clear();
+            
+            
+            KeyValue doc = KVParser.ParseKeyValueText(File.ReadAllText(Properties.Settings.Default.AddonPath + file));
+            
+            foreach(KeyValue hero in doc.Children)
+            {
+                T unit = typeof(T).GetConstructor(Type.EmptyTypes).Invoke(Type.EmptyTypes) as T;
+                unit.LoadFromKeyValues(hero);
+                
+                ListToLoadInto.Add(unit);
             }
         }
         #endregion

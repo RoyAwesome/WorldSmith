@@ -35,7 +35,12 @@ namespace WorldSmith
             }
 
             AssetLoadingDialog assets = new AssetLoadingDialog();
-            assets.ShowDialog();
+            assets.ShowDialog(AssetLoadingDialog.InitialLoad);
+            if (Properties.Settings.Default.AddonPath != "")
+            {
+                assets = new AssetLoadingDialog();
+                assets.ShowDialog(AssetLoadingDialog.AddonLoadTasks);
+            }
             Application.ApplicationExit += Application_ApplicationExit;
 
             Application.Run(new MainForm());

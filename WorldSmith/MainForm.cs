@@ -24,9 +24,18 @@ namespace WorldSmith
 
         private void LoadFromData()
         {
-            TreeNode n = unitTreeView.Nodes.Find("defaultUnits", false)[0];
+            ReadList("defaultUnits", DotaData.DefaultUnits);
+            ReadList("defaultHeroes", DotaData.DefaultHeroes);
+            ReadList("overrideHero", DotaData.OverridenHeroes);
+        } 
+       
+    
+        private void ReadList<T>(string treeKey, List<T> unitList ) where T : DotaDataObject
+        {
+            TreeNode n = unitTreeView.Nodes.Find(treeKey, false)[0];
+            n.Nodes.Clear();
 
-            foreach(DotaUnit unit in DotaData.DefaultUnits)
+            foreach (T unit in unitList)
             {
                 TreeNode newnode = new TreeNode()
                 {
@@ -36,20 +45,7 @@ namespace WorldSmith
                 };
                 n.Nodes.Add(newnode);
             }
-
-            n = unitTreeView.Nodes.Find("defaultHeroes", false)[0];
-            foreach (DotaHero unit in DotaData.DefaultHeroes)
-            {
-                TreeNode newnode = new TreeNode()
-                {
-                    Name = unit.ClassName,
-                    Text = unit.ClassName,
-                    Tag = "Item"
-                };
-                n.Nodes.Add(newnode);
-            }
-
-        }     
+        }
      
 
         private void unitTreeView_AfterSelect(object sender, TreeViewEventArgs e)
@@ -157,6 +153,9 @@ namespace WorldSmith
                 MessageBox.Show("That's not an addon folder!\nSelect a folder with an addoninfo.txt", "Invalid Folder", MessageBoxButtons.OK);
                 return;
             }
+
+            AssetLoadingDialog loader = new AssetLoadingDialog();
+            loader.ShowDialog(AssetLoadingDialog.AddonLoadTasks);
 
             Properties.Settings.Default.AddonPath = folder;
             Properties.Settings.Default.Save();

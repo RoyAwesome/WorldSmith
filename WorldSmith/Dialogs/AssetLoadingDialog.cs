@@ -11,38 +11,66 @@ using WorldSmith.DataClasses;
 
 namespace WorldSmith.Dialogs
 {
+    public delegate void Task();
     public partial class AssetLoadingDialog : Form
     {
+
+        public static Dictionary<string, Task> InitialLoad = new Dictionary<string, Task>()
+        {
+            {"Opening pak01_dir.vpk",  () => { DotaData.LoadFromVPK(Properties.Settings.Default.dotadir); } },
+            {"npc_units.txt", () => { DotaData.ReadUnits(); } },
+            {"npc_heroes.txt", () => { DotaData.ReadHeroes(); } },
+
+        };
+
+        public static Dictionary<string, Task> AddonLoadTasks = new Dictionary<string, Task>()
+        {
+            {"npc_units_custom.txt", () => { DotaData.ReadOverride(DotaData.CustomUnitsFile, DotaData.CustomUnits); } },
+            {"npc_heroes_custom.txt", () => { DotaData.ReadOverride(DotaData.CustomHeroesFile, DotaData.OverridenHeroes); } },
+            {"Cleaning HeroOverrideList", () => {
+                foreach(DotaHero hero in DotaData.OverridenHeroes)
+                {
+                    DotaHero baseHero = DotaData.DefaultHeroes.FirstOrDefault(h => h.ClassName == hero.override_hero);
+                    if (baseHero != null) DotaData.DefaultHeroes.Remove(baseHero);
+                }
+            } },
+        };
+
+
         public AssetLoadingDialog()
         {
             InitializeComponent();
         }
 
-        public void Start()
+        private Dictionary<string, Task> job;
+        
+
+        public void Start(Dictionary<string, Task> job)
         {
+            this.job = job;
             backgroundWorker1.RunWorkerAsync();
         }
 
-        public new DialogResult ShowDialog()
+        public DialogResult ShowDialog(Dictionary<string, Task> job)
         {
-            Start();
+            Start(job);
             return base.ShowDialog();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            int totalsteps = 1;
 
+            int Total = job.Count;
 
-            backgroundWorker1.ReportProgress(5, "pak01_dir.vpk");
-            DotaData.LoadFromVPK(Properties.Settings.Default.dotadir);
+            int count = 0;
+            foreach(KeyValuePair<string, Task> kv in job)
+            {
+                int progress = (int)((count / (float)Total) * 100);
+                backgroundWorker1.ReportProgress(progress, kv.Key);
+                kv.Value();
+                count++;
+            }
 
-            backgroundWorker1.ReportProgress(10, "npc_units.txt");
-            DotaData.ReadUnits();
-
-            backgroundWorker1.ReportProgress(15, "npc_heroes.txt");
-            DotaData.ReadHeroes();
-            
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
