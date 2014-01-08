@@ -1,5 +1,8 @@
 ﻿"Schema"
 {
+	"ClassName" "DotaBaseUnit"
+	"BaseClass" "DotaDataObject"
+
 	"Model"
 	{
 		"Category"	"Misc"
@@ -466,6 +469,7 @@
 			"3"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_SIEGE"
 			"4"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 			"5"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_COURIER"
+			"6" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 		}
 
 	}

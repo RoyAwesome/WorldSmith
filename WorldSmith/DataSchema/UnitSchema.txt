@@ -1,5 +1,7 @@
 ﻿"Schema"
 {
+	"ClassName" "DotaUnit"
+	"BaseClass" "DotaBaseUnit"
 
 	"IsAncient"
 	{
@@ -89,14 +91,6 @@
 		"Description"	"No Description Set"
 		"Type"	"bool"
 		"DefaultValue"	"1"
-	}
-
-	"IdleSoundLoop"
-	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
-		"Type"	"string"
-		"DefaultValue"	""
 	}
 
 }

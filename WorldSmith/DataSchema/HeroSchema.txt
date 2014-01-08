@@ -1,5 +1,9 @@
 ﻿"Schema"
 {
+	"ClassName" "DotaHero"
+	"BaseClass" "DotaBaseUnit"
+
+
 	"Enabled"
 	{
 		"Category"	"Misc"
@@ -20,7 +24,7 @@
 	{
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"true"
+		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
 
@@ -86,6 +90,14 @@
 		"Description"	"No Description Set"
 		"Type"	"string"
 		"DefaultValue"	""
+	}
+
+	"override_hero"
+	{
+		"Category" "Misc"
+		"Description" "No Description Set"
+		"Type" "string"
+		"DefaultValue" ""
 	}
 
 }

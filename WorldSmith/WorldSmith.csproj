@@ -78,6 +78,7 @@
     <Compile Include="DataClasses\DotaDataObject.cs" />
     <Compile Include="DataClasses\DotaHero.cs" />
     <Compile Include="DataClasses\DotaUnit.cs" />
+    <Compile Include="DataSchema\DataClassGenerator.cs" />
     <Compile Include="Dialogs\AssetLoadingDialog.cs">
       <SubType>Form</SubType>
     </Compile>
