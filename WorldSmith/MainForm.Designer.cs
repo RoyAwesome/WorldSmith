@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Default Units");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Default Heroes");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Custom Units", 1, 1);
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Custom Heroes", 1, 1);
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Overriden Units");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Overriden Heroes");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Default Units");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Default Heroes");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Custom Units", 1, 1);
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Custom Heroes", 1, 1);
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Overriden Units");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Overriden Heroes");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,14 +98,15 @@
             this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addonToolStripMenuItem1});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // addonToolStripMenuItem1
             // 
             this.addonToolStripMenuItem1.Name = "addonToolStripMenuItem1";
-            this.addonToolStripMenuItem1.Size = new System.Drawing.Size(110, 22);
+            this.addonToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.addonToolStripMenuItem1.Text = "Addon";
+            this.addonToolStripMenuItem1.Click += new System.EventHandler(this.addonToolStripMenuItem1_Click);
             // 
             // openToolStripMenuItem
             // 
@@ -217,39 +218,39 @@
             this.unitTreeView.ImageList = this.imageList1;
             this.unitTreeView.Location = new System.Drawing.Point(0, 0);
             this.unitTreeView.Name = "unitTreeView";
-            treeNode1.ImageIndex = 0;
-            treeNode1.Name = "defaultUnits";
-            treeNode1.Tag = "\"Folder\"";
-            treeNode1.Text = "Default Units";
-            treeNode1.ToolTipText = "Valve created Dota2 Units";
-            treeNode2.ImageIndex = 0;
-            treeNode2.Name = "defaultHeroes";
-            treeNode2.Tag = "\"Folder\"";
-            treeNode2.Text = "Default Heroes";
-            treeNode2.ToolTipText = "Valve created Dota2 Heroes";
-            treeNode3.ImageIndex = 1;
-            treeNode3.Name = "customUnits";
-            treeNode3.SelectedImageIndex = 1;
-            treeNode3.Tag = "\"Folder\"";
-            treeNode3.Text = "Custom Units";
-            treeNode3.ToolTipText = "Custom Units created by you";
-            treeNode4.ImageIndex = 1;
-            treeNode4.Name = "customHeroes";
-            treeNode4.SelectedImageIndex = 1;
-            treeNode4.Tag = "\"Folder\"";
-            treeNode4.Text = "Custom Heroes";
-            treeNode4.ToolTipText = "Custom Heroes created by you";
-            treeNode5.Name = "overrideUnits";
-            treeNode5.Text = "Overriden Units";
-            treeNode6.Name = "overrideHero";
-            treeNode6.Text = "Overriden Heroes";
+            treeNode7.ImageIndex = 0;
+            treeNode7.Name = "defaultUnits";
+            treeNode7.Tag = "\"Folder\"";
+            treeNode7.Text = "Default Units";
+            treeNode7.ToolTipText = "Valve created Dota2 Units";
+            treeNode8.ImageIndex = 0;
+            treeNode8.Name = "defaultHeroes";
+            treeNode8.Tag = "\"Folder\"";
+            treeNode8.Text = "Default Heroes";
+            treeNode8.ToolTipText = "Valve created Dota2 Heroes";
+            treeNode9.ImageIndex = 1;
+            treeNode9.Name = "customUnits";
+            treeNode9.SelectedImageIndex = 1;
+            treeNode9.Tag = "\"Folder\"";
+            treeNode9.Text = "Custom Units";
+            treeNode9.ToolTipText = "Custom Units created by you";
+            treeNode10.ImageIndex = 1;
+            treeNode10.Name = "customHeroes";
+            treeNode10.SelectedImageIndex = 1;
+            treeNode10.Tag = "\"Folder\"";
+            treeNode10.Text = "Custom Heroes";
+            treeNode10.ToolTipText = "Custom Heroes created by you";
+            treeNode11.Name = "overrideUnits";
+            treeNode11.Text = "Overriden Units";
+            treeNode12.Name = "overrideHero";
+            treeNode12.Text = "Overriden Heroes";
             this.unitTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6});
+            treeNode7,
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12});
             this.unitTreeView.SelectedImageIndex = 0;
             this.unitTreeView.Size = new System.Drawing.Size(191, 612);
             this.unitTreeView.TabIndex = 0;
@@ -327,6 +328,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Worldsmith";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace WorldSmith.DataClasses
 {
-    class DotaDataObject
+    class DotaDataObject : ICloneable
     {       
         [Category("Base")]
         [Description("Class name for this object")]
@@ -63,7 +63,7 @@ namespace WorldSmith.DataClasses
             } 
         }
 
-        public virtual KeyValue WriteToKVObject()
+        public virtual KeyValue SaveToKV()
         {
             PropertyInfo[] properties = this.GetType().GetProperties();
 
@@ -105,5 +105,10 @@ namespace WorldSmith.DataClasses
 
         }
 
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

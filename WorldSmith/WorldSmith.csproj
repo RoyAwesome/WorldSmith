@@ -90,6 +90,18 @@
     <Compile Include="Dialogs\InitialSetup.Designer.cs">
       <DependentUpon>InitialSetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\NewAddonWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\NewAddonWizard.Designer.cs">
+      <DependentUpon>NewAddonWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\TextPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\TextPrompt.Designer.cs">
+      <DependentUpon>TextPrompt.cs</DependentUpon>
+    </Compile>
     <Compile Include="HLLib\HLLib.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -104,6 +116,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\InitialSetup.resx">
       <DependentUpon>InitialSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\NewAddonWizard.resx">
+      <DependentUpon>NewAddonWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\TextPrompt.resx">
+      <DependentUpon>TextPrompt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

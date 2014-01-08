@@ -8,5 +8,10 @@ namespace WorldSmith.DataClasses
 {
     class DotaHero : DotaBaseUnit
     {
+        public string override_hero
+        {
+            get;
+            set;
+        }
     }
 }

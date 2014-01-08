@@ -21,9 +21,6 @@ namespace WorldSmith
         static void Main()
         {
 
-
-
-
             //GenerateDataPropertiesFromKeyValues(@"E:\Dota2SDK\root\scripts\npc\npc_units.txt", "npc_dota_units_base", "UnitBase.txt");
           
             Application.EnableVisualStyles();
@@ -42,6 +39,8 @@ namespace WorldSmith
             Application.ApplicationExit += Application_ApplicationExit;
 
             Application.Run(new MainForm());
+
+            Properties.Settings.Default.Save();
 
         }
 
