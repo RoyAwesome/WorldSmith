@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorldSmith.DataClasses;
 using WorldSmith.Dialogs;
 
 namespace WorldSmith
@@ -26,8 +27,18 @@ namespace WorldSmith
                 Properties.Settings.Default.Save();
             }
 
-           
+            AssetLoadingDialog assets = new AssetLoadingDialog();
+            assets.ShowDialog();
+            Application.ApplicationExit += Application_ApplicationExit;
+
             Application.Run(new MainForm());
+
+            
+        }
+
+        static void Application_ApplicationExit(object sender, EventArgs e)
+        {
+            DotaData.Shutdown();
         }
     }
 }

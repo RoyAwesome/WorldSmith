@@ -53,11 +53,13 @@
     <StartupObject>WorldSmith.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="KVLib">
-      <HintPath>..\..\KVLib\KVLib\bin\Release\KVLib.dll</HintPath>
+    <Reference Include="KVLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\KVLib.dll</HintPath>
     </Reference>
-    <Reference Include="Sprache">
-      <HintPath>..\..\KVLib\KVLib\bin\Release\Sprache.dll</HintPath>
+    <Reference Include="Sprache, Version=1.10.0.35, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Sprache.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -71,7 +73,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClasses\DotaBaseUnit.cs" />
     <Compile Include="DataClasses\DotaData.cs" />
+    <Compile Include="DataClasses\DotaDataObject.cs" />
+    <Compile Include="DataClasses\DotaHero.cs" />
+    <Compile Include="DataClasses\DotaUnit.cs" />
+    <Compile Include="Dialogs\AssetLoadingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AssetLoadingDialog.Designer.cs">
+      <DependentUpon>AssetLoadingDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\InitialSetup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +99,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialogs\AssetLoadingDialog.resx">
+      <DependentUpon>AssetLoadingDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\InitialSetup.resx">
       <DependentUpon>InitialSetup.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,12 +138,12 @@
     <None Include="Resources\WSIconic.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HLLib\HLLib.x64.dll">
+    <None Include="HLLib\HLLib.x64.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HLLib\HLLib.x86.dll">
+    </None>
+    <None Include="HLLib\HLLib.x86.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Content Include="WSIconic.ico" />
   </ItemGroup>
   <ItemGroup>
