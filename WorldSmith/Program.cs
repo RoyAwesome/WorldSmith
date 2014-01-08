@@ -20,11 +20,7 @@ namespace WorldSmith
         [STAThread]
         static void Main()
         {
-
-            FindPossibleValuesForKey(@"E:\Dota2SDK\root\scripts\npc\npc_heroes.txt", "UnitRelationshipClass");
-            
-            
-            /*
+    
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -48,7 +44,6 @@ namespace WorldSmith
             Application.Run(new MainForm());
 
             Properties.Settings.Default.Save();
-             * */
 
         }
 
