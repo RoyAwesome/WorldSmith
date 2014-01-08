@@ -9,8 +9,8 @@ namespace WorldSmith.DataClasses
 {
 	class DotaBaseUnit : DotaDataObject
 	{
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("Model.")]
 		[DefaultValue("models/error.mdl")]
 		public string Model
 		{
@@ -18,8 +18,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("Name of sound set.")]
 		[DefaultValue("0")]
 		public string SoundSet
 		{
@@ -27,8 +27,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("Starting level.")]
 		[DefaultValue(1)]
 		public int Level
 		{
@@ -36,8 +36,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Abilities")]
+		[Description("Number of abilities.")]
 		[DefaultValue(4)]
 		public int AbilityLayout
 		{
@@ -45,8 +45,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Abilities")]
+		[Description("Ability 1.")]
 		[DefaultValue("")]
 		public string Ability1
 		{
@@ -54,8 +54,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Abilities")]
+		[Description("Ability 2.")]
 		[DefaultValue("")]
 		public string Ability2
 		{
@@ -63,8 +63,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Abilities")]
+		[Description("Ability 3.")]
 		[DefaultValue("")]
 		public string Ability3
 		{
@@ -72,8 +72,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Abilities")]
+		[Description("Ability 4.")]
 		[DefaultValue("")]
 		public string Ability4
 		{
@@ -81,8 +81,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Abilities")]
+		[Description("Ability 5 - Bonuses.")]
 		[DefaultValue("")]
 		public string Ability5
 		{
@@ -90,8 +90,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Abilities")]
+		[Description("Ability 6 - Extra.")]
 		[DefaultValue("")]
 		public string Ability6
 		{
@@ -99,8 +99,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Abilities")]
+		[Description("Ability 7 - Extra.")]
 		[DefaultValue("")]
 		public string Ability7
 		{
@@ -108,8 +108,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Abilities")]
+		[Description("Ability 8 - Extra.")]
 		[DefaultValue("")]
 		public string Ability8
 		{
@@ -117,8 +117,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Armor")]
+		[Description("Physical protection.")]
 		[DefaultValue(-1)]
 		public int ArmorPhysical
 		{
@@ -126,8 +126,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Armor")]
+		[Description("Magical protection (percentage).")]
 		[DefaultValue(25)]
 		public int MagicalResistance
 		{
@@ -142,8 +142,8 @@ namespace WorldSmith.DataClasses
 			DOTA_UNIT_CAP_MELEE_ATTACK,
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attack")]
+		[Description("Gives the unit melee of ranged attack capability.")]
 		[DefaultValue(AttackCapabilitiesEnum.DOTA_UNIT_CAP_RANGED_ATTACK)]
 		public AttackCapabilitiesEnum AttackCapabilities
 		{
@@ -151,8 +151,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attack")]
+		[Description("Damage range min.")]
 		[DefaultValue(1)]
 		public int AttackDamageMin
 		{
@@ -160,8 +160,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attack")]
+		[Description("Damage range max.")]
 		[DefaultValue(1)]
 		public int AttackDamageMax
 		{
@@ -174,8 +174,8 @@ namespace WorldSmith.DataClasses
 			DAMAGE_TYPE_ArmorPhysical,
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attack")]
+		[Description("Type of damage dealt.")]
 		[DefaultValue(AttackDamageTypeEnum.DAMAGE_TYPE_ArmorPhysical)]
 		public AttackDamageTypeEnum AttackDamageType
 		{
@@ -183,8 +183,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attack")]
+		[Description("Speed of attack.")]
 		[DefaultValue(1.7)]
 		public float AttackRate
 		{
@@ -192,8 +192,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attack")]
+		[Description("Normalized time in animation cycle to attack.")]
 		[DefaultValue(0.75)]
 		public float AttackAnimationPoint
 		{
@@ -201,8 +201,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attack")]
+		[Description("Range within a target can be acquired.")]
 		[DefaultValue(true)]
 		public bool AttackAcquisitionRange
 		{
@@ -210,8 +210,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attack")]
+		[Description("Range within a target can be attacked.")]
 		[DefaultValue(600)]
 		public int AttackRange
 		{
@@ -219,8 +219,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attack")]
+		[Description("Particle system model for projectile.")]
 		[DefaultValue("ranged_hero")]
 		public string ProjectileModel
 		{
@@ -228,8 +228,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attack")]
+		[Description("Speed of projectile.")]
 		[DefaultValue(900)]
 		public int ProjectileSpeed
 		{
@@ -244,8 +244,8 @@ namespace WorldSmith.DataClasses
 			DOTA_ATTRIBUTE_INTELLECT,
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attributes")]
+		[Description("Sets the primary attribute of the unit.")]
 		[DefaultValue(AttributePrimaryEnum.DOTA_ATTRIBUTE_STRENGTH)]
 		public AttributePrimaryEnum AttributePrimary
 		{
@@ -253,8 +253,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attributes")]
+		[Description("Base strength")]
 		[DefaultValue(0)]
 		public int AttributeBaseStrength
 		{
@@ -262,8 +262,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attributes")]
+		[Description("Strength bonus per level.")]
 		[DefaultValue(0)]
 		public int AttributeStrengthGain
 		{
@@ -271,8 +271,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attributes")]
+		[Description("Base intelligence")]
 		[DefaultValue(0)]
 		public int AttributeBaseIntelligence
 		{
@@ -280,8 +280,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attributes")]
+		[Description("Intelligence bonus per level.")]
 		[DefaultValue(0)]
 		public int AttributeIntelligenceGain
 		{
@@ -289,8 +289,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attributes")]
+		[Description("Base agility")]
 		[DefaultValue(0)]
 		public int AttributeBaseAgility
 		{
@@ -298,8 +298,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attributes")]
+		[Description("Agility bonus per level.")]
 		[DefaultValue(0)]
 		public int AttributeAgilityGain
 		{
@@ -307,8 +307,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Bounty")]
+		[Description("Experience earned when killing this unit")]
 		[DefaultValue(62)]
 		public int BountyXP
 		{
@@ -316,8 +316,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Bounty")]
+		[Description("Minimum gold earned when killing this unit.")]
 		[DefaultValue(0)]
 		public int BountyGoldMin
 		{
@@ -325,8 +325,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Bounty")]
+		[Description("Maximum gold earned when killing this unit.")]
 		[DefaultValue(0)]
 		public int BountyGoldMax
 		{
@@ -347,8 +347,8 @@ namespace WorldSmith.DataClasses
 			DOTA_HULL_SIZE_HUGE,
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Bounds")]
+		[Description("Type of bounds hull.(?)")]
 		[DefaultValue(BoundsHullNameEnum.DOTA_HULL_SIZE_HERO)]
 		public BoundsHullNameEnum BoundsHullName
 		{
@@ -356,8 +356,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Bounds")]
+		[Description("Radius of ring when selecting unit(?)")]
 		[DefaultValue(70)]
 		public int RingRadius
 		{
@@ -372,8 +372,8 @@ namespace WorldSmith.DataClasses
 			DOTA_UNIT_CAP_MOVE_FLY,
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Movement")]
+		[Description("Type of movement capabilities for this unit.")]
 		[DefaultValue(MovementCapabilitiesEnum.DOTA_UNIT_CAP_MOVE_GROUND)]
 		public MovementCapabilitiesEnum MovementCapabilities
 		{
@@ -381,8 +381,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Movement")]
+		[Description("Speed")]
 		[DefaultValue(300)]
 		public int MovementSpeed
 		{
@@ -390,8 +390,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Movement")]
+		[Description("Turn rate.")]
 		[DefaultValue(0.5)]
 		public float MovementTurnRate
 		{
@@ -399,8 +399,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Movement")]
+		[Description("Plays alternate idle/run animation when near enemies")]
 		[DefaultValue(false)]
 		public bool HasAggressiveStance
 		{
@@ -408,8 +408,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Status")]
+		[Description("Base Health")]
 		[DefaultValue(150)]
 		public int StatusHealth
 		{
@@ -417,8 +417,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Status")]
+		[Description("Health regeneration rate.")]
 		[DefaultValue(0.25)]
 		public float StatusHealthRegen
 		{
@@ -426,8 +426,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Status")]
+		[Description("Base mana.")]
 		[DefaultValue(0)]
 		public int StatusMana
 		{
@@ -435,8 +435,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Status")]
+		[Description("Mana regeneration rate.")]
 		[DefaultValue(0.01)]
 		public float StatusManaRegen
 		{
@@ -444,8 +444,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Status")]
+		[Description("Mana regeneration rate.")]
 		[DefaultValue(-1)]
 		public int StatusStartingMana
 		{
@@ -460,8 +460,8 @@ namespace WorldSmith.DataClasses
 			DOTA_TEAM_GOODGUYS,
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Team")]
+		[Description("Decides what team the unit belongs to.")]
 		[DefaultValue(TeamNameEnum.DOTA_TEAM_GOODGUYS)]
 		public TeamNameEnum TeamName
 		{
@@ -478,8 +478,8 @@ namespace WorldSmith.DataClasses
 			DOTA_COMBAT_CLASS_ATTACK_LIGHT,
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Team")]
+		[Description("Damage type")]
 		[DefaultValue(CombatClassAttackEnum.DOTA_COMBAT_CLASS_ATTACK_HERO)]
 		public CombatClassAttackEnum CombatClassAttack
 		{
@@ -497,8 +497,8 @@ namespace WorldSmith.DataClasses
 			DOTA_COMBAT_CLASS_DEFEND_WEAK,
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Team")]
+		[Description("Armor type.")]
 		[DefaultValue(CombatClassDefendEnum.DOTA_COMBAT_CLASS_DEFEND_HERO)]
 		public CombatClassDefendEnum CombatClassDefend
 		{
@@ -517,8 +517,8 @@ namespace WorldSmith.DataClasses
 			DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO,
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Team")]
+		[Description("Unit type")]
 		[DefaultValue(UnitRelationshipClassEnum.DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO)]
 		public UnitRelationshipClassEnum UnitRelationshipClass
 		{
@@ -526,8 +526,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Vision")]
+		[Description("Range of vision during the day.")]
 		[DefaultValue(1800)]
 		public int VisionDaytimeRange
 		{
@@ -535,8 +535,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Vision")]
+		[Description("Range of vision at night time.")]
 		[DefaultValue(800)]
 		public int VisionNighttimeRange
 		{
@@ -544,8 +544,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Inventory")]
+		[Description("Enables inventory.")]
 		[DefaultValue(true)]
 		public bool HasInventory
 		{
@@ -562,8 +562,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Idle")]
+		[Description("Sound played when the unit is idle.")]
 		[DefaultValue("")]
 		public string IdleSoundLoop
 		{
