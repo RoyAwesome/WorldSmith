@@ -134,7 +134,7 @@ namespace WorldSmith.DataSchema
 
         #region ClassGenerator
 
-        public static void GenerateClassForSchema(string schemaFileName)
+        public static void GenerateClassForSchema(string schemaFileName, string outputDir)
         {
             KeyValue doc = KVParser.ParseKeyValueText(File.ReadAllText(schemaFileName));
             StringBuilder csFile = new StringBuilder();
@@ -205,7 +205,7 @@ namespace WorldSmith.DataSchema
             csFile.AppendLine("\t}");
             csFile.AppendLine("}");
 
-            File.WriteAllText(doc["ClassName"].GetString() + ".cs", csFile.ToString());
+            File.WriteAllText(outputDir + doc["ClassName"].GetString() + ".cs", csFile.ToString());
 
         }
 

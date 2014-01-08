@@ -12,15 +12,19 @@ namespace WorldSmith
 {
     static class Program
     {
-
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-          
+#if GENERATECLASSES
+            string outputDir = "../../DataClasses/";
+            string inputDir = "../../DataSchema/";
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "BaseUnitSchema.txt", outputDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "HeroSchema.txt", outputDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "UnitSchema.txt", outputDir);
+#else
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -44,7 +48,7 @@ namespace WorldSmith
             Application.Run(new MainForm());
 
             Properties.Settings.Default.Save();
-
+#endif
 
         }
 

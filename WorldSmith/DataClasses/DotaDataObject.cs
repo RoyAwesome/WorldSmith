@@ -58,6 +58,10 @@ namespace WorldSmith.DataClasses
                 {
                     data = subkey.GetString();
                 }
+                if (typeof(Enum).IsAssignableFrom(info.PropertyType) && subkey.GetString() != "")
+                {                    
+                    data = Enum.Parse(info.PropertyType, subkey.GetString());
+                }
                 if(data != null) info.SetMethod.Invoke(this, new object[] { data });
 
             } 
@@ -96,6 +100,11 @@ namespace WorldSmith.DataClasses
                 {
                     data = info.GetMethod.Invoke(this, new object[] { });
                     subkey.Set((string)data);
+                }
+                if (typeof(Enum).IsAssignableFrom(info.PropertyType))
+                {
+                    data = info.GetMethod.Invoke(this, new object[] { });
+                    subkey.Set(data.ToString());
                 }
                 kv += subkey;
 
