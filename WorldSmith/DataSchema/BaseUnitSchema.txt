@@ -1,36 +1,38 @@
 ﻿"Schema"
 {
+	
 	"ClassName" "DotaBaseUnit"
+
 	"BaseClass" "DotaDataObject"
 
 	"Model"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"Model."
 		"Type"	"string"
 		"DefaultValue"	"models/error.mdl"
 	}
 
 	"SoundSet"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"Name of sound set."
 		"Type"	"string"
 		"DefaultValue"	"0"
 	}
 
 	"Level"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"Starting level."
 		"Type"	"int"
 		"DefaultValue"	"1"
 	}
 
 	"AbilityLayout"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Abilities"
+		"Description"	"Number of abilities."
 		"Type"	"int"
 		"DefaultValue"	"4"
 	}
@@ -38,80 +40,80 @@
 
 	"Ability1"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Abilities"
+		"Description"	"Ability 1."
 		"Type"	"string"
 		"DefaultValue"	""
 	}
 
 	"Ability2"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Abilities"
+		"Description"	"Ability 2."
 		"Type"	"string"
 		"DefaultValue"	""
 	}
 
 	"Ability3"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Abilities"
+		"Description"	"Ability 3."
 		"Type"	"string"
 		"DefaultValue"	""
 	}
 
 	"Ability4"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Abilities"
+		"Description"	"Ability 4."
 		"Type"	"string"
 		"DefaultValue"	""
 	}
 
 	"Ability5"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Abilities"
+		"Description"	"Ability 5 - Bonuses."
 		"Type"	"string"
 		"DefaultValue"	""
 	}
 
 	"Ability6"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Abilities"
+		"Description"	"Ability 6 - Extra."
 		"Type"	"string"
 		"DefaultValue"	""
 	}
 
 	"Ability7"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Abilities"
+		"Description"	"Ability 7 - Extra."
 		"Type"	"string"
 		"DefaultValue"	""
 	}
 
 	"Ability8"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Abilities"
+		"Description"	"Ability 8 - Extra."
 		"Type"	"string"
 		"DefaultValue"	""
 	}
 
 	"ArmorPhysical"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Armor"
+		"Description"	"Physical protection."
 		"Type"	"int"
 		"DefaultValue"	"-1"
 	}
 
 	"MagicalResistance"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Armor"
+		"Description"	"Magical protection (percentage)."
 		"Type"	"int"
 		"DefaultValue"	"25"
 	}
@@ -119,39 +121,38 @@
 	
 	"AttackCapabilities"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attack"
+		"Description"	"Gives the unit melee of ranged attack capability."
 		"Type"	"enum"
 		"DefaultValue"	"DOTA_UNIT_CAP_RANGED_ATTACK"	
 		"PossibleValues"
 		{
-			"0" "DOTA_UNIT_CAP_NO_ATTACK"
-			"1"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-			"2"	"DOTA_UNIT_CAP_MELEE_ATTACK"
+			"0"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+			"1"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		}
 	}
 
 	
 	"AttackDamageMin"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attack"
+		"Description"	"Damage range min."
 		"Type"	"int"
 		"DefaultValue"	"1"
 	}
 
 	"AttackDamageMax"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attack"
+		"Description"	"Damage range max."
 		"Type"	"int"
 		"DefaultValue"	"1"
 	}
 
 	"AttackDamageType"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attack"
+		"Description"	"Type of damage dealt."
 		"Type"	"enum"
 		"DefaultValue"	"DAMAGE_TYPE_ArmorPhysical"
 		"PossibleValues"
@@ -163,48 +164,48 @@
 
 	"AttackRate"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attack"
+		"Description"	"Speed of attack."
 		"Type"	"float"
 		"DefaultValue"	"1.7"
 	}
 
 	"AttackAnimationPoint"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attack"
+		"Description"	"Normalized time in animation cycle to attack."
 		"Type"	"float"
 		"DefaultValue"	"0.75"
 	}
 
 	"AttackAcquisitionRange"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attack"
+		"Description"	"Range within a target can be acquired."
 		"Type"	"bool"
 		"DefaultValue"	"800"
 	}
 
 	"AttackRange"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attack"
+		"Description"	"Range within a target can be attacked."
 		"Type"	"int"
 		"DefaultValue"	"600"
 	}
 
 	"ProjectileModel"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attack"
+		"Description"	"Particle system model for projectile."
 		"Type"	"string"
 		"DefaultValue"	"ranged_hero"
 	}
 
 	"ProjectileSpeed"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attack"
+		"Description"	"Speed of projectile."
 		"Type"	"int"
 		"DefaultValue"	"900"
 	}
@@ -212,8 +213,8 @@
 	
 	"AttributePrimary"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attributes"
+		"Description"	"Sets the primary attribute of the unit."
 		"Type"	"enum"
 		"DefaultValue"	"DOTA_ATTRIBUTE_STRENGTH"
 		"PossibleValues"
@@ -227,72 +228,72 @@
 
 	"AttributeBaseStrength"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attributes"
+		"Description"	"Base strength"
 		"Type"	"int"
 		"DefaultValue"	"0"
 	}
 
 	"AttributeStrengthGain"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attributes"
+		"Description"	"Strength bonus per level."
 		"Type"	"int"
 		"DefaultValue"	"0"
 	}
 
 	"AttributeBaseIntelligence"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attributes"
+		"Description"	"Base intelligence"
 		"Type"	"int"
 		"DefaultValue"	"0"
 	}
 
 	"AttributeIntelligenceGain"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attributes"
+		"Description"	"Intelligence bonus per level."
 		"Type"	"int"
 		"DefaultValue"	"0"
 	}
 
 	"AttributeBaseAgility"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attributes"
+		"Description"	"Base agility"
 		"Type"	"int"
 		"DefaultValue"	"0"
 	}
 
 	"AttributeAgilityGain"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attributes"
+		"Description"	"Agility bonus per level."
 		"Type"	"int"
 		"DefaultValue"	"0"
 	}
 
 	"BountyXP"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Bounty"
+		"Description"	"Experience earned when killing this unit"
 		"Type"	"int"
 		"DefaultValue"	"62"
 	}
 
 	"BountyGoldMin"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Bounty"
+		"Description"	"Minimum gold earned when killing this unit."
 		"Type"	"int"
 		"DefaultValue"	"0"
 	}
 
 	"BountyGoldMax"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Bounty"
+		"Description"	"Maximum gold earned when killing this unit."
 		"Type"	"int"
 		"DefaultValue"	"0"
 	}
@@ -300,8 +301,8 @@
 	
 	"BoundsHullName"
 	{
-	"Category"	"Misc"
-	"Description"	"No Description Set"
+	"Category"	"Bounds"
+	"Description"	"Type of bounds hull.(?)"
 	"Type"	"enum"
 	"DefaultValue"	"DOTA_HULL_SIZE_HERO"
 	"PossibleValues"
@@ -321,16 +322,16 @@
 
 	"RingRadius"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Bounds"
+		"Description"	"Radius of ring when selecting unit(?)"
 		"Type"	"int"
 		"DefaultValue"	"70"
 	}
 
 	"MovementCapabilities"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Movement"
+		"Description"	"Type of movement capabilities for this unit."
 		"Type"	"enum"
 		"DefaultValue"	"DOTA_UNIT_CAP_MOVE_GROUND"
 		"PossibleValues"
@@ -344,72 +345,72 @@
 
 	"MovementSpeed"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Movement"
+		"Description"	"Speed"
 		"Type"	"int"
 		"DefaultValue"	"300"
 	}
 
 	"MovementTurnRate"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Movement"
+		"Description"	"Turn rate."
 		"Type"	"float"
 		"DefaultValue"	"0.5"
 	}
 
 	"HasAggressiveStance"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Movement"
+		"Description"	"Plays alternate idle/run animation when near enemies"
 		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
 
 	"StatusHealth"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Status"
+		"Description"	"Base Health"
 		"Type"	"int"
 		"DefaultValue"	"150"
 	}
 
 	"StatusHealthRegen"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Status"
+		"Description"	"Health regeneration rate."
 		"Type"	"float"
 		"DefaultValue"	"0.25"
 	}
 
 	"StatusMana"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Status"
+		"Description"	"Base mana."
 		"Type"	"int"
 		"DefaultValue"	"0"
 	}
 
 	"StatusManaRegen"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Status"
+		"Description"	"Mana regeneration rate."
 		"Type"	"float"
 		"DefaultValue"	"0.01"
 	}
 
 	"StatusStartingMana"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Status"
+		"Description"	"Mana regeneration rate."
 		"Type"	"int"
 		"DefaultValue"	"-1"
 	}
 
 	"TeamName"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Team"
+		"Description"	"Decides what team the unit belongs to."
 		"Type"	"enum"
 		"DefaultValue"	"DOTA_TEAM_GOODGUYS"
 		"PossibleValues"
@@ -423,8 +424,8 @@
 
 	"CombatClassAttack"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Team"
+		"Description"	"Damage type.(?)"
 		"Type"	"enum"
 		"DefaultValue"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"PossibleValues"
@@ -440,8 +441,8 @@
 
 	"CombatClassDefend"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Team"
+		"Description"	"Armor type.(?")
 		"Type"	"enum"
 		"DefaultValue"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"PossibleValues"
@@ -458,8 +459,8 @@
 
 	"UnitRelationshipClass"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Team"
+		"Description"	"Unit type(?)"
 		"Type"	"enum"
 		"DefaultValue"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 		"PossibleValues"
@@ -470,31 +471,31 @@
 			"3"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_SIEGE"
 			"4"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 			"5"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_COURIER"
-			"6" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+			"6"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 		}
 
 	}
 
 	"VisionDaytimeRange"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Vision"
+		"Description"	"Range of vision during the day."
 		"Type"	"int"
 		"DefaultValue"	"1800"
 	}
 
 	"VisionNighttimeRange"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Vision"
+		"Description"	"Range of vision at night time."
 		"Type"	"int"
 		"DefaultValue"	"800"
 	}
 
 	"HasInventory"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Inventory"
+		"Description"	"Enables inventory."
 		"Type"	"bool"
 		"DefaultValue"	"1"
 	}
@@ -510,8 +511,8 @@
 
 	"IdleSoundLoop"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Idle"
+		"Description"	"Sound played when the unit is idle."
 		"Type"	"string"
 		"DefaultValue"	""
 	}
