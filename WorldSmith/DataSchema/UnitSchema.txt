@@ -5,47 +5,47 @@
 
 	"IsAncient"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"If this unit is an ancient unit or not."
 		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
 
 	"IsNeutralUnitType"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"If this unit is neutral or not."
 		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
 
 	"SelectionGroup"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Selection"
+		"Description"	"Units with the same selection group will cycle together when tabbing through owned units."
 		"Type"	"string"
 		"DefaultValue"	""
 	}
 
 	"SelectOnSpawn"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Selection"
+		"Description"	"Select this unit on spawn."
 		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
 
 	"CanBeDominated"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"Can this unit be dominated and controlled by players?"
 		"Type"	"bool"
-		"DefaultValue"	"1"
+		"DefaultValue"	"0"
 	}
 
 	"IgnoreAddSummonedToSelection"
 	{
-		"Category"	"Misc"
+		"Category"	"Selection"
 		"Description"	"No Description Set"
 		"Type"	"bool"
 		"DefaultValue"	"0"
@@ -53,8 +53,8 @@
 
 	"AutoAttacksByDefault"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attack"
+		"Description"	"If this unit should auto-attack by default."
 		"Type"	"bool"
 		"DefaultValue"	"1"
 	}
@@ -62,7 +62,7 @@
 
 	"AttackRangeBuffer"
 	{
-		"Category"	"Misc"
+		"Category"	"Attack"
 		"Description"	"No Description Set"
 		"Type"	"int"
 		"DefaultValue"	"250"
@@ -70,8 +70,8 @@
 
 	"FollowRange"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Movement"
+		"Description"	"The distance at which this unit follows another. (?)"
 		"Type"	"int"
 		"DefaultValue"	"100"
 	}
@@ -79,16 +79,16 @@
 
 	"AttackDesire"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Attack"
+		"Description"	"How much bots want to attack them vs other non-hero things"
 		"Type"	"float"
 		"DefaultValue"	"1.0"
 	}
 
 	"WakesNeutrals"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"If this unit wakes up neutrals when it gets close."
 		"Type"	"bool"
 		"DefaultValue"	"1"
 	}

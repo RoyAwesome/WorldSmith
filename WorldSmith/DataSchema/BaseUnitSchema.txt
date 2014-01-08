@@ -505,7 +505,7 @@
 	
 	"HealthBarOffset"
 	{
-		"Category"	"Misc"
+		"Category"	"Bounds"
 		"Description"	"No Description Set"
 		"Type"	"int"
 		"DefaultValue"	"-1"
