@@ -174,6 +174,7 @@ namespace WorldSmith.DataClasses
             
             foreach(KeyValue hero in doc.Children)
             {
+                if (!hero.HasChildren) continue;
                 T unit = typeof(T).GetConstructor(Type.EmptyTypes).Invoke(Type.EmptyTypes) as T;
                 unit.LoadFromKeyValues(hero);
                 

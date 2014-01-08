@@ -27,6 +27,7 @@ namespace WorldSmith
             ReadList("defaultUnits", DotaData.DefaultUnits);
             ReadList("defaultHeroes", DotaData.DefaultHeroes);
             ReadList("overrideHero", DotaData.OverridenHeroes);
+            ReadList("customUnits", DotaData.CustomUnits);
         } 
        
     
@@ -156,6 +157,8 @@ namespace WorldSmith
 
             AssetLoadingDialog loader = new AssetLoadingDialog();
             loader.ShowDialog(AssetLoadingDialog.AddonLoadTasks);
+
+            LoadFromData();
 
             Properties.Settings.Default.AddonPath = folder;
             Properties.Settings.Default.Save();
