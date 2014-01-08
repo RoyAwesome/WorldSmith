@@ -57,10 +57,7 @@ namespace WorldSmith
             unitPropertyGrid.SelectedObject = DotaData.AllUnits.FirstOrDefault(x => x.ClassName == e.Node.Name);
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void unitPropertyGrid_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
         {
@@ -146,6 +143,35 @@ namespace WorldSmith
             Properties.Settings.Default.Save();
             
             File.WriteAllText(addonPath + "addoninfo.txt", DotaData.KVHeader + doc.ToString());
+        }
+
+        private void addonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.SelectedPath = Properties.Settings.Default.dotadir + Path.DirectorySeparatorChar + "dota" + Path.DirectorySeparatorChar + "addons";
+            if (dialog.ShowDialog() != DialogResult.OK) return;
+            string folder = dialog.SelectedPath + Path.DirectorySeparatorChar;
+
+            if(!File.Exists(folder + "addoninfo.txt"))
+            {
+                MessageBox.Show("That's not an addon folder!\nSelect a folder with an addoninfo.txt", "Invalid Folder", MessageBoxButtons.OK);
+                return;
+            }
+
+            Properties.Settings.Default.AddonPath = folder;
+            Properties.Settings.Default.Save();
+            
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(Properties.Settings.Default.AddonPath == "") //If we don't have an addon loaded, create a new one
+            {
+                addonToolStripMenuItem1_Click(null, null);
+                if (Properties.Settings.Default.AddonPath == "") return; //if we still don't have an addon loaded, don't even bother
+            }
+
+            DotaData.SaveUnits();
         }
     }
 }
