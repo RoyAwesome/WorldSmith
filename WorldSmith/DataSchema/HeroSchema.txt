@@ -1,0 +1,91 @@
+﻿"Schema"
+{
+	"Enabled"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"BotImplemented"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"NewHero"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"true"
+		"DefaultValue"	"0"
+	}
+
+	"HeroPool1"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"HeroUnlockOrder"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"1"
+	}
+
+	"CMEnabled"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"CMTournamentIgnore"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"new_player_enable"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"VoiceBackgroundSound"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"IdleExpression"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	"scenes\default_idle.vcd"
+	}
+
+	"HUD"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+}

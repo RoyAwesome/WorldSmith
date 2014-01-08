@@ -1,0 +1,102 @@
+﻿"Schema"
+{
+
+	"IsAncient"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"IsNeutralUnitType"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"SelectionGroup"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"SelectOnSpawn"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"CanBeDominated"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"1"
+	}
+
+	"IgnoreAddSummonedToSelection"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"AutoAttacksByDefault"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"1"
+	}
+
+
+	"AttackRangeBuffer"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"250"
+	}
+
+	"FollowRange"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"100"
+	}
+
+
+	"AttackDesire"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"float"
+		"DefaultValue"	"1.0"
+	}
+
+	"WakesNeutrals"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"1"
+	}
+
+	"IdleSoundLoop"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+}

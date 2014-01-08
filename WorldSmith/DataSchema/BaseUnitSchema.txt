@@ -1,0 +1,486 @@
+﻿"Schema"
+{
+	"Model"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	"models/error.mdl"
+	}
+
+	"SoundSet"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	"0"
+	}
+
+	"Level"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"1"
+	}
+
+	"AbilityLayout"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"4"
+	}
+
+
+	"Ability1"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"Ability2"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"Ability3"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"Ability4"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"Ability5"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"Ability6"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"Ability7"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"Ability8"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"ArmorPhysical"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"-1"
+	}
+
+	"MagicalResistance"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"25"
+	}
+
+	
+	"AttackCapabilities"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	"DOTA_UNIT_CAP_RANGED_ATTACK"	
+		"PossibleValues"
+		{
+			"0"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+			"1"	"DOTA_UNIT_CAP_MELEE_ATTACK"
+		}
+	}
+
+	
+	"AttackDamageMin"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"1"
+	}
+
+	"AttackDamageMax"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"1"
+	}
+
+	"AttackDamageType"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	"DAMAGE_TYPE_ArmorPhysical"
+		"PossibleValues"
+		{
+			"0"	"DAMAGE_TYPE_ArmorPhysical"
+		}
+
+	}
+
+	"AttackRate"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"float"
+		"DefaultValue"	"1.7"
+	}
+
+	"AttackAnimationPoint"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"float"
+		"DefaultValue"	"0.75"
+	}
+
+	"AttackAcquisitionRange"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"800"
+	}
+
+	"AttackRange"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"600"
+	}
+
+	"ProjectileModel"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	"ranged_hero"
+	}
+
+	"ProjectileSpeed"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"900"
+	}
+
+	
+	"AttributePrimary"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"DOTA_ATTRIBUTE_STRENGTH"
+		"PossibleValues"
+		{
+			"0"	"DOTA_ATTRIBUTE_STRENGTH"
+			"1"	"DOTA_ATTRIBUTE_AGILITY"
+			"2"	"DOTA_ATTRIBUTE_INTELLECT"
+		}
+
+	}
+
+	"AttributeBaseStrength"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"0"
+	}
+
+	"AttributeStrengthGain"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"0"
+	}
+
+	"AttributeBaseIntelligence"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"0"
+	}
+
+	"AttributeIntelligenceGain"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"0"
+	}
+
+	"AttributeBaseAgility"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"0"
+	}
+
+	"AttributeAgilityGain"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"0"
+	}
+
+	"BountyXP"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"62"
+	}
+
+	"BountyGoldMin"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"0"
+	}
+
+	"BountyGoldMax"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"0"
+	}
+
+	
+	"BoundsHullName"
+	{
+	"Category"	"Misc"
+	"Description"	"No Description Set"
+	"Type"	"string"
+	"DefaultValue"	"DOTA_HULL_SIZE_HERO"
+	"PossibleValues"
+	{
+		"0"	"DOTA_HULL_SIZE_HERO"
+		"1"	"DOTA_HULL_SIZE_SMALL"
+	}
+
+	}
+
+	"RingRadius"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"70"
+	}
+
+	"MovementCapabilities"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	"DOTA_UNIT_CAP_MOVE_GROUND"
+		"PossibleValues"
+		{
+			"0"	"DOTA_UNIT_CAP_MOVE_GROUND"
+		}
+
+	}
+
+	"MovementSpeed"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"300"
+	}
+
+	"MovementTurnRate"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"float"
+		"DefaultValue"	"0.5"
+	}
+
+	"HasAggressiveStance"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"StatusHealth"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"150"
+	}
+
+	"StatusHealthRegen"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"float"
+		"DefaultValue"	"0.25"
+	}
+
+	"StatusMana"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"0"
+	}
+
+	"StatusManaRegen"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"float"
+		"DefaultValue"	"0.01"
+	}
+
+	"StatusStartingMana"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"-1"
+	}
+
+	"TeamName"
+	{
+	"Category"	"Misc"
+	"Description"	"No Description Set"
+	"Type"	"string"
+	"DefaultValue"	"DOTA_TEAM_GOODGUYS"
+	}
+
+	"CombatClassAttack"
+	{
+	"Category"	"Misc"
+	"Description"	"No Description Set"
+	"Type"	"string"
+	"DefaultValue"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
+	"PossibleValues"
+	{
+		"0"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
+	}
+
+	}
+
+	"CombatClassDefend"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"PossibleValues"
+		{
+			"0"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		}
+
+	}
+
+	"UnitRelationshipClass"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+		"PossibleValues"
+		{
+			"0"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+		}
+
+	}
+
+	"VisionDaytimeRange"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"1800"
+	}
+
+	"VisionNighttimeRange"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"800"
+	}
+
+	"HasInventory"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"1"
+	}
+
+	
+	"HealthBarOffset"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"-1"
+	}
+
+	"IdleSoundLoop"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+
+
+}

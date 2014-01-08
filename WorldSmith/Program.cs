@@ -21,8 +21,10 @@ namespace WorldSmith
         static void Main()
         {
 
-            //GenerateDataPropertiesFromKeyValues(@"E:\Dota2SDK\root\scripts\npc\npc_units.txt", "npc_dota_units_base", "UnitBase.txt");
-          
+            FindPossibleValuesForKey(@"E:\Dota2SDK\root\scripts\npc\npc_heroes.txt", "UnitRelationshipClass");
+            
+            
+            /*
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -46,6 +48,7 @@ namespace WorldSmith
             Application.Run(new MainForm());
 
             Properties.Settings.Default.Save();
+             * */
 
         }
 
@@ -60,43 +63,50 @@ namespace WorldSmith
             KVLib.KeyValue kv = KVLib.KVParser.ParseKeyValueText(File.ReadAllText(file));
             kv = kv[baseKey];
 
-            StringBuilder sb = new StringBuilder();
+            KVLib.KeyValue doc = new KVLib.KeyValue("Schema");
+
+ 
             foreach (KVLib.KeyValue k in kv.Children)
             {
-                sb.AppendLine("[Category(\"Unit Base\")]");
-                sb.AppendLine("[Description(\"No Description Set\")]");
-
+                KVLib.KeyValue property = new KVLib.KeyValue(k.Key);
+                property += new KVLib.KeyValue("Category") + "Misc";
+                property += new KVLib.KeyValue("Description") + "No Description Set";
                 string type = DetermineType(k);
+                property += new KVLib.KeyValue("Type") + type;
+                property += new KVLib.KeyValue("DefaultValue") + k.GetString();
 
-                sb.Append("[DefaultValue(");
-                if(type == "string")
-                {
-                    sb.Append("\"" + k.GetString() + "\"");
-                }
-                if(type == "int" || type == "float")
-                {
-                    sb.Append(k.GetFloat());
-                }
-                if(type == "bool")
-                {
-                    sb.Append(k.GetBool().ToString().ToLower());
-                }
-                if(type == "CANTDETERMINE")
-                {
-                    sb.Append(k.GetString().ToLower());
-                }
-                sb.AppendLine(")]");
+                doc += property;
 
-                sb.AppendLine(string.Format("public {0} {1}", type, k.Key));
-                sb.AppendLine("{");
-                sb.AppendLine("\tget;");
-                sb.AppendLine("\tset;");
-                sb.AppendLine("}");
-                sb.AppendLine();
-                sb.AppendLine();
+                
             }
 
-            File.WriteAllText(outputFile, sb.ToString());
+            File.WriteAllText(outputFile, doc.ToString());
+        }
+
+        static void FindPossibleValuesForKey(string file, string key)
+        {
+            KVLib.KeyValue srcDoc = KVLib.KVParser.ParseKeyValueText(File.ReadAllText(file));
+
+            List<string> foundValues = new List<string>();
+
+           
+            foreach(KVLib.KeyValue k in srcDoc.Children)
+            {
+                KVLib.KeyValue val = k[key];
+                if (val == null) continue;
+                string sval = val.GetString();
+                if (!foundValues.Contains(sval)) foundValues.Add(sval);
+            }
+
+            KVLib.KeyValue outDoc = new KVLib.KeyValue("PossibleValues");
+            int count = 0;
+            foreach (string s in foundValues)
+            {
+                outDoc += new KVLib.KeyValue(count.ToString()) + s;
+                count++;
+            }
+
+            File.WriteAllText(key + ".txt", outDoc.ToString());
         }
 
         static string DetermineType(KVLib.KeyValue k)
