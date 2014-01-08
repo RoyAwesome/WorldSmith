@@ -201,8 +201,8 @@ namespace WorldSmith.DataClasses
 
         [Category("Unit Base")]
         [Description("No Description Set")]
-        [DefaultValue(false)]
-        public bool MagicalResistance
+        [DefaultValue(0)]
+        public int MagicalResistance
         {
             get;
             set;
