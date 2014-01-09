@@ -96,5 +96,11 @@ namespace WorldSmith
 
             DotaData.SaveUnits();
         }
+
+        private void setDotaDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form initial = new InitialSetup();
+            initial.ShowDialog();
+        }
     }
 }

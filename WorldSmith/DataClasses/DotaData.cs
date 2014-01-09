@@ -122,7 +122,9 @@ namespace WorldSmith.DataClasses
             {
                 MessageBox.Show("Error reading pak01_dir.vpk.\n\n The error reported was: " + HLLib.hlGetString(HLLib.HLOption.HL_ERROR_LONG_FORMATED), "Error opening .pak", MessageBoxButtons.OK);
                 Shutdown();
-                Application.Exit();
+                Properties.Settings.Default.ranonce = false;
+                Properties.Settings.Default.Save();
+                Environment.Exit(0);
             }
         }
 

@@ -47,17 +47,22 @@
             this.abilityTab = new System.Windows.Forms.TabPage();
             this.abilityCategory = new WorldSmith.Panels.CategoryEditor();
             this.modifierEditor = new System.Windows.Forms.TabPage();
+            this.categoryEditor1 = new WorldSmith.Panels.CategoryEditor();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setDotaDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.unitTab.SuspendLayout();
             this.itemTab.SuspendLayout();
             this.abilityTab.SuspendLayout();
+            this.modifierEditor.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.optionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(916, 24);
@@ -206,12 +211,36 @@
             // 
             // modifierEditor
             // 
+            this.modifierEditor.Controls.Add(this.categoryEditor1);
             this.modifierEditor.Location = new System.Drawing.Point(4, 22);
             this.modifierEditor.Name = "modifierEditor";
             this.modifierEditor.Size = new System.Drawing.Size(908, 643);
             this.modifierEditor.TabIndex = 4;
             this.modifierEditor.Text = "Modifier Editor";
             this.modifierEditor.UseVisualStyleBackColor = true;
+            // 
+            // categoryEditor1
+            // 
+            this.categoryEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.categoryEditor1.Location = new System.Drawing.Point(0, 0);
+            this.categoryEditor1.Name = "categoryEditor1";
+            this.categoryEditor1.Size = new System.Drawing.Size(908, 643);
+            this.categoryEditor1.TabIndex = 0;
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setDotaDirectoryToolStripMenuItem});
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.optionsToolStripMenuItem.Text = "Options";
+            // 
+            // setDotaDirectoryToolStripMenuItem
+            // 
+            this.setDotaDirectoryToolStripMenuItem.Name = "setDotaDirectoryToolStripMenuItem";
+            this.setDotaDirectoryToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.setDotaDirectoryToolStripMenuItem.Text = "Set Dota Directory";
+            this.setDotaDirectoryToolStripMenuItem.Click += new System.EventHandler(this.setDotaDirectoryToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -231,6 +260,7 @@
             this.unitTab.ResumeLayout(false);
             this.itemTab.ResumeLayout(false);
             this.abilityTab.ResumeLayout(false);
+            this.modifierEditor.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,6 +286,9 @@
         private Panels.CategoryEditor itemCategory;
         private Panels.UnitEditor unitEditor1;
         private Panels.CategoryEditor abilityCategory;
+        private Panels.CategoryEditor categoryEditor1;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setDotaDirectoryToolStripMenuItem;
     }
 }
 
