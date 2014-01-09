@@ -553,7 +553,7 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
+		[Category("Bounds")]
 		[Description("No Description Set")]
 		[DefaultValue(-1)]
 		public int HealthBarOffset

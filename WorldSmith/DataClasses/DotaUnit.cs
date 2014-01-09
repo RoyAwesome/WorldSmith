@@ -9,8 +9,8 @@ namespace WorldSmith.DataClasses
 {
 	class DotaUnit : DotaBaseUnit
 	{
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("If this unit is an ancient unit or not.")]
 		[DefaultValue(false)]
 		public bool IsAncient
 		{
@@ -18,8 +18,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("If this unit is neutral or not.")]
 		[DefaultValue(false)]
 		public bool IsNeutralUnitType
 		{
@@ -27,8 +27,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Selection")]
+		[Description("Units with the same selection group will cycle together when tabbing through owned units.")]
 		[DefaultValue("")]
 		public string SelectionGroup
 		{
@@ -36,8 +36,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Selection")]
+		[Description("Select this unit on spawn.")]
 		[DefaultValue(false)]
 		public bool SelectOnSpawn
 		{
@@ -45,16 +45,16 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
-		[DefaultValue(true)]
+		[Category("General")]
+		[Description("Can this unit be dominated and controlled by players?")]
+		[DefaultValue(false)]
 		public bool CanBeDominated
 		{
 			get;
 			set;
 		}
 
-		[Category("Misc")]
+		[Category("Selection")]
 		[Description("No Description Set")]
 		[DefaultValue(false)]
 		public bool IgnoreAddSummonedToSelection
@@ -63,8 +63,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attack")]
+		[Description("If this unit should auto-attack by default.")]
 		[DefaultValue(true)]
 		public bool AutoAttacksByDefault
 		{
@@ -72,7 +72,7 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
+		[Category("Attack")]
 		[Description("No Description Set")]
 		[DefaultValue(250)]
 		public int AttackRangeBuffer
@@ -81,8 +81,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Movement")]
+		[Description("The distance at which this unit follows another. (?)")]
 		[DefaultValue(100)]
 		public int FollowRange
 		{
@@ -90,8 +90,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Attack")]
+		[Description("How much bots want to attack them vs other non-hero things")]
 		[DefaultValue(1.0)]
 		public float AttackDesire
 		{
@@ -99,8 +99,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("If this unit wakes up neutrals when it gets close.")]
 		[DefaultValue(true)]
 		public bool WakesNeutrals
 		{
