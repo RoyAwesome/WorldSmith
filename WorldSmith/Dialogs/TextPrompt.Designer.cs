@@ -72,6 +72,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.okButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "TextPrompt";
             this.ShowIcon = false;
             this.Text = "TextPrompt";
