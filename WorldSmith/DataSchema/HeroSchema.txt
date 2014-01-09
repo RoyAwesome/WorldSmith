@@ -6,16 +6,16 @@
 
 	"Enabled"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"Enable/disable this hero."
 		"Type"	"bool"
-		"DefaultValue"	"0"
+		"DefaultValue"	"1"
 	}
 
 	"BotImplemented"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"Does this hero have bot AI implemented?"
 		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
@@ -46,15 +46,15 @@
 
 	"CMEnabled"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"Enable/disable this hero in Captain's Mode."
 		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
 
 	"CMTournamentIgnore"
 	{
-		"Category"	"Misc"
+		"Category"	"General"
 		"Description"	"No Description Set"
 		"Type"	"bool"
 		"DefaultValue"	"0"
@@ -70,7 +70,7 @@
 
 	"VoiceBackgroundSound"
 	{
-		"Category"	"Misc"
+		"Category"	"Voice"
 		"Description"	"No Description Set"
 		"Type"	"string"
 		"DefaultValue"	""
