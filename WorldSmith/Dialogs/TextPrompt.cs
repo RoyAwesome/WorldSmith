@@ -37,6 +37,7 @@ namespace WorldSmith.Dialogs
 
         public new string ShowDialog()
         {
+            this.StartPosition = FormStartPosition.CenterParent;
             this.Focus();
             textBox1.Focus();
             base.ShowDialog();            

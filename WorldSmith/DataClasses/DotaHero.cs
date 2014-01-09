@@ -9,17 +9,17 @@ namespace WorldSmith.DataClasses
 {
 	class DotaHero : DotaBaseUnit
 	{
-		[Category("Misc")]
-		[Description("No Description Set")]
-		[DefaultValue(false)]
+		[Category("General")]
+		[Description("Enable/disable this hero.")]
+		[DefaultValue(true)]
 		public bool Enabled
 		{
 			get;
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("Does this hero have bot AI implemented?")]
 		[DefaultValue(false)]
 		public bool BotImplemented
 		{
@@ -54,8 +54,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("Enable/disable this hero in Captain's Mode.")]
 		[DefaultValue(false)]
 		public bool CMEnabled
 		{
@@ -63,7 +63,7 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
+		[Category("General")]
 		[Description("No Description Set")]
 		[DefaultValue(false)]
 		public bool CMTournamentIgnore
@@ -81,7 +81,7 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
+		[Category("Voice")]
 		[Description("No Description Set")]
 		[DefaultValue("")]
 		public string VoiceBackgroundSound
