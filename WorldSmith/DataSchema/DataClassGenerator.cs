@@ -11,7 +11,7 @@ namespace WorldSmith.DataSchema
     static class DataClassGenerator
     {
         #region PropertyFinder
-        static void GenerateDataPropertiesFromKeyValues(string file, string baseKey, string outputFile)
+        public static void GenerateDataPropertiesFromKeyValues(string file, string baseKey, string outputFile)
         {
             KVLib.KeyValue kv = KVLib.KVParser.ParseKeyValueText(File.ReadAllText(file));
             kv = kv[baseKey];
@@ -36,7 +36,7 @@ namespace WorldSmith.DataSchema
             File.WriteAllText(outputFile, doc.ToString());
         }
 
-        static void FindPossibleValuesForKey(string file, string key)
+        public static void FindPossibleValuesForKey(string file, string key)
         {
             KVLib.KeyValue srcDoc = KVLib.KVParser.ParseKeyValueText(File.ReadAllText(file));
 
@@ -60,6 +60,11 @@ namespace WorldSmith.DataSchema
             }
 
             File.WriteAllText(key + ".txt", outDoc.ToString());
+        }
+
+        static void FindPossibleFlagsForKey(string file, string key)
+        {
+
         }
 
         static string DetermineType(KVLib.KeyValue k)
@@ -133,7 +138,6 @@ namespace WorldSmith.DataSchema
         #endregion
 
         #region ClassGenerator
-
         public static void GenerateClassForSchema(string schemaFileName, string outputDir)
         {
             KeyValue doc = KVParser.ParseKeyValueText(File.ReadAllText(schemaFileName));
@@ -158,7 +162,7 @@ namespace WorldSmith.DataSchema
             {
                 if (!c.HasChildren) continue; //Skip the ClassName and BaseClass keys
                 string type = c["Type"].GetString();
-                if(c["Type"].GetString() == "enum") //Create the Enum object for enum types
+                if(type == "enum") //Create the Enum object for enum types
                 {
                     type = c.Key + "Enum";
                     csFile.AppendLine("\t\tpublic enum " + c.Key + "Enum");
@@ -166,6 +170,19 @@ namespace WorldSmith.DataSchema
                     foreach(KeyValue kv in c["PossibleValues"].Children)
                     {
                         csFile.AppendLine("\t\t\t" + kv.GetString() + ",");
+                    }
+                    csFile.AppendLine("\t\t}");
+                    csFile.AppendLine();
+                }
+                if(type == "flags")
+                {
+                    type = c.Key + "Flags";
+                    csFile.AppendLine("\t\t[Flags]");
+                    csFile.AppendLine("\t\tpublic enum " + c.Key + "Flags");
+                    csFile.AppendLine("\t\t{");
+                    foreach(KeyValue kv in c["PossibleValues"].Children)
+                    {
+                        csFile.AppendLine("\t\t\t" + kv.Key + " = " + kv.GetInt().ToString() + ",");
                     }
                     csFile.AppendLine("\t\t}");
                     csFile.AppendLine();
@@ -183,6 +200,10 @@ namespace WorldSmith.DataSchema
                 {
                     csFile.Append(type + "." + c["DefaultValue"].GetString());
                 }
+                if(c["Type"].GetString() == "flags")
+                {
+                    csFile.Append(type + "." + c["DefaultValue"].GetString());
+                }
                 if(type == "int" || type == "float")
                 {
                     csFile.Append(c["DefaultValue"].GetString());
@@ -190,6 +211,10 @@ namespace WorldSmith.DataSchema
                 if(type == "bool")
                 {
                     csFile.Append(c["DefaultValue"].GetBool().ToString().ToLower());
+                }
+                if(type == "PerLevel")
+                {
+                    csFile.Append("typeof(PerLevel), \"" + c["DefaultValue"].GetString() + "\"");
                 }
                 csFile.AppendLine(")]");
 

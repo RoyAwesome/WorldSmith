@@ -1,6 +1,6 @@
 ﻿namespace WorldSmith.Panels
 {
-    partial class ItemEditor
+    partial class CategoryEditor
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Default Items");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Custom Items");
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.itemPropertyGrid = new System.Windows.Forms.PropertyGrid();
+            this.categoryEditorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -42,6 +42,7 @@
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryEditorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -79,6 +80,15 @@
             // 
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Location = new System.Drawing.Point(0, 0);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(191, 485);
+            this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
@@ -87,22 +97,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(111, 25);
             this.toolStrip1.TabIndex = 0;
             // 
-            // treeView1
-            // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "defaultItems";
-            treeNode1.Text = "Default Items";
-            treeNode2.Name = "customItems";
-            treeNode2.Text = "Custom Items";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
-            this.treeView1.Size = new System.Drawing.Size(191, 485);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            // 
             // itemPropertyGrid
             // 
             this.itemPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -110,13 +104,18 @@
             this.itemPropertyGrid.Name = "itemPropertyGrid";
             this.itemPropertyGrid.Size = new System.Drawing.Size(378, 510);
             this.itemPropertyGrid.TabIndex = 0;
+            this.itemPropertyGrid.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.itemPropertyGrid_PropertyValueChanged);
             // 
-            // ItemEditor
+            // categoryEditorBindingSource
+            // 
+            this.categoryEditorBindingSource.DataSource = typeof(WorldSmith.Panels.CategoryEditor);
+            // 
+            // CategoryEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
-            this.Name = "ItemEditor";
+            this.Name = "CategoryEditor";
             this.Size = new System.Drawing.Size(573, 510);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -127,6 +126,7 @@
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryEditorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -138,5 +138,6 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.PropertyGrid itemPropertyGrid;
+        private System.Windows.Forms.BindingSource categoryEditorBindingSource;
     }
 }

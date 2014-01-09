@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace WorldSmith.DataClasses
 {
-    class DotaDataObject : ICloneable
+    public class DotaDataObject : ICloneable
     {       
         [Category("Base")]
         [Description("Class name for this object")]
@@ -59,8 +59,13 @@ namespace WorldSmith.DataClasses
                     data = subkey.GetString();
                 }
                 if (typeof(Enum).IsAssignableFrom(info.PropertyType) && subkey.GetString() != "")
-                {                    
+                {
+                    if (info.PropertyType.GetCustomAttribute(typeof(FlagsAttribute)) != null) continue;
                     data = Enum.Parse(info.PropertyType, subkey.GetString());
+                }
+                if (info.PropertyType == typeof(PerLevel))
+                {
+                    data = new PerLevel(subkey.GetString());
                 }
                 if(data != null) info.SetMethod.Invoke(this, new object[] { data });
 
@@ -105,6 +110,11 @@ namespace WorldSmith.DataClasses
                 {
                     data = info.GetMethod.Invoke(this, new object[] { });
                     subkey.Set(data.ToString());
+                }
+                if (info.PropertyType == typeof(PerLevel))
+                {
+                    data = info.GetMethod.Invoke(this, new object[] { });
+                    subkey.Set(((PerLevel)data).ToString());
                 }
                 kv += subkey;
 

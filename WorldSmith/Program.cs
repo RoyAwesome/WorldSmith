@@ -18,12 +18,17 @@ namespace WorldSmith
         [STAThread]
         static void Main()
         {
+
+           // DataSchema.DataClassGenerator.FindPossibleValuesForKey(@"E:\Dota2SDK\root\scripts\npc\items.txt", "ItemDeclarations");
+
+     
 #if GENERATECLASSES
             string outputDir = "../../DataClasses/";
             string inputDir = "../../DataSchema/";
             DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "BaseUnitSchema.txt", outputDir);
             DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "HeroSchema.txt", outputDir);
             DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "UnitSchema.txt", outputDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "AbilitySchema.txt", outputDir);
 #else
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -49,7 +54,7 @@ namespace WorldSmith
 
             Properties.Settings.Default.Save();
 #endif
-
+          
         }
 
         static void Application_ApplicationExit(object sender, EventArgs e)

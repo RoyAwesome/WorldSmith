@@ -49,11 +49,26 @@ namespace WorldSmith.DataClasses
             
         #endregion
 
-        public static IEnumerable<DotaDataObject> AllClasses = AllUnits.Cast<DotaDataObject>();
+        #region Ability Data Lists
+        public static List<DotaAbility> DefaultAbilities = new List<DotaAbility>();
+
+        public static List<DotaAbility> CustomAbilities = new List<DotaAbility>();
+
+        public static IEnumerable<DotaAbility> AllAbilities = DefaultAbilities.Union(CustomAbilities);
+
+        #endregion
+
+        public static IEnumerable<DotaDataObject> AllClasses = AllUnits.Cast<DotaDataObject>()
+            .Union(AllAbilities.Cast<DotaDataObject>());
 
         public static string NPCScriptPath = "scripts" + Path.DirectorySeparatorChar + "npc" + Path.DirectorySeparatorChar;
         public static string CustomHeroesFile = NPCScriptPath + "npc_heroes_custom.txt";
         public static string CustomUnitsFile = NPCScriptPath + "npc_units_custom.txt";
+        public static string CustomAbilityFile = NPCScriptPath + "npc_abilities_custom.txt";
+
+        public const string DefaultUnitsFile = "scripts/npc/npc_units.txt";
+        public const string DefaultHeroesFile = "scripts/npc/npc_heroes.txt";
+        public const string DefaultAbilitiesFile = "scripts/npc/npc_abilities.txt";
 
         #region HLLib Usage
         public static void LoadFromVPK(string vpkPath)
@@ -117,36 +132,14 @@ namespace WorldSmith.DataClasses
         }
         #endregion
 
+       
+
         #region LoadData
-        public static void ReadUnits()
+        public static void ReadScriptFromVPK<T>(string filePath, List<T> ListToInsert) where T : DotaDataObject
         {
             IntPtr root = HLLib.hlPackageGetRoot();
 
-            IntPtr file = HLLib.hlFolderGetItemByPath(root, "scripts/npc/npc_units.txt", HLLib.HLFindType.HL_FIND_FILES);
-
-            IntPtr stream;
-            ErrorCheck(HLLib.hlPackageCreateStream(file, out stream));
-         
-            string unitsText = ReadTextFromHLLibStream(stream);
-            
-            KeyValue rootkv = KVLib.KVParser.ParseKeyValueText(unitsText);
-
-            foreach(KeyValue kv in rootkv.Children)
-            {
-                if (!kv.HasChildren) continue; //Get rid of that pesky "Version" "1" key
-
-                DotaUnit unit = new DotaUnit();
-                unit.LoadFromKeyValues(kv);
-                DefaultUnits.Add(unit);
-            }
-
-        }
-
-        public static void ReadHeroes()
-        {
-            IntPtr root = HLLib.hlPackageGetRoot();
-
-            IntPtr file = HLLib.hlFolderGetItemByPath(root, "scripts/npc/npc_heroes.txt", HLLib.HLFindType.HL_FIND_FILES);
+            IntPtr file = HLLib.hlFolderGetItemByPath(root, filePath, HLLib.HLFindType.HL_FIND_FILES);
 
             IntPtr stream;
             ErrorCheck(HLLib.hlPackageCreateStream(file, out stream));
@@ -159,11 +152,13 @@ namespace WorldSmith.DataClasses
             {
                 if (!kv.HasChildren) continue; //Get rid of that pesky "Version" "1" key
 
-                DotaHero unit = new DotaHero();
+                T unit = typeof(T).GetConstructor(Type.EmptyTypes).Invoke(new object[] { }) as T;
                 unit.LoadFromKeyValues(kv);
-                DefaultHeroes.Add(unit);
+                ListToInsert.Add(unit);
             }
+            return;
         }
+
        
         public static void ReadOverride<T>(string file, List<T> ListToLoadInto) where T : DotaDataObject
         {
@@ -185,30 +180,27 @@ namespace WorldSmith.DataClasses
 
         #region SaveData
         public static void SaveUnits()
+        {          
+            SaveList(CustomUnits, "DOTAUnits", "npc_units_custom.txt");
+            SaveList(OverridenHeroes, "DOTAHeroes", "npc_heroes_custom.txt");
+            SaveList(CustomAbilities, "DOTAAbilities", "npc_abilities_custom.txt");
+        }
+
+        private static void SaveList<T>(List<T> list, string RootKey, string outputFileName) where T : DotaDataObject
         {
             string path = Properties.Settings.Default.AddonPath + Path.DirectorySeparatorChar
                 + "scripts" + Path.DirectorySeparatorChar + "npc" + Path.DirectorySeparatorChar;
-            if(!Directory.Exists(path)) Directory.CreateDirectory(path);
+            if (!Directory.Exists(path)) Directory.CreateDirectory(path);
 
-            KeyValue doc = new KeyValue("DOTAUnits");
+            KeyValue doc = new KeyValue(RootKey);
 
-            foreach (DotaUnit unit in CustomUnits)
+            foreach (T unit in list)
             {
                 doc += unit.SaveToKV();
             }
 
-            File.WriteAllText(path + "npc_units_custom.txt", KVHeader + doc.ToString());
-
-            doc = new KeyValue("DOTAHeroes");
-            foreach(DotaHero hero in OverridenHeroes)
-            {
-                doc += hero.SaveToKV();
-            }
-
-            File.WriteAllText(path + "npc_heroes_custom.txt", KVHeader + doc.ToString());
-
+            File.WriteAllText(path +outputFileName, KVHeader + doc.ToString());
         }
-
         #endregion
 
 

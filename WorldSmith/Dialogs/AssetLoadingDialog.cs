@@ -18,8 +18,9 @@ namespace WorldSmith.Dialogs
         public static Dictionary<string, Task> InitialLoad = new Dictionary<string, Task>()
         {
             {"Opening pak01_dir.vpk",  () => { DotaData.LoadFromVPK(Properties.Settings.Default.dotadir); } },
-            {"npc_units.txt", () => { DotaData.ReadUnits(); } },
-            {"npc_heroes.txt", () => { DotaData.ReadHeroes(); } },
+            {"npc_units.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultUnitsFile, DotaData.DefaultUnits); } },
+            {"npc_heroes.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultHeroesFile, DotaData.DefaultHeroes); } },
+            {"npc_abilities.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultAbilitiesFile, DotaData.DefaultAbilities); } },
 
         };
 
@@ -27,13 +28,14 @@ namespace WorldSmith.Dialogs
         {
             {"npc_units_custom.txt", () => { DotaData.ReadOverride(DotaData.CustomUnitsFile, DotaData.CustomUnits); } },
             {"npc_heroes_custom.txt", () => { DotaData.ReadOverride(DotaData.CustomHeroesFile, DotaData.OverridenHeroes); } },
+            {"npc_abilities_custom.txt", () => { DotaData.ReadOverride(DotaData.CustomAbilityFile, DotaData.CustomAbilities); } },
             {"Cleaning HeroOverrideList", () => {
                 foreach(DotaHero hero in DotaData.OverridenHeroes)
                 {
                     DotaHero baseHero = DotaData.DefaultHeroes.FirstOrDefault(h => h.ClassName == hero.override_hero);
                     if (baseHero != null) DotaData.DefaultHeroes.Remove(baseHero);
                 }
-            } },
+            } },           
         };
 
 

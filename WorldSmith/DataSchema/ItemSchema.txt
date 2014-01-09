@@ -1,0 +1,141 @@
+﻿"Schema"
+{
+	"ClassName" "DotaItem"
+	"BaseClass" "DotaAbility"
+
+	"ItemCost"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"0"
+	}
+
+	"ItemInitialCharges"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"0"
+	}
+
+	"ItemCombinable"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"1"
+	}
+
+	"ItemPermanent"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"1"
+	}
+
+	"ItemStackable"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"ItemRecipe"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"ItemDroppable"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"1"
+	}
+
+	"ItemPurchasable"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"1"
+	}
+
+	"ItemSellable"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"1"
+	}
+
+	"ItemRequiresCharges"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"ItemKillable"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"1"
+	}
+
+	"ItemDisassemblable"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"ItemShareability"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"enum"
+		"DefaultValue"	"ITEM_NOT_SHAREABLE"
+		"PossibleValues"
+		{
+			"0"	"ITEM_PARTIALLY_SHAREABLE"
+			"1"	"ITEM_FULLY_SHAREABLE"
+			"2"	"ITEM_FULLY_SHAREABLE_STACKING"
+			"3"	"ITEM_NOT_SHAREABLE"
+			
+		}
+
+	}
+
+	"ItemDeclaresPurchase"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"0"
+	}
+
+	"ItemDeclarations"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"flags"
+		"DefaultValue"	"0"
+		"PossibleValues"
+		{
+			"DECLARE_PURCHASES_IN_SPEECH"		"1"
+			"DECLARE_PURCHASES_TO_SPECTATORS"	"2"
+			"DECLARE_PURCHASES_TO_TEAMMATES"	"4"
+		}
+
+	}
+}

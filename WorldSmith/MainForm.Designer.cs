@@ -41,15 +41,17 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.addonConfig = new System.Windows.Forms.TabPage();
             this.unitTab = new System.Windows.Forms.TabPage();
-            this.itemTab = new System.Windows.Forms.TabPage();
-            this.abilityTab = new System.Windows.Forms.TabPage();
-            this.modifierEditor = new System.Windows.Forms.TabPage();
-            this.itemEditor1 = new WorldSmith.Panels.ItemEditor();
             this.unitEditor1 = new WorldSmith.Panels.UnitEditor();
+            this.itemTab = new System.Windows.Forms.TabPage();
+            this.itemCategory = new WorldSmith.Panels.CategoryEditor();
+            this.abilityTab = new System.Windows.Forms.TabPage();
+            this.abilityCategory = new WorldSmith.Panels.CategoryEditor();
+            this.modifierEditor = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.unitTab.SuspendLayout();
             this.itemTab.SuspendLayout();
+            this.abilityTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -158,9 +160,17 @@
             this.unitTab.Text = "Unit Editor";
             this.unitTab.UseVisualStyleBackColor = true;
             // 
+            // unitEditor1
+            // 
+            this.unitEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.unitEditor1.Location = new System.Drawing.Point(3, 3);
+            this.unitEditor1.Name = "unitEditor1";
+            this.unitEditor1.Size = new System.Drawing.Size(902, 637);
+            this.unitEditor1.TabIndex = 0;
+            // 
             // itemTab
             // 
-            this.itemTab.Controls.Add(this.itemEditor1);
+            this.itemTab.Controls.Add(this.itemCategory);
             this.itemTab.Location = new System.Drawing.Point(4, 22);
             this.itemTab.Name = "itemTab";
             this.itemTab.Size = new System.Drawing.Size(908, 643);
@@ -168,14 +178,31 @@
             this.itemTab.Text = "Item Editor";
             this.itemTab.UseVisualStyleBackColor = true;
             // 
+            // itemCategory
+            // 
+            this.itemCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.itemCategory.Location = new System.Drawing.Point(0, 0);
+            this.itemCategory.Name = "itemCategory";
+            this.itemCategory.Size = new System.Drawing.Size(908, 643);
+            this.itemCategory.TabIndex = 0;
+            // 
             // abilityTab
             // 
+            this.abilityTab.Controls.Add(this.abilityCategory);
             this.abilityTab.Location = new System.Drawing.Point(4, 22);
             this.abilityTab.Name = "abilityTab";
             this.abilityTab.Size = new System.Drawing.Size(908, 643);
             this.abilityTab.TabIndex = 3;
             this.abilityTab.Text = "Ability Editor";
             this.abilityTab.UseVisualStyleBackColor = true;
+            // 
+            // abilityCategory
+            // 
+            this.abilityCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.abilityCategory.Location = new System.Drawing.Point(0, 0);
+            this.abilityCategory.Name = "abilityCategory";
+            this.abilityCategory.Size = new System.Drawing.Size(908, 643);
+            this.abilityCategory.TabIndex = 0;
             // 
             // modifierEditor
             // 
@@ -185,22 +212,6 @@
             this.modifierEditor.TabIndex = 4;
             this.modifierEditor.Text = "Modifier Editor";
             this.modifierEditor.UseVisualStyleBackColor = true;
-            // 
-            // itemEditor1
-            // 
-            this.itemEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.itemEditor1.Location = new System.Drawing.Point(0, 0);
-            this.itemEditor1.Name = "itemEditor1";
-            this.itemEditor1.Size = new System.Drawing.Size(908, 643);
-            this.itemEditor1.TabIndex = 0;
-            // 
-            // unitEditor1
-            // 
-            this.unitEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.unitEditor1.Location = new System.Drawing.Point(3, 3);
-            this.unitEditor1.Name = "unitEditor1";
-            this.unitEditor1.Size = new System.Drawing.Size(902, 637);
-            this.unitEditor1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -219,6 +230,7 @@
             this.tabControl1.ResumeLayout(false);
             this.unitTab.ResumeLayout(false);
             this.itemTab.ResumeLayout(false);
+            this.abilityTab.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,8 +253,9 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private Panels.ItemEditor itemEditor1;
+        private Panels.CategoryEditor itemCategory;
         private Panels.UnitEditor unitEditor1;
+        private Panels.CategoryEditor abilityCategory;
     }
 }
 

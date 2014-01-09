@@ -1,0 +1,166 @@
+﻿"Schema"
+{
+	"ClassName" "DotaAbility"
+	"BaseClass" "DotaDataObject"
+
+	"ID"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"0"
+	}
+
+	"AbilityType"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"enum"
+		"DefaultValue"	"DOTA_ABILITY_TYPE_BASIC"
+		"PossibleValues"
+		{
+			"0"	"DOTA_ABILITY_TYPE_BASIC"
+			"1"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+			"2"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		}
+	}
+
+	"AbilityBehavior"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"flags"
+		"DefaultValue"	"DOTA_ABILITY_BEHAVIOR_NONE"
+		"PossibleValues"
+		{		
+			"DOTA_ABILITY_BEHAVIOR_NONE"    		"0"
+			"DOTA_ABILITY_BEHAVIOR_HIDDEN"  		"1"
+			"DOTA_ABILITY_BEHAVIOR_PASSIVE" 		"2"
+			"DOTA_ABILITY_BEHAVIOR_NO_TARGET" 		"4"
+			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		"8"
+			"DOTA_ABILITY_BEHAVIOR_POINT" 			"16"
+			"DOTA_ABILITY_BEHAVIOR_AOE"				"32"
+			"DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"	"64"
+			"DOTA_ABILITY_BEHAVIOR_CHANNELLED"		"128"
+			"DOTA_ABILITY_BEHAVIOR_ITEM"			"256"
+			"DOTA_ABILITY_BEHAVIOR_TOGGLE"			"512"	
+		}
+	}
+
+	"AbilityTextureName"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+
+
+	"OnCastbar"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"1"
+	}
+
+	"OnLearnbar"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"1"
+	}
+
+	"AbilityCastRange"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"0"
+	}
+
+	"AbilityCastRangeBuffer"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"int"
+		"DefaultValue"	"250"
+	}
+
+	"AbilityCastPoint"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"PerLevel"
+		"DefaultValue"	"0.0 0.0 0.0 0.0"
+	}
+
+	"AbilityChannelTime"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"PerLevel"
+		"DefaultValue"	"0.0 0.0 0.0 0.0"
+	}
+
+	"AbilityCooldown"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"PerLevel"
+		"DefaultValue"	"0.0 0.0 0.0 0.0"
+	}
+
+	"AbilityDuration"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"PerLevel"
+		"DefaultValue"	"0.0 0.0 0.0 0.0"
+	}
+
+	"AbilitySharedCooldown"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"AbilityDamage"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"PerLevel"
+		"DefaultValue"	"0 0 0 0"
+	}
+
+	"AbilityManaCost"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"PerLevel"
+		"DefaultValue"	"0 0 0 0"
+	}
+
+	"AbilityModifierSupportValue"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"float"
+		"DefaultValue"	"1.0"
+	}
+
+	"AbilityModifierSupportBonus"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"float"
+		"DefaultValue"	"0"
+	}
+
+
+
+}

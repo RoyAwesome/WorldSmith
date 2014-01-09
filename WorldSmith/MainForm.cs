@@ -19,6 +19,14 @@ namespace WorldSmith
         public MainForm()
         {
             InitializeComponent();
+            InitTabs();
+        }
+
+        private void InitTabs()
+        {
+            abilityCategory.Init("Ability", DotaData.DefaultAbilities, DotaData.CustomAbilities);
+
+            
         }
    
 
