@@ -132,9 +132,7 @@ namespace WorldSmith.DataClasses
         {
             HLLib.hlShutdown();
         }
-        #endregion
-
-       
+        #endregion       
 
         #region LoadData
         public static void ReadScriptFromVPK<T>(string filePath, List<T> ListToInsert) where T : DotaDataObject

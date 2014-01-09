@@ -29,6 +29,7 @@ namespace WorldSmith
             DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "HeroSchema.txt", outputDir);
             DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "UnitSchema.txt", outputDir);
             DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "AbilitySchema.txt", outputDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "ItemSchema.txt", outputDir);
 #else
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -129,9 +129,10 @@
 		"Category"	"Misc"
 		"Description"	"No Description Set"
 		"Type"	"flags"
-		"DefaultValue"	"0"
+		"DefaultValue"	"DECLARE_PURCHASES_NONE"
 		"PossibleValues"
 		{
+			"DECLARE_PURCHASES_NONE"			"0"
 			"DECLARE_PURCHASES_IN_SPEECH"		"1"
 			"DECLARE_PURCHASES_TO_SPECTATORS"	"2"
 			"DECLARE_PURCHASES_TO_TEAMMATES"	"4"
