@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using WorldSmith.DataClasses;
 
 namespace WorldSmith.Dialogs
 {
@@ -31,7 +33,7 @@ namespace WorldSmith.Dialogs
         {
             if(!ValidateDota2Dir(textBox1.Text))
             {
-                MessageBox.Show("This doesn't appear to be your dota 2 directory", "Invalid Dota Directory", MessageBoxButtons.OK);
+                MessageBox.Show("This doesn't appear to be your Dota 2 directory", "Invalid Dota Directory", MessageBoxButtons.OK);
                 return;
             }
 
@@ -39,11 +41,9 @@ namespace WorldSmith.Dialogs
             this.Close();
         }
 
-      
-
         bool ValidateDota2Dir(string path)
         {
-            return true;
+            return File.Exists(path + Path.DirectorySeparatorChar + DotaData.VPKPath);
         }
     }
 }

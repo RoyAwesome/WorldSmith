@@ -37,9 +37,14 @@ namespace WorldSmith
             if (!Properties.Settings.Default.ranonce)
             {
                 Form initial = new InitialSetup();
-                initial.ShowDialog();
-                Properties.Settings.Default.ranonce = true;
-                Properties.Settings.Default.Save();
+                if (initial.ShowDialog().Equals(DialogResult.OK)) {
+                    Properties.Settings.Default.ranonce = true;
+                    Properties.Settings.Default.Save();
+                }
+                else {
+                    Application.Exit();
+                    return;
+                }
             }
 
             AssetLoadingDialog assets = new AssetLoadingDialog();
