@@ -65,7 +65,7 @@ namespace WorldSmith.DataClasses
 
         public override object GetValue(object component)
         {
-            return this.item.LevelData[index];
+            return this.item[index];
         }
 
         public override bool IsReadOnly
@@ -75,17 +75,17 @@ namespace WorldSmith.DataClasses
 
         public override Type PropertyType
         {
-            get { return this.item.LevelData[index].GetType(); }
+            get { return this.item[index].GetType(); }
         }
 
         public override void ResetValue(object component)
         {
-            this.item.LevelData[index] = 0;
+            this.item[index] = 0;
         }
 
         public override void SetValue(object component, object value)
         {
-            this.item.LevelData[index] = (int)value;
+            this.item[index] = (int)value;
         }
 
         public override bool ShouldSerializeValue(object component)
@@ -97,18 +97,16 @@ namespace WorldSmith.DataClasses
 
     //[TypeConverter(typeof(PerLevelConverter))]
     [TypeConverter(typeof(ExpandableObjectConverter))]
-    public class PerLevel : ICustomTypeDescriptor
+    public class PerLevel : CollectionBase, ICustomTypeDescriptor
     {
         public PerLevel(string value)
         {
-            LevelData = new List<float>();
-
             if (value == "")
             {
-                LevelData.Add(0);
-                LevelData.Add(0);
-                LevelData.Add(0);
-                LevelData.Add(0);
+                List.Add(0);
+                List.Add(0);
+                List.Add(0);
+                List.Add(0);
             }
             else
             {
@@ -116,7 +114,7 @@ namespace WorldSmith.DataClasses
 
                 foreach (string s in split)
                 {
-                    LevelData.Add(float.Parse(s));
+                    List.Add(float.Parse(s));
                 }
             }
 
@@ -124,27 +122,27 @@ namespace WorldSmith.DataClasses
         }
 
         public void Add(float f)
-        {
-            this.LevelData.Add(f);
+        {    
+            this.List.Add(f);
         }
-        public void Remove( float f)
+        public void Remove(float f)
         {
-            this.LevelData.Remove(f);
+            this.List.Remove(f);
         }
-        public float this [int index]
+        public float this[int index]
         {
-            get { return this.LevelData[index]; }
-        }
-        
-        public List<float> LevelData
-        {
-            get;
-            set;
+            get { return (float)this.List[index]; }
+            set { this.List[index] = value; }
         }
 
         public override string ToString()
         {
-            return string.Join(" ", LevelData);
+            string s = "";
+            for(int i = 0; i < List.Count; i++)
+            {
+                s += List[i] + " ";
+            }
+            return s.Trim();
         }
 
 
@@ -202,7 +200,7 @@ namespace WorldSmith.DataClasses
         {
             PropertyDescriptorCollection pds = new PropertyDescriptorCollection(null);
            
-            for(int i = 0; i < LevelData.Count; i++)
+            for(int i = 0; i < List.Count; i++)
             {           
                 PerLevelPropertyDescriptor pd = new PerLevelPropertyDescriptor(this, i);
                 pds.Add(pd);
@@ -214,5 +212,7 @@ namespace WorldSmith.DataClasses
         {
             return this;
         }
+
+        
     }
 }

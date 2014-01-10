@@ -39,7 +39,8 @@ namespace WorldSmith.DataClasses
                 if (info.Name == "WasModified") continue;
 
                 KeyValue subkey = kv[info.Name];
-                if(subkey == null || subkey.HasChildren) continue;
+                if (subkey == null) subkey = new KeyValue(info.Name) + "";
+                if (subkey.HasChildren) continue; //TODO parse children because this is AbilitySpecial
 
                 object data = null;
                 if(info.PropertyType == typeof(int))
@@ -114,7 +115,8 @@ namespace WorldSmith.DataClasses
                 if (info.PropertyType == typeof(PerLevel))
                 {
                     data = info.GetMethod.Invoke(this, new object[] { });
-                    subkey.Set(((PerLevel)data).ToString());
+                    if (data == null) subkey.Set("");
+                    else subkey.Set(((PerLevel)data).ToString());
                 }
                 kv += subkey;
 
