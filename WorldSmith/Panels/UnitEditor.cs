@@ -76,30 +76,32 @@ namespace WorldSmith.Panels
                 prompt.Text = "Create New Hero Classname";
                 prompt.PromptText = b.ClassName + "_custom";
 
-                string newClassName = prompt.ShowDialog();
-
-                //Create a new Dota hero for this guy
-                DotaHero newHero = b.Clone() as DotaHero;
-                newHero.ClassName = newClassName;
-                newHero.override_hero = b.ClassName;
-
-                //Put him in the hero override list
-                DotaData.OverridenHeroes.Add(newHero);
-
-                //Add him to the tree view
-                TreeNode root = unitTreeView.Nodes.Find("overrideHero", false)[0];
-                TreeNode newNode = new TreeNode()
+                TextPrompt.TextPromptResult result = prompt.ShowDialog();
+                if (result.result)
                 {
-                    Name = newHero.ClassName,
-                    Text = newHero.ClassName,
-                    Tag = "Item",
-                };
-                root.Nodes.Add(newNode);
-                unitTreeView.SelectedNode = newNode;
+                    //Create a new Dota hero for this guy
+                    DotaHero newHero = b.Clone() as DotaHero;
+                    newHero.ClassName = result.text;
+                    newHero.override_hero = b.ClassName;
 
-                //Switch to the Override view for this unit
-                unitTreeView.CollapseAll();
-                newNode.Parent.ExpandAll();
+                    //Put him in the hero override list
+                    DotaData.OverridenHeroes.Add(newHero);
+
+                    //Add him to the tree view
+                    TreeNode root = unitTreeView.Nodes.Find("overrideHero", false)[0];
+                    TreeNode newNode = new TreeNode()
+                    {
+                        Name = newHero.ClassName,
+                        Text = newHero.ClassName,
+                        Tag = "Item",
+                    };
+                    root.Nodes.Add(newNode);
+                    unitTreeView.SelectedNode = newNode;
+
+                    //Switch to the Override view for this unit
+                    unitTreeView.CollapseAll();
+                    newNode.Parent.ExpandAll();
+                }
             }
         }
 
