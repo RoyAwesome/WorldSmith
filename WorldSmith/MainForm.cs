@@ -102,5 +102,15 @@ namespace WorldSmith
             Form initial = new InitialSetup();
             initial.ShowDialog();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

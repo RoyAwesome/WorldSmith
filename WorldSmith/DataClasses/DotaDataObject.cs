@@ -65,7 +65,7 @@ namespace WorldSmith.DataClasses
                 }
                 if (info.PropertyType == typeof(PerLevel))
                 {
-                    data = new PerLevel(subkey.GetString());
+                    data = new PerLevel(subkey.GetString().Trim());
                 }
                 if(data != null) info.SetMethod.Invoke(this, new object[] { data });
 
