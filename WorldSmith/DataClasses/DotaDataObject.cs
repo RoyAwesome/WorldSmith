@@ -63,7 +63,7 @@ namespace WorldSmith.DataClasses
                 {
                     if (info.PropertyType.GetCustomAttribute(typeof(FlagsAttribute)) != null)
                     {
-                        string[] flags = subkey.GetString().Replace(" ", "").Split('|');
+                        string[] flags = subkey.GetString().Replace(" ", "").Split('|').Where(x => x != "").ToArray();
                         string p = String.Join(", ", flags);
 
                         data = Enum.Parse(info.PropertyType, p);                        

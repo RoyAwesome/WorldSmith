@@ -190,6 +190,8 @@ namespace WorldSmith.DataSchema
 
                 csFile.AppendLine(string.Format("\t\t[Category(\"{0}\")]", c["Category"].GetString()));
                 csFile.AppendLine(string.Format("\t\t[Description(\"{0}\")]", c["Description"].GetString()));
+                if (c["ReadOnly"] != null && c["ReadOnly"].GetBool())
+                    csFile.AppendLine("\t\t[ReadOnly(true)]");
 
                 csFile.Append("\t\t[DefaultValue(");
                 if(type == "string")
@@ -217,6 +219,7 @@ namespace WorldSmith.DataSchema
                     csFile.Append("typeof(PerLevel), \"" + c["DefaultValue"].GetString() + "\"");
                 }
                 csFile.AppendLine(")]");
+              
 
                 csFile.AppendLine(string.Format("\t\tpublic {0} {1}", type, c.Key));
                 csFile.AppendLine("\t\t{");
