@@ -8,7 +8,7 @@ using WorldSmith.DataClasses.UI;
 
 namespace WorldSmith.DataClasses
 {
-	class DotaBaseUnit : DotaDataObject
+	class DotaBaseUnit : BaseScriptType
 	{
 		[Category("General")]
 		[Description("Model.")]

@@ -135,6 +135,7 @@ namespace WorldSmith.DataSchema
 
             return "CANTDETERMINE";
         }
+        
         #endregion
 
         #region ClassGenerator
@@ -183,7 +184,7 @@ namespace WorldSmith.DataSchema
                     csFile.AppendLine("\t\t{");
                     foreach(KeyValue kv in c["PossibleValues"].Children)
                     {
-                        csFile.AppendLine("\t\t\t" + kv.Key + " = " + kv.GetInt().ToString() + ",");
+                        csFile.AppendLine("\t\t\t" + kv.Key + " = " + kv.GetString() + ",");
                     }
                     csFile.AppendLine("\t\t}");
                     csFile.AppendLine();

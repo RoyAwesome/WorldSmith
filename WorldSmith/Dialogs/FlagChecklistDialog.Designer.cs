@@ -61,7 +61,7 @@
             this.ListBox.Location = new System.Drawing.Point(12, 12);
             this.ListBox.MultiColumn = true;
             this.ListBox.Name = "ListBox";
-            this.ListBox.Size = new System.Drawing.Size(662, 244);
+            this.ListBox.Size = new System.Drawing.Size(662, 304);
             this.ListBox.TabIndex = 2;
             // 
             // FlagChecklistDialog
@@ -78,7 +78,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Edit";
+            this.Text = "Edit Values";
             this.ResumeLayout(false);
 
         }

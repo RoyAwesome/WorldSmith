@@ -26,8 +26,6 @@ namespace WorldSmith
         private void InitTabs()
         {
             abilityCategory.Init("Ability", DotaData.DefaultAbilities, DotaData.CustomAbilities);
-
-            
         }
    
 
@@ -95,7 +93,8 @@ namespace WorldSmith
                 if (Properties.Settings.Default.AddonPath == "") return; //if we still don't have an addon loaded, don't even bother
             }
 
-            DotaData.SaveUnits();
+            AssetLoadingDialog dialog = new AssetLoadingDialog();
+            dialog.ShowDialog(AssetLoadingDialog.AddonSaveTasks);
         }
 
         private void setDotaDirectoryToolStripMenuItem_Click(object sender, EventArgs e)

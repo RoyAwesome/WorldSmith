@@ -186,7 +186,7 @@ namespace WorldSmith.DataClasses
             SaveList(CustomAbilities, "DOTAAbilities", "npc_abilities_custom.txt");
         }
 
-        private static void SaveList<T>(List<T> list, string RootKey, string outputFileName) where T : DotaDataObject
+        public static void SaveList<T>(List<T> list, string RootKey, string outputFileName) where T : DotaDataObject
         {
             string path = Properties.Settings.Default.AddonPath + Path.DirectorySeparatorChar
                 + "scripts" + Path.DirectorySeparatorChar + "npc" + Path.DirectorySeparatorChar;

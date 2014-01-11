@@ -24,12 +24,13 @@ namespace WorldSmith
      
 #if GENERATECLASSES
             string outputDir = "../../DataClasses/";
+            string unitDir = outputDir + "ScriptTypes/";
             string inputDir = "../../DataSchema/";
-            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "BaseUnitSchema.txt", outputDir);
-            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "HeroSchema.txt", outputDir);
-            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "UnitSchema.txt", outputDir);
-            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "AbilitySchema.txt", outputDir);
-            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "ItemSchema.txt", outputDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "BaseUnitSchema.txt", unitDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "HeroSchema.txt", unitDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "UnitSchema.txt", unitDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "AbilitySchema.txt", unitDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "ItemSchema.txt", unitDir);
 #else
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -56,7 +57,7 @@ namespace WorldSmith
             }
             Application.ApplicationExit += Application_ApplicationExit;
 
-            Application.Run(new MainForm());
+            Application.Run(mainForm = new MainForm());
 
             Properties.Settings.Default.Save();
 #endif
@@ -66,6 +67,8 @@ namespace WorldSmith
         static void Application_ApplicationExit(object sender, EventArgs e)
         {
             DotaData.Shutdown();
-        }      
+        }
+
+        public static MainForm mainForm;
     }
 }

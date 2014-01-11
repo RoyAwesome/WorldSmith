@@ -1,0 +1,14 @@
+﻿"Schema"
+{
+	"ClassName" "TargetedAction"
+	"BaseClass" "DotaDataObject"
+
+	"Target"
+	{
+		"Category"	"Target"
+		"Description"	"Target for this action"
+		"Type"	"TargetKey"
+		"DefaultValue"	"TARGET"
+	}
+
+}

@@ -85,7 +85,7 @@ namespace WorldSmith.DataClasses
 
         public override void SetValue(object component, object value)
         {
-            this.item[index] = (int)value;
+            this.item[index] = Convert.ToSingle(value);
         }
 
         public override bool ShouldSerializeValue(object component)

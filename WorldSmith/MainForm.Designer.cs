@@ -50,7 +50,6 @@
             this.abilityCategory = new WorldSmith.Panels.CategoryEditor();
             this.modifierEditor = new System.Windows.Forms.TabPage();
             this.categoryEditor1 = new WorldSmith.Panels.CategoryEditor();
-            this.oPENDIALOGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.unitTab.SuspendLayout();
@@ -135,8 +134,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setDotaDirectoryToolStripMenuItem,
-            this.oPENDIALOGToolStripMenuItem});
+            this.setDotaDirectoryToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -245,13 +243,6 @@
             this.categoryEditor1.Size = new System.Drawing.Size(908, 643);
             this.categoryEditor1.TabIndex = 0;
             // 
-            // oPENDIALOGToolStripMenuItem
-            // 
-            this.oPENDIALOGToolStripMenuItem.Name = "oPENDIALOGToolStripMenuItem";
-            this.oPENDIALOGToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.oPENDIALOGToolStripMenuItem.Text = "OPEN DIALOG";
-            this.oPENDIALOGToolStripMenuItem.Click += new System.EventHandler(this.oPENDIALOGToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,7 +272,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage addonConfig;
         private System.Windows.Forms.TabPage unitTab;
         private System.Windows.Forms.TabPage itemTab;
@@ -300,7 +291,6 @@
         private Panels.CategoryEditor categoryEditor1;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setDotaDirectoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem oPENDIALOGToolStripMenuItem;
     }
 }
 
