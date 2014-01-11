@@ -5,23 +5,23 @@
 
 	"ItemCost"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"How much this item costs. This value is overriden by recipe requirements."
 		"Type"	"int"
 		"DefaultValue"	"0"
 	}
 
 	"ItemInitialCharges"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Charges"
+		"Description"	"How many charges this item starts with."
 		"Type"	"int"
 		"DefaultValue"	"0"
 	}
 
 	"ItemCombinable"
 	{
-		"Category"	"Misc"
+		"Category"	"General"
 		"Description"	"No Description Set"
 		"Type"	"bool"
 		"DefaultValue"	"1"
@@ -29,7 +29,7 @@
 
 	"ItemPermanent"
 	{
-		"Category"	"Misc"
+		"Category"	"General"
 		"Description"	"No Description Set"
 		"Type"	"bool"
 		"DefaultValue"	"1"
@@ -37,72 +37,72 @@
 
 	"ItemStackable"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"If this item is stackable or not. Usually used for consumables."
 		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
 
 	"ItemRecipe"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"States if this item is a recipe or not."
 		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
 
 	"ItemDroppable"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"States if you are able to drop this item on the ground."
 		"Type"	"bool"
 		"DefaultValue"	"1"
 	}
 
 	"ItemPurchasable"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Purchase"
+		"Description"	"States whether or not you can purchase this item."
 		"Type"	"bool"
 		"DefaultValue"	"1"
 	}
 
 	"ItemSellable"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Purchase"
+		"Description"	"States whether or not you can sell this item."
 		"Type"	"bool"
 		"DefaultValue"	"1"
 	}
 
 	"ItemRequiresCharges"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Charges"
+		"Description"	"States whether or not this item requires charges."
 		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
 
 	"ItemKillable"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"States whether or not you can destroy this item by attacking it."
 		"Type"	"bool"
 		"DefaultValue"	"1"
 	}
 
 	"ItemDisassemblable"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"States whether or not you can disassemble this item."
 		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
 
 	"ItemShareability"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"States whether or not you can share this item."
 		"Type"	"enum"
 		"DefaultValue"	"ITEM_NOT_SHAREABLE"
 		"PossibleValues"
@@ -118,16 +118,16 @@
 
 	"ItemDeclaresPurchase"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Purchase"
+		"Description"	"States whether or not this item displays a notification when bought."
 		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
 
 	"ItemDeclarations"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Purchase"
+		"Description"	"States the type of notification displayed when this item is purchased."
 		"Type"	"flags"
 		"DefaultValue"	"DECLARE_PURCHASES_NONE"
 		"PossibleValues"
