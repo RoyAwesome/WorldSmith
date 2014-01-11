@@ -50,6 +50,7 @@
             this.abilityCategory = new WorldSmith.Panels.CategoryEditor();
             this.modifierEditor = new System.Windows.Forms.TabPage();
             this.categoryEditor1 = new WorldSmith.Panels.CategoryEditor();
+            this.oPENDIALOGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.unitTab.SuspendLayout();
@@ -86,7 +87,7 @@
             this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addonToolStripMenuItem1});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // addonToolStripMenuItem1
@@ -101,7 +102,7 @@
             this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addonToolStripMenuItem});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // addonToolStripMenuItem
@@ -115,26 +116,27 @@
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(135, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setDotaDirectoryToolStripMenuItem});
+            this.setDotaDirectoryToolStripMenuItem,
+            this.oPENDIALOGToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -243,6 +245,13 @@
             this.categoryEditor1.Size = new System.Drawing.Size(908, 643);
             this.categoryEditor1.TabIndex = 0;
             // 
+            // oPENDIALOGToolStripMenuItem
+            // 
+            this.oPENDIALOGToolStripMenuItem.Name = "oPENDIALOGToolStripMenuItem";
+            this.oPENDIALOGToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.oPENDIALOGToolStripMenuItem.Text = "OPEN DIALOG";
+            this.oPENDIALOGToolStripMenuItem.Click += new System.EventHandler(this.oPENDIALOGToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,6 +300,7 @@
         private Panels.CategoryEditor categoryEditor1;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setDotaDirectoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oPENDIALOGToolStripMenuItem;
     }
 }
 

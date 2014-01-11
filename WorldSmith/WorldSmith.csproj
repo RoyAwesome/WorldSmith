@@ -11,7 +11,8 @@
     <AssemblyName>WorldSmith</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -21,10 +22,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -61,6 +62,18 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>47034E8BD1C9D972E1337A2FEF026E1032FCEC07</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>WorldSmith_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="KVLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -132,6 +145,12 @@
     <Compile Include="Panels\CategoryEditor.Designer.cs">
       <DependentUpon>CategoryEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\FlagChecklistDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FlagChecklistDialog.Designer.cs">
+      <DependentUpon>FlagChecklistDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Panels\UnitEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,6 +177,9 @@
     <EmbeddedResource Include="Panels\CategoryEditor.resx">
       <DependentUpon>CategoryEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FlagChecklistDialog.resx">
+      <DependentUpon>FlagChecklistDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Panels\UnitEditor.resx">
       <DependentUpon>UnitEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +204,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="WorldSmith_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

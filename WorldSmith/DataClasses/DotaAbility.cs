@@ -5,6 +5,7 @@
 using System;
 using System.ComponentModel;
 using WorldSmith.DataClasses.UI;
+using WorldSmith.Panels;
 
 namespace WorldSmith.DataClasses
 {
@@ -82,7 +83,8 @@ namespace WorldSmith.DataClasses
 			DOTA_ABILITY_TYPE_ULTIMATE = 536870912,
 		}
 
-		[Editor(typeof(FlagEnumUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [Editor(typeof(FlagEnumDialogUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        //[Editor(typeof(FlagEnumUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[Category("General")]
 		[Description("States how this ability behaves.")]
 		[DefaultValue(AbilityBehaviorFlags.DOTA_ABILITY_BEHAVIOR_NONE)]

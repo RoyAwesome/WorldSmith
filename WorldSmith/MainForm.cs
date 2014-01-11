@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorldSmith.DataClasses;
 using WorldSmith.Dialogs;
+using WorldSmith.Panels;
 
 namespace WorldSmith
 {
@@ -111,6 +112,12 @@ namespace WorldSmith
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void oPENDIALOGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FlagChecklistDialog dialog = new FlagChecklistDialog();
+            dialog.ShowDialog();
         }
     }
 }
