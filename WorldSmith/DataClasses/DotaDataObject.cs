@@ -119,7 +119,7 @@ namespace WorldSmith.DataClasses
                 if (typeof(Enum).IsAssignableFrom(info.PropertyType))
                 {
                     data = info.GetMethod.Invoke(this, new object[] { });
-                    subkey.Set(data.ToString());
+                    subkey.Set(data.ToString().Replace(",", " |"));
                 }
                 if (info.PropertyType == typeof(PerLevel))
                 {

@@ -78,9 +78,7 @@
 			//So instead of hacking together codegen to cross reference flag types
 			//i'm just going to add them to this list.  Gotta love strongly typed enums.  
 
-			"DOTA_ABILITY_TYPE_BASIC"						"536870912"	
-			"DOTA_ABILITY_TYPE_ATTRIBUTES"					"1073741824"
-			"DOTA_ABILITY_TYPE_ULTIMATE"					"2147483648"	
+			"DOTA_ABILITY_TYPE_ULTIMATE"					"536870912"	
 		}
 	}
 
