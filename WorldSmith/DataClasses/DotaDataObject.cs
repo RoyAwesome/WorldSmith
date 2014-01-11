@@ -61,8 +61,17 @@ namespace WorldSmith.DataClasses
                 }
                 if (typeof(Enum).IsAssignableFrom(info.PropertyType) && subkey.GetString() != "")
                 {
-                    if (info.PropertyType.GetCustomAttribute(typeof(FlagsAttribute)) != null) continue;
-                    data = Enum.Parse(info.PropertyType, subkey.GetString());
+                    if (info.PropertyType.GetCustomAttribute(typeof(FlagsAttribute)) != null)
+                    {
+                        string[] flags = subkey.GetString().Replace(" ", "").Split('|');
+                        string p = String.Join(", ", flags);
+
+                        data = Enum.Parse(info.PropertyType, p);                        
+                    }
+                    else
+                    {
+                        data = Enum.Parse(info.PropertyType, subkey.GetString());
+                    }
                 }
                 if (info.PropertyType == typeof(PerLevel))
                 {
