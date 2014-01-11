@@ -9,8 +9,8 @@ namespace WorldSmith.DataClasses
 {
 	class DotaItem : DotaAbility
 	{
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("How much this item costs. This value is overriden by recipe requirements.")]
 		[DefaultValue(0)]
 		public int ItemCost
 		{
@@ -18,8 +18,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Charges")]
+		[Description("How many charges this item starts with.")]
 		[DefaultValue(0)]
 		public int ItemInitialCharges
 		{
@@ -27,7 +27,7 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
+		[Category("General")]
 		[Description("No Description Set")]
 		[DefaultValue(true)]
 		public bool ItemCombinable
@@ -36,7 +36,7 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
+		[Category("General")]
 		[Description("No Description Set")]
 		[DefaultValue(true)]
 		public bool ItemPermanent
@@ -45,8 +45,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("If this item is stackable or not. Usually used for consumables.")]
 		[DefaultValue(false)]
 		public bool ItemStackable
 		{
@@ -54,8 +54,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("States if this item is a recipe or not.")]
 		[DefaultValue(false)]
 		public bool ItemRecipe
 		{
@@ -63,8 +63,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("States if you are able to drop this item on the ground.")]
 		[DefaultValue(true)]
 		public bool ItemDroppable
 		{
@@ -72,8 +72,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Purchase")]
+		[Description("States whether or not you can purchase this item.")]
 		[DefaultValue(true)]
 		public bool ItemPurchasable
 		{
@@ -81,8 +81,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Purchase")]
+		[Description("States whether or not you can sell this item.")]
 		[DefaultValue(true)]
 		public bool ItemSellable
 		{
@@ -90,8 +90,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Charges")]
+		[Description("States whether or not this item requires charges.")]
 		[DefaultValue(false)]
 		public bool ItemRequiresCharges
 		{
@@ -99,8 +99,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("States whether or not you can destroy this item by attacking it.")]
 		[DefaultValue(true)]
 		public bool ItemKillable
 		{
@@ -108,8 +108,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("States whether or not you can disassemble this item.")]
 		[DefaultValue(false)]
 		public bool ItemDisassemblable
 		{
@@ -125,8 +125,8 @@ namespace WorldSmith.DataClasses
 			ITEM_NOT_SHAREABLE,
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("General")]
+		[Description("States whether or not you can share this item.")]
 		[DefaultValue(ItemShareabilityEnum.ITEM_NOT_SHAREABLE)]
 		public ItemShareabilityEnum ItemShareability
 		{
@@ -134,8 +134,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Purchase")]
+		[Description("States whether or not this item displays a notification when bought.")]
 		[DefaultValue(false)]
 		public bool ItemDeclaresPurchase
 		{
@@ -152,8 +152,8 @@ namespace WorldSmith.DataClasses
 			DECLARE_PURCHASES_TO_TEAMMATES = 4,
 		}
 
-		[Category("Misc")]
-		[Description("No Description Set")]
+		[Category("Purchase")]
+		[Description("States the type of notification displayed when this item is purchased.")]
 		[DefaultValue(ItemDeclarationsFlags.DECLARE_PURCHASES_NONE)]
 		public ItemDeclarationsFlags ItemDeclarations
 		{
