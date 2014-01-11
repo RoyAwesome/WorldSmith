@@ -83,14 +83,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataClasses\DotaAbility.cs" />
-    <Compile Include="DataClasses\DotaBaseUnit.cs" />
+    <Compile Include="DataClasses\PropertyTypes\TargetKey.cs" />
+    <Compile Include="DataClasses\ScriptTypes\BaseScriptType.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaAbility.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaBaseUnit.cs" />
     <Compile Include="DataClasses\DotaData.cs" />
     <Compile Include="DataClasses\DotaDataObject.cs" />
-    <Compile Include="DataClasses\DotaHero.cs" />
-    <Compile Include="DataClasses\DotaItem.cs" />
-    <Compile Include="DataClasses\DotaUnit.cs" />
-    <Compile Include="DataClasses\PerLevel.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaHero.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaItem.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaUnit.cs" />
+    <Compile Include="DataClasses\PropertyTypes\AbilitySpecial.cs" />
+    <Compile Include="DataClasses\PropertyTypes\PerLevel.cs" />
     <Compile Include="DataClasses\UI\FlagCheckListBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -200,6 +203,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="DataSchema\AbilitySchema.txt" />
+    <Content Include="DataSchema\ActionSchemas\ApplyModifier.txt" />
+    <Content Include="DataSchema\ActionSchemas\TargetedAction.txt" />
     <Content Include="DataSchema\BaseUnitSchema.txt" />
     <Content Include="DataSchema\HeroSchema.txt" />
     <Content Include="DataSchema\ItemSchema.txt" />
@@ -223,7 +228,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DataClasses\ActionTypes\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

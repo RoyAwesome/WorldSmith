@@ -38,6 +38,13 @@ namespace WorldSmith.Dialogs
             } },           
         };
 
+        public static Dictionary<string, Task> AddonSaveTasks = new Dictionary<string, Task>()
+        {
+            {"Saving npc_units_custom.txt", () => { DotaData.SaveList(DotaData.CustomUnits, "DOTAUnits", "npc_units_custom.txt");} },
+            {"Saving npc_heroes_custom.txt", () => { DotaData.SaveList(DotaData.OverridenHeroes, "DOTAHeroes", "npc_heroes_custom.txt");} },
+            {"Saving npc_abilities_custom.txt", () => { DotaData.SaveList(DotaData.CustomAbilities, "DOTAAbilities", "npc_abilities_custom.txt");} },
+            
+        };
 
         public AssetLoadingDialog()
         {

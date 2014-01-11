@@ -10,7 +10,7 @@ using System.Reflection;
 namespace WorldSmith.DataClasses
 {
     public class DotaDataObject : ICloneable
-    {       
+    {
         [Category("Base")]
         [Description("Class name for this object")]
         public string ClassName
@@ -18,14 +18,6 @@ namespace WorldSmith.DataClasses
             get;
             set;
         }
-
-        [Category("Base")]
-        [Description("Class name for this object")]
-        public string BaseClass
-        {
-            get;
-            set;
-        }        
 
         public virtual void LoadFromKeyValues(KeyValue kv)
         {
@@ -90,40 +82,41 @@ namespace WorldSmith.DataClasses
 
             foreach (PropertyInfo info in properties)
             {
+                //Don't want to write ClassName to the file since it's the key
                 if (info.Name == "ClassName") continue;
                 if (info.Name == "WasModified") continue;
 
-                KeyValue subkey = new KeyValue(info.Name);
-                
-                object data = null;
+
+                object data = info.GetMethod.Invoke(this, new object[] { });
+                //If the value is default, skip it.
+                DefaultValueAttribute attib = info.GetCustomAttribute<DefaultValueAttribute>();
+                if ( attib != null && attib.Value == data) continue;
+
+
+
+                KeyValue subkey = new KeyValue(info.Name);    
                 if (info.PropertyType == typeof(int))
-                {
-                    data = info.GetMethod.Invoke(this, new object[] { });
+                {                    
                     subkey.Set((int)data);
                 }
                 if (info.PropertyType == typeof(float))
-                {
-                    data = info.GetMethod.Invoke(this, new object[] { });
+                {                    
                     subkey.Set((float)data);
                 }
                 if (info.PropertyType == typeof(bool))
-                {
-                    data = info.GetMethod.Invoke(this, new object[] { });
+                {                    
                     subkey.Set((bool)data);
                 }
                 if (info.PropertyType == typeof(string))
-                {
-                    data = info.GetMethod.Invoke(this, new object[] { });
+                {                   
                     subkey.Set((string)data);
                 }
                 if (typeof(Enum).IsAssignableFrom(info.PropertyType))
                 {
-                    data = info.GetMethod.Invoke(this, new object[] { });
                     subkey.Set(data.ToString().Replace(",", " |"));
                 }
                 if (info.PropertyType == typeof(PerLevel))
                 {
-                    data = info.GetMethod.Invoke(this, new object[] { });
                     if (data == null) subkey.Set("");
                     else subkey.Set(((PerLevel)data).ToString());
                 }
