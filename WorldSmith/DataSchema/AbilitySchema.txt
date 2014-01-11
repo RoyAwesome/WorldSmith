@@ -5,8 +5,8 @@
 
 	"ID"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"The unique ID number of this ability. No spells may have the same ID number."
 		"Type"	"int"
 		"DefaultValue"	"0"
 		"ReadOnly"		"1"
@@ -14,8 +14,8 @@
 
 	"AbilityType"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"States which type of ability this is, from basic, stats, ultimate, or hidden."
 		"Type"	"enum"
 		"DefaultValue"	"DOTA_ABILITY_TYPE_BASIC"
 		"PossibleValues"
@@ -37,8 +37,8 @@
 
 	"AbilityBehavior"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"States how this ability behaves."
 		"Type"	"flags"
 		"DefaultValue"	"DOTA_ABILITY_BEHAVIOR_NONE"
 		"PossibleValues"
@@ -84,8 +84,8 @@
 
 	"AbilityTextureName"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"General"
+		"Description"	"The icon image for this ability."
 		"Type"	"string"
 		"DefaultValue"	""
 	}
@@ -110,15 +110,15 @@
 
 	"AbilityCastRange"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
-		"Type"	"int"
+		"Category"	"Casting"
+		"Description"	"The the range at which this spell can cast at."
+		"Type"	"int" //should this not be PerLevel?
 		"DefaultValue"	"0"
 	}
 
 	"AbilityCastRangeBuffer"
 	{
-		"Category"	"Misc"
+		"Category"	"Casting"
 		"Description"	"No Description Set"
 		"Type"	"int"
 		"DefaultValue"	"250"
@@ -126,39 +126,39 @@
 
 	"AbilityCastPoint"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Casting"
+		"Description"	"The cast point of the spell."
 		"Type"	"PerLevel"
 		"DefaultValue"	"0.0 0.0 0.0 0.0"
 	}
 
 	"AbilityChannelTime"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Casting"
+		"Description"	"The duration that this spell can be channeled for."
 		"Type"	"PerLevel"
 		"DefaultValue"	"0.0 0.0 0.0 0.0"
 	}
 
 	"AbilityCooldown"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Casting"
+		"Description"	"The cooldown of this spell."
 		"Type"	"PerLevel"
 		"DefaultValue"	"0.0 0.0 0.0 0.0"
 	}
 
 	"AbilityDuration"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Casting"
+		"Description"	"The duration of this spell."
 		"Type"	"PerLevel"
 		"DefaultValue"	"0.0 0.0 0.0 0.0"
 	}
 
 	"AbilitySharedCooldown"
 	{
-		"Category"	"Misc"
+		"Category"	"Casting"
 		"Description"	"No Description Set"
 		"Type"	"string"
 		"DefaultValue"	""
@@ -166,16 +166,16 @@
 
 	"AbilityDamage"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Casting"
+		"Description"	"The damage that this spell does."
 		"Type"	"PerLevel"
 		"DefaultValue"	"0 0 0 0"
 	}
 
 	"AbilityManaCost"
 	{
-		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Category"	"Casting"
+		"Description"	"The mana cost of this spell."
 		"Type"	"PerLevel"
 		"DefaultValue"	"0 0 0 0"
 	}
@@ -195,7 +195,4 @@
 		"Type"	"float"
 		"DefaultValue"	"0"
 	}
-
-
-
 }
