@@ -91,6 +91,9 @@
     <Compile Include="DataClasses\DotaItem.cs" />
     <Compile Include="DataClasses\DotaUnit.cs" />
     <Compile Include="DataClasses\PerLevel.cs" />
+    <Compile Include="DataClasses\UI\FlagCheckListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataSchema\DataClassGenerator.cs" />
     <Compile Include="Dialogs\AssetLoadingDialog.cs">
       <SubType>Form</SubType>
@@ -220,9 +223,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataClasses\UI\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

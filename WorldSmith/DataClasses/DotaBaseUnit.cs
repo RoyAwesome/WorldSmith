@@ -4,6 +4,7 @@
 ***********************************************************************************/
 using System;
 using System.ComponentModel;
+using WorldSmith.DataClasses.UI;
 
 namespace WorldSmith.DataClasses
 {

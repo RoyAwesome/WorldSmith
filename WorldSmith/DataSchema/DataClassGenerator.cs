@@ -149,6 +149,7 @@ namespace WorldSmith.DataSchema
                
             csFile.AppendLine("using System;");
             csFile.AppendLine("using System.ComponentModel;");
+            csFile.AppendLine("using WorldSmith.DataClasses.UI;");
 
             csFile.AppendLine();
             csFile.AppendLine("namespace WorldSmith.DataClasses");
@@ -186,12 +187,17 @@ namespace WorldSmith.DataSchema
                     }
                     csFile.AppendLine("\t\t}");
                     csFile.AppendLine();
+
+                    csFile.AppendLine("\t\t[Editor(typeof(FlagEnumUIEditor), "
+                        + "typeof(System.Drawing.Design.UITypeEditor))]");
                 }
 
                 csFile.AppendLine(string.Format("\t\t[Category(\"{0}\")]", c["Category"].GetString()));
                 csFile.AppendLine(string.Format("\t\t[Description(\"{0}\")]", c["Description"].GetString()));
                 if (c["ReadOnly"] != null && c["ReadOnly"].GetBool())
                     csFile.AppendLine("\t\t[ReadOnly(true)]");
+
+               
 
                 csFile.Append("\t\t[DefaultValue(");
                 if(type == "string")

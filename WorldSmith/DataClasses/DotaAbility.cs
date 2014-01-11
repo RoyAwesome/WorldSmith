@@ -4,6 +4,7 @@
 ***********************************************************************************/
 using System;
 using System.ComponentModel;
+using WorldSmith.DataClasses.UI;
 
 namespace WorldSmith.DataClasses
 {
@@ -84,6 +85,7 @@ namespace WorldSmith.DataClasses
 			DOTA_ABILITY_TYPE_HIDDEN = 4,
 		}
 
+		[Editor(typeof(FlagEnumUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(AbilityBehaviorFlags.DOTA_ABILITY_BEHAVIOR_NONE)]

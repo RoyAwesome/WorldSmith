@@ -4,6 +4,7 @@
 ***********************************************************************************/
 using System;
 using System.ComponentModel;
+using WorldSmith.DataClasses.UI;
 
 namespace WorldSmith.DataClasses
 {
@@ -152,6 +153,7 @@ namespace WorldSmith.DataClasses
 			DECLARE_PURCHASES_TO_TEAMMATES = 4,
 		}
 
+		[Editor(typeof(FlagEnumUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[Category("Purchase")]
 		[Description("States the type of notification displayed when this item is purchased.")]
 		[DefaultValue(ItemDeclarationsFlags.DECLARE_PURCHASES_NONE)]
