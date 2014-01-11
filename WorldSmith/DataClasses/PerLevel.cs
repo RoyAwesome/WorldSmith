@@ -103,10 +103,10 @@ namespace WorldSmith.DataClasses
         {
             if (value == "")
             {
-                List.Add(0);
-                List.Add(0);
-                List.Add(0);
-                List.Add(0);
+                List.Add(0f);
+                List.Add(0f);
+                List.Add(0f);
+                List.Add(0f);
             }
             else
             {
@@ -131,7 +131,10 @@ namespace WorldSmith.DataClasses
         }
         public float this[int index]
         {
-            get { return (float)this.List[index]; }
+            get {
+                Type t = this.List[index].GetType();
+                return (float)this.List[index]; 
+            }
             set { this.List[index] = value; }
         }
 
