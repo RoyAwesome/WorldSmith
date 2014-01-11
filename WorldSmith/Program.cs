@@ -36,8 +36,8 @@ namespace WorldSmith
 
             if (!Properties.Settings.Default.ranonce)
             {
-                Form initial = new InitialSetup();
-                if (initial.ShowDialog().Equals(DialogResult.OK)) {
+                InitialSetup initial = new InitialSetup(true);
+                if (initial.ShowDialog() == DialogResult.OK) {
                     Properties.Settings.Default.ranonce = true;
                     Properties.Settings.Default.Save();
                 }

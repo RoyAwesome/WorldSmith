@@ -99,7 +99,7 @@ namespace WorldSmith
 
         private void setDotaDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form initial = new InitialSetup();
+            Form initial = new InitialSetup(false);
             initial.ShowDialog();
         }
 
