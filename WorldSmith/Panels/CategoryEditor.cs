@@ -29,6 +29,8 @@ namespace WorldSmith.Panels
 
         public void Init<T>(string type, List<T> DefaultList, List<T> CustomList) where T : DotaDataObject
         {
+            treeView1.Nodes.Clear();
+
             AddDataSourceToNode("default" + type, "Default " + type, 0, DefaultList);
             AddDataSourceToNode("custom" + type, "Custom " + type, 1, CustomList);
             this.CustomList = CustomList;

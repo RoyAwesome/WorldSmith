@@ -26,6 +26,8 @@ namespace WorldSmith
         private void InitTabs()
         {
             abilityCategory.Init("Ability", DotaData.DefaultAbilities, DotaData.CustomAbilities);
+
+            unitEditor1.LoadFromData();
         }
    
 
@@ -75,13 +77,16 @@ namespace WorldSmith
                 return;
             }
 
-            AssetLoadingDialog loader = new AssetLoadingDialog();
-            loader.ShowDialog(AssetLoadingDialog.AddonLoadTasks);
-
-            unitEditor1.LoadFromData();
 
             Properties.Settings.Default.AddonPath = folder;
             Properties.Settings.Default.Save();
+
+            AssetLoadingDialog loader = new AssetLoadingDialog();
+            loader.ShowDialog(AssetLoadingDialog.AddonLoadTasks);
+
+            
+            InitTabs();
+
             
         }
 
