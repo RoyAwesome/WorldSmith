@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace WorldSmith.DataClasses
 {
     
-    class PerLevelConverter : TypeConverter
+    class PerLevelConverter : TypeConverter 
     {
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
         {
@@ -97,7 +97,7 @@ namespace WorldSmith.DataClasses
 
     //[TypeConverter(typeof(PerLevelConverter))]
     [TypeConverter(typeof(ExpandableObjectConverter))]
-    public class PerLevel : CollectionBase, ICustomTypeDescriptor
+    public class PerLevel : CollectionBase, ICustomTypeDescriptor, IEquatable<PerLevel>
     {
         public PerLevel(string value)
         {
@@ -119,6 +119,25 @@ namespace WorldSmith.DataClasses
             }
 
             
+        }
+
+        public bool Equals(PerLevel other)
+        {
+            if (other == null)
+                return false;
+
+            if (this.List.Count != other.List.Count)
+                return false;
+
+            for (int i = 0; i < this.List.Count; i++)
+            {
+                if (!((float)this.List[i]).Equals((float)other.List[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public void Add(float f)
