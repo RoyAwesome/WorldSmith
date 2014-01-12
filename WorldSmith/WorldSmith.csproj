@@ -96,6 +96,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClasses\PropertyTypes\ActionCollection.cs" />
+    <Compile Include="DataClasses\PropertyTypes\ControlPointList.cs" />
     <Compile Include="DataClasses\PropertyTypes\TargetKey.cs" />
     <Compile Include="DataClasses\ScriptTypes\BaseScriptType.cs" />
     <Compile Include="DataClasses\ScriptTypes\DotaAbility.cs" />
@@ -226,8 +228,39 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="DataSchema\AbilitySchema.txt" />
+    <Content Include="DataSchema\ActionSchemas\ActOnTargetAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\AddAbilityAction.txt" />
     <Content Include="DataSchema\ActionSchemas\ApplyModifier.txt" />
+    <Content Include="DataSchema\ActionSchemas\AttachEffectAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\BaseAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\BlinkAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\CleaveAttackAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\CreateBonusAttackAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\CreateItemAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\CreateThinkerAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\CreateThinkerWallAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\DamageAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\DelayedActionAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\DestroyTreesAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\FireEffectAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\FireSoundAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\HealAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\IsCasterAliveAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\KnockbackAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\LevelUpAbilityAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\LifeStealAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\LinearProjectile.txt" />
+    <Content Include="DataSchema\ActionSchemas\MoveUnitAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RandomAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RemoveAbilityAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RemoveModifierAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\ReplaceUnitAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RunScriptAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\SpawnUnitAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\SpendManaAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\StunAction.txt" />
     <Content Include="DataSchema\ActionSchemas\TargetedAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\TrackingProjectileAction.txt" />
     <Content Include="DataSchema\BaseUnitSchema.txt" />
     <Content Include="DataSchema\HeroSchema.txt" />
     <Content Include="DataSchema\ItemSchema.txt" />
