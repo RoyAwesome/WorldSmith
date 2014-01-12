@@ -137,7 +137,7 @@
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.PropertyGrid itemPropertyGrid;
+        public System.Windows.Forms.PropertyGrid itemPropertyGrid;
         private System.Windows.Forms.BindingSource categoryEditorBindingSource;
     }
 }

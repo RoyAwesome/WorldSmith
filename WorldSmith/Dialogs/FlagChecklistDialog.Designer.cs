@@ -37,7 +37,7 @@
             // 
             this.cancelButton.Location = new System.Drawing.Point(328, 330);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(89, 22);
+            this.cancelButton.Size = new System.Drawing.Size(75, 22);
             this.cancelButton.TabIndex = 0;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -47,7 +47,7 @@
             // 
             this.applyButton.Location = new System.Drawing.Point(423, 330);
             this.applyButton.Name = "applyButton";
-            this.applyButton.Size = new System.Drawing.Size(89, 22);
+            this.applyButton.Size = new System.Drawing.Size(75, 22);
             this.applyButton.TabIndex = 1;
             this.applyButton.Text = "Apply";
             this.applyButton.UseVisualStyleBackColor = true;
