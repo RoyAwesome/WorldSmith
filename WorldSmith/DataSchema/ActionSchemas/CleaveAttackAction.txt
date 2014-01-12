@@ -1,0 +1,21 @@
+﻿"Schema"
+{
+	"ClassName" "CleaveAttack"
+	"BaseClass" "ActionBase"
+
+	"CleavePercent"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+	"CleaveRadius"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+}

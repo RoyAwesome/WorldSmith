@@ -1,0 +1,45 @@
+﻿"Schema"
+{
+	"ClassName"	"Knockback"
+	"BaseClass" "TargetedAction"
+
+	"Center"
+	{	
+		"Category"	"Misc"
+		"Description"	"probably null"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"Distance"
+	{	
+		"Category"	"Misc"
+		"Description"	"int"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"IsFixedDistance"
+	{	
+		"Category"	"Misc"
+		"Description"	"bool"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"Height"
+	{	
+		"Category"	"Misc"
+		"Description"	"int"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"Duration"
+	{	
+		"Category"	"Misc"
+		"Description"	"int"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+}

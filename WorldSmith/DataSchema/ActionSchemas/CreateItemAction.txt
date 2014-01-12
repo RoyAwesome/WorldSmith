@@ -1,0 +1,40 @@
+﻿"Schema"
+{
+	"ClassName"	"CreateItem"
+	"BaseClass" "TargetedAction"
+
+	"ItemName"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	
+	"SpawnRadius"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+		
+	"ItemChargeCount"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"BelongsToCaster"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+}

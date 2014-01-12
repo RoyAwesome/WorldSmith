@@ -1,0 +1,5 @@
+﻿"Schema"
+{
+	"ClassName"	"BaseAction"
+	"BaseClass" "DotaDataObject"
+}

@@ -1,12 +1,12 @@
 ﻿"Schema"
 {
-	"ClassName"	"ApplyModifier"
+	"ClassName"	"ReplaceUnit"
 	"BaseClass" "TargetedAction"
 
-	"ModifierName"
+	"UnitName"
 	{	
 		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Description"	"Unit Name"
 		"Type"	"string"
 		"DefaultValue"	""
 	}

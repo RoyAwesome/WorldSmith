@@ -1,12 +1,12 @@
 ﻿"Schema"
 {
-	"ClassName"	"ApplyModifier"
+	"ClassName"	"Stun"
 	"BaseClass" "TargetedAction"
 
-	"ModifierName"
+	"Duration"
 	{	
 		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Description"	"float"
 		"Type"	"string"
 		"DefaultValue"	""
 	}

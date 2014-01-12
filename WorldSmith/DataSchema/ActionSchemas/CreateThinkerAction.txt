@@ -1,12 +1,12 @@
 ﻿"Schema"
 {
-	"ClassName"	"ApplyModifier"
+	"ClassName"	"CreateThinker"
 	"BaseClass" "TargetedAction"
 
 	"ModifierName"
 	{	
 		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Description"	"Modifier Name"
 		"Type"	"string"
 		"DefaultValue"	""
 	}

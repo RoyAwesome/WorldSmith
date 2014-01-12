@@ -1,0 +1,46 @@
+﻿"Schema"
+{
+	"ClassName"	"SpawnUnit"
+	"BaseClass" "TargetedAction"
+
+	"UnitName"
+	{	
+		"Category"	"Misc"
+		"Description"	"Name"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"UnitCount"
+	{	
+		"Category"	"Misc"
+		"Description"	"int"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"SpawnRadius"
+	{	
+		"Category"	"Misc"
+		"Description"	"int"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"Duration"
+	{	
+		"Category"	"Misc"
+		"Description"	"int"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"OnSpawn"
+	{	
+		"Category"	"Misc"
+		"Description"	"Name"
+		"Type"	"ActionCollection"
+		"DefaultValue"	"\"OnSpawn\" { }"
+	}
+
+}

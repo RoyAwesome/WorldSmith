@@ -1,0 +1,23 @@
+﻿"Schema"
+{
+	"ClassName"	"IsCasterAlive"
+	"BaseClass" "BaseAction"
+
+	"OnSuccess"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"ActionCollection"
+		"DefaultValue"	"\"OnSuccess\" { }"
+	}
+
+	
+	"OnFailure"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"ActionCollection"
+		"DefaultValue"	"\"OnFailure\" { }"
+	}
+
+}

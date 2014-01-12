@@ -1,12 +1,12 @@
 ﻿"Schema"
 {
-	"ClassName"	"ApplyModifier"
+	"ClassName"	"Heal"
 	"BaseClass" "TargetedAction"
 
-	"ModifierName"
+	"HealAmount"
 	{	
 		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Description"	"int"
 		"Type"	"string"
 		"DefaultValue"	""
 	}

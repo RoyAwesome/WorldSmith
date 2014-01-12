@@ -1,12 +1,12 @@
 ﻿"Schema"
 {
-	"ClassName"	"ApplyModifier"
+	"ClassName"	"LevelUpAbility"
 	"BaseClass" "TargetedAction"
 
-	"ModifierName"
+	"AbilityName"
 	{	
 		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Description"	"Name"
 		"Type"	"string"
 		"DefaultValue"	""
 	}

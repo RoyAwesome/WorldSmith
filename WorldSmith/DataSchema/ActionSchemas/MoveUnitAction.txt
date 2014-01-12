@@ -1,10 +1,10 @@
 ﻿"Schema"
 {
-	"ClassName" "TargetedAction"
-	"BaseClass" "BaseAction"
+	"ClassName"	"CreateThinker"
+	"BaseClass" "TargetedAction"
 
-	"Target"
-	{
+	"MoveToTarget"
+	{	
 		"Category"	"Misc"
 		"Description"	"No Description Set"
 		"Type"	"TargetKey"

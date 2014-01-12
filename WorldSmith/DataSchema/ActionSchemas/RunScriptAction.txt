@@ -1,0 +1,23 @@
+﻿"Schema"
+{
+	"ClassName"	"RunScript"
+	"BaseClass" "BaseAction"
+
+	"ScriptFile"
+	{	
+		"Category"	"Misc"
+		"Description"	"filename"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+	
+	"Function"
+	{	
+		"Category"	"Misc"
+		"Description"	"filename"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+
+}

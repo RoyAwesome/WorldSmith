@@ -1,0 +1,30 @@
+﻿"Schema"
+{
+	"ClassName"	"CreateThinkerWall"
+	"BaseClass" "CreateThinker"
+
+	"Width"
+	{	
+		"Category"	"Misc"
+		"Description"	"int"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"Length"
+	{	
+		"Category"	"Misc"
+		"Description"	"int"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"Rotation"
+	{	
+		"Category"	"Misc"
+		"Description"	"rotation"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+	
+}

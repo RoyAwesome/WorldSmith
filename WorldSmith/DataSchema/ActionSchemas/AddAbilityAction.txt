@@ -1,10 +1,10 @@
 ﻿"Schema"
 {
-	"ClassName"	"ApplyModifier"
+	"ClassName" "AddAbility"
 	"BaseClass" "TargetedAction"
 
-	"ModifierName"
-	{	
+	"AbilityName"
+	{
 		"Category"	"Misc"
 		"Description"	"No Description Set"
 		"Type"	"string"

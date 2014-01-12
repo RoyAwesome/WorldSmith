@@ -1,0 +1,46 @@
+﻿"Schema"
+{
+	"ClassName" "AttachEffect"
+	"BaseClass" "TargetedAction"
+
+	"EffectName"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+	"EffectAttachType"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"enum"
+		"DefaultValue"	"follow_origin"
+		"PossibleValues"
+		{
+			"0"		"start_at_origin"
+			"0"		"follow_origin"
+			"0"		"start_at_customorigin"
+			"0"		"follow_customorigin"
+			"0"		"start_at_attachment"
+			"0"		"follow_attachment"
+			"0"		"follow_eyes"
+			"0"		"follow_overhead"
+			"0"		"world_origin"
+			"0"		"follow_rootbone"
+			"0"		"follow_attachment_substepped"
+			"0"		"follow_renderorigin"			
+		}
+	}
+
+	"ControlPoints"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"ControlPointList"
+		"DefaultValue"	"\"ControlPointList\" { }"
+	}
+
+
+}

@@ -1,14 +1,14 @@
 ﻿"Schema"
 {
-	"ClassName"	"ApplyModifier"
+	"ClassName"	"ActOnTarget"
 	"BaseClass" "TargetedAction"
 
-	"ModifierName"
+	"Action"
 	{	
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"string"
-		"DefaultValue"	""
+		"Type"	"BaseAction"
+		"DefaultValue"	"null"
 	}
 
 }

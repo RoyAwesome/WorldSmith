@@ -1,12 +1,12 @@
 ﻿"Schema"
 {
-	"ClassName"	"ApplyModifier"
+	"ClassName"	"DestroyTrees"
 	"BaseClass" "TargetedAction"
 
-	"ModifierName"
+	"Radius"
 	{	
 		"Category"	"Misc"
-		"Description"	"No Description Set"
+		"Description"	"float"
 		"Type"	"string"
 		"DefaultValue"	""
 	}

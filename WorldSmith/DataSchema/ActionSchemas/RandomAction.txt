@@ -1,0 +1,65 @@
+﻿"Schema"
+{
+	"ClassName"	"ApplyModifier"
+	"BaseClass" "TargetedAction"
+
+	"Chance"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	".5"
+	}
+
+	"PseudoRandom"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"enum"
+		"DefaultValue"	"DOTA_PSEUDO_RANDOM_JUGG_CRIT"
+		"PossibleTypes"
+		{
+			"0"		"DOTA_PSEUDO_RANDOM_BREWMASTER_CRIT"
+			"1"		"DOTA_PSEUDO_RANDOM_CHAOS_CRIT"	
+			"2"		"DOTA_PSEUDO_RANDOM_FACELESS_BASH"	
+			"3"		"DOTA_PSEUDO_RANDOM_ITEM_ABYSSAL"	
+			"4"		"DOTA_PSEUDO_RANDOM_ITEM_BASHER"	
+			"5"		"DOTA_PSEUDO_RANDOM_ITEM_BUTTERFLY"	
+			"6"		"DOTA_PSEUDO_RANDOM_ITEM_GREATERCRIT"	
+			"7"		"DOTA_PSEUDO_RANDOM_ITEM_HALBRED_MAIM"	
+			"8"		"DOTA_PSEUDO_RANDOM_ITEM_LESSERCRIT"	
+			"9"		"DOTA_PSEUDO_RANDOM_ITEM_MAELSTROM"	
+			"10"	"DOTA_PSEUDO_RANDOM_ITEM_MJOLLNIR"	
+			"11"	"DOTA_PSEUDO_RANDOM_ITEM_MJOLLNIR_STATIC"	
+			"12"	"DOTA_PSEUDO_RANDOM_ITEM_MKB"	
+			"13"	"DOTA_PSEUDO_RANDOM_ITEM_PMS"	
+			"14"	"DOTA_PSEUDO_RANDOM_ITEM_SANGE_MAIM"	
+			"15"	"DOTA_PSEUDO_RANDOM_ITEM_SANGEYASHA_MAIM"	
+			"16"	"DOTA_PSEUDO_RANDOM_ITEM_STOUT"	
+			"17"	"DOTA_PSEUDO_RANDOM_ITEM_VANGUARD"	
+			"18"	"DOTA_PSEUDO_RANDOM_JUGG_CRIT"	
+			"19"	"DOTA_PSEUDO_RANDOM_LYCAN_CRIT"	
+			"20"	"DOTA_PSEUDO_RANDOM_PHANTOMASSASSIN_CRIT"	
+			"21"	"DOTA_PSEUDO_RANDOM_SKELETONKING_CRIT"	
+			"22"	"DOTA_PSEUDO_RANDOM_SLARDAR_BASH"	
+			"23"	"DOTA_PSEUDO_RANDOM_SNIPER_HEADSHOT"	
+			"24"	"DOTA_PSEUDO_RANDOM_TROLL_BASH"
+		}
+	}
+
+	"OnSuccess"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"ActionCollection"
+		"DefaultValue"	"null"
+	}
+	"OnFailure"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"ActionCollection"
+		"DefaultValue"	"null"
+	}
+
+}

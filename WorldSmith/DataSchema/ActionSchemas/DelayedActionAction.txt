@@ -1,0 +1,21 @@
+﻿"Schema"
+{
+	"ClassName"	"DelayedAction"
+	"BaseClass" "ActionBase"
+
+	"Action"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"ActionCollection"
+		"DefaultValue"	"null"
+	}
+
+	"Delay"
+	{	
+		"Category"	"Misc"
+		"Description"	"float"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+}
