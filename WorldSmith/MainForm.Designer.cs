@@ -48,14 +48,11 @@
             this.itemCategory = new WorldSmith.Panels.CategoryEditor();
             this.abilityTab = new System.Windows.Forms.TabPage();
             this.abilityCategory = new WorldSmith.Panels.CategoryEditor();
-            this.modifierEditor = new System.Windows.Forms.TabPage();
-            this.categoryEditor1 = new WorldSmith.Panels.CategoryEditor();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.unitTab.SuspendLayout();
             this.itemTab.SuspendLayout();
             this.abilityTab.SuspendLayout();
-            this.modifierEditor.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -152,7 +149,6 @@
             this.tabControl1.Controls.Add(this.unitTab);
             this.tabControl1.Controls.Add(this.itemTab);
             this.tabControl1.Controls.Add(this.abilityTab);
-            this.tabControl1.Controls.Add(this.modifierEditor);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
@@ -225,24 +221,6 @@
             this.abilityCategory.Size = new System.Drawing.Size(908, 643);
             this.abilityCategory.TabIndex = 0;
             // 
-            // modifierEditor
-            // 
-            this.modifierEditor.Controls.Add(this.categoryEditor1);
-            this.modifierEditor.Location = new System.Drawing.Point(4, 22);
-            this.modifierEditor.Name = "modifierEditor";
-            this.modifierEditor.Size = new System.Drawing.Size(908, 643);
-            this.modifierEditor.TabIndex = 4;
-            this.modifierEditor.Text = "Modifier Editor";
-            this.modifierEditor.UseVisualStyleBackColor = true;
-            // 
-            // categoryEditor1
-            // 
-            this.categoryEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.categoryEditor1.Location = new System.Drawing.Point(0, 0);
-            this.categoryEditor1.Name = "categoryEditor1";
-            this.categoryEditor1.Size = new System.Drawing.Size(908, 643);
-            this.categoryEditor1.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,7 +240,6 @@
             this.unitTab.ResumeLayout(false);
             this.itemTab.ResumeLayout(false);
             this.abilityTab.ResumeLayout(false);
-            this.modifierEditor.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,7 +254,6 @@
         private System.Windows.Forms.TabPage unitTab;
         private System.Windows.Forms.TabPage itemTab;
         private System.Windows.Forms.TabPage abilityTab;
-        private System.Windows.Forms.TabPage modifierEditor;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addonToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
@@ -288,7 +264,6 @@
         private Panels.CategoryEditor itemCategory;
         private Panels.UnitEditor unitEditor1;
         private Panels.CategoryEditor abilityCategory;
-        private Panels.CategoryEditor categoryEditor1;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setDotaDirectoryToolStripMenuItem;
     }

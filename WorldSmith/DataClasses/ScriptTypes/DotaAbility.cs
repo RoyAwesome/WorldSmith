@@ -21,6 +21,15 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue("")]
+		public string AbilityName
+		{
+			get;
+			set;
+		}
+
 		public enum AbilityTypeEnum
 		{
 			DOTA_ABILITY_TYPE_BASIC,
@@ -38,10 +47,19 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
+		public enum AbilityUnitDamageTypeEnum
+		{
+			DAMAGE_TYPE_COMPOSITE,
+			DAMAGE_TYPE_HP_REMOVAL,
+			DAMAGE_TYPE_MAGICAL,
+			DAMAGE_TYPE_PHYSICAL,
+			DAMAGE_TYPE_PURE,
+		}
+
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(0)]
-		public int MaxLevel
+		[DefaultValue(AbilityUnitDamageTypeEnum.DAMAGE_TYPE_MAGICAL)]
+		public AbilityUnitDamageTypeEnum AbilityUnitDamageType
 		{
 			get;
 			set;

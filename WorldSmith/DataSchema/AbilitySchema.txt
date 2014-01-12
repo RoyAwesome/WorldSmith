@@ -12,6 +12,15 @@
 		"ReadOnly"		"1"
 	}
 
+	"AbilityName"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"string"
+		"DefaultValue"	""
+	}
+
+
 	"AbilityType"
 	{
 		"Category"	"Misc"
@@ -27,13 +36,23 @@
 		}
 	}
 
-	"MaxLevel"
+	
+	"AbilityUnitDamageType"
 	{
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"int"
-		"DefaultValue"	"0"
+		"Type"	"enum"
+		"DefaultValue"	"DAMAGE_TYPE_MAGICAL"
+		"PossibleValues"
+		{
+			"0" "DAMAGE_TYPE_COMPOSITE"
+			"1" "DAMAGE_TYPE_HP_REMOVAL"
+			"2" "DAMAGE_TYPE_MAGICAL"
+			"3" "DAMAGE_TYPE_PHYSICAL"
+			"4" "DAMAGE_TYPE_PURE"
+		}
 	}
+
 
 	"AbilityBehavior"
 	{
