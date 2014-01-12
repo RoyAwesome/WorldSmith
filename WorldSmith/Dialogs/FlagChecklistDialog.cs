@@ -39,7 +39,17 @@ namespace WorldSmith.Panels
 
         public new DialogResult ShowDialog()
         {
-            Console.WriteLine(ListBox.Items.Count);
+            //set the title of the dialog based on which property we are editing
+            TabPage selectedTab = Program.mainForm.tabControl1.SelectedTab;
+            for (int i = 0; i < selectedTab.Controls.Count; i++)
+            {
+                Control c = selectedTab.Controls[i];
+                if (c is CategoryEditor)
+                {
+                    CategoryEditor editor = c as CategoryEditor;
+                    this.Text = "Edit " + editor.itemPropertyGrid.SelectedGridItem.Label;
+                }
+            }
             base.ShowDialog();
             return result;
         }
@@ -62,9 +72,9 @@ namespace WorldSmith.Panels
             }
             ListBox.Size = new Size(newWidth, newHeight);
             ListBox.Location = new Point(border, border);
-            this.Size = new Size((int)(border * 3.5 + newWidth), border * 10 + newHeight);
-            applyButton.Location = new Point(newWidth - applyButton.Size.Width, border + newHeight + applyButton.Size.Height);
-            cancelButton.Location = new Point(newWidth - cancelButton.Size.Width - border - cancelButton.Size.Width, border + newHeight + cancelButton.Size.Height);
+            this.Size = new Size((int)(border * 3.5 + newWidth), (border * 7) + newHeight);
+            applyButton.Location = new Point(newWidth - applyButton.Size.Width + border, this.Size.Height - (int)(applyButton.Size.Height * 2.75));
+            cancelButton.Location = new Point(newWidth - cancelButton.Size.Width - cancelButton.Size.Width, this.Size.Height - (int)(cancelButton.Size.Height * 2.75));
         }
     }
 

@@ -1,4 +1,4 @@
-WorldSmith
+Worldsmith
 ==========
 
 Open source Dota 2 Mod Editor inspired by Warcraft 3's World Edit.  
@@ -8,7 +8,7 @@ You can contact me on IRC at #dota2mods on irc.gamesurge.net.
 
 ## Contributing
 
-Like the project? If you can, please [Donate] to keep the project running.  
+Like this project? If you can, please [Donate] to keep the project running.  
 
 If you can program, I appreciate pull requests.  Please see the pull request guidelines below.
 
@@ -21,11 +21,11 @@ Without a few people, this project would be much much harder.  In no particular 
 
 * penguinwizzard for figuring out how to write maps
 * tet, Sir_Kane, and hex6 for finding the strings for most of the flags and enums
-* Quintinity for some increidbly helpful commits
+* Quintinity for some incredibly helpful commits
 
 
 
-## Compiling the source
+## Compiling the Source
 
 All major dependencies are included in the repository.  They are 
 * [KVLib] - Valve Key-Value parsing library in C#
