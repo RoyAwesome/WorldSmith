@@ -47,4 +47,4 @@ I greatly appreciate pull requests, but I ask contributers to follow some guidel
 
 [KVLib]: https://github.com/RoyAwesome/KVLib
 [Sprache]: https://github.com/sprache/Sprache
-[Donate]: https://www.paypal.com/us/cgi-bin/webscr?cmd=_flow&SESSION=DPJR9Acbb_yxXTU1OIHLymU4mgo36T5Bk3ylNjG0n96UnajyFRC7kkWGB6e&dispatch=5885d80a13c0db1f8e263663d3faee8def8934b92a630e40b7fef61ab7e9fe63
+[Donate]: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WF8XJ8SVQ9UAU&lc=US&item_name=Garrett%20Fleenor&item_number=Worldsmith&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
