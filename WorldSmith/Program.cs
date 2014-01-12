@@ -57,7 +57,7 @@ namespace WorldSmith
             }
             Application.ApplicationExit += Application_ApplicationExit;
 
-            Application.Run(new MainForm());
+            Application.Run(mainForm = new MainForm());
 
             Properties.Settings.Default.Save();
 #endif
@@ -67,6 +67,8 @@ namespace WorldSmith
         static void Application_ApplicationExit(object sender, EventArgs e)
         {
             DotaData.Shutdown();
-        }      
+        }
+
+        public static MainForm mainForm;
     }
 }

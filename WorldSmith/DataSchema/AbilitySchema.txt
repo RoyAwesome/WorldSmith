@@ -271,7 +271,4 @@
 		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
-
-
-
 }
