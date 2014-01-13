@@ -96,6 +96,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClasses\ActionTypes\BaseAction.cs" />
+    <Compile Include="DataClasses\PropertyTypes\AbilityActionCollection.cs" />
     <Compile Include="DataClasses\PropertyTypes\ActionCollection.cs" />
     <Compile Include="DataClasses\PropertyTypes\ControlPointList.cs" />
     <Compile Include="DataClasses\PropertyTypes\TargetKey.cs" />
@@ -113,6 +115,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataSchema\DataClassGenerator.cs" />
+    <Compile Include="Dialogs\ActionEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ActionEditor.Designer.cs">
+      <DependentUpon>ActionEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\AssetLoadingDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +172,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialogs\ActionEditor.resx">
+      <DependentUpon>ActionEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AssetLoadingDialog.resx">
       <DependentUpon>AssetLoadingDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,9 +295,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataClasses\ActionTypes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

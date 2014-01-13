@@ -290,4 +290,12 @@
 		"Type"	"bool"
 		"DefaultValue"	"0"
 	}
+
+	"Actions"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"AbilityActionCollection"
+		"DefaultValue"	""
+	}
 }

@@ -5,6 +5,8 @@
 using System;
 using System.ComponentModel;
 using WorldSmith.DataClasses.UI;
+using WorldSmith.Panels;
+using WorldSmith.Dialogs;
 
 namespace WorldSmith.DataClasses
 {

@@ -23,14 +23,7 @@ namespace WorldSmith
 
      
 #if GENERATECLASSES
-            string outputDir = "../../DataClasses/";
-            string unitDir = outputDir + "ScriptTypes/";
-            string inputDir = "../../DataSchema/";
-            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "BaseUnitSchema.txt", unitDir);
-            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "HeroSchema.txt", unitDir);
-            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "UnitSchema.txt", unitDir);
-            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "AbilitySchema.txt", unitDir);
-            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "ItemSchema.txt", unitDir);
+            GenerateClasses();
 #else
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -70,5 +63,28 @@ namespace WorldSmith
         }
 
         public static MainForm mainForm;
+
+
+        public static void GenerateClasses()
+        {
+            string outputDir = "../../DataClasses/";            
+            string inputDir = "../../DataSchema/";
+
+            string unitDir = outputDir + "ScriptTypes/";
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "BaseUnitSchema.txt", unitDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "HeroSchema.txt", unitDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "UnitSchema.txt", unitDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "AbilitySchema.txt", unitDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "ItemSchema.txt", unitDir);
+
+
+            string actionInputDir = inputDir + "ActionSchemas/";
+            string actionOutputDir = outputDir + "ActionTypes/";
+
+            DataSchema.DataClassGenerator.GenerateClassForSchema(actionInputDir + "BaseAction.txt", actionOutputDir);
+        }
     }
+
+
+
 }

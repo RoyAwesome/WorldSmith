@@ -6,13 +6,14 @@ using System;
 using System.ComponentModel;
 using WorldSmith.DataClasses.UI;
 using WorldSmith.Panels;
+using WorldSmith.Dialogs;
 
 namespace WorldSmith.DataClasses
 {
 	class DotaAbility : BaseScriptType
 	{
-		[Category("General")]
-		[Description("The unique ID number of this ability. No spells may have the same ID number.")]
+		[Category("Misc")]
+		[Description("No Description Set")]
 		[ReadOnly(true)]
 		[DefaultValue(0)]
 		public int ID
@@ -38,8 +39,8 @@ namespace WorldSmith.DataClasses
 			DOTA_ABILITY_TYPE_HIDDEN,
 		}
 
-		[Category("General")]
-		[Description("States which type of ability this is, from basic, stats, ultimate, or hidden.")]
+		[Category("Misc")]
+		[Description("No Description Set")]
 		[DefaultValue(AbilityTypeEnum.DOTA_ABILITY_TYPE_BASIC)]
 		public AbilityTypeEnum AbilityType
 		{
@@ -101,10 +102,9 @@ namespace WorldSmith.DataClasses
 			DOTA_ABILITY_TYPE_ULTIMATE = 536870912,
 		}
 
-        [Editor(typeof(FlagEnumDialogUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
-        //[Editor(typeof(FlagEnumUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
-		[Category("General")]
-		[Description("States how this ability behaves.")]
+		[Editor(typeof(FlagEnumDialogUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
+		[Category("Misc")]
+		[Description("No Description Set")]
 		[DefaultValue(AbilityBehaviorFlags.DOTA_ABILITY_BEHAVIOR_NONE)]
 		public AbilityBehaviorFlags AbilityBehavior
 		{
@@ -112,8 +112,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("General")]
-		[Description("The icon image for this ability.")]
+		[Category("Misc")]
+		[Description("No Description Set")]
 		[DefaultValue("")]
 		public string AbilityTextureName
 		{
@@ -132,7 +132,7 @@ namespace WorldSmith.DataClasses
 			DOTA_UNIT_TARGET_ALL = 0xFFFF,
 		}
 
-        [Editor(typeof(FlagEnumDialogUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
+		[Editor(typeof(FlagEnumDialogUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(AbilityUnitTargetTeamFlags.DOTA_UNIT_TARGET_TEAM_NONE)]
@@ -158,7 +158,7 @@ namespace WorldSmith.DataClasses
 			DOTA_UNIT_TARGET_ALL = 0xFFFF,
 		}
 
-        [Editor(typeof(FlagEnumDialogUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
+		[Editor(typeof(FlagEnumDialogUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(AbilityUnitTargetTypeFlags.DOTA_UNIT_TARGET_NONE)]
@@ -193,7 +193,7 @@ namespace WorldSmith.DataClasses
 			DOTA_UNIT_TARGET_FLAG_NOT_NIGHTMARED = 1 << 19,
 		}
 
-        [Editor(typeof(FlagEnumDialogUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
+		[Editor(typeof(FlagEnumDialogUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(AbilityUnitTargetFlagsFlags.DOTA_UNIT_TARGET_FLAG_NONE)]
@@ -221,8 +221,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Casting")]
-		[Description("The the range at which this spell can cast at.")]
+		[Category("Misc")]
+		[Description("No Description Set")]
 		[DefaultValue(0)]
 		public int AbilityCastRange
 		{
@@ -230,7 +230,7 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Casting")]
+		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(250)]
 		public int AbilityCastRangeBuffer
@@ -239,8 +239,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Casting")]
-		[Description("The cast point of the spell.")]
+		[Category("Misc")]
+		[Description("No Description Set")]
 		[DefaultValue(typeof(PerLevel), "0.0 0.0 0.0 0.0")]
 		public PerLevel AbilityCastPoint
 		{
@@ -248,8 +248,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Casting")]
-		[Description("The duration that this spell can be channeled for.")]
+		[Category("Misc")]
+		[Description("No Description Set")]
 		[DefaultValue(typeof(PerLevel), "0.0 0.0 0.0 0.0")]
 		public PerLevel AbilityChannelTime
 		{
@@ -257,8 +257,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Casting")]
-		[Description("The cooldown of this spell.")]
+		[Category("Misc")]
+		[Description("No Description Set")]
 		[DefaultValue(typeof(PerLevel), "0.0 0.0 0.0 0.0")]
 		public PerLevel AbilityCooldown
 		{
@@ -266,8 +266,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Casting")]
-		[Description("The duration of this spell.")]
+		[Category("Misc")]
+		[Description("No Description Set")]
 		[DefaultValue(typeof(PerLevel), "0.0 0.0 0.0 0.0")]
 		public PerLevel AbilityDuration
 		{
@@ -275,7 +275,7 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Casting")]
+		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue("")]
 		public string AbilitySharedCooldown
@@ -284,8 +284,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Casting")]
-		[Description("The damage that this spell does.")]
+		[Category("Misc")]
+		[Description("No Description Set")]
 		[DefaultValue(typeof(PerLevel), "0 0 0 0")]
 		public PerLevel AbilityDamage
 		{
@@ -293,8 +293,8 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
-		[Category("Casting")]
-		[Description("The mana cost of this spell.")]
+		[Category("Misc")]
+		[Description("No Description Set")]
 		[DefaultValue(typeof(PerLevel), "0 0 0 0")]
 		public PerLevel AbilityManaCost
 		{
@@ -324,6 +324,16 @@ namespace WorldSmith.DataClasses
 		[Description("No Description Set")]
 		[DefaultValue(false)]
 		public bool AbilityProcsMagicStick
+		{
+			get;
+			set;
+		}
+
+		[Editor(typeof(AbilityActionEditor), typeof(System.Drawing.Design.UITypeEditor))]
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue("")]
+		public AbilityActionCollection Actions
 		{
 			get;
 			set;

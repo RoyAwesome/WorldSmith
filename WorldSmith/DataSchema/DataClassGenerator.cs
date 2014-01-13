@@ -151,6 +151,9 @@ namespace WorldSmith.DataSchema
             csFile.AppendLine("using System;");
             csFile.AppendLine("using System.ComponentModel;");
             csFile.AppendLine("using WorldSmith.DataClasses.UI;");
+            csFile.AppendLine("using WorldSmith.Panels;");
+            csFile.AppendLine("using WorldSmith.Dialogs;");
+            
 
             csFile.AppendLine();
             csFile.AppendLine("namespace WorldSmith.DataClasses");
@@ -189,7 +192,13 @@ namespace WorldSmith.DataSchema
                     csFile.AppendLine("\t\t}");
                     csFile.AppendLine();
 
-                    csFile.AppendLine("\t\t[Editor(typeof(FlagEnumUIEditor), "
+                    csFile.AppendLine("\t\t[Editor(typeof(FlagEnumDialogUIEditor), "
+                        + "typeof(System.Drawing.Design.UITypeEditor))]");
+                   
+                }
+                if (type == "AbilityActionCollection")
+                {
+                    csFile.AppendLine("\t\t[Editor(typeof(AbilityActionEditor), "
                         + "typeof(System.Drawing.Design.UITypeEditor))]");
                 }
 
@@ -224,6 +233,10 @@ namespace WorldSmith.DataSchema
                 if(type == "PerLevel")
                 {
                     csFile.Append("typeof(PerLevel), \"" + c["DefaultValue"].GetString() + "\"");
+                }
+                if (type == "AbilityActionCollection")
+                {
+                    csFile.Append("\"\"");
                 }
                 csFile.AppendLine(")]");
               
