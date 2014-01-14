@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 
 namespace WorldSmith.DataClasses
 {
-	class DotaHero : DotaBaseUnit
+	public partial class DotaHero : DotaBaseUnit
 	{
 		[Category("General")]
 		[Description("Enable/disable this hero.")]

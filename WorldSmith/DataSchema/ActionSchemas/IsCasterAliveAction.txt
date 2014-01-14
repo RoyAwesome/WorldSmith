@@ -3,12 +3,14 @@
 	"ClassName"	"IsCasterAlive"
 	"BaseClass" "BaseAction"
 
+	"ActionAttribute"	"1"
+
 	"OnSuccess"
 	{	
 		"Category"	"Misc"
 		"Description"	"No Description Set"
 		"Type"	"ActionCollection"
-		"DefaultValue"	"\"OnSuccess\" { }"
+		"DefaultValue"	"OnSuccess { }"
 	}
 
 	
@@ -17,7 +19,7 @@
 		"Category"	"Misc"
 		"Description"	"No Description Set"
 		"Type"	"ActionCollection"
-		"DefaultValue"	"\"OnFailure\" { }"
+		"DefaultValue"	"OnFailure { }"
 	}
 
 }

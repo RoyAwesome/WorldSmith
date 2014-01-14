@@ -2,6 +2,7 @@
 {
 	"ClassName"	"LevelUpAbility"
 	"BaseClass" "TargetedAction"
+	"ActionAttribute"	"1"
 
 	"AbilityName"
 	{	

@@ -3,6 +3,8 @@
 	"ClassName"	"LinearProjectile"
 	"BaseClass" "TargetedAction"
 
+	"ActionAttribute"	"1"
+
 	"EffectName"
 	{	
 		"Category"	"Misc"

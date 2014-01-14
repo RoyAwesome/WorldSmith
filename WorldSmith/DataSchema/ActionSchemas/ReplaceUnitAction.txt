@@ -2,6 +2,7 @@
 {
 	"ClassName"	"ReplaceUnit"
 	"BaseClass" "TargetedAction"
+	"ActionAttribute"	"1"
 
 	"UnitName"
 	{	

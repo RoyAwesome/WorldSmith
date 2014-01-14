@@ -1,7 +1,9 @@
 ﻿"Schema"
 {
-	"ClassName"	"ApplyModifier"
+	"ClassName"	"RandomAction"
 	"BaseClass" "TargetedAction"
+
+	"ActionAttribute"	"1"
 
 	"Chance"
 	{	
@@ -17,7 +19,7 @@
 		"Description"	"No Description Set"
 		"Type"	"enum"
 		"DefaultValue"	"DOTA_PSEUDO_RANDOM_JUGG_CRIT"
-		"PossibleTypes"
+		"PossibleValues"
 		{
 			"0"		"DOTA_PSEUDO_RANDOM_BREWMASTER_CRIT"
 			"1"		"DOTA_PSEUDO_RANDOM_CHAOS_CRIT"	

@@ -3,6 +3,8 @@
 	"ClassName"	"CreateThinkerWall"
 	"BaseClass" "CreateThinker"
 
+	"ActionAttribute"	"1"
+
 	"Width"
 	{	
 		"Category"	"Misc"

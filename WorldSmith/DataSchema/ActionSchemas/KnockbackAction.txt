@@ -3,6 +3,8 @@
 	"ClassName"	"Knockback"
 	"BaseClass" "TargetedAction"
 
+	"ActionAttribute"	"1"
+
 	"Center"
 	{	
 		"Category"	"Misc"

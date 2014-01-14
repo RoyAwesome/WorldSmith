@@ -1,7 +1,9 @@
 ﻿"Schema"
 {
 	"ClassName" "CleaveAttack"
-	"BaseClass" "ActionBase"
+	"BaseClass" "BaseAction"
+
+	"ActionAttribute"	"1"
 
 	"CleavePercent"
 	{

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WorldSmith.DataClasses.PropertyTypes
+namespace WorldSmith.DataClasses
 {
-    class TargetKey
+    public class TargetKey
     {
         public enum CenterType
         {

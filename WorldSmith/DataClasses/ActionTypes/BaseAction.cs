@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 
 namespace WorldSmith.DataClasses
 {
-	class BaseAction : DotaDataObject
+	public partial class BaseAction : DotaDataObject
 	{
 	}
 }

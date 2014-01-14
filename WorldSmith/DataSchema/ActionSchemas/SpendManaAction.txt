@@ -2,6 +2,7 @@
 {
 	"ClassName"	"SpendMana"
 	"BaseClass" "BaseAction"
+	"ActionAttribute"	"1"
 
 	"Mana"
 	{	

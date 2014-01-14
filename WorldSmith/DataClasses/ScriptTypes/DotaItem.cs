@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 
 namespace WorldSmith.DataClasses
 {
-	class DotaItem : DotaAbility
+	public partial class DotaItem : DotaAbility
 	{
 		[Category("General")]
 		[Description("How much this item costs. This value is overriden by recipe requirements.")]

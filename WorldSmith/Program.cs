@@ -81,7 +81,14 @@ namespace WorldSmith
             string actionInputDir = inputDir + "ActionSchemas/";
             string actionOutputDir = outputDir + "ActionTypes/";
 
-            DataSchema.DataClassGenerator.GenerateClassForSchema(actionInputDir + "BaseAction.txt", actionOutputDir);
+            foreach(string file in Directory.GetFiles(actionInputDir))
+            {
+                if (!file.EndsWith(".txt")) continue; //If it's no0t a text file, skip it
+
+                DataSchema.DataClassGenerator.GenerateClassForSchema(file, actionOutputDir);
+            }
+
+           
         }
     }
 

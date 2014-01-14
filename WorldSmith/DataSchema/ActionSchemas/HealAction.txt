@@ -3,6 +3,8 @@
 	"ClassName"	"Heal"
 	"BaseClass" "TargetedAction"
 
+	"ActionAttribute"	"1"
+
 	"HealAmount"
 	{	
 		"Category"	"Misc"

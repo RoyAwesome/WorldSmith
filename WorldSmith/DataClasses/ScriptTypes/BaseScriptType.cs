@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WorldSmith.DataClasses
 {
-    class BaseScriptType : DotaDataObject
+    public class BaseScriptType : DotaDataObject
     {
         [Category("Base")]
         [Description("Class name for this object")]

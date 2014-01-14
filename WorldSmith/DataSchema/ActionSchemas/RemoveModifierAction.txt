@@ -2,6 +2,7 @@
 {
 	"ClassName"	"RemoveModifier"
 	"BaseClass" "TargetedAction"
+	"ActionAttribute"	"1"
 
 	"ModifierName"
 	{	

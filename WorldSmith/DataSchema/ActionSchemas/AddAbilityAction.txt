@@ -3,6 +3,8 @@
 	"ClassName" "AddAbility"
 	"BaseClass" "TargetedAction"
 
+	"ActionAttribute"	"1"
+
 	"AbilityName"
 	{
 		"Category"	"Misc"

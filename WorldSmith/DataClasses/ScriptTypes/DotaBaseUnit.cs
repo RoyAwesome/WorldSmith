@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 
 namespace WorldSmith.DataClasses
 {
-	class DotaBaseUnit : BaseScriptType
+	public partial class DotaBaseUnit : BaseScriptType
 	{
 		[Category("General")]
 		[Description("Model.")]

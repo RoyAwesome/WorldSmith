@@ -3,7 +3,9 @@
 	"ClassName"	"FireSound"
 	"BaseClass" "TargetedAction"
 
-"EffectName"
+	"ActionAttribute"	"1"
+
+	"EffectName"
 	{
 		"Category"	"Misc"
 		"Description"	"No Description Set"

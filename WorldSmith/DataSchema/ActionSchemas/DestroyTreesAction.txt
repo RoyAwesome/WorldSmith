@@ -3,6 +3,8 @@
 	"ClassName"	"DestroyTrees"
 	"BaseClass" "TargetedAction"
 
+	"ActionAttribute"	"1"
+
 	"Radius"
 	{	
 		"Category"	"Misc"

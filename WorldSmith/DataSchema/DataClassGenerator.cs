@@ -160,12 +160,20 @@ namespace WorldSmith.DataSchema
             csFile.AppendLine("{");
             string baseclass = doc["BaseClass"].GetString();
             string classname = doc["ClassName"].GetString();
-            csFile.AppendLine("\tclass " + classname + " : " + baseclass);
+
+            if (doc["ActionAttribute"] != null && doc["ActionAttribute"].GetBool())
+                csFile.AppendLine("\t[DotaAction]");
+
+            csFile.AppendLine("\tpublic partial class " + classname + " : " + baseclass);
             csFile.AppendLine("\t{");
 
             foreach(KeyValue c in doc.Children)
-            {
+            {               
+
                 if (!c.HasChildren) continue; //Skip the ClassName and BaseClass keys
+
+                if (c["DontWriteProperty"] != null && c["DontWriteProperty"].GetBool()) continue; //Skip do not write tag
+
                 string type = c["Type"].GetString();
                 if(type == "enum") //Create the Enum object for enum types
                 {
@@ -202,6 +210,8 @@ namespace WorldSmith.DataSchema
                         + "typeof(System.Drawing.Design.UITypeEditor))]");
                 }
 
+                
+
                 csFile.AppendLine(string.Format("\t\t[Category(\"{0}\")]", c["Category"].GetString()));
                 csFile.AppendLine(string.Format("\t\t[Description(\"{0}\")]", c["Description"].GetString()));
                 if (c["ReadOnly"] != null && c["ReadOnly"].GetBool())
@@ -236,7 +246,19 @@ namespace WorldSmith.DataSchema
                 }
                 if (type == "AbilityActionCollection")
                 {
-                    csFile.Append("\"\"");
+                    csFile.Append("typeof(AbilityActionCollection), \"\"");
+                }
+                if (type == "TargetKey")
+                {
+                    csFile.Append("typeof(TargetKey), \"" + c["DefaultValue"].GetString() + "\"");
+                }
+                if (type == "ActionCollection")
+                {
+                    csFile.Append("typeof(ActionCollection), \"\"");
+                }
+                if (type == "ControlPointList")
+                {
+                    csFile.Append("typeof(ControlPointList), \"" + c["DefaultValue"].GetString() + "\"");
                 }
                 csFile.AppendLine(")]");
               

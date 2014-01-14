@@ -2,4 +2,6 @@
 {
 	"ClassName"	"Blink"
 	"BaseClass" "TargetedAction"
+
+	"ActionAttribute"	"1"
 }

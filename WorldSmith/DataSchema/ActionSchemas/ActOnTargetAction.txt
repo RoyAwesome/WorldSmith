@@ -3,11 +3,13 @@
 	"ClassName"	"ActOnTarget"
 	"BaseClass" "TargetedAction"
 
+	"ActionAttribute"	"1"
+
 	"Action"
 	{	
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"BaseAction"
+		"Type"	"ActionCollection"
 		"DefaultValue"	"null"
 	}
 

@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 
 namespace WorldSmith.DataClasses
 {
-	class DotaAbility : BaseScriptType
+	public partial class DotaAbility : BaseScriptType
 	{
 		[Category("Misc")]
 		[Description("No Description Set")]
@@ -324,16 +324,6 @@ namespace WorldSmith.DataClasses
 		[Description("No Description Set")]
 		[DefaultValue(false)]
 		public bool AbilityProcsMagicStick
-		{
-			get;
-			set;
-		}
-
-		[Editor(typeof(AbilityActionEditor), typeof(System.Drawing.Design.UITypeEditor))]
-		[Category("Misc")]
-		[Description("No Description Set")]
-		[DefaultValue("")]
-		public AbilityActionCollection Actions
 		{
 			get;
 			set;

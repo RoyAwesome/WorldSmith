@@ -3,6 +3,8 @@
 	"ClassName"	"Damage"
 	"BaseClass" "TargetedAction"
 
+	"ActionAttribute"	"1"
+
 	"Type"
 	{	
 		"Category"	"Misc"
@@ -19,8 +21,9 @@
 		}
 	}
 
-	"Damage"
+	"DamageAmmount"
 	{	
+		"KVName"	"Damage"
 		"Category"	"Misc"
 		"Description"	"int"
 		"Type"	"string"

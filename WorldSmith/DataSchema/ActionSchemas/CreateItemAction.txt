@@ -3,6 +3,8 @@
 	"ClassName"	"CreateItem"
 	"BaseClass" "TargetedAction"
 
+	"ActionAttribute"	"1"
+
 	"ItemName"
 	{	
 		"Category"	"Misc"

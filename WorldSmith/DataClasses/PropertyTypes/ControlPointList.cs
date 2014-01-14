@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WorldSmith.DataClasses.PropertyTypes
+namespace WorldSmith.DataClasses
 {
-    class ControlPointVec
+    public class ControlPointVec
     {
         //Strings, because these can also be variable IDs.  
 
@@ -31,7 +31,7 @@ namespace WorldSmith.DataClasses.PropertyTypes
         }
     }
 
-    class ControlPointList : CollectionBase
+    public class ControlPointList : CollectionBase
     {
         public ControlPointList(string KVstring)
         {

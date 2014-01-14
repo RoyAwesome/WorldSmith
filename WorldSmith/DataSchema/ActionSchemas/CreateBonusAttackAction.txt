@@ -2,4 +2,6 @@
 {
 	"ClassName"	"CreateBonusAttack"
 	"BaseClass" "TargetedAction"
+
+	"ActionAttribute"	"1"
 }

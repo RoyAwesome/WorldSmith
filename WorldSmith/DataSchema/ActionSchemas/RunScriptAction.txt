@@ -2,6 +2,7 @@
 {
 	"ClassName"	"RunScript"
 	"BaseClass" "BaseAction"
+	"ActionAttribute"	"1"
 
 	"ScriptFile"
 	{	

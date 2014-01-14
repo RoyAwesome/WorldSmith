@@ -1,7 +1,9 @@
 ﻿"Schema"
 {
 	"ClassName"	"DelayedAction"
-	"BaseClass" "ActionBase"
+	"BaseClass" "BaseAction"
+
+	"ActionAttribute"	"1"
 
 	"Action"
 	{	

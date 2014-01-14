@@ -3,6 +3,8 @@
 	"ClassName"	"CreateThinker"
 	"BaseClass" "TargetedAction"
 
+	"ActionAttribute"	"1"
+
 	"ModifierName"
 	{	
 		"Category"	"Misc"

@@ -2,6 +2,7 @@
 {
 	"ClassName"	"Stun"
 	"BaseClass" "TargetedAction"
+	"ActionAttribute"	"1"
 
 	"Duration"
 	{	

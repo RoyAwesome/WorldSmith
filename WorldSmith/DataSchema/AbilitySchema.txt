@@ -293,9 +293,24 @@
 
 	"Actions"
 	{
+		"DontWriteProperty"	"1"
 		"Category"	"Misc"
 		"Description"	"No Description Set"
 		"Type"	"AbilityActionCollection"
 		"DefaultValue"	""
+		"Actions"
+		{
+			"OnSpellStart"				"0"
+			"OnChannelSucceeded"		"0"
+			"OnChannelInterrupted"		"0"
+			"OnChannelFinish"			"0"
+			"OnToggleOn"				"0"
+			"OnAbilityPhaseStart"		"0"
+			"OnOwnerDied"				"0"
+			"OnOwnerSpawned"			"0"
+			"OnUpgrade"					"0"
+			"OnProjectileHitUnit"		"0"
+			"OnProjectileFinish"		"0"
+		}
 	}
 }

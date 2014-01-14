@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 
 namespace WorldSmith.DataClasses
 {
-	class DotaUnit : DotaBaseUnit
+	public partial class DotaUnit : DotaBaseUnit
 	{
 		[Category("General")]
 		[Description("If this unit is an ancient unit or not.")]

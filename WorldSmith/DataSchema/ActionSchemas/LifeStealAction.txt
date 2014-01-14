@@ -2,6 +2,7 @@
 {
 	"ClassName"	"LifeSteal"
 	"BaseClass" "TargetedAction"
+	"ActionAttribute"	"1"
 
 	"LifeStealPercent"
 	{	

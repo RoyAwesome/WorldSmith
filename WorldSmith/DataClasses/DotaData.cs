@@ -58,6 +58,8 @@ namespace WorldSmith.DataClasses
 
         #endregion
 
+        
+
         public static IEnumerable<DotaDataObject> AllClasses = AllUnits.Cast<DotaDataObject>()
             .Union(AllAbilities.Cast<DotaDataObject>());
 

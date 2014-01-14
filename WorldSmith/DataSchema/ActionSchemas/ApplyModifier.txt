@@ -3,6 +3,8 @@
 	"ClassName"	"ApplyModifier"
 	"BaseClass" "TargetedAction"
 
+	"ActionAttribute"	"1"
+
 	"ModifierName"
 	{	
 		"Category"	"Misc"
