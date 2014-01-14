@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KVLib;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,10 +20,8 @@ namespace WorldSmith
         static void Main()
         {
 
-           // DataSchema.DataClassGenerator.FindPossibleValuesForKey(@"E:\Dota2SDK\root\scripts\npc\items.txt", "ItemDeclarations");
-
      
-#if GENERATECLASSES
+#if GENERATECLASSES         
             GenerateClasses();
 #else
             Application.EnableVisualStyles();

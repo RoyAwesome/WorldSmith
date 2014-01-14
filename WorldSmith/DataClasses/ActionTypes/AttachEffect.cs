@@ -4,7 +4,6 @@
 ***********************************************************************************/
 using System;
 using System.ComponentModel;
-using WorldSmith.DataClasses.UI;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
 
@@ -49,7 +48,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(typeof(ControlPointList), "ControlPointList ")]
+		[DefaultValue(null)]
 		public ControlPointList ControlPoints
 		{
 			get;

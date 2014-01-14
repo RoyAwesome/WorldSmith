@@ -150,7 +150,6 @@ namespace WorldSmith.DataSchema
                
             csFile.AppendLine("using System;");
             csFile.AppendLine("using System.ComponentModel;");
-            csFile.AppendLine("using WorldSmith.DataClasses.UI;");
             csFile.AppendLine("using WorldSmith.Panels;");
             csFile.AppendLine("using WorldSmith.Dialogs;");
             
@@ -217,51 +216,63 @@ namespace WorldSmith.DataSchema
                 if (c["ReadOnly"] != null && c["ReadOnly"].GetBool())
                     csFile.AppendLine("\t\t[ReadOnly(true)]");
 
-               
 
-                csFile.Append("\t\t[DefaultValue(");
-                if(type == "string")
+                if (type != "AbilityActionCollection"
+                    || type != "TargetKey"
+                    || type != "ActionCollection"
+                    || type != "ControlPointList")
                 {
-                    csFile.Append("\"" + c["DefaultValue"].GetString().Replace(@"\", @"\\") + "\"");
+                    csFile.Append("\t\t[DefaultValue(");
+                    if (type == "string")
+                    {
+                        csFile.Append("\"" + c["DefaultValue"].GetString().Replace(@"\", @"\\") + "\"");
+                    }
+                    if (c["Type"].GetString() == "enum")
+                    {
+                        csFile.Append(type + "." + c["DefaultValue"].GetString());
+                    }
+                    if (c["Type"].GetString() == "flags")
+                    {
+                        csFile.Append(type + "." + c["DefaultValue"].GetString());
+                    }
+                    if (type == "int")
+                    {
+                        csFile.Append(c["DefaultValue"].GetString());
+                    }
+                    if (type == "float")
+                    {
+                        csFile.Append(c["DefaultValue"].GetString() + "f");
+                    }
+                    if (type == "bool")
+                    {
+                        csFile.Append(c["DefaultValue"].GetBool().ToString().ToLower());
+                    }
+                    if (type == "PerLevel")
+                    {
+                        csFile.Append("typeof(PerLevel), \"" + c["DefaultValue"].GetString() + "\"");
+                    }
+                    if (type == "AbilityActionCollection")
+                    {
+                        csFile.Append("null");
+                        //csFile.Append("typeof(AbilityActionCollection), \"\"");
+                    }
+                    if (type == "TargetKey")
+                    {
+                        csFile.Append("null");
+                        //csFile.Append("typeof(TargetKey), \"" + c["DefaultValue"].GetString() + "\"");
+                    }
+                    if (type == "ActionCollection")
+                    {
+                        csFile.Append("null");
+                        //csFile.Append("typeof(ActionCollection), \"\"");
+                    }
+                    if (type == "ControlPointList")
+                    {
+                        csFile.Append("null");
+                        //csFile.Append("typeof(ControlPointList), \"" + c["DefaultValue"].GetString() + "\"");
+                    }
+                    csFile.AppendLine(")]");
                 }
-                if(c["Type"].GetString() == "enum")
-                {
-                    csFile.Append(type + "." + c["DefaultValue"].GetString());
-                }
-                if(c["Type"].GetString() == "flags")
-                {
-                    csFile.Append(type + "." + c["DefaultValue"].GetString());
-                }
-                if(type == "int" || type == "float")
-                {
-                    csFile.Append(c["DefaultValue"].GetString());
-                }
-                if(type == "bool")
-                {
-                    csFile.Append(c["DefaultValue"].GetBool().ToString().ToLower());
-                }
-                if(type == "PerLevel")
-                {
-                    csFile.Append("typeof(PerLevel), \"" + c["DefaultValue"].GetString() + "\"");
-                }
-                if (type == "AbilityActionCollection")
-                {
-                    csFile.Append("typeof(AbilityActionCollection), \"\"");
-                }
-                if (type == "TargetKey")
-                {
-                    csFile.Append("typeof(TargetKey), \"" + c["DefaultValue"].GetString() + "\"");
-                }
-                if (type == "ActionCollection")
-                {
-                    csFile.Append("typeof(ActionCollection), \"\"");
-                }
-                if (type == "ControlPointList")
-                {
-                    csFile.Append("typeof(ControlPointList), \"" + c["DefaultValue"].GetString() + "\"");
-                }
-                csFile.AppendLine(")]");
-              
 
                 csFile.AppendLine(string.Format("\t\tpublic {0} {1}", type, c.Key));
                 csFile.AppendLine("\t\t{");

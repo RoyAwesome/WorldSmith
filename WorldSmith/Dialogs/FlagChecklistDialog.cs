@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Design;
 using System.Windows.Forms.Design;
-using WorldSmith.DataClasses.UI;
 using WorldSmith.Dialogs;
 
 namespace WorldSmith.Panels

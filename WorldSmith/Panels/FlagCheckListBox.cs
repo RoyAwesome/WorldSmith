@@ -8,7 +8,7 @@ using System.Drawing.Design;
 using System.Windows.Forms.Design;
 
 
-namespace WorldSmith.DataClasses.UI
+namespace WorldSmith.Panels
 {
 
     public class FlagCheckedListBox : CheckedListBox

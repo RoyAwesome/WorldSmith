@@ -4,7 +4,6 @@
 ***********************************************************************************/
 using System;
 using System.ComponentModel;
-using WorldSmith.DataClasses.UI;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
 
@@ -62,7 +61,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(typeof(ActionCollection), "")]
+		[DefaultValue(null)]
 		public ActionCollection OnSuccess
 		{
 			get;
@@ -71,7 +70,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(typeof(ActionCollection), "")]
+		[DefaultValue(null)]
 		public ActionCollection OnFailure
 		{
 			get;

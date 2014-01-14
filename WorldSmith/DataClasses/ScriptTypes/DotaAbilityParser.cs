@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using WorldSmith.Dialogs;
 
 namespace WorldSmith.DataClasses
@@ -28,12 +29,24 @@ namespace WorldSmith.DataClasses
             ActionList = new AbilityActionCollection();
             
 
-           // KeyValue hooks = kv["Actions"]["Actions"];
-           // foreach(KeyValue act in hooks.Children)
-           // {
-                //ActionList.Actions[act.Key] = 
+            foreach(string key in ActionList.Actions.Keys)
+            {
+                KeyValue kvActions = kv[key];
+                if (kvActions == null) continue; //We don't have any actions there so skip
+                foreach(KeyValue actionChild in kvActions.Children)
+                {
+                    BaseAction action = DotaActionFactory.CreateNewAction(actionChild.Key);
+                    if(action == null)
+                    {
+                        MessageBox.Show("WARNING: Action " + actionChild.Key + " not found in factory when creating ability: " + this.ClassName, "Loading Warning", MessageBoxButtons.OK);
+                        continue;
+                    }
 
-           // }
+                    action.LoadFromKeyValues(actionChild);
+                    ActionList.Actions[key].Add(action);
+                }
+            }
+
 
         }
     }

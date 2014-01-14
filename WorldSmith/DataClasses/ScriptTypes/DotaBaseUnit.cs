@@ -4,7 +4,6 @@
 ***********************************************************************************/
 using System;
 using System.ComponentModel;
-using WorldSmith.DataClasses.UI;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
 
@@ -188,7 +187,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Attack")]
 		[Description("Speed of attack.")]
-		[DefaultValue(1.7)]
+		[DefaultValue(1.7f)]
 		public float AttackRate
 		{
 			get;
@@ -197,7 +196,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Attack")]
 		[Description("Normalized time in animation cycle to attack.")]
-		[DefaultValue(0.75)]
+		[DefaultValue(0.75f)]
 		public float AttackAnimationPoint
 		{
 			get;
@@ -395,7 +394,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Movement")]
 		[Description("Turn rate.")]
-		[DefaultValue(0.5)]
+		[DefaultValue(0.5f)]
 		public float MovementTurnRate
 		{
 			get;
@@ -422,7 +421,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Status")]
 		[Description("Health regeneration rate.")]
-		[DefaultValue(0.25)]
+		[DefaultValue(0.25f)]
 		public float StatusHealthRegen
 		{
 			get;
@@ -440,7 +439,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Status")]
 		[Description("Mana regeneration rate.")]
-		[DefaultValue(0.01)]
+		[DefaultValue(0.01f)]
 		public float StatusManaRegen
 		{
 			get;

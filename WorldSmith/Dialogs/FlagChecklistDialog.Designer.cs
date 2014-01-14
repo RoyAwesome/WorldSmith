@@ -30,7 +30,7 @@
         {
             this.cancelButton = new System.Windows.Forms.Button();
             this.applyButton = new System.Windows.Forms.Button();
-            this.ListBox = new WorldSmith.DataClasses.UI.FlagCheckedListBox();
+            this.ListBox = new WorldSmith.Panels.FlagCheckedListBox();
             this.SuspendLayout();
             // 
             // cancelButton
@@ -87,6 +87,6 @@
 
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button applyButton;
-        public WorldSmith.DataClasses.UI.FlagCheckedListBox ListBox;
+        public WorldSmith.Panels.FlagCheckedListBox ListBox;
     }
 }

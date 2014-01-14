@@ -31,7 +31,10 @@ namespace WorldSmith.DataClasses
                 if (info.Name == "WasModified") continue;
 
                 KeyValue subkey = kv[info.Name];
-                if (subkey == null) subkey = new KeyValue(info.Name) + "";
+                if (subkey == null)
+                {                  
+                    continue;
+                }
                 if (subkey.HasChildren) continue; //TODO parse children because this is AbilitySpecial
 
                 object data = null;

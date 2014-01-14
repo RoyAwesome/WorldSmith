@@ -4,7 +4,6 @@
 ***********************************************************************************/
 using System;
 using System.ComponentModel;
-using WorldSmith.DataClasses.UI;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
 
@@ -95,7 +94,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Attack")]
 		[Description("How much bots want to attack them vs other non-hero things")]
-		[DefaultValue(1.0)]
+		[DefaultValue(1.0f)]
 		public float AttackDesire
 		{
 			get;

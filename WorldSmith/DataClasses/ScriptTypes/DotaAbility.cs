@@ -4,7 +4,6 @@
 ***********************************************************************************/
 using System;
 using System.ComponentModel;
-using WorldSmith.DataClasses.UI;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
 
@@ -304,7 +303,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(1.0)]
+		[DefaultValue(1.0f)]
 		public float AbilityModifierSupportValue
 		{
 			get;
@@ -313,7 +312,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(0)]
+		[DefaultValue(0f)]
 		public float AbilityModifierSupportBonus
 		{
 			get;

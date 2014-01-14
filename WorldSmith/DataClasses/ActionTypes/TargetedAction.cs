@@ -4,7 +4,6 @@
 ***********************************************************************************/
 using System;
 using System.ComponentModel;
-using WorldSmith.DataClasses.UI;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
 
@@ -14,7 +13,7 @@ namespace WorldSmith.DataClasses
 	{
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(typeof(TargetKey), "TARGET")]
+		[DefaultValue(null)]
 		public TargetKey Target
 		{
 			get;
