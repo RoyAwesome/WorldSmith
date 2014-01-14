@@ -10,16 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	public partial class ActOnTarget : TargetedAction
+	public partial class RemoveUnit : TargetedAction
 	{
-		[Category("Misc")]
-		[Description("No Description Set")]
-		[DefaultValue(null)]
-		public ActionCollection Action
-		{
-			get;
-			set;
-		}
-
 	}
 }

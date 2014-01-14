@@ -1,6 +1,6 @@
 ﻿"Schema"
 {
-	"ClassName"	"ActOnTarget"
+	"ClassName"	"ActOnTargets"
 	"BaseClass" "TargetedAction"
 
 	"ActionAttribute"	"1"

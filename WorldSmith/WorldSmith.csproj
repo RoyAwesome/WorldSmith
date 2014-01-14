@@ -96,7 +96,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataClasses\ActionTypes\ActOnTarget.cs" />
+    <Compile Include="DataClasses\ActionTypes\ActOnTargets.cs" />
     <Compile Include="DataClasses\ActionTypes\AddAbility.cs" />
     <Compile Include="DataClasses\ActionTypes\ApplyModifier.cs" />
     <Compile Include="DataClasses\ActionTypes\AttachEffect.cs" />
@@ -121,6 +121,7 @@
     <Compile Include="DataClasses\ActionTypes\RandomAction.cs" />
     <Compile Include="DataClasses\ActionTypes\RemoveAbility.cs" />
     <Compile Include="DataClasses\ActionTypes\RemoveModifier.cs" />
+    <Compile Include="DataClasses\ActionTypes\RemoveUnit.cs" />
     <Compile Include="DataClasses\ActionTypes\ReplaceUnit.cs" />
     <Compile Include="DataClasses\ActionTypes\RunScript.cs" />
     <Compile Include="DataClasses\ActionTypes\SpawnUnit.cs" />
@@ -299,6 +300,7 @@
     <Content Include="DataSchema\ActionSchemas\RandomAction.txt" />
     <Content Include="DataSchema\ActionSchemas\RemoveAbilityAction.txt" />
     <Content Include="DataSchema\ActionSchemas\RemoveModifierAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RemoveUnit.txt" />
     <Content Include="DataSchema\ActionSchemas\ReplaceUnitAction.txt" />
     <Content Include="DataSchema\ActionSchemas\RunScriptAction.txt" />
     <Content Include="DataSchema\ActionSchemas\SpawnUnitAction.txt" />

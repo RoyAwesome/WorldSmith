@@ -1,0 +1,8 @@
+﻿"Schema"
+{
+	"ClassName"	"RemoveUnit"
+	"BaseClass" "TargetedAction"
+
+	"ActionAttribute"	"1"
+	
+}
