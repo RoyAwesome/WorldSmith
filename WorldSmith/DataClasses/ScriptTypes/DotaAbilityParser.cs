@@ -35,6 +35,7 @@ namespace WorldSmith.DataClasses
                 if (kvActions == null) continue; //We don't have any actions there so skip
                 foreach(KeyValue actionChild in kvActions.Children)
                 {
+                    if (!actionChild.HasChildren) continue; //TODO: Handle the Dontdestroy key
                     BaseAction action = DotaActionFactory.CreateNewAction(actionChild.Key);
                     if(action == null)
                     {

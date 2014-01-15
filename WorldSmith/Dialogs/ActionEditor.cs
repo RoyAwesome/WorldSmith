@@ -15,12 +15,46 @@ namespace WorldSmith.Dialogs
 {
     public partial class ActionEditor : Form
     {
-
-        public AbilityActionCollection Actions;
+        AbilityActionCollection actions;
+        public AbilityActionCollection Actions
+        {
+            get { return actions; }
+            set
+            {
+                actions = value;
+                SetupActions();
+            }
+        }
 
         public ActionEditor()
         {
             InitializeComponent();
+            treeView1.ExpandAll();
+        }
+
+        private void SetupActions()
+        {
+            foreach(KeyValuePair<string, ActionCollection> kv in actions.Actions)
+            {
+                TreeNode n = treeView1.Nodes.Find(kv.Key, true)[0];
+
+                foreach(BaseAction action in kv.Value)
+                {
+                    n.Nodes.Add(new TreeNode()
+                        {
+                            Name = action.ClassName,
+                            Text = action.ClassName,
+                            Tag = "Item",
+                        });
+                }
+
+            }
+            treeView1.ExpandAll();
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
         }
     }
 
@@ -34,6 +68,10 @@ namespace WorldSmith.Dialogs
             actionEditor = new ActionEditor();
         }
 
+        public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
+        {
+            return UITypeEditorEditStyle.Modal;
+        }
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {
             if (context != null && context.Instance != null && provider != null)

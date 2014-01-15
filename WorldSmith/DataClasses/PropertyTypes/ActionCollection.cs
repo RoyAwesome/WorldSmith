@@ -35,7 +35,7 @@ namespace WorldSmith.DataClasses
             foreach(BaseAction action in this.List.Cast<BaseAction>())
             {
                 KeyValue child = new KeyValue(action.ClassName);
-                child += action.SaveToKV();
+                doc += action.SaveToKV();
 
             }
             return doc;

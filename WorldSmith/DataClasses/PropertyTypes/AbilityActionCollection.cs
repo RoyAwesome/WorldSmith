@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WorldSmith.Dialogs;
 
 namespace WorldSmith.DataClasses
 {
@@ -32,7 +34,10 @@ namespace WorldSmith.DataClasses
             return value.ToString();
         }
     }
-    [TypeConverter(typeof(AbilityActionCollectionConverter))]
+
+
+    [Editor(typeof(AbilityActionEditor),typeof(UITypeEditor))]
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AbilityActionCollection
     {
         public Dictionary<string, ActionCollection> Actions = new Dictionary<string, ActionCollection>()

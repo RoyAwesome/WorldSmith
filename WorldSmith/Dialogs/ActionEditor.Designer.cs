@@ -87,29 +87,29 @@
             this.treeView1.Indent = 10;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "onSpellStartNode";
+            treeNode1.Name = "OnSpellStart";
             treeNode1.Text = "OnSpellStart";
-            treeNode2.Name = "onChannelSucceded";
+            treeNode2.Name = "OnChannelSucceeded";
             treeNode2.Text = "OnChannelSucceeded";
-            treeNode3.Name = "onChannelInterruptedNode";
+            treeNode3.Name = "OnChannelInterrupted";
             treeNode3.Text = "OnChannelInterrupted";
-            treeNode4.Name = "onChannelFinish";
+            treeNode4.Name = "OnChannelFinish";
             treeNode4.Text = "OnChannelFinish";
-            treeNode5.Name = "onToggleOn";
+            treeNode5.Name = "OnToggleOn";
             treeNode5.Text = "OnToggleOn";
-            treeNode6.Name = "onToggleOff";
+            treeNode6.Name = "OnToggleOff";
             treeNode6.Text = "OnToggleOff";
-            treeNode7.Name = "onAbilityPhaseStart";
+            treeNode7.Name = "OnAbilityPhaseStart";
             treeNode7.Text = "OnAbilityPhaseStart";
-            treeNode8.Name = "onOwnerDied";
+            treeNode8.Name = "OnOwnerDied";
             treeNode8.Text = "OnOwnerDied";
-            treeNode9.Name = "onOwnerSpawned";
+            treeNode9.Name = "OnOwnerSpawned";
             treeNode9.Text = "OnOwnerSpawned";
-            treeNode10.Name = "onUpgrade";
+            treeNode10.Name = "OnUpgrade";
             treeNode10.Text = "OnUpgrade";
-            treeNode11.Name = "onProjectileHitUnit";
+            treeNode11.Name = "OnProjectileHitUnit";
             treeNode11.Text = "OnProjectileHitUnit";
-            treeNode12.Name = "onProjectileFinish";
+            treeNode12.Name = "OnProjectileFinish";
             treeNode12.Text = "OnProjectileFinish";
             treeNode13.Name = "actionRoot";
             treeNode13.Text = "Action Name";
@@ -119,6 +119,7 @@
             this.treeView1.ShowRootLines = false;
             this.treeView1.Size = new System.Drawing.Size(213, 549);
             this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // toolStripContainer1
             // 
@@ -163,8 +164,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 574);
-            this.ControlBox = false;
             this.Controls.Add(this.toolStripContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ActionEditor";
             this.Text = "Action Editor";
             this.splitContainer1.Panel1.ResumeLayout(false);
