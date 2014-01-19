@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("OnSpellStart");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("OnChannelSucceeded");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("OnChannelInterrupted");

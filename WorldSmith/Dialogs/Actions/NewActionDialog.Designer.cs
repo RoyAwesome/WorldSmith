@@ -86,6 +86,7 @@
             this.Controls.Add(this.actionList);
             this.Name = "NewActionDialog";
             this.Text = "New Action";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.ResumeLayout(false);
 
         }

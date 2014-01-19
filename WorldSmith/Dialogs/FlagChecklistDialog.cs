@@ -14,6 +14,7 @@ using WorldSmith.Dialogs;
 
 namespace WorldSmith.Panels
 {
+    //BY QUINTINITY
     public partial class FlagChecklistDialog : Form
     {
         DialogResult result;
@@ -46,7 +47,7 @@ namespace WorldSmith.Panels
                 if (c is CategoryEditor)
                 {
                     CategoryEditor editor = c as CategoryEditor;
-                    this.Text = "Edit " + editor.itemPropertyGrid.SelectedGridItem.Label;
+                    this.Text = "Edit " + editor.itemPropertyGrid.SelectedGridItem.Label + " - " + editor.treeView1.SelectedNode.Text;
                 }
             }
             base.ShowDialog();
