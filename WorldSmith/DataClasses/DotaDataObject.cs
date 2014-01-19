@@ -36,7 +36,7 @@ namespace WorldSmith.DataClasses
                     continue;
                 }
                 if (subkey.HasChildren) continue; //TODO parse children because this is AbilitySpecial
-
+                
                 object data = null;
                 if(info.PropertyType == typeof(int))
                 {
@@ -94,8 +94,7 @@ namespace WorldSmith.DataClasses
                 //If the value is default, skip it.
                 DefaultValueAttribute attib = info.GetCustomAttribute<DefaultValueAttribute>();
                 if ( attib != null && attib.Value == data) continue;
-
-
+               
 
                 KeyValue subkey = new KeyValue(info.Name);    
                 if (info.PropertyType == typeof(int))

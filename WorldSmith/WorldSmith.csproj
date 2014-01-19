@@ -134,6 +134,7 @@
     <Compile Include="DataClasses\PropertyTypes\ActionCollection.cs" />
     <Compile Include="DataClasses\PropertyTypes\ControlPointList.cs" />
     <Compile Include="DataClasses\PropertyTypes\DotaActionAttribute.cs" />
+    <Compile Include="DataClasses\PropertyTypes\EditorGrammerAttribute.cs" />
     <Compile Include="DataClasses\PropertyTypes\TargetKey.cs" />
     <Compile Include="DataClasses\ScriptTypes\BaseScriptType.cs" />
     <Compile Include="DataClasses\ScriptTypes\DotaAbility.cs" />
@@ -146,6 +147,18 @@
     <Compile Include="DataClasses\ScriptTypes\DotaUnit.cs" />
     <Compile Include="DataClasses\PropertyTypes\AbilitySpecial.cs" />
     <Compile Include="DataClasses\PropertyTypes\PerLevel.cs" />
+    <Compile Include="Dialogs\Actions\NewActionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Actions\NewActionDialog.Designer.cs">
+      <DependentUpon>NewActionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ActionGrammarEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ActionGrammarEditor.Designer.cs">
+      <DependentUpon>ActionGrammarEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Panels\FlagCheckListBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -210,6 +223,9 @@
     <EmbeddedResource Include="Dialogs\ActionEditor.resx">
       <DependentUpon>ActionEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Actions\NewActionDialog.resx">
+      <DependentUpon>NewActionDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AssetLoadingDialog.resx">
       <DependentUpon>AssetLoadingDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ActionGrammarEditor.resx">
+      <DependentUpon>ActionGrammarEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\CategoryEditor.resx">
       <DependentUpon>CategoryEditor.cs</DependentUpon>

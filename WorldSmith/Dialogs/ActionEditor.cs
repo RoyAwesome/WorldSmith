@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using WorldSmith.DataClasses;
+using WorldSmith.Dialogs.Actions;
 
 namespace WorldSmith.Dialogs
 {
@@ -44,7 +45,7 @@ namespace WorldSmith.Dialogs
                         {
                             Name = action.ClassName,
                             Text = action.ClassName,
-                            Tag = "Item",
+                            Tag = action,
                         });
                 }
 
@@ -54,7 +55,30 @@ namespace WorldSmith.Dialogs
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            if (!(treeView1.SelectedNode.Tag is BaseAction))
+            {
+                propertyGrid1.SelectedObject = null;
+                return;
+            }
 
+            BaseAction action = treeView1.SelectedNode.Tag as BaseAction;
+
+            propertyGrid1.SelectedObject = action;        
+            
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if ((treeView1.SelectedNode.Tag as string) == "Root")
+            {
+
+                return;
+            }
+
+
+            NewActionDialog dialog = new NewActionDialog();
+            dialog.ShowDialog();
         }
     }
 

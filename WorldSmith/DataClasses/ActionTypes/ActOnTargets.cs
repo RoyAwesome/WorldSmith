@@ -10,6 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
+	[EditorGrammar("Apply %Action on %Target")]
 	public partial class ActOnTargets : TargetedAction
 	{
 		[Category("Misc")]

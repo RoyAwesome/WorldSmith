@@ -13,6 +13,11 @@ namespace WorldSmith.DataClasses
 
         static Dictionary<string, CreateAction> FactoryDictionary = new Dictionary<string, CreateAction>();
 
+        public static IEnumerable<string> ActionNames
+        {
+            get { return FactoryDictionary.Keys; }
+        }
+
         public static void BuildFactory()
         {
             Assembly asm = Assembly.GetEntryAssembly();

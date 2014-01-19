@@ -161,7 +161,17 @@ namespace WorldSmith.DataSchema
             string classname = doc["ClassName"].GetString();
 
             if (doc["ActionAttribute"] != null && doc["ActionAttribute"].GetBool())
+            {
                 csFile.AppendLine("\t[DotaAction]");
+                if(doc["EditorGrammar"] != null)
+                {
+                    csFile.AppendLine(string.Format("\t[EditorGrammar(\"{0}\")]", doc["EditorGrammar"].GetString()));
+                }
+                else
+                {
+                    csFile.AppendLine(string.Format("\t[EditorGrammar(\"{0}\")]", "No Editor Grammar set"));
+                }
+            }
 
             csFile.AppendLine("\tpublic partial class " + classname + " : " + baseclass);
             csFile.AppendLine("\t{");

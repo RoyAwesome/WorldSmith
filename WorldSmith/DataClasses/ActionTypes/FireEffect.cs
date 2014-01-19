@@ -10,6 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
+	[EditorGrammar("No Editor Grammar set")]
 	public partial class FireEffect : TargetedAction
 	{
 		[Category("Misc")]
