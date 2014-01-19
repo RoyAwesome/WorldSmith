@@ -3,6 +3,8 @@
 	"ClassName"	"SpendMana"
 	"BaseClass" "BaseAction"
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"Spend %Mana mana points"
+
 
 	"Mana"
 	{	

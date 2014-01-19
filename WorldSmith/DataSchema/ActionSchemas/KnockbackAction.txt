@@ -4,6 +4,8 @@
 	"BaseClass" "TargetedAction"
 
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"Knock back %Target units by %Distance units.  Throw them %Height units in the air for %Duration seconds.  Using fixed distance %IsFixedDistance"
+
 
 	"Center"
 	{	

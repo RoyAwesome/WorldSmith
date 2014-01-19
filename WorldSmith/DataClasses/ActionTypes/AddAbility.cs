@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Add %AbilityName to %Target")]
 	public partial class AddAbility : TargetedAction
 	{
 		[Category("Misc")]

@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Fire a Tracking projectile at the target that is Dodgable(%Dodageable ) with the effect %EffectName and moves at %MoveSpeed units per second.  It Provides Vision %ProvideVision of %VisionRadius units")]
 	public partial class TrackingProjectile : BaseAction
 	{
 		[Category("Misc")]

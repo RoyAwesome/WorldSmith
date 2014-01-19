@@ -3,6 +3,8 @@
 	"ClassName"	"RemoveAbility"
 	"BaseClass" "TargetedAction"
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"Remove %AbilityName from %Target"
+	
 
 	"AbilityName"
 	{	

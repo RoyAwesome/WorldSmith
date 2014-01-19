@@ -10,8 +10,8 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
-	public partial class RandomAction : TargetedAction
+	[EditorGrammar("With a %Chance percent chance of happening using pseudo random %PseudoRandom , do %OnSuccess on success and %OnFailure on failure.")]
+	public partial class RandomAction : BaseAction
 	{
 		[Category("Misc")]
 		[Description("No Description Set")]

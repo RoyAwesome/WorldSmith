@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Do %DamageAmount of %Type damage to %Target")]
 	public partial class Damage : TargetedAction
 	{
 		public enum TypeEnum
@@ -34,7 +34,7 @@ namespace WorldSmith.DataClasses
 		[Category("Misc")]
 		[Description("int")]
 		[DefaultValue("")]
-		public string DamageAmmount
+		public string DamageAmount
 		{
 			get;
 			set;

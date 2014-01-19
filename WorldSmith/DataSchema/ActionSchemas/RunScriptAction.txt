@@ -4,6 +4,9 @@
 	"BaseClass" "BaseAction"
 	"ActionAttribute"	"1"
 
+	"EditorGrammar"		"Run Lua function %Function defined in %ScriptFile"
+
+
 	"ScriptFile"
 	{	
 		"Category"	"Misc"

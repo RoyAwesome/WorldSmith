@@ -4,6 +4,9 @@
 	"BaseClass" "TargetedAction"
 	"ActionAttribute"	"1"
 
+	"EditorGrammar"		"Spawn %UnitCount %UnitName around %Target with a radius of %Radius units for %Duration seconds.  After spawn, execute %OnSpawn actions"
+
+
 	"UnitName"
 	{	
 		"Category"	"Misc"

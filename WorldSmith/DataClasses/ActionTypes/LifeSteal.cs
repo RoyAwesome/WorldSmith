@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Steal %LifeStealPercent of damage done to %Target")]
 	public partial class LifeSteal : TargetedAction
 	{
 		[Category("Misc")]

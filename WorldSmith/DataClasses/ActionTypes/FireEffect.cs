@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Create %EffectName on %Target attached by %EffectAttachType with a radius of %EffectRadius units.  It's Primary color is %EffectColorA and Secondary color is %EffectColorB.  It's duration is scaled by %EffectDurationScale and life is scaled by %EffectLifeDurationScale")]
 	public partial class FireEffect : TargetedAction
 	{
 		[Category("Misc")]

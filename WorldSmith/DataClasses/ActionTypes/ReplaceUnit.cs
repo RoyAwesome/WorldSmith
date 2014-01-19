@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Replace %Target with %UnitName")]
 	public partial class ReplaceUnit : TargetedAction
 	{
 		[Category("Misc")]

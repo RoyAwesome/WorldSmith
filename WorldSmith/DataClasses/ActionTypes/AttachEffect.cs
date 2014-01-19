@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Apply %EffectName on %Target using attach behavior %EffectAttachType and custom %ControlPoints")]
 	public partial class AttachEffect : TargetedAction
 	{
 		[Category("Misc")]

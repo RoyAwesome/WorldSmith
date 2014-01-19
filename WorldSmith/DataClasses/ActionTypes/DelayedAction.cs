@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Do %Action after a %Delay second delay")]
 	public partial class DelayedAction : BaseAction
 	{
 		[Category("Misc")]

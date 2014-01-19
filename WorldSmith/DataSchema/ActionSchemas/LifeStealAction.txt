@@ -3,6 +3,8 @@
 	"ClassName"	"LifeSteal"
 	"BaseClass" "TargetedAction"
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"Steal %LifeStealPercent of damage done to %Target"
+
 
 	"LifeStealPercent"
 	{	

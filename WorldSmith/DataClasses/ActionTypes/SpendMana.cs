@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Spend %Mana mana points")]
 	public partial class SpendMana : BaseAction
 	{
 		[Category("Misc")]

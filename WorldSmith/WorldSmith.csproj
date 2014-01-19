@@ -118,6 +118,7 @@
     <Compile Include="DataClasses\ActionTypes\LevelUpAbility.cs" />
     <Compile Include="DataClasses\ActionTypes\LifeSteal.cs" />
     <Compile Include="DataClasses\ActionTypes\LinearProjectile.cs" />
+    <Compile Include="DataClasses\ActionTypes\MoveUnit.cs" />
     <Compile Include="DataClasses\ActionTypes\RandomAction.cs" />
     <Compile Include="DataClasses\ActionTypes\RemoveAbility.cs" />
     <Compile Include="DataClasses\ActionTypes\RemoveModifier.cs" />

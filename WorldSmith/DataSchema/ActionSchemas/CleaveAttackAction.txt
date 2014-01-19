@@ -4,6 +4,7 @@
 	"BaseClass" "BaseAction"
 
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"Apply %CleavePercent of attack to all targets in %CleaveRadius units"
 
 	"CleavePercent"
 	{

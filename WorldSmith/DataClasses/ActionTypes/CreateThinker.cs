@@ -10,13 +10,13 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Create a thinking %ModifierName on %Target")]
 	public partial class CreateThinker : TargetedAction
 	{
 		[Category("Misc")]
-		[Description("No Description Set")]
-		[DefaultValue(null)]
-		public TargetKey MoveToTarget
+		[Description("Modifier Name")]
+		[DefaultValue("")]
+		public string ModifierName
 		{
 			get;
 			set;

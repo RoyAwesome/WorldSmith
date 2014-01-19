@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Level up %AbilityName on %Target")]
 	public partial class LevelUpAbility : TargetedAction
 	{
 		[Category("Misc")]

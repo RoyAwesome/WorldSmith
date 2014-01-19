@@ -4,6 +4,7 @@
 	"BaseClass" "BaseAction"
 
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"If the caster is alive, do %OnSuccess actions.  Else, do %OnFailure actions"
 
 	"OnSuccess"
 	{	

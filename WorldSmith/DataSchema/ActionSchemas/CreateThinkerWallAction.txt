@@ -4,6 +4,7 @@
 	"BaseClass" "CreateThinker"
 
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"Create a thinking %ModifierName wall that is %Width by %Length units rotated %Rotation degrees at %Target"
 
 	"Width"
 	{	

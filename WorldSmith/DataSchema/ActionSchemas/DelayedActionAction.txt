@@ -4,6 +4,7 @@
 	"BaseClass" "BaseAction"
 
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"Do %Action after a %Delay second delay"
 
 	"Action"
 	{	

@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Knock back %Target units by %Distance units.  Throw them %Height units in the air for %Duration seconds.  Using fixed distance %IsFixedDistance")]
 	public partial class Knockback : TargetedAction
 	{
 		[Category("Misc")]

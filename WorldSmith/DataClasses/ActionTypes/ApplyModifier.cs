@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Apply %ModifierName on %Target")]
 	public partial class ApplyModifier : TargetedAction
 	{
 		[Category("Misc")]

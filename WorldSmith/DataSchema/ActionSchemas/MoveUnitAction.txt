@@ -1,8 +1,11 @@
 ﻿"Schema"
 {
-	"ClassName"	"CreateThinker"
+	"ClassName"	"MoveUnit"
 	"BaseClass" "TargetedAction"
 	"ActionAttribute"	"1"
+
+	"EditorGrammar"		"Move %Target to %MoveToTarget"
+	
 
 
 	"MoveToTarget"

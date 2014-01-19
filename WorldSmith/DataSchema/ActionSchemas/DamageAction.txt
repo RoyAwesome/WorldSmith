@@ -4,6 +4,7 @@
 	"BaseClass" "TargetedAction"
 
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"Do %DamageAmount of %Type damage to %Target"
 
 	"Type"
 	{	
@@ -21,7 +22,7 @@
 		}
 	}
 
-	"DamageAmmount"
+	"DamageAmount"
 	{	
 		"KVName"	"Damage"
 		"Category"	"Misc"

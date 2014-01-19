@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Destroy all trees in a %Radius unit circle around %Target")]
 	public partial class DestroyTrees : TargetedAction
 	{
 		[Category("Misc")]

@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Heal %Target for %HealAmount hitpoints")]
 	public partial class Heal : TargetedAction
 	{
 		[Category("Misc")]

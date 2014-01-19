@@ -1,9 +1,12 @@
 ﻿"Schema"
 {
 	"ClassName"	"RandomAction"
-	"BaseClass" "TargetedAction"
+	"BaseClass" "BaseAction"
+
 
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"With a %Chance percent chance of happening using pseudo random %PseudoRandom , do %OnSuccess on success and %OnFailure on failure."
+
 
 	"Chance"
 	{	

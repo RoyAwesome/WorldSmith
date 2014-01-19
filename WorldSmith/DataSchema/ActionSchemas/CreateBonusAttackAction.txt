@@ -4,4 +4,5 @@
 	"BaseClass" "TargetedAction"
 
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"Create a bonus attack against %Target"
 }

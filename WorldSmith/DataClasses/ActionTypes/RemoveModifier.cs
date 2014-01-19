@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Remove %ModifierName from %Target")]
 	public partial class RemoveModifier : TargetedAction
 	{
 		[Category("Misc")]

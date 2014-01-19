@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Stun %Target for %Duration seconds")]
 	public partial class Stun : TargetedAction
 	{
 		[Category("Misc")]

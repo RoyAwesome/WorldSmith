@@ -3,6 +3,8 @@
 	"ClassName"	"Stun"
 	"BaseClass" "TargetedAction"
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"Stun %Target for %Duration seconds"
+
 
 	"Duration"
 	{	

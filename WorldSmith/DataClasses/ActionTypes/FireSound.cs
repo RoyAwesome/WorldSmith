@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Play %EffectName on %Target")]
 	public partial class FireSound : TargetedAction
 	{
 		[Category("Misc")]

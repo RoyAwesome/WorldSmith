@@ -3,6 +3,8 @@
 	"ClassName"	"RemoveModifier"
 	"BaseClass" "TargetedAction"
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"Remove %ModifierName from %Target"
+
 
 	"ModifierName"
 	{	

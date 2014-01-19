@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Create a thinking %ModifierName wall that is %Width by %Length units rotated %Rotation degrees at %Target")]
 	public partial class CreateThinkerWall : CreateThinker
 	{
 		[Category("Misc")]

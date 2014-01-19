@@ -4,6 +4,9 @@
 	"BaseClass" "BaseAction"
 	"ActionAttribute"	"1"
 
+	"EditorGrammar"		"Fire a Tracking projectile at the target that is Dodgable(%Dodageable ) with the effect %EffectName and moves at %MoveSpeed units per second.  It Provides Vision %ProvideVision of %VisionRadius units"
+
+
 	"Dodgeable"
 	{	
 		"Category"	"Misc"

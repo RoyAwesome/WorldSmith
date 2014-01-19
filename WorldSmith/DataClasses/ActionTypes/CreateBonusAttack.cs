@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Create a bonus attack against %Target")]
 	public partial class CreateBonusAttack : TargetedAction
 	{
 	}

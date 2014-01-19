@@ -4,6 +4,9 @@
 	"BaseClass" "TargetedAction"
 	"ActionAttribute"	"1"
 
+	"EditorGrammar"		"Replace %Target with %UnitName"
+
+
 	"UnitName"
 	{	
 		"Category"	"Misc"

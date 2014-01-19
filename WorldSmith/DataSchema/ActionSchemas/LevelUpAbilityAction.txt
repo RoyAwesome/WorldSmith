@@ -3,6 +3,8 @@
 	"ClassName"	"LevelUpAbility"
 	"BaseClass" "TargetedAction"
 	"ActionAttribute"	"1"
+	"EditorGrammar"		"Level up %AbilityName on %Target"
+
 
 	"AbilityName"
 	{	

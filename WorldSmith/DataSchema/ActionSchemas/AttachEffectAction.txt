@@ -4,6 +4,8 @@
 	"BaseClass" "TargetedAction"
 	"ActionAttribute"	"1"
 
+	"EditorGrammar"		"Apply %EffectName on %Target using attach behavior %EffectAttachType and custom %ControlPoints"
+
 	"EffectName"
 	{
 		"Category"	"Misc"

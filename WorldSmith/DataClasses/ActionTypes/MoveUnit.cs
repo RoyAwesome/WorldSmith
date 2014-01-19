@@ -10,22 +10,13 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("If the caster is alive, do %OnSuccess actions.  Else, do %OnFailure actions")]
-	public partial class IsCasterAlive : BaseAction
+	[EditorGrammar("Move %Target to %MoveToTarget")]
+	public partial class MoveUnit : TargetedAction
 	{
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(null)]
-		public ActionCollection OnSuccess
-		{
-			get;
-			set;
-		}
-
-		[Category("Misc")]
-		[Description("No Description Set")]
-		[DefaultValue(null)]
-		public ActionCollection OnFailure
+		public TargetKey MoveToTarget
 		{
 			get;
 			set;

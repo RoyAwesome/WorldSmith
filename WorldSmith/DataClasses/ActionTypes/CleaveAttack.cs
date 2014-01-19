@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Apply %CleavePercent of attack to all targets in %CleaveRadius units")]
 	public partial class CleaveAttack : BaseAction
 	{
 		[Category("Misc")]

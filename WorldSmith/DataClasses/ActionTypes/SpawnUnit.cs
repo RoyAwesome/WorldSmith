@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("No Editor Grammar set")]
+	[EditorGrammar("Spawn %UnitCount %UnitName around %Target with a radius of %Radius units for %Duration seconds.  After spawn, execute %OnSpawn actions")]
 	public partial class SpawnUnit : TargetedAction
 	{
 		[Category("Misc")]
