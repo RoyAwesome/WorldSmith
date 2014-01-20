@@ -119,6 +119,7 @@
             this.Size = new System.Drawing.Size(573, 510);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
@@ -135,7 +136,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.TreeView treeView1;
+        public System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         public System.Windows.Forms.PropertyGrid itemPropertyGrid;
         private System.Windows.Forms.BindingSource categoryEditorBindingSource;

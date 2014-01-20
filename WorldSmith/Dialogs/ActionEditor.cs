@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using WorldSmith.DataClasses;
 using WorldSmith.Dialogs.Actions;
+using WorldSmith.Panels;
 
 namespace WorldSmith.Dialogs
 {
@@ -51,6 +52,23 @@ namespace WorldSmith.Dialogs
 
             }
             treeView1.ExpandAll();
+        }
+
+        public new DialogResult ShowDialog()
+        {
+            //set the title of the dialog based on which property we are editing
+            TabPage selectedTab = Program.mainForm.tabControl1.SelectedTab;
+            for (int i = 0; i < selectedTab.Controls.Count; i++)
+            {
+                Control c = selectedTab.Controls[i];
+                if (c is CategoryEditor)
+                {
+                    CategoryEditor editor = c as CategoryEditor;
+                    this.Text = "Action Editor - " + editor.treeView1.SelectedNode.Text;
+                }
+            }
+            base.ShowDialog();
+            return DialogResult.OK;
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
