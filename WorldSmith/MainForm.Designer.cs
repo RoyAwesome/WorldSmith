@@ -1,5 +1,7 @@
 ﻿namespace WorldSmith
 {
+
+   //using WorldSmith.Resources.WinFormStrings;
     partial class MainForm
     {
         /// <summary>
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,14 +43,18 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setDotaDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.swedishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.addonConfig = new System.Windows.Forms.TabPage();
             this.unitTab = new System.Windows.Forms.TabPage();
-            this.unitEditor1 = new WorldSmith.Panels.UnitEditor();
             this.itemTab = new System.Windows.Forms.TabPage();
-            this.itemCategory = new WorldSmith.Panels.CategoryEditor();
             this.abilityTab = new System.Windows.Forms.TabPage();
+            this.unitEditor1 = new WorldSmith.Panels.UnitEditor();
+            this.itemCategory = new WorldSmith.Panels.CategoryEditor();
             this.abilityCategory = new WorldSmith.Panels.CategoryEditor();
+            this.localeManager1 = new WorldSmith.LocaleManager(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.unitTab.SuspendLayout();
@@ -60,11 +67,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.optionsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(916, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -75,22 +79,19 @@
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addonToolStripMenuItem1});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.newToolStripMenuItem.Text = "New";
+            resources.ApplyResources(this.newToolStripMenuItem, "newToolStripMenuItem");
             // 
             // addonToolStripMenuItem1
             // 
             this.addonToolStripMenuItem1.Name = "addonToolStripMenuItem1";
-            this.addonToolStripMenuItem1.Size = new System.Drawing.Size(110, 22);
-            this.addonToolStripMenuItem1.Text = "Addon";
+            resources.ApplyResources(this.addonToolStripMenuItem1, "addonToolStripMenuItem1");
             this.addonToolStripMenuItem1.Click += new System.EventHandler(this.addonToolStripMenuItem1_Click);
             // 
             // openToolStripMenuItem
@@ -98,50 +99,64 @@
             this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addonToolStripMenuItem});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.openToolStripMenuItem.Text = "Open";
+            resources.ApplyResources(this.openToolStripMenuItem, "openToolStripMenuItem");
             // 
             // addonToolStripMenuItem
             // 
             this.addonToolStripMenuItem.Name = "addonToolStripMenuItem";
-            this.addonToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.addonToolStripMenuItem.Text = "Addon";
+            resources.ApplyResources(this.addonToolStripMenuItem, "addonToolStripMenuItem");
             this.addonToolStripMenuItem.Click += new System.EventHandler(this.addonToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.saveToolStripMenuItem.Text = "Save";
+            resources.ApplyResources(this.saveToolStripMenuItem, "saveToolStripMenuItem");
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(135, 6);
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
+            resources.ApplyResources(this.exitToolStripMenuItem, "exitToolStripMenuItem");
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setDotaDirectoryToolStripMenuItem});
+            this.setDotaDirectoryToolStripMenuItem,
+            this.languageToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.optionsToolStripMenuItem.Text = "Options";
+            resources.ApplyResources(this.optionsToolStripMenuItem, "optionsToolStripMenuItem");
             // 
             // setDotaDirectoryToolStripMenuItem
             // 
             this.setDotaDirectoryToolStripMenuItem.Name = "setDotaDirectoryToolStripMenuItem";
-            this.setDotaDirectoryToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.setDotaDirectoryToolStripMenuItem.Text = "Set Dota Directory";
+            resources.ApplyResources(this.setDotaDirectoryToolStripMenuItem, "setDotaDirectoryToolStripMenuItem");
             this.setDotaDirectoryToolStripMenuItem.Click += new System.EventHandler(this.setDotaDirectoryToolStripMenuItem_Click);
+            // 
+            // languageToolStripMenuItem
+            // 
+            this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.englishToolStripMenuItem,
+            this.swedishToolStripMenuItem});
+            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            resources.ApplyResources(this.languageToolStripMenuItem, "languageToolStripMenuItem");
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            resources.ApplyResources(this.englishToolStripMenuItem, "englishToolStripMenuItem");
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            // 
+            // swedishToolStripMenuItem
+            // 
+            this.swedishToolStripMenuItem.Name = "swedishToolStripMenuItem";
+            resources.ApplyResources(this.swedishToolStripMenuItem, "swedishToolStripMenuItem");
+            this.swedishToolStripMenuItem.Click += new System.EventHandler(this.swedishToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -149,90 +164,64 @@
             this.tabControl1.Controls.Add(this.unitTab);
             this.tabControl1.Controls.Add(this.itemTab);
             this.tabControl1.Controls.Add(this.abilityTab);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 24);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(916, 669);
-            this.tabControl1.TabIndex = 1;
             // 
             // addonConfig
             // 
-            this.addonConfig.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.addonConfig, "addonConfig");
             this.addonConfig.Name = "addonConfig";
-            this.addonConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.addonConfig.Size = new System.Drawing.Size(908, 643);
-            this.addonConfig.TabIndex = 0;
-            this.addonConfig.Text = "Addon Config";
             this.addonConfig.UseVisualStyleBackColor = true;
             // 
             // unitTab
             // 
             this.unitTab.Controls.Add(this.unitEditor1);
-            this.unitTab.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.unitTab, "unitTab");
             this.unitTab.Name = "unitTab";
-            this.unitTab.Padding = new System.Windows.Forms.Padding(3);
-            this.unitTab.Size = new System.Drawing.Size(908, 643);
-            this.unitTab.TabIndex = 1;
-            this.unitTab.Text = "Unit Editor";
             this.unitTab.UseVisualStyleBackColor = true;
-            // 
-            // unitEditor1
-            // 
-            this.unitEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.unitEditor1.Location = new System.Drawing.Point(3, 3);
-            this.unitEditor1.Name = "unitEditor1";
-            this.unitEditor1.Size = new System.Drawing.Size(902, 637);
-            this.unitEditor1.TabIndex = 0;
             // 
             // itemTab
             // 
             this.itemTab.Controls.Add(this.itemCategory);
-            this.itemTab.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.itemTab, "itemTab");
             this.itemTab.Name = "itemTab";
-            this.itemTab.Size = new System.Drawing.Size(908, 643);
-            this.itemTab.TabIndex = 2;
-            this.itemTab.Text = "Item Editor";
             this.itemTab.UseVisualStyleBackColor = true;
-            // 
-            // itemCategory
-            // 
-            this.itemCategory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.itemCategory.Location = new System.Drawing.Point(0, 0);
-            this.itemCategory.Name = "itemCategory";
-            this.itemCategory.Size = new System.Drawing.Size(908, 643);
-            this.itemCategory.TabIndex = 0;
             // 
             // abilityTab
             // 
             this.abilityTab.Controls.Add(this.abilityCategory);
-            this.abilityTab.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.abilityTab, "abilityTab");
             this.abilityTab.Name = "abilityTab";
-            this.abilityTab.Size = new System.Drawing.Size(908, 643);
-            this.abilityTab.TabIndex = 3;
-            this.abilityTab.Text = "Ability Editor";
             this.abilityTab.UseVisualStyleBackColor = true;
+            // 
+            // unitEditor1
+            // 
+            resources.ApplyResources(this.unitEditor1, "unitEditor1");
+            this.unitEditor1.Name = "unitEditor1";
+            // 
+            // itemCategory
+            // 
+            resources.ApplyResources(this.itemCategory, "itemCategory");
+            this.itemCategory.Name = "itemCategory";
             // 
             // abilityCategory
             // 
-            this.abilityCategory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.abilityCategory.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.abilityCategory, "abilityCategory");
             this.abilityCategory.Name = "abilityCategory";
-            this.abilityCategory.Size = new System.Drawing.Size(908, 643);
-            this.abilityCategory.TabIndex = 0;
+            // 
+            // localeManager1
+            // 
+            this.localeManager1.ParentControl = this;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 693);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Worldsmith";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -266,6 +255,10 @@
         private Panels.CategoryEditor abilityCategory;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setDotaDirectoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem swedishToolStripMenuItem;
+        private LocaleManager localeManager1;
     }
 }
 

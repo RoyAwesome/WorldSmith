@@ -49,6 +49,9 @@ namespace WorldSmith
             }
             Application.ApplicationExit += Application_ApplicationExit;
 
+            System.Threading.Thread.CurrentThread.CurrentUICulture = 
+                System.Globalization.CultureInfo.CreateSpecificCulture(Properties.Settings.Default.language);
+
             Application.Run(mainForm = new MainForm());
 
             Properties.Settings.Default.Save();

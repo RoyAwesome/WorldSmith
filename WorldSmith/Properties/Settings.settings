@@ -11,5 +11,8 @@
     <Setting Name="AddonPath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sv</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
