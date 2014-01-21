@@ -54,7 +54,9 @@ namespace WorldSmith.DataClasses
             { "OnProjectileHitUnit",        new ActionCollection() },
             { "OnProjectileFinish",         new ActionCollection() },          
         };
-        
+
+        public List<BaseActionVariable> Variables = new List<BaseActionVariable>();
+
 
         public AbilityActionCollection()
         {

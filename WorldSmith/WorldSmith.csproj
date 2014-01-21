@@ -96,6 +96,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClasses\ActionProperties\BaseActionVariable.cs" />
     <Compile Include="DataClasses\ActionTypes\ActOnTargets.cs" />
     <Compile Include="DataClasses\ActionTypes\AddAbility.cs" />
     <Compile Include="DataClasses\ActionTypes\ApplyModifier.cs" />
@@ -131,11 +132,11 @@
     <Compile Include="DataClasses\ActionTypes\TargetedAction.cs" />
     <Compile Include="DataClasses\ActionTypes\TrackingProjectile.cs" />
     <Compile Include="DataClasses\DotaActionFactory.cs" />
-    <Compile Include="DataClasses\PropertyTypes\AbilityActionCollection.cs" />
-    <Compile Include="DataClasses\PropertyTypes\ActionCollection.cs" />
+    <Compile Include="DataClasses\ActionProperties\AbilityActionCollection.cs" />
+    <Compile Include="DataClasses\ActionProperties\ActionCollection.cs" />
     <Compile Include="DataClasses\PropertyTypes\ControlPointList.cs" />
-    <Compile Include="DataClasses\PropertyTypes\DotaActionAttribute.cs" />
-    <Compile Include="DataClasses\PropertyTypes\EditorGrammerAttribute.cs" />
+    <Compile Include="DataClasses\ActionProperties\DotaActionAttribute.cs" />
+    <Compile Include="DataClasses\ActionProperties\EditorGrammerAttribute.cs" />
     <Compile Include="DataClasses\PropertyTypes\TargetKey.cs" />
     <Compile Include="DataClasses\ScriptTypes\BaseScriptType.cs" />
     <Compile Include="DataClasses\ScriptTypes\DotaAbility.cs" />
@@ -153,6 +154,18 @@
     </Compile>
     <Compile Include="Dialogs\Actions\NewActionDialog.Designer.cs">
       <DependentUpon>NewActionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Actions\TargetKeyEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Actions\TargetKeyEditor.Designer.cs">
+      <DependentUpon>TargetKeyEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Actions\VariableEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Actions\VariableEditor.Designer.cs">
+      <DependentUpon>VariableEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Panels\ActionGrammarEditor.cs">
       <SubType>UserControl</SubType>
@@ -226,6 +239,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\Actions\NewActionDialog.resx">
       <DependentUpon>NewActionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Actions\TargetKeyEditor.resx">
+      <DependentUpon>TargetKeyEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Actions\VariableEditor.resx">
+      <DependentUpon>VariableEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AssetLoadingDialog.resx">
       <DependentUpon>AssetLoadingDialog.cs</DependentUpon>

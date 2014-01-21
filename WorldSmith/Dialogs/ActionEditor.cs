@@ -96,7 +96,7 @@ namespace WorldSmith.Dialogs
 
 
             NewActionDialog dialog = new NewActionDialog();
-            dialog.ShowDialog();
+            dialog.ShowDialog(treeView1.SelectedNode.Text, actions);
         }
     }
 
