@@ -8,11 +8,11 @@ You can contact me on IRC at #dota2mods on irc.gamesurge.net.
 
 ## Contributing
 
-Like this project? If you can, please [Donate] to keep the project running.  
+Like this project? Want to help?  Here are a few ideas:
 
-If you can program, I appreciate pull requests.  Please see the pull request guidelines below.
-
-Can't do either of the above?  Tell the world about Worldsmith.  
+* If you can, please [Donate] to keep the project running.  
+* If you can program, I appreciate pull requests.  Please see the pull request guidelines below.
+* Tell the world about Worldsmith.  
 
 
 ## Credits
@@ -22,6 +22,7 @@ Without a few people, this project would be much much harder.  In no particular 
 * penguinwizzard for figuring out how to write maps
 * tet, Sir_Kane, and hex6 for finding the strings for most of the flags and enums
 * Quintinity for some incredibly helpful commits
+* OrangeSodaSmurf for providing a coupon for a free domain name
 
 
 
