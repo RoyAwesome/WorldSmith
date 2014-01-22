@@ -36,10 +36,11 @@ namespace WorldSmith.Dialogs
 
         private void SetupActions()
         {
+           
             foreach(KeyValuePair<string, ActionCollection> kv in actions.Actions)
             {
                 TreeNode n = treeView1.Nodes.Find(kv.Key, true)[0];
-
+                n.Nodes.Clear();
                 foreach(BaseAction action in kv.Value)
                 {
                     n.Nodes.Add(new TreeNode()
@@ -93,10 +94,22 @@ namespace WorldSmith.Dialogs
 
                 return;
             }
-
+            if (!actions.Actions.ContainsKey(treeView1.SelectedNode.Text)) return;
+            ActionCollection bin = actions.Actions[treeView1.SelectedNode.Text];
 
             NewActionDialog dialog = new NewActionDialog();
-            dialog.ShowDialog(treeView1.SelectedNode.Text, actions);
+            if(dialog.ShowDialog(treeView1.SelectedNode.Text, actions) == DialogResult.OK)
+            {
+                bin.Add(dialog.SelectedAction);
+                treeView1.SelectedNode.Nodes.Add(new TreeNode()
+                    {
+                        Text = dialog.SelectedAction.ClassName,
+                        Name = dialog.SelectedAction.ClassName,
+                        Tag = dialog.SelectedAction,
+                    });
+                treeView1.SelectedNode.Expand();
+            }
+
         }
     }
 
@@ -121,16 +134,14 @@ namespace WorldSmith.Dialogs
                 IWindowsFormsEditorService edSvc = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
                 if (edSvc != null)
                 {
-                    actionEditor.Actions = (AbilityActionCollection)value;
+                    AbilityActionCollection actionCollection = (AbilityActionCollection)value;
+                    actionEditor.Actions = actionCollection;
                     if (actionEditor.ShowDialog() == DialogResult.OK)
                     {
-                        return actionEditor.Actions;
+                                              
                     }
-                    else
-                    {
-                        return value;
-                    }
-
+                  
+                    return actionCollection;
                 }
             }
             return null;
