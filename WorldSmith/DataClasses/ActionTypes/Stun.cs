@@ -15,8 +15,8 @@ namespace WorldSmith.DataClasses
 	{
 		[Category("Misc")]
 		[Description("float")]
-		[DefaultValue("")]
-		public string Duration
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue Duration
 		{
 			get;
 			set;

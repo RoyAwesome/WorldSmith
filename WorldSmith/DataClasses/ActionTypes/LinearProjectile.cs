@@ -24,8 +24,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string MoveSpeed
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue MoveSpeed
 		{
 			get;
 			set;
@@ -117,8 +117,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string StartRadius
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue StartRadius
 		{
 			get;
 			set;
@@ -126,8 +126,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string EndRadius
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue EndRadius
 		{
 			get;
 			set;
@@ -235,8 +235,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string VisionRadius
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue VisionRadius
 		{
 			get;
 			set;

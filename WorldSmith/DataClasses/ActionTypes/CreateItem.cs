@@ -24,8 +24,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue("")]
-		public string SpawnRadius
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue SpawnRadius
 		{
 			get;
 			set;
@@ -33,8 +33,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue("")]
-		public string ItemChargeCount
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue ItemChargeCount
 		{
 			get;
 			set;

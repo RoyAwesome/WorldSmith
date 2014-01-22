@@ -218,6 +218,7 @@ namespace WorldSmith.DataSchema
                     csFile.AppendLine("\t\t[Editor(typeof(AbilityActionEditor), "
                         + "typeof(System.Drawing.Design.UITypeEditor))]");
                 }
+              
 
                 
 
@@ -280,6 +281,10 @@ namespace WorldSmith.DataSchema
                     {
                         csFile.Append("null");
                         //csFile.Append("typeof(ControlPointList), \"" + c["DefaultValue"].GetString() + "\"");
+                    }
+                    if (type == "NumberValue")
+                    {
+                        csFile.Append("typeof(NumberValue), \"" + c["DefaultValue"].GetString() + "\"");
                     }
                     csFile.AppendLine(")]");
                 }

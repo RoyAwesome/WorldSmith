@@ -19,7 +19,7 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"string"
+		"Type"	"NumberValue"
 		"DefaultValue"	""
 	}
 
@@ -28,7 +28,7 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"string"
+		"Type"	"NumberValue"
 		"DefaultValue"	""
 	}
 

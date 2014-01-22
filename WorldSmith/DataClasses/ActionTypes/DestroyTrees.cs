@@ -15,8 +15,8 @@ namespace WorldSmith.DataClasses
 	{
 		[Category("Misc")]
 		[Description("float")]
-		[DefaultValue("")]
-		public string Radius
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue Radius
 		{
 			get;
 			set;

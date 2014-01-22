@@ -12,7 +12,7 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"string"
+		"Type"	"NumberValue"
 		"DefaultValue"	".5"
 	}
 

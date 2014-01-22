@@ -26,6 +26,7 @@ namespace WorldSmith.DataClasses
                 FactoryDictionary[t.Name] = () =>
                     {
                         BaseAction action = (BaseAction)t.GetConstructor(Type.EmptyTypes).Invoke(null);
+                        action.ClassName = t.Name;
                         return action;
                     };
             }

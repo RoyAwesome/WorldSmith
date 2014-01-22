@@ -36,7 +36,7 @@ namespace WorldSmith.DataClasses
     }
 
 
-    [Editor(typeof(AbilityActionEditor),typeof(UITypeEditor))]
+    [Editor(typeof(AbilityActionEditor), typeof(UITypeEditor))]
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AbilityActionCollection
     {
@@ -54,7 +54,9 @@ namespace WorldSmith.DataClasses
             { "OnProjectileHitUnit",        new ActionCollection() },
             { "OnProjectileFinish",         new ActionCollection() },          
         };
-        
+
+        public List<BaseActionVariable> Variables = new List<BaseActionVariable>();
+
 
         public AbilityActionCollection()
         {
@@ -64,7 +66,7 @@ namespace WorldSmith.DataClasses
         public KeyValue ToKV()
         {
             KeyValue kv = new KeyValue("Actions");
-            foreach(KeyValuePair<string, ActionCollection> k in Actions)
+            foreach (KeyValuePair<string, ActionCollection> k in Actions)
             {
                 KeyValue child = k.Value.ToKV(k.Key);
                 kv += child;
@@ -78,7 +80,7 @@ namespace WorldSmith.DataClasses
             KeyValue doc = ToKV();
 
             StringBuilder sb = new StringBuilder();
-            foreach(KeyValue kv in doc.Children)
+            foreach (KeyValue kv in doc.Children)
             {
                 sb.AppendLine(kv.ToString());
             }

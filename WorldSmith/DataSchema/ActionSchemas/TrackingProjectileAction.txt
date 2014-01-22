@@ -27,7 +27,7 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"int"
-		"Type"	"string"
+		"Type"	"NumberValue"
 		"DefaultValue"	""
 	}
 
@@ -43,7 +43,7 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"int"
-		"Type"	"string"
+		"Type"	"NumberValue"
 		"DefaultValue"	""
 	}
 

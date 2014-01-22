@@ -15,8 +15,8 @@ namespace WorldSmith.DataClasses
 	{
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string Mana
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue Mana
 		{
 			get;
 			set;

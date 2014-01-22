@@ -15,8 +15,8 @@ namespace WorldSmith.DataClasses
 	{
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(".5")]
-		public string Chance
+		[DefaultValue(typeof(NumberValue), ".5")]
+		public NumberValue Chance
 		{
 			get;
 			set;

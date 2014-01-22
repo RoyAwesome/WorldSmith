@@ -3,14 +3,14 @@
 	"ClassName"	"LifeSteal"
 	"BaseClass" "TargetedAction"
 	"ActionAttribute"	"1"
-	"EditorGrammar"		"Steal %LifeStealPercent of damage done to %Target"
+	"EditorGrammar"		"Steal %LifeStealPercent percent of damage done to %Target"
 
 
 	"LifeStealPercent"
 	{	
 		"Category"	"Misc"
 		"Description"	"float"
-		"Type"	"string"
+		"Type"	"NumberValue"
 		"DefaultValue"	""
 	}
 

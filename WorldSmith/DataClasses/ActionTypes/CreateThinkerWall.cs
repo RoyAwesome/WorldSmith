@@ -15,8 +15,8 @@ namespace WorldSmith.DataClasses
 	{
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string Width
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue Width
 		{
 			get;
 			set;
@@ -24,8 +24,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string Length
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue Length
 		{
 			get;
 			set;
@@ -33,8 +33,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("rotation")]
-		[DefaultValue("")]
-		public string Rotation
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue Rotation
 		{
 			get;
 			set;

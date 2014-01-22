@@ -10,7 +10,7 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"float"
-		"Type"	"string"
+		"Type"	"NumberValue"
 		"DefaultValue"	""
 	}
 

@@ -10,13 +10,13 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("Steal %LifeStealPercent of damage done to %Target")]
+	[EditorGrammar("Steal %LifeStealPercent percent of damage done to %Target")]
 	public partial class LifeSteal : TargetedAction
 	{
 		[Category("Misc")]
 		[Description("float")]
-		[DefaultValue("")]
-		public string LifeStealPercent
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue LifeStealPercent
 		{
 			get;
 			set;
