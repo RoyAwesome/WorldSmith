@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataClasses\ActionProperties\BaseActionVariable.cs" />
+    <Compile Include="DataClasses\ActionProperties\NumberValue.cs" />
     <Compile Include="DataClasses\ActionTypes\ActOnTargets.cs" />
     <Compile Include="DataClasses\ActionTypes\AddAbility.cs" />
     <Compile Include="DataClasses\ActionTypes\ApplyModifier.cs" />

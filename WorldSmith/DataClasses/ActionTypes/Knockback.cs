@@ -24,8 +24,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string Distance
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue Distance
 		{
 			get;
 			set;
@@ -33,8 +33,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("bool")]
-		[DefaultValue("")]
-		public string IsFixedDistance
+		[DefaultValue(false)]
+		public bool IsFixedDistance
 		{
 			get;
 			set;
@@ -42,8 +42,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string Height
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue Height
 		{
 			get;
 			set;
@@ -51,8 +51,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string Duration
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue Duration
 		{
 			get;
 			set;

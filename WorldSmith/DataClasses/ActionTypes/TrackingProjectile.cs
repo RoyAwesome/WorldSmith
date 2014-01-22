@@ -33,8 +33,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string VisionRadius
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue VisionRadius
 		{
 			get;
 			set;
@@ -51,8 +51,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string MoveSpeed
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue MoveSpeed
 		{
 			get;
 			set;

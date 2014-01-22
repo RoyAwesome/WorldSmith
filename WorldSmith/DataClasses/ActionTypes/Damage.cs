@@ -33,8 +33,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string DamageAmount
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue DamageAmount
 		{
 			get;
 			set;

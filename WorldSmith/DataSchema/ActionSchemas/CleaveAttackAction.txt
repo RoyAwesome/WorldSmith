@@ -4,20 +4,20 @@
 	"BaseClass" "BaseAction"
 
 	"ActionAttribute"	"1"
-	"EditorGrammar"		"Apply %CleavePercent of attack to all targets in %CleaveRadius units"
+	"EditorGrammar"		"Apply %CleavePercent percent of attack to all targets in %CleaveRadius units"
 
 	"CleavePercent"
 	{
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"string"
+		"Type"	"NumberValue"
 		"DefaultValue"	""
 	}
 	"CleaveRadius"
 	{
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"string"
+		"Type"	"NumberValue"
 		"DefaultValue"	""
 	}
 

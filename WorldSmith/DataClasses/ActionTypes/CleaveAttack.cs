@@ -10,13 +10,13 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("Apply %CleavePercent of attack to all targets in %CleaveRadius units")]
+	[EditorGrammar("Apply %CleavePercent percent of attack to all targets in %CleaveRadius units")]
 	public partial class CleaveAttack : BaseAction
 	{
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue("")]
-		public string CleavePercent
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue CleavePercent
 		{
 			get;
 			set;
@@ -24,8 +24,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue("")]
-		public string CleaveRadius
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue CleaveRadius
 		{
 			get;
 			set;

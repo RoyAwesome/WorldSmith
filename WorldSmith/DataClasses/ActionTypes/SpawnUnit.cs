@@ -24,8 +24,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string UnitCount
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue UnitCount
 		{
 			get;
 			set;
@@ -33,8 +33,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string SpawnRadius
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue SpawnRadius
 		{
 			get;
 			set;
@@ -42,8 +42,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("int")]
-		[DefaultValue("")]
-		public string Duration
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue Duration
 		{
 			get;
 			set;

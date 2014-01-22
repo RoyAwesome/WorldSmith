@@ -19,7 +19,7 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"int"
-		"Type"	"string"
+		"Type"	"NumberValue"
 		"DefaultValue"	""
 	}
 
@@ -27,7 +27,7 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"bool"
-		"Type"	"string"
+		"Type"	"bool"
 		"DefaultValue"	""
 	}
 
@@ -35,7 +35,7 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"int"
-		"Type"	"string"
+		"Type"	"NumberValue"
 		"DefaultValue"	""
 	}
 
@@ -43,7 +43,7 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"int"
-		"Type"	"string"
+		"Type"	"NumberValue"
 		"DefaultValue"	""
 	}
 }

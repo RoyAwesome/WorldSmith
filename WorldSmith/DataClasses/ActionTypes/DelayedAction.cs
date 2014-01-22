@@ -24,8 +24,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("float")]
-		[DefaultValue("")]
-		public string Delay
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue Delay
 		{
 			get;
 			set;

@@ -49,8 +49,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("float")]
-		[DefaultValue("")]
-		public string EffectRadius
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue EffectRadius
 		{
 			get;
 			set;
@@ -58,8 +58,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("float")]
-		[DefaultValue("")]
-		public string EffectDurationScale
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue EffectDurationScale
 		{
 			get;
 			set;
@@ -67,8 +67,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("float")]
-		[DefaultValue("")]
-		public string EffectLifeDurationScale
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue EffectLifeDurationScale
 		{
 			get;
 			set;
@@ -76,8 +76,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("float float float")]
-		[DefaultValue("")]
-		public string EffectColorA
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue EffectColorA
 		{
 			get;
 			set;
@@ -85,8 +85,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("float float float")]
-		[DefaultValue("")]
-		public string EffectColorB
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue EffectColorB
 		{
 			get;
 			set;

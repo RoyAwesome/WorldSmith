@@ -81,18 +81,18 @@ namespace WorldSmith.Panels
 
             PropertyInfo info = action.GetType().GetProperty(Property);
 
-            if(info.PropertyType == typeof(string))
+            if(info.PropertyType == typeof(NumberValue))
             {
                 VariableEditor editor = new VariableEditor();
                 editor.SetVariable(abilityActions.Variables.Select(x => x.Name));
-                string val = info.GetMethod.Invoke(action, new object[] { }) as string;
-                editor.SetDefault(val == null ? "" : val);
+                NumberValue val = info.GetMethod.Invoke(action, new object[] { }) as NumberValue;
+                editor.SetDefault(val == null ? "" : val.ToString());
                 editor.Text = "Variable Editor - " + Property;
 
                 if(editor.ShowDialog() == DialogResult.OK)
                 {
                     string value = editor.GetValue();
-                    info.SetMethod.Invoke(action, new object[] { value });
+                    info.SetMethod.Invoke(action, new object[] { new NumberValue(value) });
 
                     string display = "(" + value +")";
                     //Get the old display.

@@ -27,7 +27,7 @@
 		"KVName"	"Damage"
 		"Category"	"Misc"
 		"Description"	"int"
-		"Type"	"string"
+		"Type"	"NumberValue"
 		"DefaultValue"	""
 	}
 
