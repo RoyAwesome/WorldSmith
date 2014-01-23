@@ -156,13 +156,13 @@
     <Compile Include="Dialogs\Actions\NewActionDialog.Designer.cs">
       <DependentUpon>NewActionDialog.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
+
     <Compile Include="Localization\LocaleManager.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Localization\LocaleManager.Designer.cs">
       <DependentUpon>LocaleManager.cs</DependentUpon>
-=======
+    </Compile>
     <Compile Include="Dialogs\Actions\TargetKeyEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,7 +174,6 @@
     </Compile>
     <Compile Include="Dialogs\Actions\VariableEditor.Designer.cs">
       <DependentUpon>VariableEditor.cs</DependentUpon>
->>>>>>> upstream/master
     </Compile>
     <Compile Include="Panels\ObjectLinkEdit.cs">
       <SubType>UserControl</SubType>
