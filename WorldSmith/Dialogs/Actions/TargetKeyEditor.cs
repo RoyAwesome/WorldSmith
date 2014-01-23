@@ -99,6 +99,15 @@ namespace WorldSmith.Dialogs.Actions
             linkChance.Object = Target;
             linkChance.Variables = VariableList;
 
+            if (target.Preset != TargetKey.PresetType.NONE)
+            {
+                radioButton1.Checked = true;
+            }
+            else
+            {
+                radioButton2.Checked = true;
+            }
+            comboBox1.SelectedItem = target.Preset.ToString();
         }
 
 
@@ -130,8 +139,7 @@ namespace WorldSmith.Dialogs.Actions
                 linkTargetFilter.Enabled = false;
                 linkChance.Enabled = false;
 
-                comboBox1.Enabled = true;
-                  target.Preset = (TargetKey.PresetType)Enum.Parse(typeof(TargetKey.PresetType), comboBox1.SelectedItem as string);
+                comboBox1.Enabled = true;                
             }
         }
 

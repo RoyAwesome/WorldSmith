@@ -145,6 +145,16 @@ namespace WorldSmith.DataClasses
         public TargetKey()
         {
             Preset = PresetType.TARGET;
+            Center = PresetType.TARGET;
+            Radius = new NumberValue("");
+            Length = new NumberValue("");
+            Thickness = new NumberValue("");
+            Teams = AbilityUnitTargetTypeFlags.DOTA_UNIT_TARGET_NONE;
+            UnitTypes = AbilityUnitTargetTypeFlags.DOTA_UNIT_TARGET_NONE;
+            Flags = AbilityUnitTargetTypeFlags.DOTA_UNIT_TARGET_NONE;
+            MaxTargets = new NumberValue("-1");
+            Random = new NumberValue("");
+            
         }
 
         public KeyValue ToKV(string key)
