@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorldSmith.DataClasses;
+using System.Reflection;
 
 namespace WorldSmith.Dialogs.Actions
 {
@@ -47,7 +48,9 @@ namespace WorldSmith.Dialogs.Actions
         private void actionList_SelectedValueChanged(object sender, EventArgs e)
         {
             SelectedAction = DotaActionFactory.CreateNewAction(actionList.SelectedItem as string);
-            actionGrammerEditor1.Action = SelectedAction;
+            EditorGrammarAttribute attrib = SelectedAction.GetType().GetCustomAttribute<EditorGrammarAttribute>();
+            if (attrib != null) actionGrammerEditor1.Grammer = attrib.Grammar;
+            actionGrammerEditor1.Object = SelectedAction;
         }
 
         public DialogResult ShowDialog(string actionContext, AbilityActionCollection actionCollection)

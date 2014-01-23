@@ -32,12 +32,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.linkChance = new System.Windows.Forms.LinkLabel();
-            this.linkTargetFilter = new System.Windows.Forms.LinkLabel();
-            this.linkLineOrCircle = new System.Windows.Forms.LinkLabel();
-            this.linkHeader = new System.Windows.Forms.LinkLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.linkHeader = new WorldSmith.Panels.ObjectLinkEdit();
+            this.linkLineOrCircle = new WorldSmith.Panels.ObjectLinkEdit();
+            this.linkTargetFilter = new WorldSmith.Panels.ObjectLinkEdit();
+            this.linkChance = new WorldSmith.Panels.ObjectLinkEdit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,67 +81,64 @@
             this.panel1.Controls.Add(this.linkHeader);
             this.panel1.Location = new System.Drawing.Point(12, 82);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 163);
+            this.panel1.Size = new System.Drawing.Size(350, 177);
             this.panel1.TabIndex = 3;
-            // 
-            // linkChance
-            // 
-            this.linkChance.AutoSize = true;
-            this.linkChance.LinkArea = new System.Windows.Forms.LinkArea(0, 0);
-            this.linkChance.Location = new System.Drawing.Point(6, 117);
-            this.linkChance.Name = "linkChance";
-            this.linkChance.Size = new System.Drawing.Size(266, 13);
-            this.linkChance.TabIndex = 3;
-            this.linkChance.Text = "And selects %MaxTargets and %Random addition units";
-            // 
-            // linkTargetFilter
-            // 
-            this.linkTargetFilter.AutoSize = true;
-            this.linkTargetFilter.LinkArea = new System.Windows.Forms.LinkArea(0, 0);
-            this.linkTargetFilter.Location = new System.Drawing.Point(6, 82);
-            this.linkTargetFilter.Name = "linkTargetFilter";
-            this.linkTargetFilter.Size = new System.Drawing.Size(220, 13);
-            this.linkTargetFilter.TabIndex = 2;
-            this.linkTargetFilter.Text = "That targets %Types on %Teams with %Flags";
-            // 
-            // linkLineOrCircle
-            // 
-            this.linkLineOrCircle.AutoSize = true;
-            this.linkLineOrCircle.LinkArea = new System.Windows.Forms.LinkArea(0, 0);
-            this.linkLineOrCircle.Location = new System.Drawing.Point(6, 48);
-            this.linkLineOrCircle.Name = "linkLineOrCircle";
-            this.linkLineOrCircle.Size = new System.Drawing.Size(339, 13);
-            this.linkLineOrCircle.TabIndex = 1;
-            this.linkLineOrCircle.Text = "With radius %Radius | With length %length and Thickness %Thickness";
-            // 
-            // linkHeader
-            // 
-            this.linkHeader.AutoSize = true;
-            this.linkHeader.LinkArea = new System.Windows.Forms.LinkArea(0, 0);
-            this.linkHeader.Location = new System.Drawing.Point(6, 15);
-            this.linkHeader.Name = "linkHeader";
-            this.linkHeader.Size = new System.Drawing.Size(205, 13);
-            this.linkHeader.TabIndex = 0;
-            this.linkHeader.Text = "Create a %Type centered around %Center";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(287, 251);
+            this.button1.Location = new System.Drawing.Point(284, 276);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "Okay";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(13, 251);
+            this.button2.Location = new System.Drawing.Point(12, 276);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // linkHeader
+            // 
+            this.linkHeader.Grammer = null;
+            this.linkHeader.Location = new System.Drawing.Point(3, 3);
+            this.linkHeader.Name = "linkHeader";
+            this.linkHeader.Object = null;
+            this.linkHeader.Size = new System.Drawing.Size(344, 41);
+            this.linkHeader.TabIndex = 0;
+            // 
+            // linkLineOrCircle
+            // 
+            this.linkLineOrCircle.Grammer = null;
+            this.linkLineOrCircle.Location = new System.Drawing.Point(3, 50);
+            this.linkLineOrCircle.Name = "linkLineOrCircle";
+            this.linkLineOrCircle.Object = null;
+            this.linkLineOrCircle.Size = new System.Drawing.Size(344, 38);
+            this.linkLineOrCircle.TabIndex = 1;
+            // 
+            // linkTargetFilter
+            // 
+            this.linkTargetFilter.Grammer = null;
+            this.linkTargetFilter.Location = new System.Drawing.Point(3, 94);
+            this.linkTargetFilter.Name = "linkTargetFilter";
+            this.linkTargetFilter.Object = null;
+            this.linkTargetFilter.Size = new System.Drawing.Size(344, 31);
+            this.linkTargetFilter.TabIndex = 2;
+            // 
+            // linkChance
+            // 
+            this.linkChance.Grammer = null;
+            this.linkChance.Location = new System.Drawing.Point(1, 131);
+            this.linkChance.Name = "linkChance";
+            this.linkChance.Object = null;
+            this.linkChance.Size = new System.Drawing.Size(347, 39);
+            this.linkChance.TabIndex = 3;
             // 
             // TargetKeyEditor
             // 
@@ -149,7 +146,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(374, 282);
+            this.ClientSize = new System.Drawing.Size(374, 311);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -159,7 +156,6 @@
             this.Name = "TargetKeyEditor";
             this.Text = "TargetKeyEditor";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,11 +167,11 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.LinkLabel linkChance;
-        private System.Windows.Forms.LinkLabel linkTargetFilter;
-        private System.Windows.Forms.LinkLabel linkLineOrCircle;
-        private System.Windows.Forms.LinkLabel linkHeader;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private Panels.ObjectLinkEdit linkHeader;
+        private Panels.ObjectLinkEdit linkChance;
+        private Panels.ObjectLinkEdit linkTargetFilter;
+        private Panels.ObjectLinkEdit linkLineOrCircle;
     }
 }

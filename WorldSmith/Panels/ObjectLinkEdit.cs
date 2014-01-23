@@ -13,13 +13,13 @@ using WorldSmith.Dialogs.Actions;
 
 namespace WorldSmith.Panels
 {
-    public partial class ActionGrammarEditor : UserControl
+    public partial class ObjectLinkEdit : UserControl
     {
-        BaseAction action;
+        object action;
         public AbilityActionCollection abilityActions;
         public string ActionContext;
 
-        public BaseAction Action
+        public object Object
         {
             get
             {
@@ -32,7 +32,13 @@ namespace WorldSmith.Panels
             }
         }
 
-        public ActionGrammarEditor()
+        public string Grammer
+        {
+            get;
+            set;
+        }
+
+        public ObjectLinkEdit()
         {
             InitializeComponent();
         }
@@ -40,38 +46,27 @@ namespace WorldSmith.Panels
 
         private void BuildActionPanel()
         {
-            if (action == null) return;
-            EditorGrammarAttribute attrib = action.GetType().GetCustomAttribute<EditorGrammarAttribute>();
-            if(attrib != null)
+            linkLabel1.Links.Clear();
+            if (Grammer == null) Grammer = "No Grammer Set";
+                
+            //Find each % and get the positions to create links
+            int ind = Grammer.IndexOf('%', 0);
+            int count = 0;
+            while(ind != -1)
             {
-                linkLabel1.Links.Clear();
-                string grammar = attrib.Grammar;
+                int start = ind;
+                int end = Grammer.IndexOf(' ', start);
+                int len = end == -1 ? Grammer.Length - start : end - start;
 
-                //Find each % and get the positions to create links
-                int ind = grammar.IndexOf('%', 0);
-                int count = 0;
-                while(ind != -1)
-                {
-                    int start = ind;
-                    int end = grammar.IndexOf(' ', start);
-                    int len = end == -1 ? grammar.Length - start : end - start;
+                linkLabel1.Links.Add(start - count, len - 1, Grammer.Substring(start+1, len - 1)); //Shif the region back one because we remove the % signs.
 
-                    linkLabel1.Links.Add(start - count, len - 1, grammar.Substring(start+1, len - 1)); //Shif the region back one because we remove the % signs.
+                ind = Grammer.IndexOf('%', start + len);
 
-                    ind = grammar.IndexOf('%', start + len);
-
-                    count++;
-                    
-                }
-
-
-
-
-                linkLabel1.Text = attrib.Grammar.Replace("%", "");
-
-                
-                
+                count++;
             }
+
+
+            linkLabel1.Text = Grammer.Replace("%", "");   
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -80,6 +75,11 @@ namespace WorldSmith.Panels
             string Property = e.Link.LinkData as string;
 
             PropertyInfo info = action.GetType().GetProperty(Property);
+            if(info == null)
+            {
+                MessageBox.Show("Property " + Property + " Does not exist for " + action.GetType().Name);
+                return;
+            }
 
             DialogResult result = DialogResult.Cancel;
 

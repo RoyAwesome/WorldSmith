@@ -151,6 +151,11 @@ namespace WorldSmith.DataClasses
             set;
         }
 
+        public TargetKey()
+        {
+
+        }
+
         public TargetKey(string value)
         {
 

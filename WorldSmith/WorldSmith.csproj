@@ -168,11 +168,11 @@
     <Compile Include="Dialogs\Actions\VariableEditor.Designer.cs">
       <DependentUpon>VariableEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panels\ActionGrammarEditor.cs">
+    <Compile Include="Panels\ObjectLinkEdit.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panels\ActionGrammarEditor.Designer.cs">
-      <DependentUpon>ActionGrammarEditor.cs</DependentUpon>
+    <Compile Include="Panels\ObjectLinkEdit.Designer.cs">
+      <DependentUpon>ObjectLinkEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Panels\FlagCheckListBox.cs">
       <SubType>Component</SubType>
@@ -262,8 +262,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\ActionGrammarEditor.resx">
-      <DependentUpon>ActionGrammarEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Panels\ObjectLinkEdit.resx">
+      <DependentUpon>ObjectLinkEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\CategoryEditor.resx">
       <DependentUpon>CategoryEditor.cs</DependentUpon>

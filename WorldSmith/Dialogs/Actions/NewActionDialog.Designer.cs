@@ -32,7 +32,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.actionGrammerEditor1 = new WorldSmith.Panels.ActionGrammarEditor();
+            this.actionGrammerEditor1 = new WorldSmith.Panels.ObjectLinkEdit();
             this.SuspendLayout();
             // 
             // actionList
@@ -76,7 +76,6 @@
             // 
             // actionGrammerEditor1
             // 
-            this.actionGrammerEditor1.Action = null;
             this.actionGrammerEditor1.Location = new System.Drawing.Point(12, 39);
             this.actionGrammerEditor1.Name = "actionGrammerEditor1";
             this.actionGrammerEditor1.Size = new System.Drawing.Size(260, 119);
@@ -109,7 +108,7 @@
         private System.Windows.Forms.ComboBox actionList;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private Panels.ActionGrammarEditor actionGrammerEditor1;
+        private Panels.ObjectLinkEdit actionGrammerEditor1;
         private System.Windows.Forms.Label label1;
     }
 }

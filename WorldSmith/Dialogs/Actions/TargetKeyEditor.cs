@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorldSmith.DataClasses;
+using WorldSmith.Panels;
 
 namespace WorldSmith.Dialogs.Actions
 {
@@ -45,10 +47,24 @@ namespace WorldSmith.Dialogs.Actions
             { "OnDestroy", new string[] { "CASTER", "TARGET" } },
         };
 
-        public TargetKeyEditor()
+        public TargetKey Target
         {
+            get;
+            set;
+        }
+
+        public TargetKeyEditor(TargetKey target)
+        {
+
             InitializeComponent();
+            Target = target;
             InitLinks();
+        }
+
+        public TargetKeyEditor()
+            : this(new TargetKey())
+        {
+            
         }
 
         public void SetPresets(string category)
@@ -61,39 +77,17 @@ namespace WorldSmith.Dialogs.Actions
 
         private void InitLinks()
         {
-            AddLinks(linkHeader);
+            linkHeader.Grammer = "Create a %Type centered around %Center";
+            linkHeader.Object = Target;
             CenterType(true);
-            AddLinks(linkTargetFilter);
-            AddLinks(linkChance);
+            linkTargetFilter.Grammer = "That targets %Types on %Teams with %Flags";
+            linkTargetFilter.Object = Target;
+            linkChance.Grammer = "and selects %MaxTargets and %Random additional units";
+            linkChance.Object = Target;
+        
 
         }
 
-        private void AddLinks(LinkLabel label)
-        {
-            string text = label.Text;
-
-            label.Links.Clear();
-
-            //Find each % and get the positions to create links
-            int ind = text.IndexOf('%', 0);
-            int count = 0;
-            while (ind != -1)
-            {
-                int start = ind;
-                int end = text.IndexOf(' ', start);
-                int len = end == -1 ? text.Length - start : end - start;
-
-                label.Links.Add(start - count, len - 1, text.Substring(start + 1, len - 1)); //Shif the region back one because we remove the % signs.
-
-                ind = text.IndexOf('%', start + len);
-
-                count++;
-
-            }
-            
-            label.Text = text.Replace("%", "");
-
-        }
 
 
         private void CenterType(bool type)
@@ -101,14 +95,14 @@ namespace WorldSmith.Dialogs.Actions
 
             if (type)
             {
-                linkLineOrCircle.Text = "With radius %Radius";
+                linkLineOrCircle.Grammer = "With radius %Radius";
             }
             else
             {
-                linkLineOrCircle.Text = "With Length %Length and Thickness %Thickness";
+                linkLineOrCircle.Grammer = "With Length %Length and Thickness %Thickness";
               
             }
-            AddLinks(linkLineOrCircle);                
+            linkLineOrCircle.Object = Target;              
 
         }
 
@@ -138,6 +132,11 @@ namespace WorldSmith.Dialogs.Actions
 
                 comboBox1.Enabled = false;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
