@@ -81,6 +81,10 @@ namespace WorldSmith.Panels
 
             PropertyInfo info = action.GetType().GetProperty(Property);
 
+            DialogResult result = DialogResult.Cancel;
+
+            string valueResult = "";
+
             if(info.PropertyType == typeof(NumberValue))
             {
                 VariableEditor editor = new VariableEditor();
@@ -89,31 +93,47 @@ namespace WorldSmith.Panels
                 editor.SetDefault(val == null ? "" : val.ToString());
                 editor.Text = "Variable Editor - " + Property;
 
+                result = editor.ShowDialog();
+
                 if(editor.ShowDialog() == DialogResult.OK)
                 {
-                    string value = editor.GetValue();
-                    info.SetMethod.Invoke(action, new object[] { new NumberValue(value) });
+                    valueResult = editor.GetValue();
+                    info.SetMethod.Invoke(action, new object[] { new NumberValue(valueResult) });
 
-                    string display = "(" + value +")";
-                    //Get the old display.
-                    string old = linkLabel1.Text.Substring(e.Link.Start, e.Link.Length);
-
-                    //Replace it with the new one
-                    linkLabel1.Text = linkLabel1.Text.Replace(old, display);
-
-                    int diff = e.Link.Length - display.Length; //Get the difference in chars so we can move the other links back
-
-                    e.Link.Length = display.Length; //Adjust this link to that it takes up the new area
-
-                    //pull back all of the other links so they adjust to the new area, starting with the editing link
-                    int editedIndex = linkLabel1.Links.IndexOf(e.Link);        
-                    for(int i = editedIndex + 1; i < linkLabel1.Links.Count; i++)
-                    {
-                        LinkLabel.Link l = linkLabel1.Links[i];
-                        l.Start -= diff;
-                    }
                 }
             }
+            if(info.PropertyType == typeof(TargetKey))
+            {
+                TargetKeyEditor editor = new TargetKeyEditor();
+                editor.SetPresets(ActionContext);
+
+                result = editor.ShowDialog();
+
+            }
+
+
+            if(result == DialogResult.OK)
+            {
+                string display = "(" + valueResult + ")";
+                //Get the old display.
+                string old = linkLabel1.Text.Substring(e.Link.Start, e.Link.Length);
+
+                //Replace it with the new one
+                linkLabel1.Text = linkLabel1.Text.Replace(old, display);
+
+                int diff = e.Link.Length - display.Length; //Get the difference in chars so we can move the other links back
+
+                e.Link.Length = display.Length; //Adjust this link to that it takes up the new area
+
+                //pull back all of the other links so they adjust to the new area, starting with the editing link
+                int editedIndex = linkLabel1.Links.IndexOf(e.Link);
+                for (int i = editedIndex + 1; i < linkLabel1.Links.Count; i++)
+                {
+                    LinkLabel.Link l = linkLabel1.Links[i];
+                    l.Start -= diff;
+                }
+            }
+
             
         }
 

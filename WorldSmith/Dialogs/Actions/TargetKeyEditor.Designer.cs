@@ -32,10 +32,10 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.linkHeader = new System.Windows.Forms.LinkLabel();
-            this.linkLineOrCircle = new System.Windows.Forms.LinkLabel();
-            this.linkTargetFilter = new System.Windows.Forms.LinkLabel();
             this.linkChance = new System.Windows.Forms.LinkLabel();
+            this.linkTargetFilter = new System.Windows.Forms.LinkLabel();
+            this.linkLineOrCircle = new System.Windows.Forms.LinkLabel();
+            this.linkHeader = new System.Windows.Forms.LinkLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -51,6 +51,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Preset";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // comboBox1
             // 
@@ -70,6 +71,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Custom";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // panel1
             // 
@@ -82,25 +84,15 @@
             this.panel1.Size = new System.Drawing.Size(350, 163);
             this.panel1.TabIndex = 3;
             // 
-            // linkHeader
+            // linkChance
             // 
-            this.linkHeader.AutoSize = true;
-            this.linkHeader.LinkArea = new System.Windows.Forms.LinkArea(0, 0);
-            this.linkHeader.Location = new System.Drawing.Point(6, 15);
-            this.linkHeader.Name = "linkHeader";
-            this.linkHeader.Size = new System.Drawing.Size(205, 13);
-            this.linkHeader.TabIndex = 0;
-            this.linkHeader.Text = "Create a %Type centered around %Center";
-            // 
-            // linkLineOrCircle
-            // 
-            this.linkLineOrCircle.AutoSize = true;
-            this.linkLineOrCircle.LinkArea = new System.Windows.Forms.LinkArea(0, 0);
-            this.linkLineOrCircle.Location = new System.Drawing.Point(6, 48);
-            this.linkLineOrCircle.Name = "linkLineOrCircle";
-            this.linkLineOrCircle.Size = new System.Drawing.Size(339, 13);
-            this.linkLineOrCircle.TabIndex = 1;
-            this.linkLineOrCircle.Text = "With radius %Radius | With length %length and Thickness %Thickness";
+            this.linkChance.AutoSize = true;
+            this.linkChance.LinkArea = new System.Windows.Forms.LinkArea(0, 0);
+            this.linkChance.Location = new System.Drawing.Point(6, 117);
+            this.linkChance.Name = "linkChance";
+            this.linkChance.Size = new System.Drawing.Size(266, 13);
+            this.linkChance.TabIndex = 3;
+            this.linkChance.Text = "And selects %MaxTargets and %Random addition units";
             // 
             // linkTargetFilter
             // 
@@ -112,15 +104,25 @@
             this.linkTargetFilter.TabIndex = 2;
             this.linkTargetFilter.Text = "That targets %Types on %Teams with %Flags";
             // 
-            // linkChance
+            // linkLineOrCircle
             // 
-            this.linkChance.AutoSize = true;
-            this.linkChance.LinkArea = new System.Windows.Forms.LinkArea(0, 0);
-            this.linkChance.Location = new System.Drawing.Point(6, 117);
-            this.linkChance.Name = "linkChance";
-            this.linkChance.Size = new System.Drawing.Size(266, 13);
-            this.linkChance.TabIndex = 3;
-            this.linkChance.Text = "And selects %MaxTargets and %Random addition units";
+            this.linkLineOrCircle.AutoSize = true;
+            this.linkLineOrCircle.LinkArea = new System.Windows.Forms.LinkArea(0, 0);
+            this.linkLineOrCircle.Location = new System.Drawing.Point(6, 48);
+            this.linkLineOrCircle.Name = "linkLineOrCircle";
+            this.linkLineOrCircle.Size = new System.Drawing.Size(339, 13);
+            this.linkLineOrCircle.TabIndex = 1;
+            this.linkLineOrCircle.Text = "With radius %Radius | With length %length and Thickness %Thickness";
+            // 
+            // linkHeader
+            // 
+            this.linkHeader.AutoSize = true;
+            this.linkHeader.LinkArea = new System.Windows.Forms.LinkArea(0, 0);
+            this.linkHeader.Location = new System.Drawing.Point(6, 15);
+            this.linkHeader.Name = "linkHeader";
+            this.linkHeader.Size = new System.Drawing.Size(205, 13);
+            this.linkHeader.TabIndex = 0;
+            this.linkHeader.Text = "Create a %Type centered around %Center";
             // 
             // button1
             // 

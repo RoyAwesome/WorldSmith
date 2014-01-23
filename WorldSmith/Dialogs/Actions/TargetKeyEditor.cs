@@ -48,6 +48,15 @@ namespace WorldSmith.Dialogs.Actions
         public TargetKeyEditor()
         {
             InitializeComponent();
+            InitLinks();
+        }
+
+        public void SetPresets(string category)
+        {
+            if (!ContextTargets.ContainsKey(category)) return;
+            comboBox1.Items.Clear();
+            comboBox1.Items.AddRange(ContextTargets[category]);
+            comboBox1.SelectedIndex = 0;
         }
 
         private void InitLinks()
@@ -101,6 +110,34 @@ namespace WorldSmith.Dialogs.Actions
             }
             AddLinks(linkLineOrCircle);                
 
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radioButton1.Checked)
+            {
+                radioButton2.Checked = false;
+                linkHeader.Enabled = false;
+                linkLineOrCircle.Enabled = false;
+                linkTargetFilter.Enabled = false;
+                linkChance.Enabled = false;
+
+                comboBox1.Enabled = true;
+            }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                radioButton1.Checked = false;
+                linkHeader.Enabled = true;
+                linkLineOrCircle.Enabled = true;
+                linkTargetFilter.Enabled = true;
+                linkChance.Enabled = true;
+
+                comboBox1.Enabled = false;
+            }
         }
 
     }
