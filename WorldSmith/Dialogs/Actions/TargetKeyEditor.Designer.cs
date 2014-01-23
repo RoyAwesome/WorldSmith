@@ -34,10 +34,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.linkHeader = new WorldSmith.Panels.ObjectLinkEdit();
-            this.linkLineOrCircle = new WorldSmith.Panels.ObjectLinkEdit();
-            this.linkTargetFilter = new WorldSmith.Panels.ObjectLinkEdit();
             this.linkChance = new WorldSmith.Panels.ObjectLinkEdit();
+            this.linkTargetFilter = new WorldSmith.Panels.ObjectLinkEdit();
+            this.linkLineOrCircle = new WorldSmith.Panels.ObjectLinkEdit();
+            this.linkHeader = new WorldSmith.Panels.ObjectLinkEdit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,12 +81,12 @@
             this.panel1.Controls.Add(this.linkHeader);
             this.panel1.Location = new System.Drawing.Point(12, 82);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 177);
+            this.panel1.Size = new System.Drawing.Size(350, 152);
             this.panel1.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(284, 276);
+            this.button1.Location = new System.Drawing.Point(284, 240);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -97,48 +97,48 @@
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(12, 276);
+            this.button2.Location = new System.Drawing.Point(13, 240);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // linkHeader
+            // linkChance
             // 
-            this.linkHeader.Grammer = null;
-            this.linkHeader.Location = new System.Drawing.Point(3, 3);
-            this.linkHeader.Name = "linkHeader";
-            this.linkHeader.Object = null;
-            this.linkHeader.Size = new System.Drawing.Size(344, 41);
-            this.linkHeader.TabIndex = 0;
-            // 
-            // linkLineOrCircle
-            // 
-            this.linkLineOrCircle.Grammer = null;
-            this.linkLineOrCircle.Location = new System.Drawing.Point(3, 50);
-            this.linkLineOrCircle.Name = "linkLineOrCircle";
-            this.linkLineOrCircle.Object = null;
-            this.linkLineOrCircle.Size = new System.Drawing.Size(344, 38);
-            this.linkLineOrCircle.TabIndex = 1;
+            this.linkChance.Grammer = "No Grammer Set";
+            this.linkChance.Location = new System.Drawing.Point(3, 110);
+            this.linkChance.Name = "linkChance";
+            this.linkChance.Object = null;
+            this.linkChance.Size = new System.Drawing.Size(344, 32);
+            this.linkChance.TabIndex = 3;
             // 
             // linkTargetFilter
             // 
-            this.linkTargetFilter.Grammer = null;
-            this.linkTargetFilter.Location = new System.Drawing.Point(3, 94);
+            this.linkTargetFilter.Grammer = "No Grammer Set";
+            this.linkTargetFilter.Location = new System.Drawing.Point(3, 73);
             this.linkTargetFilter.Name = "linkTargetFilter";
             this.linkTargetFilter.Object = null;
             this.linkTargetFilter.Size = new System.Drawing.Size(344, 31);
             this.linkTargetFilter.TabIndex = 2;
             // 
-            // linkChance
+            // linkLineOrCircle
             // 
-            this.linkChance.Grammer = null;
-            this.linkChance.Location = new System.Drawing.Point(1, 131);
-            this.linkChance.Name = "linkChance";
-            this.linkChance.Object = null;
-            this.linkChance.Size = new System.Drawing.Size(347, 39);
-            this.linkChance.TabIndex = 3;
+            this.linkLineOrCircle.Grammer = "No Grammer Set";
+            this.linkLineOrCircle.Location = new System.Drawing.Point(3, 37);
+            this.linkLineOrCircle.Name = "linkLineOrCircle";
+            this.linkLineOrCircle.Object = null;
+            this.linkLineOrCircle.Size = new System.Drawing.Size(344, 30);
+            this.linkLineOrCircle.TabIndex = 1;
+            // 
+            // linkHeader
+            // 
+            this.linkHeader.Grammer = "No Grammer Set";
+            this.linkHeader.Location = new System.Drawing.Point(3, 3);
+            this.linkHeader.Name = "linkHeader";
+            this.linkHeader.Object = null;
+            this.linkHeader.Size = new System.Drawing.Size(344, 28);
+            this.linkHeader.TabIndex = 0;
             // 
             // TargetKeyEditor
             // 
@@ -146,7 +146,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(374, 311);
+            this.ClientSize = new System.Drawing.Size(374, 278);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);

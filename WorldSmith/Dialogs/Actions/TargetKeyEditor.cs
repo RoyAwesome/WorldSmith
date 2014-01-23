@@ -47,6 +47,8 @@ namespace WorldSmith.Dialogs.Actions
             { "OnDestroy", new string[] { "CASTER", "TARGET" } },
         };
 
+        public IEnumerable<BaseActionVariable> VariableList;
+
         public TargetKey Target
         {
             get;
@@ -77,14 +79,16 @@ namespace WorldSmith.Dialogs.Actions
 
         private void InitLinks()
         {
-            linkHeader.Grammer = "Create a %Type centered around %Center";
+            linkHeader.Grammer = "Create a %Shape centered around %Center";
             linkHeader.Object = Target;
+            linkHeader.Variables = VariableList;
             CenterType(true);
-            linkTargetFilter.Grammer = "That targets %Types on %Teams with %Flags";
+            linkTargetFilter.Grammer = "That targets %UnitTypes on %Teams with %Flags";
             linkTargetFilter.Object = Target;
+            linkTargetFilter.Variables = VariableList;
             linkChance.Grammer = "and selects %MaxTargets and %Random additional units";
             linkChance.Object = Target;
-        
+            linkChance.Variables = VariableList;
 
         }
 
@@ -102,7 +106,8 @@ namespace WorldSmith.Dialogs.Actions
                 linkLineOrCircle.Grammer = "With Length %Length and Thickness %Thickness";
               
             }
-            linkLineOrCircle.Object = Target;              
+            linkLineOrCircle.Object = Target;
+            linkLineOrCircle.Variables = VariableList;
 
         }
 

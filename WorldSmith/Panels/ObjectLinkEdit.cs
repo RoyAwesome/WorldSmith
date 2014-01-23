@@ -16,7 +16,7 @@ namespace WorldSmith.Panels
     public partial class ObjectLinkEdit : UserControl
     {
         object action;
-        public AbilityActionCollection abilityActions;
+        public IEnumerable<BaseActionVariable> Variables;
         public string ActionContext;
 
         public object Object
@@ -88,7 +88,14 @@ namespace WorldSmith.Panels
             if(info.PropertyType == typeof(NumberValue))
             {
                 VariableEditor editor = new VariableEditor();
-                editor.SetVariable(abilityActions.Variables.Select(x => x.Name));
+                if(Variables != null)
+                {
+                    editor.SetVariable(Variables.Select(x => x.Name));
+                }
+                else
+                {
+                    editor.SetVariable(new string[] { });
+                }
                 NumberValue val = info.GetMethod.Invoke(action, new object[] { }) as NumberValue;
                 editor.SetDefault(val == null ? "" : val.ToString());
                 editor.Text = "Variable Editor - " + Property;
@@ -106,6 +113,7 @@ namespace WorldSmith.Panels
             {
                 TargetKeyEditor editor = new TargetKeyEditor();
                 editor.SetPresets(ActionContext);
+                editor.VariableList = Variables;
 
                 result = editor.ShowDialog();
 

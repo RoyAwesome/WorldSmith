@@ -56,7 +56,7 @@ namespace WorldSmith.Dialogs.Actions
         public DialogResult ShowDialog(string actionContext, AbilityActionCollection actionCollection)
         {
             actionGrammerEditor1.ActionContext = actionContext;
-            actionGrammerEditor1.abilityActions = actionCollection;
+            actionGrammerEditor1.Variables = actionCollection.Variables;
 
             return base.ShowDialog();
         }
