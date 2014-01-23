@@ -72,7 +72,7 @@ namespace WorldSmith.DataClasses
             DOTA_UNIT_TARGET_TEAM_BOTH = 1 << 4,
         }
 
-        public AbilityUnitTargetTypeFlags Teams
+        public AbilityUnitTargetTeamFlags Teams
         {
             get;
             set;
@@ -124,7 +124,7 @@ namespace WorldSmith.DataClasses
             DOTA_UNIT_TARGET_FLAG_NOT_NIGHTMARED = 1 << 19,
         }
 
-        public AbilityUnitTargetTypeFlags Flags
+        public AbilityUnitTargetFlags Flags
         {
             get;
             set;
@@ -149,9 +149,9 @@ namespace WorldSmith.DataClasses
             Radius = new NumberValue("");
             Length = new NumberValue("");
             Thickness = new NumberValue("");
-            Teams = AbilityUnitTargetTypeFlags.DOTA_UNIT_TARGET_NONE;
+            Teams = AbilityUnitTargetTeamFlags.DOTA_UNIT_TARGET_TEAM_ENEMY;
             UnitTypes = AbilityUnitTargetTypeFlags.DOTA_UNIT_TARGET_NONE;
-            Flags = AbilityUnitTargetTypeFlags.DOTA_UNIT_TARGET_NONE;
+            Flags = AbilityUnitTargetFlags.DOTA_UNIT_TARGET_FLAG_NONE;
             MaxTargets = new NumberValue("-1");
             Random = new NumberValue("");
             

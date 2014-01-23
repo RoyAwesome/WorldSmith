@@ -137,7 +137,31 @@ namespace WorldSmith.Panels
                 }
 
             }
+            //It's an Enum!
+            if(typeof(Enum).IsAssignableFrom(info.PropertyType))
+            {
+                Enum enumValue = info.GetMethod.Invoke(action, new object[] { }) as Enum;
 
+
+                //Find out if it's a flag and open the flag editor
+                if(info.PropertyType.GetCustomAttribute<FlagsAttribute>() != null)
+                {
+                    FlagCheckBoxEditor editor = new FlagCheckBoxEditor();
+                    editor.EnumValue = enumValue;
+
+                    result = editor.ShowDialog();
+                    if(result == DialogResult.OK)
+                    {
+                        info.SetMethod.Invoke(action, new object[] { editor.EnumValue });
+                        valueResult = "...";
+                    }
+
+                }
+
+
+
+            }
+            
 
             if(result == DialogResult.OK)
             {

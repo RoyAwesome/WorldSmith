@@ -32,12 +32,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.linkChance = new WorldSmith.Panels.ObjectLinkEdit();
             this.linkTargetFilter = new WorldSmith.Panels.ObjectLinkEdit();
             this.linkLineOrCircle = new WorldSmith.Panels.ObjectLinkEdit();
             this.linkHeader = new WorldSmith.Panels.ObjectLinkEdit();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,34 +82,13 @@
             this.panel1.Controls.Add(this.linkHeader);
             this.panel1.Location = new System.Drawing.Point(12, 82);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 152);
+            this.panel1.Size = new System.Drawing.Size(350, 191);
             this.panel1.TabIndex = 3;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(284, 240);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Okay";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(13, 240);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // linkChance
             // 
             this.linkChance.Grammer = "No Grammer Set";
-            this.linkChance.Location = new System.Drawing.Point(3, 110);
+            this.linkChance.Location = new System.Drawing.Point(3, 156);
             this.linkChance.Name = "linkChance";
             this.linkChance.Object = null;
             this.linkChance.Size = new System.Drawing.Size(344, 32);
@@ -121,7 +100,7 @@
             this.linkTargetFilter.Location = new System.Drawing.Point(3, 73);
             this.linkTargetFilter.Name = "linkTargetFilter";
             this.linkTargetFilter.Object = null;
-            this.linkTargetFilter.Size = new System.Drawing.Size(344, 31);
+            this.linkTargetFilter.Size = new System.Drawing.Size(344, 77);
             this.linkTargetFilter.TabIndex = 2;
             // 
             // linkLineOrCircle
@@ -142,13 +121,34 @@
             this.linkHeader.Size = new System.Drawing.Size(344, 28);
             this.linkHeader.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(284, 279);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Okay";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button2.Location = new System.Drawing.Point(15, 279);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Cancel";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // TargetKeyEditor
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(374, 278);
+            this.ClientSize = new System.Drawing.Size(374, 314);
             this.ControlBox = false;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
