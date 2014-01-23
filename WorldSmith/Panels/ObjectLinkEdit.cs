@@ -102,7 +102,7 @@ namespace WorldSmith.Panels
 
                 result = editor.ShowDialog();
 
-                if(editor.ShowDialog() == DialogResult.OK)
+                if (result == DialogResult.OK)
                 {
                     valueResult = editor.GetValue();
                     info.SetMethod.Invoke(action, new object[] { new NumberValue(valueResult) });
@@ -115,7 +115,26 @@ namespace WorldSmith.Panels
                 editor.SetPresets(ActionContext);
                 editor.VariableList = Variables;
 
+                TargetKey t = info.GetMethod.Invoke(action, new object[] { }) as TargetKey;
+                if (t == null) t = new TargetKey();
+                editor.Target = t;
+
                 result = editor.ShowDialog();
+
+                if(result == DialogResult.OK)
+                {
+                    TargetKey target = editor.Target;
+                    info.SetMethod.Invoke(action, new object[] { target });
+
+                    if(target.Preset != TargetKey.PresetType.NONE)
+                    {
+                        valueResult = target.Preset.ToString();
+                    }
+                    else
+                    {
+                        valueResult = "CUSTOM TARGET";
+                    }
+                }
 
             }
 

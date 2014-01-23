@@ -49,10 +49,19 @@ namespace WorldSmith.Dialogs.Actions
 
         public IEnumerable<BaseActionVariable> VariableList;
 
+        private TargetKey target;
+
         public TargetKey Target
         {
-            get;
-            set;
+            get
+            {
+                return target;
+            }
+            set
+            {
+                target = value;
+                InitLinks();
+            }
         }
 
         public TargetKeyEditor(TargetKey target)
@@ -122,6 +131,7 @@ namespace WorldSmith.Dialogs.Actions
                 linkChance.Enabled = false;
 
                 comboBox1.Enabled = true;
+                  target.Preset = (TargetKey.PresetType)Enum.Parse(typeof(TargetKey.PresetType), comboBox1.SelectedItem as string);
             }
         }
 
@@ -136,12 +146,25 @@ namespace WorldSmith.Dialogs.Actions
                 linkChance.Enabled = true;
 
                 comboBox1.Enabled = false;
+                target.Preset = TargetKey.PresetType.NONE;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.OK;
+            this.Close();
+        }
 
+        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            target.Preset = (TargetKey.PresetType)Enum.Parse(typeof(TargetKey.PresetType), comboBox1.SelectedItem as string);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            this.Close();
         }
 
     }
