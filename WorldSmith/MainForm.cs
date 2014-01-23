@@ -123,5 +123,40 @@ namespace WorldSmith
             FlagChecklistDialog dialog = new FlagChecklistDialog();
             dialog.ShowDialog();
         }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uncheckLanguage();
+            englishToolStripMenuItem.Checked = true;
+            localize("en-US");
+        }
+
+        private void swedishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            uncheckLanguage();
+            swedishToolStripMenuItem.Checked = true;
+            localize("sv");
+            
+        }
+
+        private void localize(String cultureName)
+        {
+            Properties.Settings.Default.language = cultureName;
+            Properties.Settings.Default.Save();
+            localeManager1.updateCulture(cultureName);
+        }
+
+        private void uncheckLanguage()
+        {
+
+            foreach (ToolStripMenuItem ts in languageToolStripMenuItem.DropDownItems)
+            {
+                ts.Checked = false;
+            }
+        }
+
+
+
     }
 }
