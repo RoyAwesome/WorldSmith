@@ -121,29 +121,14 @@
   <data name="addonToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>110, 22</value>
   </data>
-  <data name="addonToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Tillägg</value>
-  </data>
   <data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 22</value>
-  </data>
-  <data name="newToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ny</value>
-  </data>
-  <data name="addonToolStripMenuItem.Text" xml:space="preserve">
-    <value>Tillägg</value>
   </data>
   <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 22</value>
   </data>
-  <data name="openToolStripMenuItem.Text" xml:space="preserve">
-    <value>Öppna</value>
-  </data>
   <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 22</value>
-  </data>
-  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
-    <value>Spara</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 6</value>
@@ -151,41 +136,17 @@
   <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 22</value>
   </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
-    <value>Avsluta</value>
-  </data>
   <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 20</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>Arkiv</value>
   </data>
   <data name="setDotaDirectoryToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>173, 22</value>
   </data>
-  <data name="setDotaDirectoryToolStripMenuItem.Text" xml:space="preserve">
-    <value>Välj mapp för Dota</value>
-  </data>
   <data name="languageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>173, 22</value>
   </data>
-  <data name="languageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Språk</value>
-  </data>
   <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 20</value>
-  </data>
-  <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Alternativ</value>
-  </data>
-  <data name="unitTab.Text" xml:space="preserve">
-    <value>Redigera enheter</value>
-  </data>
-  <data name="itemTab.Text" xml:space="preserve">
-    <value>Redigera föremål</value>
-  </data>
-  <data name="abilityTab.Text" xml:space="preserve">
-    <value>Redigera förmågor</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -295,5 +256,47 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="abilityTab.Text" xml:space="preserve">
+    <value>Redigera förmågor</value>
+  </data>
+  <data name="addonConfig.Text" xml:space="preserve">
+    <value>Addon Config</value>
+  </data>
+  <data name="addonToolStripMenuItem.Text" xml:space="preserve">
+    <value>Tillägg</value>
+  </data>
+  <data name="addonToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Tillägg</value>
+  </data>
+  <data name="fileMenu.Text" xml:space="preserve">
+    <value>Arkiv</value>
+  </data>
+  <data name="fileMenuExit.Text" xml:space="preserve">
+    <value>Avsluta</value>
+  </data>
+  <data name="fileMenuNew.Text" xml:space="preserve">
+    <value>Ny</value>
+  </data>
+  <data name="fileMenuOpen.Text" xml:space="preserve">
+    <value>Öppna</value>
+  </data>
+  <data name="fileMenuSave.Text" xml:space="preserve">
+    <value>Spara</value>
+  </data>
+  <data name="itemTab.Text" xml:space="preserve">
+    <value>Redigera föremål</value>
+  </data>
+  <data name="optionsMenu.Text" xml:space="preserve">
+    <value>Alternativ</value>
+  </data>
+  <data name="optionsMenuLanguage.Text" xml:space="preserve">
+    <value>Språk</value>
+  </data>
+  <data name="optionsSetDotaDirectory.Text" xml:space="preserve">
+    <value>Välj mapp för Dota</value>
+  </data>
+  <data name="unitTab.Text" xml:space="preserve">
+    <value>Redigera enheter</value>
   </data>
 </root>

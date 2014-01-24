@@ -123,10 +123,10 @@
   <data name="addonConfigTitle" xml:space="preserve">
     <value>Addon Config</value>
   </data>
-  <data name="addonToolStripMenuItem1" xml:space="preserve">
+  <data name="addonToolStripMenuItem" xml:space="preserve">
     <value>Addon</value>
   </data>
-  <data name="addontToolStripMenuItem" xml:space="preserve">
+  <data name="addonToolStripMenuItem1" xml:space="preserve">
     <value>Addon</value>
   </data>
   <data name="englishToolStripMenuItem" xml:space="preserve">
@@ -156,13 +156,13 @@
   <data name="optionsMenuTitle" xml:space="preserve">
     <value>Options</value>
   </data>
-  <data name="optionsSetDotaFolder" xml:space="preserve">
+  <data name="optionsSetDotaDirectory" xml:space="preserve">
     <value>Set Dota Directory</value>
   </data>
   <data name="swedishToolStripMenuItem" xml:space="preserve">
     <value>Swedish (Svenska)</value>
   </data>
   <data name="unitTabTitle" xml:space="preserve">
-    <value>Wibble Editor</value>
+    <value>Unit Editor</value>
   </data>
 </root>

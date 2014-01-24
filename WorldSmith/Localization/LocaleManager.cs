@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Resources;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Threading;
@@ -69,6 +70,8 @@ namespace WorldSmith
 
                     //Applies the same changes to all menus
                     updateMenus(resources, _parentControl);
+
+
                 }
             }
 
@@ -77,13 +80,13 @@ namespace WorldSmith
         }
 
 
-        //Helps apply the locale change to everything in the form
+        //Applies the locale change to everything in the form
         private void updateControls(ComponentResourceManager res, Control control)
         {
-
             foreach(Control child in control.Controls)
             {
-                //Updates the child with the strings from the new locale
+                //Updates the children with the strings from the new locale
+                
                 res.ApplyResources(child, child.Name);
 
                 updateControls(res, child);
@@ -94,21 +97,27 @@ namespace WorldSmith
 
         private void updateMenus(ComponentResourceManager res, Control control)
         {
-            
             foreach (MenuStrip menuStrip in control.Controls.OfType<MenuStrip>())
             {
-                foreach (ToolStripMenuItem menuStripItem in menuStrip.Items)
+                //Updates the sub-menus with strings from the new locale
+                res.ApplyResources(menuStrip, menuStrip.Name);
+                foreach (ToolStripMenuItem child in menuStrip.Items)
                 {
-                    res.ApplyResources(menuStripItem, menuStripItem.Name);
+                    updateChildMenus(res, child);
                 }
-                
-                
-              
-
             }
-
         }
 
+
+        private void updateChildMenus(ComponentResourceManager res, ToolStripDropDownItem parent)
+        {
+            res.ApplyResources(parent, parent.Name);
+            foreach (ToolStripDropDownItem child in parent.DropDownItems.OfType<ToolStripDropDownItem>())
+            {
+                updateChildMenus(res, child);
+            }
+                
+        }
         //Used to get the parent object
         public override ISite Site
         {

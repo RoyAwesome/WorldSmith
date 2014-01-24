@@ -27,9 +27,8 @@ namespace WorldSmith
         {
             abilityCategory.Init("Ability", DotaData.DefaultAbilities, DotaData.CustomAbilities);
 
-            unitEditor1.LoadFromData();
+            unitEditor.LoadFromData();
         }
-   
 
         private void addonToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -124,6 +123,7 @@ namespace WorldSmith
             dialog.ShowDialog();
         }
 
+        #region Localization functions
         private void englishToolStripMenuItem_Click(object sender, EventArgs e)
         {
             uncheckLanguage();
@@ -150,13 +150,12 @@ namespace WorldSmith
         private void uncheckLanguage()
         {
 
-            foreach (ToolStripMenuItem ts in languageToolStripMenuItem.DropDownItems)
+            foreach (ToolStripMenuItem ts in optionsMenuLanguage.DropDownItems)
             {
                 ts.Checked = false;
             }
         }
-
-
+        #endregion
 
     }
 }

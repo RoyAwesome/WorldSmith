@@ -81,18 +81,18 @@ namespace WorldSmith.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Addon.
         /// </summary>
-        public static string addonToolStripMenuItem1 {
+        public static string addonToolStripMenuItem {
             get {
-                return ResourceManager.GetString("addonToolStripMenuItem1", resourceCulture);
+                return ResourceManager.GetString("addonToolStripMenuItem", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Addon.
         /// </summary>
-        public static string addontToolStripMenuItem {
+        public static string addonToolStripMenuItem1 {
             get {
-                return ResourceManager.GetString("addontToolStripMenuItem", resourceCulture);
+                return ResourceManager.GetString("addonToolStripMenuItem1", resourceCulture);
             }
         }
         
@@ -180,9 +180,9 @@ namespace WorldSmith.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Set Dota Directory.
         /// </summary>
-        public static string optionsSetDotaFolder {
+        public static string optionsSetDotaDirectory {
             get {
-                return ResourceManager.GetString("optionsSetDotaFolder", resourceCulture);
+                return ResourceManager.GetString("optionsSetDotaDirectory", resourceCulture);
             }
         }
         
@@ -196,7 +196,7 @@ namespace WorldSmith.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wibble Editor.
+        ///   Looks up a localized string similar to Unit Editor.
         /// </summary>
         public static string unitTabTitle {
             get {
