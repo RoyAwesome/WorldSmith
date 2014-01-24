@@ -51,12 +51,14 @@
             this.unitTab = new System.Windows.Forms.TabPage();
             this.itemTab = new System.Windows.Forms.TabPage();
             this.abilityTab = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.unitEditor1 = new WorldSmith.Panels.UnitEditor();
             this.itemCategory = new WorldSmith.Panels.CategoryEditor();
             this.abilityCategory = new WorldSmith.Panels.CategoryEditor();
             this.localeManager1 = new WorldSmith.LocaleManager(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.addonConfig.SuspendLayout();
             this.unitTab.SuspendLayout();
             this.itemTab.SuspendLayout();
             this.abilityTab.SuspendLayout();
@@ -170,6 +172,7 @@
             // 
             // addonConfig
             // 
+            this.addonConfig.Controls.Add(this.label1);
             resources.ApplyResources(this.addonConfig, "addonConfig");
             this.addonConfig.Name = "addonConfig";
             this.addonConfig.UseVisualStyleBackColor = true;
@@ -194,6 +197,11 @@
             resources.ApplyResources(this.abilityTab, "abilityTab");
             this.abilityTab.Name = "abilityTab";
             this.abilityTab.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // unitEditor1
             // 
@@ -226,6 +234,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.addonConfig.ResumeLayout(false);
+            this.addonConfig.PerformLayout();
             this.unitTab.ResumeLayout(false);
             this.itemTab.ResumeLayout(false);
             this.abilityTab.ResumeLayout(false);
@@ -259,6 +269,7 @@
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem swedishToolStripMenuItem;
         private LocaleManager localeManager1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
