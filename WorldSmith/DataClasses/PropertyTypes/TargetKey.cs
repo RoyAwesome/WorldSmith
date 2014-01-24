@@ -175,6 +175,7 @@ namespace WorldSmith.DataClasses
                 KeyValue linechild = new KeyValue("Line");
                 linechild += new KeyValue("Length") + Length.ToString();
                 linechild += new KeyValue("Thickness") + Thickness.ToString();
+                kv += linechild;
             }
             
             kv += new KeyValue("Teams") + Teams.ToString().Replace(",", " |");

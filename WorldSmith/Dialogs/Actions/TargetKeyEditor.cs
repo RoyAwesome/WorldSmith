@@ -91,6 +91,7 @@ namespace WorldSmith.Dialogs.Actions
             linkHeader.Grammer = "Create a %Shape centered around %Center";
             linkHeader.Object = Target;
             linkHeader.Variables = VariableList;
+            linkHeader.LinkClicked += linkHeader_LinkedClicked;
             CenterType(true);
             linkTargetFilter.Grammer = "That targets %UnitTypes on %Teams with %Flags";
             linkTargetFilter.Object = Target;
@@ -110,6 +111,14 @@ namespace WorldSmith.Dialogs.Actions
             comboBox1.SelectedItem = target.Preset.ToString();
         }
 
+        void linkHeader_LinkedClicked(object sender, LinkClickedEventArgs e)
+        {
+            if(e.LinkText == "Shape")
+            {
+                CenterType(target.Shape == TargetKey.ShapeE.CIRCLE);
+            }
+        }
+
 
 
         private void CenterType(bool type)
@@ -121,7 +130,7 @@ namespace WorldSmith.Dialogs.Actions
             }
             else
             {
-                linkLineOrCircle.Grammer = "With Length %Length and Thickness %Thickness";
+                linkLineOrCircle.Grammer = "With length of %Length units and thickness of %Thickness";
               
             }
             linkLineOrCircle.Object = Target;

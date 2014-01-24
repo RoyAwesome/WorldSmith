@@ -19,6 +19,8 @@ namespace WorldSmith.Panels
         public IEnumerable<BaseActionVariable> Variables;
         public string ActionContext;
 
+        public event LinkClickedEventHandler LinkClicked;
+
         public object Object
         {
             get
@@ -150,14 +152,26 @@ namespace WorldSmith.Panels
                     editor.EnumValue = enumValue;
 
                     result = editor.ShowDialog();
-                    if(result == DialogResult.OK)
-                    {
-                        info.SetMethod.Invoke(action, new object[] { editor.EnumValue });
-                        valueResult = "...";
-                    }
 
+                    enumValue = editor.EnumValue;
+                }
+                else
+                {
+                    EnumEditor editor = new EnumEditor();
+                    editor.EnumValue = enumValue;
+
+                    result = editor.ShowDialog();
+
+                    enumValue = editor.EnumValue;
                 }
 
+                if (result == DialogResult.OK)
+                {
+                    info.SetMethod.Invoke(action, new object[] { enumValue });
+
+                    valueResult = enumValue.ToString();
+                    if (valueResult.Length > 16) valueResult = "...";
+                }
 
 
             }
@@ -185,6 +199,11 @@ namespace WorldSmith.Panels
                 }
             }
 
+            if (LinkClicked != null)
+            {
+                LinkClicked.Invoke(this, new LinkClickedEventArgs(e.Link.LinkData as string));
+            }
+            
             
         }
 

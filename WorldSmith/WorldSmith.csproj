@@ -150,6 +150,12 @@
     <Compile Include="DataClasses\ScriptTypes\DotaUnit.cs" />
     <Compile Include="DataClasses\PropertyTypes\AbilitySpecial.cs" />
     <Compile Include="DataClasses\PropertyTypes\PerLevel.cs" />
+    <Compile Include="Dialogs\Actions\EnumEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Actions\EnumEditor.Designer.cs">
+      <DependentUpon>EnumEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\Actions\FlagCheckBoxEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </Compile>
     <EmbeddedResource Include="Dialogs\ActionEditor.resx">
       <DependentUpon>ActionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Actions\EnumEditor.resx">
+      <DependentUpon>EnumEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\Actions\FlagCheckBoxEditor.resx">
       <DependentUpon>FlagCheckBoxEditor.cs</DependentUpon>
