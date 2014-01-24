@@ -10,13 +10,13 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("Fire a Tracking projectile at the target that is Dodgable(%Dodageable ) with the effect %EffectName and moves at %MoveSpeed units per second.  It Provides Vision %ProvideVision of %VisionRadius units")]
+	[EditorGrammar("Fire a Tracking projectile at the target that is dodgable %Dodgeable with the effect %EffectName and moves at %MoveSpeed units per second.  It provides vision %ProvidesVision of %VisionRadius units")]
 	public partial class TrackingProjectile : BaseAction
 	{
 		[Category("Misc")]
 		[Description("bool")]
-		[DefaultValue("")]
-		public string Dodgeable
+		[DefaultValue(false)]
+		public bool Dodgeable
 		{
 			get;
 			set;
@@ -24,8 +24,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("bool")]
-		[DefaultValue("")]
-		public string ProvidesVision
+		[DefaultValue(false)]
+		public bool ProvidesVision
 		{
 			get;
 			set;

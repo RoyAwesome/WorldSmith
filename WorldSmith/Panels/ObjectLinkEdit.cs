@@ -175,6 +175,22 @@ namespace WorldSmith.Panels
 
 
             }
+
+            if(typeof(bool) == info.PropertyType)
+            {
+                bool val = (bool)info.GetMethod.Invoke(action, new object[] { });
+
+                BoolEditor editor = new BoolEditor();
+                editor.Value = val;
+
+                result = editor.ShowDialog();
+
+                if(result == DialogResult.OK)
+                {
+                    info.SetMethod.Invoke(action, new object[] { editor.Value });
+                    valueResult = editor.Value.ToString();
+                }
+            }
             
 
             if(result == DialogResult.OK)

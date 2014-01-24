@@ -217,8 +217,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("bool")]
-		[DefaultValue("")]
-		public string HasFrontalCone
+		[DefaultValue(false)]
+		public bool HasFrontalCone
 		{
 			get;
 			set;
@@ -226,8 +226,8 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("bool")]
-		[DefaultValue("")]
-		public string ProvidesVision
+		[DefaultValue(false)]
+		public bool ProvidesVision
 		{
 			get;
 			set;

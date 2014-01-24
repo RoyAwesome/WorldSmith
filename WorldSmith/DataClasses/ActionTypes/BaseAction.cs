@@ -11,6 +11,5 @@ namespace WorldSmith.DataClasses
 {
 	public partial class BaseAction : DotaDataObject
 	{
-       
 	}
 }

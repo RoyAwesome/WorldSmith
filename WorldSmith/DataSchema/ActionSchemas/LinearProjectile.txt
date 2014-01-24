@@ -193,14 +193,14 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"bool"
-		"Type"	"string"
+		"Type"	"bool"
 		"DefaultValue"	""
 	}
 	"ProvidesVision"
 	{	
 		"Category"	"Misc"
 		"Description"	"bool"
-		"Type"	"string"
+		"Type"	"bool"
 		"DefaultValue"	""
 	}
 	"VisionRadius"
