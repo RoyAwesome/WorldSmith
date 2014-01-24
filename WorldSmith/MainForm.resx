@@ -122,58 +122,58 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="addonToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="addonToolStripMenuItem1.Text" xml:space="preserve">
     <value>Addon</value>
   </data>
-  <data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
+  <data name="fileMenuNew.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
-  <data name="newToolStripMenuItem.Text" xml:space="preserve">
+  <data name="fileMenuNew.Text" xml:space="preserve">
     <value>New</value>
   </data>
   <data name="addonToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="addonToolStripMenuItem.Text" xml:space="preserve">
     <value>Addon</value>
   </data>
-  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
+  <data name="fileMenuOpen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
-  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+  <data name="fileMenuOpen.Text" xml:space="preserve">
     <value>Open</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="saveToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+  <data name="fileMenuSave.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+S</value>
   </data>
-  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
+  <data name="fileMenuSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
-  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
+  <data name="fileMenuSave.Text" xml:space="preserve">
     <value>Save</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 6</value>
+    <value>149, 6</value>
   </data>
-  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
+  <data name="fileMenuExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+  <data name="fileMenuExit.Text" xml:space="preserve">
     <value>Exit</value>
   </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="fileMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 20</value>
   </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+  <data name="fileMenu.Text" xml:space="preserve">
     <value>File</value>
   </data>
-  <data name="setDotaDirectoryToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="optionsSetDotaDirectory.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 22</value>
   </data>
-  <data name="setDotaDirectoryToolStripMenuItem.Text" xml:space="preserve">
+  <data name="optionsSetDotaDirectory.Text" xml:space="preserve">
     <value>Set Dota Directory</value>
   </data>
   <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
@@ -188,16 +188,16 @@
   <data name="swedishToolStripMenuItem.Text" xml:space="preserve">
     <value>Swedish (Svenska)</value>
   </data>
-  <data name="languageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="optionsMenuLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 22</value>
   </data>
-  <data name="languageToolStripMenuItem.Text" xml:space="preserve">
+  <data name="optionsMenuLanguage.Text" xml:space="preserve">
     <value>Language</value>
   </data>
-  <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="optionsMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 20</value>
   </data>
-  <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
+  <data name="optionsMenu.Text" xml:space="preserve">
     <value>Options</value>
   </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
@@ -291,28 +291,28 @@ That is, until I figure out a good thing to put here.
   <data name="&gt;&gt;addonConfig.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="unitEditor1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="unitEditor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="unitEditor1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="unitEditor.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="unitEditor1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="unitEditor.Size" type="System.Drawing.Size, System.Drawing">
     <value>902, 637</value>
   </data>
-  <data name="unitEditor1.TabIndex" type="System.Int32, mscorlib">
+  <data name="unitEditor.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;unitEditor1.Name" xml:space="preserve">
-    <value>unitEditor1</value>
+  <data name="&gt;&gt;unitEditor.Name" xml:space="preserve">
+    <value>unitEditor</value>
   </data>
-  <data name="&gt;&gt;unitEditor1.Type" xml:space="preserve">
+  <data name="&gt;&gt;unitEditor.Type" xml:space="preserve">
     <value>WorldSmith.Panels.UnitEditor, WorldSmith, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;unitEditor1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;unitEditor.Parent" xml:space="preserve">
     <value>unitTab</value>
   </data>
-  <data name="&gt;&gt;unitEditor1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;unitEditor.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="unitTab.Location" type="System.Drawing.Point, System.Drawing">
@@ -583,25 +583,22 @@ That is, until I figure out a good thing to put here.
         AAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Worldsmith</value>
   </data>
-  <data name="&gt;&gt;fileToolStripMenuItem.Name" xml:space="preserve">
-    <value>fileToolStripMenuItem</value>
+  <data name="&gt;&gt;fileMenu.Name" xml:space="preserve">
+    <value>fileMenu</value>
   </data>
-  <data name="&gt;&gt;fileToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;fileMenu.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newToolStripMenuItem.Name" xml:space="preserve">
-    <value>newToolStripMenuItem</value>
+  <data name="&gt;&gt;fileMenuNew.Name" xml:space="preserve">
+    <value>fileMenuNew</value>
   </data>
-  <data name="&gt;&gt;newToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;fileMenuNew.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;addonToolStripMenuItem1.Name" xml:space="preserve">
@@ -610,10 +607,10 @@ That is, until I figure out a good thing to put here.
   <data name="&gt;&gt;addonToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;openToolStripMenuItem.Name" xml:space="preserve">
-    <value>openToolStripMenuItem</value>
+  <data name="&gt;&gt;fileMenuOpen.Name" xml:space="preserve">
+    <value>fileMenuOpen</value>
   </data>
-  <data name="&gt;&gt;openToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;fileMenuOpen.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;addonToolStripMenuItem.Name" xml:space="preserve">
@@ -622,10 +619,10 @@ That is, until I figure out a good thing to put here.
   <data name="&gt;&gt;addonToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;saveToolStripMenuItem.Name" xml:space="preserve">
-    <value>saveToolStripMenuItem</value>
+  <data name="&gt;&gt;fileMenuSave.Name" xml:space="preserve">
+    <value>fileMenuSave</value>
   </data>
-  <data name="&gt;&gt;saveToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;fileMenuSave.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
@@ -634,28 +631,28 @@ That is, until I figure out a good thing to put here.
   <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;exitToolStripMenuItem.Name" xml:space="preserve">
-    <value>exitToolStripMenuItem</value>
+  <data name="&gt;&gt;fileMenuExit.Name" xml:space="preserve">
+    <value>fileMenuExit</value>
   </data>
-  <data name="&gt;&gt;exitToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;fileMenuExit.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;optionsToolStripMenuItem.Name" xml:space="preserve">
-    <value>optionsToolStripMenuItem</value>
+  <data name="&gt;&gt;optionsMenu.Name" xml:space="preserve">
+    <value>optionsMenu</value>
   </data>
-  <data name="&gt;&gt;optionsToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;optionsMenu.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;setDotaDirectoryToolStripMenuItem.Name" xml:space="preserve">
-    <value>setDotaDirectoryToolStripMenuItem</value>
+  <data name="&gt;&gt;optionsSetDotaDirectory.Name" xml:space="preserve">
+    <value>optionsSetDotaDirectory</value>
   </data>
-  <data name="&gt;&gt;setDotaDirectoryToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;optionsSetDotaDirectory.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;languageToolStripMenuItem.Name" xml:space="preserve">
-    <value>languageToolStripMenuItem</value>
+  <data name="&gt;&gt;optionsMenuLanguage.Name" xml:space="preserve">
+    <value>optionsMenuLanguage</value>
   </data>
-  <data name="&gt;&gt;languageToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;optionsMenuLanguage.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;englishToolStripMenuItem.Name" xml:space="preserve">
