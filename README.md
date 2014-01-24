@@ -12,6 +12,7 @@ Like this project? Want to help?  Here are a few ideas:
 
 * If you can, please [Donate] to keep the project running.  
 * If you can program, I appreciate pull requests.  Please see the pull request guidelines below.
+* If you can help translate Worldsmith, please get in contact with me or submit a pull request. 
 * Tell the world about Worldsmith.  
 
 
@@ -19,10 +20,15 @@ Like this project? Want to help?  Here are a few ideas:
 
 Without a few people, this project would be much much harder.  In no particular order:
 
-* penguinwizzard for figuring out how to write maps
-* tet, Sir_Kane, and hex6 for finding the strings for most of the flags and enums
-* Quintinity for some incredibly helpful commits
-* OrangeSodaSmurf for providing a coupon for a free domain name
+* penguinwizzard for figuring out how to write maps.
+* tet, Sir_Kane, and hex6 for finding the strings for most of the flags and enums.
+* hex6 for doing the legwork for setting up translations.
+* Quintinity for cleaning up the quality and doing incredibly helpful quality work.  
+* OrangeSodaSmurf for providing a coupon for a free domain name.
+
+### Translation credits
+
+* Swedish - hex6
 
 
 
