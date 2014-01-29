@@ -1,0 +1,10 @@
+﻿"Schema"
+{
+	"ClassName"	"RespawnHero"
+	"BaseClass" "TargetedAction"
+
+	"ActionAttribute"	"1"
+	"EditorGrammar"		"Respawn %Target hero"
+
+
+}

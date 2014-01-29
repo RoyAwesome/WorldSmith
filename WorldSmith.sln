@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldSmith", "WorldSmith\WorldSmith.csproj", "{49800B5F-52E5-4A15-81E8-C010B89791F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldsmithUpdater", "WorldsmithUpdater\WorldsmithUpdater.csproj", "{D7A8CDCE-2FAD-4B30-8E2A-C28C7F27EE47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		ClassGen|Any CPU = ClassGen|Any CPU
@@ -18,6 +20,12 @@ Global
 		{49800B5F-52E5-4A15-81E8-C010B89791F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49800B5F-52E5-4A15-81E8-C010B89791F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49800B5F-52E5-4A15-81E8-C010B89791F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7A8CDCE-2FAD-4B30-8E2A-C28C7F27EE47}.ClassGen|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A8CDCE-2FAD-4B30-8E2A-C28C7F27EE47}.ClassGen|Any CPU.Build.0 = Release|Any CPU
+		{D7A8CDCE-2FAD-4B30-8E2A-C28C7F27EE47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7A8CDCE-2FAD-4B30-8E2A-C28C7F27EE47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7A8CDCE-2FAD-4B30-8E2A-C28C7F27EE47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A8CDCE-2FAD-4B30-8E2A-C28C7F27EE47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

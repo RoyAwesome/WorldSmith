@@ -1,0 +1,9 @@
+﻿"Schema"
+{
+	"ClassName"	"DropParentItem"
+	"BaseClass" "BaseAction"
+
+	"ActionAttribute"	"1"
+	"EditorGrammar"		"Drop Item"
+
+}

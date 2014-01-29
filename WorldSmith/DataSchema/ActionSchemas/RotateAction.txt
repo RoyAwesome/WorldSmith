@@ -1,0 +1,17 @@
+﻿"Schema"
+{
+	"ClassName"	"Rotate"
+	"BaseClass" "TargetedAction"
+
+	"ActionAttribute"	"1"
+	"EditorGrammar"		"Rotate %Target by %PitchYawRoll degrees"
+
+	"PitchYawRoll"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"NumberValue"
+		"DefaultValue"	"0 0 0"
+	}
+
+}

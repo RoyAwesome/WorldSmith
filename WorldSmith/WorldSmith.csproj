@@ -112,6 +112,7 @@
     <Compile Include="DataClasses\ActionTypes\Damage.cs" />
     <Compile Include="DataClasses\ActionTypes\DelayedAction.cs" />
     <Compile Include="DataClasses\ActionTypes\DestroyTrees.cs" />
+    <Compile Include="DataClasses\ActionTypes\DropParentItem.cs" />
     <Compile Include="DataClasses\ActionTypes\FireEffect.cs" />
     <Compile Include="DataClasses\ActionTypes\FireSound.cs" />
     <Compile Include="DataClasses\ActionTypes\Heal.cs" />
@@ -126,6 +127,8 @@
     <Compile Include="DataClasses\ActionTypes\RemoveModifier.cs" />
     <Compile Include="DataClasses\ActionTypes\RemoveUnit.cs" />
     <Compile Include="DataClasses\ActionTypes\ReplaceUnit.cs" />
+    <Compile Include="DataClasses\ActionTypes\RespawnHero.cs" />
+    <Compile Include="DataClasses\ActionTypes\Rotate.cs" />
     <Compile Include="DataClasses\ActionTypes\RunScript.cs" />
     <Compile Include="DataClasses\ActionTypes\SpawnUnit.cs" />
     <Compile Include="DataClasses\ActionTypes\SpendMana.cs" />
@@ -173,6 +176,12 @@
     </Compile>
     <Compile Include="Dialogs\Actions\NewActionDialog.Designer.cs">
       <DependentUpon>NewActionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\VariableEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\VariableEditor.Designer.cs">
+      <DependentUpon>VariableEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Localization\LocaleManager.cs">
       <SubType>Component</SubType>
@@ -297,6 +306,9 @@
     <EmbeddedResource Include="Dialogs\TextPrompt.resx">
       <DependentUpon>TextPrompt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\VariableEditor.resx">
+      <DependentUpon>VariableEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -374,6 +386,7 @@
     <Content Include="DataSchema\ActionSchemas\DamageAction.txt" />
     <Content Include="DataSchema\ActionSchemas\DelayedActionAction.txt" />
     <Content Include="DataSchema\ActionSchemas\DestroyTreesAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\DropParentItemAction.txt" />
     <Content Include="DataSchema\ActionSchemas\FireEffectAction.txt" />
     <Content Include="DataSchema\ActionSchemas\FireSoundAction.txt" />
     <Content Include="DataSchema\ActionSchemas\HealAction.txt" />
@@ -388,11 +401,13 @@
     <Content Include="DataSchema\ActionSchemas\RemoveModifierAction.txt" />
     <Content Include="DataSchema\ActionSchemas\RemoveUnit.txt" />
     <Content Include="DataSchema\ActionSchemas\ReplaceUnitAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RespawnHeroAction.txt" />
     <Content Include="DataSchema\ActionSchemas\RunScriptAction.txt" />
     <Content Include="DataSchema\ActionSchemas\SpawnUnitAction.txt" />
     <Content Include="DataSchema\ActionSchemas\SpendManaAction.txt" />
     <Content Include="DataSchema\ActionSchemas\StunAction.txt" />
     <Content Include="DataSchema\ActionSchemas\TargetedAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RotateAction.txt" />
     <Content Include="DataSchema\ActionSchemas\TrackingProjectileAction.txt" />
     <Content Include="DataSchema\BaseUnitSchema.txt" />
     <Content Include="DataSchema\HeroSchema.txt" />

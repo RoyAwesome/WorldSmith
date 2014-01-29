@@ -52,7 +52,10 @@ namespace WorldSmith.DataClasses
             { "OnOwnerSpawned",             new ActionCollection() },
             { "OnUpgrade",                  new ActionCollection() },
             { "OnProjectileHitUnit",        new ActionCollection() },
-            { "OnProjectileFinish",         new ActionCollection() },          
+            { "OnProjectileFinish",         new ActionCollection() },   
+            
+            //ITEMS
+            //{ "OnUnequip",                new ActionCollection() },
         };
 
         public List<BaseActionVariable> Variables = new List<BaseActionVariable>();
