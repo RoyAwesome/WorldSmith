@@ -28,7 +28,7 @@ namespace WorldSmith.DataClasses
 
             ActionList = new AbilityActionCollection();
             
-
+            //Load the actions in the ActionList
             foreach(string key in ActionList.Actions.Keys)
             {
                 KeyValue kvActions = kv[key];
@@ -44,11 +44,51 @@ namespace WorldSmith.DataClasses
                     }
 
                     action.LoadFromKeyValues(actionChild);
+
+
+
+
                     ActionList.Actions[key].Add(action);
                 }
             }
 
+            //Load the variables in AbilitySpecial
+            KeyValue abilitySpecial = kv["AbilitySpecial"];
+            if (abilitySpecial != null)
+            {
+                foreach (KeyValue absp in abilitySpecial.Children)
+                {
+                    BaseActionVariable var = new BaseActionVariable();
+                    var.LoadFromKV(absp);
+                    ActionList.Variables.Add(var);
+                }
+            }
 
+        }
+
+        public override KeyValue SaveToKV()
+        {
+            KeyValue kv = base.SaveToKV();
+
+            //Loop through each of the possible actions in the ActionList and add them to the doc
+            foreach(KeyValuePair<string, ActionCollection> kvs in ActionList.Actions)
+            {
+                if (kvs.Value.Count == 0) continue; //Skip empty action collections
+
+                kv += kvs.Value.ToKV(kvs.Key); 
+            }
+            KeyValue abilitySpecial = new KeyValue("AbilitySpecial");
+
+            for (int i = 0; i < ActionList.Variables.Count; i++ )
+            {
+                BaseActionVariable var = ActionList.Variables[i];
+
+                abilitySpecial += var.ToKV((i + 1).ToString("D2"));
+            }
+
+            kv += abilitySpecial;
+
+            return kv;
         }
     }
 }

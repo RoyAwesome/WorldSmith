@@ -177,12 +177,6 @@
     <Compile Include="Dialogs\Actions\NewActionDialog.Designer.cs">
       <DependentUpon>NewActionDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\VariableEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\VariableEditor.Designer.cs">
-      <DependentUpon>VariableEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Localization\LocaleManager.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -305,9 +299,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\TextPrompt.resx">
       <DependentUpon>TextPrompt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\VariableEditor.resx">
-      <DependentUpon>VariableEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

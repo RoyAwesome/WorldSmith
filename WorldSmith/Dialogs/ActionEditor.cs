@@ -52,6 +52,19 @@ namespace WorldSmith.Dialogs
                 }
 
             }
+
+            TreeNode varNode = treeView1.Nodes[1];
+            foreach(BaseActionVariable variable in actions.Variables)
+            {
+                varNode.Nodes.Add(new TreeNode()
+                    {
+                        Name = variable.Name,
+                        Text = variable.Name,
+                        Tag = variable,
+                    });
+
+            }
+
             treeView1.ExpandAll();
         }
 
@@ -110,6 +123,11 @@ namespace WorldSmith.Dialogs
                 treeView1.SelectedNode.Expand();
             }
 
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 

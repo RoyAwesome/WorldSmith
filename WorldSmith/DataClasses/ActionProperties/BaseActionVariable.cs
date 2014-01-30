@@ -54,7 +54,16 @@ namespace WorldSmith.DataClasses
 
         public string ToString(string key)
         {
-            return ToKV(key).ToString();
+            return Name;
+            //return ToKV(key).ToString();
+        }
+
+        public void LoadFromKV(KeyValue kv)
+        {
+            Type = (FieldType)Enum.Parse(typeof(FieldType), kv["var_type"].GetString());
+            KeyValue v = kv.Children.First(x => x.Key != "var_type");
+            Name = v.Key;
+            DefaultValue = v.GetString();
         }
 
     }

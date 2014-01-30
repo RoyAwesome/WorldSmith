@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("OnSpellStart");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("OnChannelSucceeded");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("OnChannelInterrupted");
@@ -210,7 +209,7 @@
             this.toolStripButton3});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(260, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(291, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // toolStripButton1
@@ -237,6 +236,7 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(80, 22);
             this.toolStripButton2.Text = "New Variable";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripSeparator2
             // 
@@ -260,6 +260,7 @@
             this.Controls.Add(this.toolStripContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ActionEditor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Action Editor";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
