@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("Create %ItemName within a %SpawnRadius unit radius around %Target with %ItemChargeCount charges and belongs to caster %BelongToCaster")]
+	[EditorGrammar("Create %ItemName within a %SpawnRadius unit radius around %Target with %ItemChargeCount charges and belongs to caster %BelongsToCaster")]
 	public partial class CreateItem : TargetedAction
 	{
 		[Category("Misc")]

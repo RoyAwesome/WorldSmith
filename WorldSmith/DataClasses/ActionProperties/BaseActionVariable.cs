@@ -13,7 +13,7 @@ namespace WorldSmith.DataClasses
         FIELD_FLOAT,
 
     }
-
+    [EditorGrammar("Variable with name %Name and type %Type with value %DefaultValue")]
     public class BaseActionVariable
     {
         public string Name

@@ -199,7 +199,14 @@ namespace WorldSmith.DataClasses
 
         public override string ToString()
         {
-            return ToKV().ToString();
+            if(Preset == PresetType.NONE)
+            {
+                return "CUSTOM TARGET";
+            }
+            else
+            {
+                return Preset.ToString();
+            }
         }
         
     }

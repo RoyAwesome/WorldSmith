@@ -12,6 +12,7 @@ using System.Windows.Forms.Design;
 using WorldSmith.DataClasses;
 using WorldSmith.Dialogs.Actions;
 using WorldSmith.Panels;
+using System.Reflection;
 
 namespace WorldSmith.Dialogs
 {
@@ -87,17 +88,34 @@ namespace WorldSmith.Dialogs
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (!(treeView1.SelectedNode.Tag is BaseAction))
+            if (treeView1.SelectedNode.Tag is string)
             {
                 propertyGrid1.SelectedObject = null;
                 return;
             }
 
-            BaseAction action = treeView1.SelectedNode.Tag as BaseAction;
+            object o = treeView1.SelectedNode.Tag;
 
-            propertyGrid1.SelectedObject = action;        
-            
+            if(treeView1.SelectedNode.Parent != null)
+            {
+                objectLinkEdit1.ActionContext = treeView1.SelectedNode.Parent.Text;
+            }            
+           
+            EditorGrammarAttribute attrib = o.GetType().GetCustomAttribute<EditorGrammarAttribute>();
+            if(attrib != null)
+            {
+                objectLinkEdit1.Grammer = attrib.Grammar;
+                
+            }
+            else
+            {
+                objectLinkEdit1.Grammer = "No Grammar Found";
+            }
 
+            objectLinkEdit1.Object = o;
+
+
+            propertyGrid1.SelectedObject = o;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

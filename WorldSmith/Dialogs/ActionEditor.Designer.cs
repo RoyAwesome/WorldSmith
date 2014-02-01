@@ -67,11 +67,13 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.objectLinkEdit1 = new WorldSmith.Panels.ObjectLinkEdit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -140,13 +142,13 @@
             treeNode12.Tag = "Folder";
             treeNode12.Text = "OnProjectileFinish";
             treeNode13.Name = "actionRoot";
-            treeNode13.Tag = "Root";
+            treeNode13.Tag = "Folder";
             treeNode13.Text = "Actions";
             treeNode14.Name = "Variables";
-            treeNode14.Tag = "Root";
+            treeNode14.Tag = "Folder";
             treeNode14.Text = "Variables";
             treeNode15.Name = "modifiers";
-            treeNode15.Tag = "Root";
+            treeNode15.Tag = "Folder";
             treeNode15.Text = "Modifiers";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode13,
@@ -164,6 +166,10 @@
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.objectLinkEdit1);
             // 
             // splitContainer2.Panel2
             // 
@@ -209,7 +215,7 @@
             this.toolStripButton3});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(291, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(260, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // toolStripButton1
@@ -252,6 +258,16 @@
             this.toolStripButton3.Size = new System.Drawing.Size(83, 22);
             this.toolStripButton3.Text = "New Modifier";
             // 
+            // objectLinkEdit1
+            // 
+            this.objectLinkEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.objectLinkEdit1.Grammer = null;
+            this.objectLinkEdit1.Location = new System.Drawing.Point(0, 0);
+            this.objectLinkEdit1.Name = "objectLinkEdit1";
+            this.objectLinkEdit1.Object = null;
+            this.objectLinkEdit1.Size = new System.Drawing.Size(774, 228);
+            this.objectLinkEdit1.TabIndex = 0;
+            // 
             // ActionEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +282,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
@@ -293,6 +310,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private Panels.ObjectLinkEdit objectLinkEdit1;
 
     }
 }

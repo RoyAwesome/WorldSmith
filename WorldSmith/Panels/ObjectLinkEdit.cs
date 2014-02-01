@@ -68,8 +68,64 @@ namespace WorldSmith.Panels
             }
 
 
-            linkLabel1.Text = Grammer.Replace("%", "");   
+            linkLabel1.Text = Grammer.Replace("%", "");
+
+            UpdateLinkTexts();
         }
+
+
+        private void UpdateLinkTexts()
+        {
+            for (int j = 0; j < linkLabel1.Links.Count; j++ )
+            {
+
+                LinkLabel.Link link = linkLabel1.Links[j];
+                string property = link.LinkData as string;
+
+                PropertyInfo info = action.GetType().GetProperty(property);
+
+                object value = info.GetMethod.Invoke(action, new object[] { });
+
+                string valueText = property;
+                if (value != null)
+                {
+                    valueText = value.ToString();
+                }
+                if (valueText.Length > 20)
+                {
+                    valueText = "...";
+                }
+
+                string display = "(" + valueText + ")";
+
+
+
+                //Get the old display.
+                string old = linkLabel1.Text.Substring(link.Start, link.Length);
+
+                //Replace it with the new one
+                linkLabel1.Text = linkLabel1.Text.Replace(old, display);
+
+                int diff = link.Length - display.Length; //Get the difference in chars so we can move the other links back
+
+                link.Length = display.Length; //Adjust this link to that it takes up the new area
+
+                //pull back all of the other links so they adjust to the new area, starting with the editing link
+                int editedIndex = linkLabel1.Links.IndexOf(link);
+                for (int i = editedIndex + 1; i < linkLabel1.Links.Count; i++)
+                {
+                    LinkLabel.Link l = linkLabel1.Links[i];
+                    l.Start -= diff;
+                }
+
+
+            }
+
+
+        }
+
+
+
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {           
@@ -105,10 +161,8 @@ namespace WorldSmith.Panels
                 result = editor.ShowDialog();
 
                 if (result == DialogResult.OK)
-                {
-                    valueResult = editor.GetValue();
+                {                    
                     info.SetMethod.Invoke(action, new object[] { new NumberValue(valueResult) });
-
                 }
             }
             if(info.PropertyType == typeof(TargetKey))
@@ -127,15 +181,6 @@ namespace WorldSmith.Panels
                 {
                     TargetKey target = editor.Target;
                     info.SetMethod.Invoke(action, new object[] { target });
-
-                    if(target.Preset != TargetKey.PresetType.NONE)
-                    {
-                        valueResult = target.Preset.ToString();
-                    }
-                    else
-                    {
-                        valueResult = "CUSTOM TARGET";
-                    }
                 }
 
             }
@@ -170,7 +215,7 @@ namespace WorldSmith.Panels
                     info.SetMethod.Invoke(action, new object[] { enumValue });
 
                     valueResult = enumValue.ToString();
-                    if (valueResult.Length > 16) valueResult = "...";
+                    
                 }
 
 
@@ -187,32 +232,14 @@ namespace WorldSmith.Panels
 
                 if(result == DialogResult.OK)
                 {
-                    info.SetMethod.Invoke(action, new object[] { editor.Value });
-                    valueResult = editor.Value.ToString();
+                    info.SetMethod.Invoke(action, new object[] { editor.Value });                    
                 }
             }
             
 
             if(result == DialogResult.OK)
             {
-                string display = "(" + valueResult + ")";
-                //Get the old display.
-                string old = linkLabel1.Text.Substring(e.Link.Start, e.Link.Length);
-
-                //Replace it with the new one
-                linkLabel1.Text = linkLabel1.Text.Replace(old, display);
-
-                int diff = e.Link.Length - display.Length; //Get the difference in chars so we can move the other links back
-
-                e.Link.Length = display.Length; //Adjust this link to that it takes up the new area
-
-                //pull back all of the other links so they adjust to the new area, starting with the editing link
-                int editedIndex = linkLabel1.Links.IndexOf(e.Link);
-                for (int i = editedIndex + 1; i < linkLabel1.Links.Count; i++)
-                {
-                    LinkLabel.Link l = linkLabel1.Links[i];
-                    l.Start -= diff;
-                }
+                UpdateLinkTexts();
             }
 
             if (LinkClicked != null)
