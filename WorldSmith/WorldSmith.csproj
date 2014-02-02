@@ -403,6 +403,7 @@
     <Content Include="DataSchema\BaseUnitSchema.txt" />
     <Content Include="DataSchema\HeroSchema.txt" />
     <Content Include="DataSchema\ItemSchema.txt" />
+    <Content Include="DataSchema\ModifierSchema.txt" />
     <Content Include="DataSchema\UnitSchema.txt" />
     <Content Include="WSIconic.ico" />
   </ItemGroup>
