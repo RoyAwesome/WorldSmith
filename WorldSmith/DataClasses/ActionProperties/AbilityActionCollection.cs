@@ -61,6 +61,8 @@ namespace WorldSmith.DataClasses
         public List<BaseActionVariable> Variables = new List<BaseActionVariable>();
 
 
+        public AbilityModifierCollection Modifiers = new AbilityModifierCollection();
+
         public AbilityActionCollection()
         {
 

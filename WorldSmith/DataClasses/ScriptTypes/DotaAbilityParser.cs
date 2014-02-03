@@ -45,9 +45,6 @@ namespace WorldSmith.DataClasses
 
                     action.LoadFromKeyValues(actionChild);
 
-
-
-
                     ActionList.Actions[key].Add(action);
                 }
             }
@@ -62,6 +59,18 @@ namespace WorldSmith.DataClasses
                     var.LoadFromKV(absp);
                     ActionList.Variables.Add(var);
                 }
+            }
+
+            KeyValue modifiers = kv["Modifiers"];
+            if(modifiers != null)
+            {
+                foreach(KeyValue mod in modifiers.Children)
+                {
+                    DotaModifier modifier = new DotaModifier();
+                    modifier.LoadFromKeyValues(mod);
+                    ActionList.Modifiers.Add(modifier);
+                }
+
             }
 
         }
@@ -86,7 +95,10 @@ namespace WorldSmith.DataClasses
                 abilitySpecial += var.ToKV((i + 1).ToString("D2"));
             }
 
+            
+
             kv += abilitySpecial;
+            kv += ActionList.Modifiers.ToKV();
 
             return kv;
         }

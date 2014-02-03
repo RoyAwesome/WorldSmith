@@ -138,6 +138,7 @@
 			"DOTA_UNIT_TARGET_TEAM_ENEMY"		"1 << 1"
             "DOTA_UNIT_TARGET_TEAM_FRIENDLY"	"1 << 2"                
             "DOTA_UNIT_TARGET_TEAM_CUSTOM"		"1 << 3"
+			"DOTA_UNIT_TARGET_TEAM_BOTH"		"1 << 4"
 			"DOTA_UNIT_TARGET_ALL"				"0xFFFF"
 		}
 	}

@@ -66,6 +66,18 @@ namespace WorldSmith.Dialogs
 
             }
 
+            TreeNode modNode = treeView1.Nodes[2];
+
+            foreach(DotaModifier modifier in actions.Modifiers)
+            {
+                modNode.Nodes.Add(new TreeNode()
+                    {
+                        Name = modifier.ClassName,
+                        Text = modifier.ClassName,
+                        Tag = modifier,
+                    });
+            }
+
             treeView1.ExpandAll();
         }
 
