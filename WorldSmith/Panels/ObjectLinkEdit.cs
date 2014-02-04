@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WorldSmith.DataClasses;
 using System.Reflection;
 using WorldSmith.Dialogs.Actions;
+using WorldSmith.Dialogs;
 
 namespace WorldSmith.Panels
 {
@@ -48,8 +49,22 @@ namespace WorldSmith.Panels
 
         private void BuildActionPanel()
         {
+            if (Object == null) return; //Skip if object is null
+
+
             linkLabel1.Links.Clear();
-            if (Grammer == null) Grammer = "No Grammer Set";
+            if (Grammer == null)
+            {
+                EditorGrammarAttribute attrib = Object.GetType().GetCustomAttribute<EditorGrammarAttribute>();
+                if(attrib != null)
+                {
+                    Grammer = attrib.Grammar;
+                }
+                else
+                {
+                    Grammer = "No Grammer Set";
+                }                
+            }
                 
             //Find each % and get the positions to create links
             int ind = Grammer.IndexOf('%', 0);
@@ -233,6 +248,21 @@ namespace WorldSmith.Panels
                 if(result == DialogResult.OK)
                 {
                     info.SetMethod.Invoke(action, new object[] { editor.Value });                    
+                }
+            }
+            if(typeof(string) == info.PropertyType)
+            {
+                string val = (string)info.GetMethod.Invoke(action, new object[] { });
+
+                TextPrompt editor = new TextPrompt();
+
+                editor.Text = Property;
+                editor.PromptText = val;
+
+                result = editor.ShowDialog();
+                if(result == DialogResult.OK)
+                {
+                    info.SetMethod.Invoke(action, new object[] { editor.PromptText });     
                 }
             }
             

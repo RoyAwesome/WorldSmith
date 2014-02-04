@@ -179,6 +179,12 @@
     <Compile Include="Dialogs\Actions\NewActionDialog.Designer.cs">
       <DependentUpon>NewActionDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\GenericGrammarPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\GenericGrammarPrompt.Designer.cs">
+      <DependentUpon>GenericGrammarPrompt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Localization\LocaleManager.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -292,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AssetLoadingDialog.resx">
       <DependentUpon>AssetLoadingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\GenericGrammarPrompt.resx">
+      <DependentUpon>GenericGrammarPrompt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\InitialSetup.resx">
       <DependentUpon>InitialSetup.cs</DependentUpon>

@@ -12,8 +12,6 @@ namespace WorldSmith.Dialogs
 {
     public partial class TextPrompt : Form
     {
-        TextPromptResult result;
-
         public TextPrompt()
         {
             InitializeComponent();
@@ -27,32 +25,16 @@ namespace WorldSmith.Dialogs
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            this.result.result = true;
+            DialogResult = DialogResult.OK;
             this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.result.result = false;
             textBox1.Text = "";
+            DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        public new TextPromptResult ShowDialog()
-        {
-            result = new TextPromptResult();
-            this.StartPosition = FormStartPosition.CenterParent;
-            this.Focus();
-            textBox1.Focus();
-            base.ShowDialog();
-            result.text = textBox1.Text;
-            return result;
-        }
-
-        public class TextPromptResult
-        {
-            public string text;
-            public bool result;
-        }
     }
 }

@@ -76,12 +76,12 @@ namespace WorldSmith.Panels
                 prompt.Text = "Create New Hero Classname";
                 prompt.PromptText = b.ClassName + "_custom";
 
-                TextPrompt.TextPromptResult result = prompt.ShowDialog();
-                if (result.result)
+                DialogResult r = prompt.ShowDialog();
+                if (r == DialogResult.OK)
                 {
                     //Create a new Dota hero for this guy
                     DotaHero newHero = b.Clone() as DotaHero;
-                    newHero.ClassName = result.text;
+                    newHero.ClassName = prompt.PromptText;
                     newHero.override_hero = b.ClassName;
 
                     //Put him in the hero override list

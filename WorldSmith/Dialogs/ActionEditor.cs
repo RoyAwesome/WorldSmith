@@ -54,32 +54,46 @@ namespace WorldSmith.Dialogs
 
             }
 
-            TreeNode varNode = treeView1.Nodes[1];
-            foreach(BaseActionVariable variable in actions.Variables)
-            {
-                varNode.Nodes.Add(new TreeNode()
-                    {
-                        Name = variable.Name,
-                        Text = variable.Name,
-                        Tag = variable,
-                    });
-
-            }
-
-            TreeNode modNode = treeView1.Nodes[2];
-
-            foreach(DotaModifier modifier in actions.Modifiers)
-            {
-                modNode.Nodes.Add(new TreeNode()
-                    {
-                        Name = modifier.ClassName,
-                        Text = modifier.ClassName,
-                        Tag = modifier,
-                    });
-            }
-
+            BuildVariableTree();
+            BuildModifierTree();
+           
             treeView1.ExpandAll();
         }
+
+        private void BuildVariableTree()
+        {
+            TreeNode varNode = treeView1.Nodes[1];
+            varNode.Nodes.Clear();
+            foreach (BaseActionVariable variable in actions.Variables)
+            {
+                varNode.Nodes.Add(new TreeNode()
+                {
+                    Name = variable.Name,
+                    Text = variable.Name,
+                    Tag = variable,
+                });
+
+            }
+            varNode.Expand();
+        }
+
+        private void BuildModifierTree()
+        {
+            TreeNode modNode = treeView1.Nodes[2];
+            modNode.Nodes.Clear();
+
+            foreach (DotaModifier modifier in actions.Modifiers)
+            {
+                modNode.Nodes.Add(new TreeNode()
+                {
+                    Name = modifier.ClassName,
+                    Text = modifier.ClassName,
+                    Tag = modifier,
+                });
+            }
+            modNode.Expand();
+        }
+
 
         public new DialogResult ShowDialog()
         {
@@ -157,6 +171,23 @@ namespace WorldSmith.Dialogs
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
+
+            GenericGrammarPrompt prompt = new GenericGrammarPrompt();
+            prompt.Text = "Variable Name";
+
+           
+            prompt.SelectedObject = new BaseActionVariable();
+
+            prompt.ShowDialog();
+
+            if(prompt.DialogResult == DialogResult.OK)
+            {
+              
+                                
+                Actions.Variables.Add(prompt.SelectedObject as BaseActionVariable);
+                BuildVariableTree();
+            }
+
             
         }
     }
