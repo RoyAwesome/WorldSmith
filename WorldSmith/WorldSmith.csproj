@@ -132,6 +132,7 @@
     <Compile Include="DataClasses\ActionTypes\Rotate.cs" />
     <Compile Include="DataClasses\ActionTypes\RunScript.cs" />
     <Compile Include="DataClasses\ActionTypes\SpawnUnit.cs" />
+    <Compile Include="DataClasses\ActionTypes\SpendCharge.cs" />
     <Compile Include="DataClasses\ActionTypes\SpendMana.cs" />
     <Compile Include="DataClasses\ActionTypes\Stun.cs" />
     <Compile Include="DataClasses\ActionTypes\TargetedAction.cs" />
@@ -406,6 +407,7 @@
     <Content Include="DataSchema\ActionSchemas\RespawnHeroAction.txt" />
     <Content Include="DataSchema\ActionSchemas\RunScriptAction.txt" />
     <Content Include="DataSchema\ActionSchemas\SpawnUnitAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\SpendChargeAction.txt" />
     <Content Include="DataSchema\ActionSchemas\SpendManaAction.txt" />
     <Content Include="DataSchema\ActionSchemas\StunAction.txt" />
     <Content Include="DataSchema\ActionSchemas\TargetedAction.txt" />

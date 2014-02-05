@@ -1,0 +1,9 @@
+﻿"Schema"
+{
+	"ClassName"	"SpendCharge"
+	"BaseClass" "BaseAction"
+
+	"ActionAttribute"	"1"
+	"EditorGrammar"		"Spend 1 charge when this item is used"
+
+}
