@@ -39,6 +39,7 @@ namespace WorldSmith
                     return;
                 }
             }
+            Application.ApplicationExit += Application_ApplicationExit;
 
             AssetLoadingDialog assets = new AssetLoadingDialog();
             assets.ShowDialog(AssetLoadingDialog.InitialLoad);
@@ -47,7 +48,7 @@ namespace WorldSmith
                 assets = new AssetLoadingDialog();
                 assets.ShowDialog(AssetLoadingDialog.AddonLoadTasks);
             }
-            Application.ApplicationExit += Application_ApplicationExit;
+            
 
             System.Threading.Thread.CurrentThread.CurrentUICulture = 
                 System.Globalization.CultureInfo.CreateSpecificCulture(Properties.Settings.Default.language);

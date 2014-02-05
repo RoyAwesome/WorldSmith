@@ -58,19 +58,30 @@ namespace WorldSmith.DataClasses
 
         #endregion
 
-        
+        #region Item Data Lists
+        public static List<DotaItem> DefaultItems = new List<DotaItem>();
+
+        public static List<DotaItem> CustomItems = new List<DotaItem>();
+
+        public static IEnumerable<DotaItem> AllItems = DefaultItems.Union(CustomItems);
+        #endregion
+
+
 
         public static IEnumerable<DotaDataObject> AllClasses = AllUnits.Cast<DotaDataObject>()
-            .Union(AllAbilities.Cast<DotaDataObject>());
+            .Union(AllAbilities.Cast<DotaDataObject>())
+            .Union(AllItems.Cast<DotaDataObject>());
 
         public static string NPCScriptPath = "scripts" + Path.DirectorySeparatorChar + "npc" + Path.DirectorySeparatorChar;
         public static string CustomHeroesFile = NPCScriptPath + "npc_heroes_custom.txt";
         public static string CustomUnitsFile = NPCScriptPath + "npc_units_custom.txt";
         public static string CustomAbilityFile = NPCScriptPath + "npc_abilities_custom.txt";
+        public static string CustomItemsFile = NPCScriptPath + "npc_items_custom.txt";
 
         public const string DefaultUnitsFile = "scripts/npc/npc_units.txt";
         public const string DefaultHeroesFile = "scripts/npc/npc_heroes.txt";
         public const string DefaultAbilitiesFile = "scripts/npc/npc_abilities.txt";
+        public const string DefaultItemsFile = "scripts/npc/items.txt";
 
         #region HLLib Usage
         public static void LoadFromVPK(string vpkPath)

@@ -15,6 +15,7 @@ namespace WorldSmith.Dialogs
         public TextPrompt()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
         }
 
         public string PromptText

@@ -22,6 +22,7 @@ namespace WorldSmith.Dialogs
             {"npc_units.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultUnitsFile, DotaData.DefaultUnits); } },
             {"npc_heroes.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultHeroesFile, DotaData.DefaultHeroes); } },
             {"npc_abilities.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultAbilitiesFile, DotaData.DefaultAbilities); } },
+            {"items.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultItemsFile, DotaData.DefaultItems); } },
         };
 
         public static Dictionary<string, Task> AddonLoadTasks = new Dictionary<string, Task>()
@@ -29,6 +30,7 @@ namespace WorldSmith.Dialogs
             {"npc_units_custom.txt", () => { DotaData.ReadOverride(DotaData.CustomUnitsFile, DotaData.CustomUnits); } },
             {"npc_heroes_custom.txt", () => { DotaData.ReadOverride(DotaData.CustomHeroesFile, DotaData.OverridenHeroes); } },
             {"npc_abilities_custom.txt", () => { DotaData.ReadOverride(DotaData.CustomAbilityFile, DotaData.CustomAbilities); } },
+            {"npc_items_custom.txt", () => { DotaData.ReadOverride(DotaData.CustomItemsFile, DotaData.CustomItems); } },
             {"Cleaning HeroOverrideList", () => {
                 foreach(DotaHero hero in DotaData.OverridenHeroes)
                 {
@@ -43,6 +45,7 @@ namespace WorldSmith.Dialogs
             {"Saving npc_units_custom.txt", () => { DotaData.SaveList(DotaData.CustomUnits, "DOTAUnits", "npc_units_custom.txt");} },
             {"Saving npc_heroes_custom.txt", () => { DotaData.SaveList(DotaData.OverridenHeroes, "DOTAHeroes", "npc_heroes_custom.txt");} },
             {"Saving npc_abilities_custom.txt", () => { DotaData.SaveList(DotaData.CustomAbilities, "DOTAAbilities", "npc_abilities_custom.txt");} },
+            {"Saving npc_items_custom.txt", () => { DotaData.SaveList(DotaData.CustomItems, "DOTAAbilities", "npc_items_custom.txt"); } }
             
         };
 
