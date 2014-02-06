@@ -155,7 +155,7 @@ namespace WorldSmith.Dialogs
             ActionCollection bin = actions.Actions[treeView1.SelectedNode.Text];
 
             NewActionDialog dialog = new NewActionDialog();
-            if(dialog.ShowDialog(treeView1.SelectedNode.Text, actions) == DialogResult.OK)
+            if(dialog.ShowDialog(treeView1.SelectedNode.Text, actions.Variables) == DialogResult.OK)
             {
                 bin.Add(dialog.SelectedAction);
                 treeView1.SelectedNode.Nodes.Add(new TreeNode()

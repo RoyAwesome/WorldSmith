@@ -265,6 +265,25 @@ namespace WorldSmith.Panels
                     info.SetMethod.Invoke(action, new object[] { editor.PromptText });     
                 }
             }
+            if(typeof(ActionCollection) == info.PropertyType)
+            {
+                ActionCollection actions = info.GetMethod.Invoke(action, new object[] { }) as ActionCollection;
+
+                ActionListEditor editor = new ActionListEditor();
+                if (actions == null) actions = new ActionCollection();
+
+                editor.ActionContext = ActionContext;
+                editor.Variables = Variables;
+                editor.Actions = actions;
+
+                result = editor.ShowDialog();
+                
+                if(result == DialogResult.OK)
+                {
+                    info.SetMethod.Invoke(action, new object[] { editor.Actions });  
+                }
+
+            }
             
 
             if(result == DialogResult.OK)

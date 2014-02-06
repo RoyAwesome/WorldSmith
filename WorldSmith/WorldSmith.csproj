@@ -156,6 +156,12 @@
     <Compile Include="DataClasses\ScriptTypes\DotaUnit.cs" />
     <Compile Include="DataClasses\PropertyTypes\AbilitySpecial.cs" />
     <Compile Include="DataClasses\PropertyTypes\PerLevel.cs" />
+    <Compile Include="Dialogs\Actions\ActionListEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Actions\ActionListEditor.Designer.cs">
+      <DependentUpon>ActionListEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\Actions\BoolEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     </Compile>
     <EmbeddedResource Include="Dialogs\ActionEditor.resx">
       <DependentUpon>ActionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Actions\ActionListEditor.resx">
+      <DependentUpon>ActionListEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\Actions\BoolEditor.resx">
       <DependentUpon>BoolEditor.cs</DependentUpon>

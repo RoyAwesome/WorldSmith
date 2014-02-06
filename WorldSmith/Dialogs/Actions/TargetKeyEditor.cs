@@ -17,6 +17,8 @@ namespace WorldSmith.Dialogs.Actions
 
         Dictionary<string, string[]> ContextTargets = new Dictionary<string, string[]>()
         {
+            { "Default", new string[] { "CASTER", "TARGET"} },
+
             //ABILITY EVENT CONTEXTS
             { "OnSpellStart", new string[] { "CASTER", "TARGET", "POINT" } },
             { "OnChannelSucceeded", new string[] { "CASTER", "TARGET", "POINT" } },
@@ -79,8 +81,9 @@ namespace WorldSmith.Dialogs.Actions
         }
 
         public void SetPresets(string category)
-        {
-            if (!ContextTargets.ContainsKey(category)) return;
+        {            
+            if (category == null || !ContextTargets.ContainsKey(category)) category = "Default";
+
             comboBox1.Items.Clear();
             comboBox1.Items.AddRange(ContextTargets[category]);
             comboBox1.SelectedIndex = 0;

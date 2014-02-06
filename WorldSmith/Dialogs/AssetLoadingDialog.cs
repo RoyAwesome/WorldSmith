@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,10 +28,22 @@ namespace WorldSmith.Dialogs
 
         public static Dictionary<string, Task> AddonLoadTasks = new Dictionary<string, Task>()
         {
-            {"npc_units_custom.txt", () => { DotaData.ReadOverride(DotaData.CustomUnitsFile, DotaData.CustomUnits); } },
-            {"npc_heroes_custom.txt", () => { DotaData.ReadOverride(DotaData.CustomHeroesFile, DotaData.OverridenHeroes); } },
-            {"npc_abilities_custom.txt", () => { DotaData.ReadOverride(DotaData.CustomAbilityFile, DotaData.CustomAbilities); } },
-            {"npc_items_custom.txt", () => { DotaData.ReadOverride(DotaData.CustomItemsFile, DotaData.CustomItems); } },
+            {"npc_units_custom.txt", () => {
+                
+                DotaData.ReadOverride(DotaData.CustomUnitsFile, DotaData.CustomUnits); 
+            } },
+            {"npc_heroes_custom.txt", () => {
+                
+                DotaData.ReadOverride(DotaData.CustomHeroesFile, DotaData.OverridenHeroes); 
+            } },
+            {"npc_abilities_custom.txt", () => {
+                
+                DotaData.ReadOverride(DotaData.CustomAbilityFile, DotaData.CustomAbilities); 
+            } },
+            {"npc_items_custom.txt", () => {
+                ;
+                DotaData.ReadOverride(DotaData.CustomItemsFile, DotaData.CustomItems); 
+            } },
             {"Cleaning HeroOverrideList", () => {
                 foreach(DotaHero hero in DotaData.OverridenHeroes)
                 {

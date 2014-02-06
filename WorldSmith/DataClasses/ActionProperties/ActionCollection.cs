@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WorldSmith.DataClasses
 {
-    public class ActionCollection : CollectionBase
+    public class ActionCollection : CollectionBase, IEnumerable<BaseAction>
     {
 
         public void Add(BaseAction f)
@@ -43,7 +43,15 @@ namespace WorldSmith.DataClasses
 
         public override string ToString()
         {
-            return ToKV("nokey").ToString();
+            return "Collection";
+        }
+
+        public new IEnumerator<BaseAction> GetEnumerator()
+        {
+            foreach(BaseAction o in this.List)
+            {
+                yield return o;
+            }
         }
     }
 }

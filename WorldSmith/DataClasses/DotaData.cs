@@ -175,6 +175,8 @@ namespace WorldSmith.DataClasses
        
         public static void ReadOverride<T>(string file, List<T> ListToLoadInto) where T : DotaDataObject
         {
+            if (!File.Exists(Properties.Settings.Default.AddonPath + file)) return;
+
             ListToLoadInto.Clear();
             
             

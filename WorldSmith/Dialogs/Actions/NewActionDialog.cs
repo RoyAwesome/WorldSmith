@@ -53,10 +53,10 @@ namespace WorldSmith.Dialogs.Actions
             actionGrammerEditor1.Object = SelectedAction;
         }
 
-        public DialogResult ShowDialog(string actionContext, AbilityActionCollection actionCollection)
+        public DialogResult ShowDialog(string actionContext, IEnumerable<BaseActionVariable> variableList)
         {
             actionGrammerEditor1.ActionContext = actionContext;
-            actionGrammerEditor1.Variables = actionCollection.Variables;
+            actionGrammerEditor1.Variables = variableList;
 
             return base.ShowDialog();
         }
