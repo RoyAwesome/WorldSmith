@@ -10,7 +10,7 @@ using WorldSmith.Dialogs;
 namespace WorldSmith.DataClasses
 {
 	[DotaAction]
-	[EditorGrammar("Throw a Projectile from %StartPosition toward %Target moving %MoveSpeed units per second.  The projectile hits with a start radius of %StartRadius units and an end radius of %EndRadius units and has a Frontal Cone %HasFrontalCone .  The projectile hits %TargetType units on %TargetTeams with %TargetFlags . The Projectile Has Vision %ProvidesVision of %VisionRadius units")]
+	[EditorGrammar("Throw a Projectile from %StartPosition toward %Target moving %MoveSpeed units per second.  The projectile hits with a start radius of %StartRadius units and an end radius of %EndRadius units and has a Frontal Cone %HasFrontalCone .  The projectile hits %TargetTypes units on %TargetTeams with %TargetFlags . The Projectile Has Vision %ProvidesVision of %VisionRadius units")]
 	public partial class LinearProjectile : TargetedAction
 	{
 		[Category("Misc")]

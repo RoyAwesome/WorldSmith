@@ -99,6 +99,13 @@ namespace WorldSmith.Panels
 
                 PropertyInfo info = action.GetType().GetProperty(property);
 
+                if(info == null)
+                {
+                    MessageBox.Show("Error: Tried to look up " + property + " but couldn't find it");
+                    linkLabel1.Text = "Error when reading editor grammar";
+                    linkLabel1.LinkArea = new LinkArea(0, 0);
+                    return;
+                }
                 object value = info.GetMethod.Invoke(action, new object[] { });
 
                 string valueText = property;
