@@ -11,7 +11,7 @@
 		"Category"	"Misc"
 		"Description"	"No Description Set"
 		"Type"	"ActionCollection"
-		"DefaultValue"	"OnSuccess { }"
+		"DefaultValue"	"Default"
 	}
 
 	
@@ -20,7 +20,7 @@
 		"Category"	"Misc"
 		"Description"	"No Description Set"
 		"Type"	"ActionCollection"
-		"DefaultValue"	"OnFailure { }"
+		"DefaultValue"	"Default"
 	}
 
 }

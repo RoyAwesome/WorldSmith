@@ -270,5 +270,95 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue(typeof(ActionCollection), "OnCreated")]
+		public ActionCollection OnCreated
+		{
+			get;
+			set;
+		}
+
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue(typeof(ActionCollection), "OnIntervalThink")]
+		public ActionCollection OnIntervalThink
+		{
+			get;
+			set;
+		}
+
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue(typeof(ActionCollection), "OnAttacked")]
+		public ActionCollection OnAttacked
+		{
+			get;
+			set;
+		}
+
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue(typeof(ActionCollection), "OnAttackLanded")]
+		public ActionCollection OnAttackLanded
+		{
+			get;
+			set;
+		}
+
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue(typeof(ActionCollection), "OnTakeDamage")]
+		public ActionCollection OnTakeDamage
+		{
+			get;
+			set;
+		}
+
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue(typeof(ActionCollection), "OnDealDamage")]
+		public ActionCollection OnDealDamage
+		{
+			get;
+			set;
+		}
+
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue(typeof(ActionCollection), "OnDeath")]
+		public ActionCollection OnDeath
+		{
+			get;
+			set;
+		}
+
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue(typeof(ActionCollection), "OnKill")]
+		public ActionCollection OnKill
+		{
+			get;
+			set;
+		}
+
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue(typeof(ActionCollection), "OnAttackStart")]
+		public ActionCollection OnAttackStart
+		{
+			get;
+			set;
+		}
+
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue(typeof(ActionCollection), "OnDestroy")]
+		public ActionCollection OnDestroy
+		{
+			get;
+			set;
+		}
+
 	}
 }

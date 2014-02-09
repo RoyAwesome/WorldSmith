@@ -62,7 +62,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(null)]
+		[DefaultValue(typeof(ActionCollection), "Default")]
 		public ActionCollection OnSuccess
 		{
 			get;
@@ -71,7 +71,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(null)]
+		[DefaultValue(typeof(ActionCollection), "Default")]
 		public ActionCollection OnFailure
 		{
 			get;

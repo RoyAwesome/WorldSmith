@@ -273,9 +273,8 @@ namespace WorldSmith.DataSchema
                         //csFile.Append("typeof(TargetKey), \"" + c["DefaultValue"].GetString() + "\"");
                     }
                     if (type == "ActionCollection")
-                    {
-                        csFile.Append("null");
-                        //csFile.Append("typeof(ActionCollection), \"\"");
+                    {                        
+                        csFile.Append("typeof(ActionCollection), \"" + c["DefaultValue"].GetString() +"\"");
                     }
                     if (type == "ControlPointList")
                     {

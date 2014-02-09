@@ -42,17 +42,17 @@ namespace WorldSmith.DataClasses
     {
         public Dictionary<string, ActionCollection> Actions = new Dictionary<string, ActionCollection>()
         {
-            { "OnSpellStart",               new ActionCollection() },
-            { "OnChannelSucceeded",         new ActionCollection() },
-            { "OnChannelInterrupted",       new ActionCollection() },
-            { "OnChannelFinish",            new ActionCollection() },
-            { "OnToggleOn",                 new ActionCollection() },
-            { "OnToggleOff",                new ActionCollection() },
-            { "OnAbilityPhaseStart",        new ActionCollection() },
-            { "OnOwnerSpawned",             new ActionCollection() },
-            { "OnUpgrade",                  new ActionCollection() },
-            { "OnProjectileHitUnit",        new ActionCollection() },
-            { "OnProjectileFinish",         new ActionCollection() },   
+            { "OnSpellStart",               new ActionCollection("OnSpellStart") },
+            { "OnChannelSucceeded",         new ActionCollection("OnChannelSucceeded") },
+            { "OnChannelInterrupted",       new ActionCollection("OnChannelInterrupted") },
+            { "OnChannelFinish",            new ActionCollection("OnChannelFinish") },
+            { "OnToggleOn",                 new ActionCollection("OnToggleOn") },
+            { "OnToggleOff",                new ActionCollection("OnToggleOff") },
+            { "OnAbilityPhaseStart",        new ActionCollection("OnAbilityPhaseStart") },
+            { "OnOwnerSpawned",             new ActionCollection("OnOwnerSpawned") },
+            { "OnUpgrade",                  new ActionCollection("OnUpgrade") },
+            { "OnProjectileHitUnit",        new ActionCollection("OnProjectileHitUnit") },
+            { "OnProjectileFinish",         new ActionCollection("OnProjectileFinish") },   
             
             //ITEMS
             //{ "OnUnequip",                new ActionCollection() },

@@ -49,7 +49,12 @@ namespace WorldSmith.Panels
 
         private void BuildActionPanel()
         {
-            if (Object == null) return; //Skip if object is null
+            if (Object == null)
+            {
+                Grammer = "No Object Selected";
+                linkLabel1.LinkArea = new LinkArea(0, 0);
+                return; //Skip if object is null
+            }
 
 
             linkLabel1.Links.Clear();
@@ -277,7 +282,7 @@ namespace WorldSmith.Panels
                 ActionCollection actions = info.GetMethod.Invoke(action, new object[] { }) as ActionCollection;
 
                 ActionListEditor editor = new ActionListEditor();
-                if (actions == null) actions = new ActionCollection();
+                if (actions == null) actions = new ActionCollection(Property);
 
                 editor.ActionContext = ActionContext;
                 editor.Variables = Variables;

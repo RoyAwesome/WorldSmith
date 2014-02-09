@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,17 @@ namespace WorldSmith.DataClasses
 {
     public class ActionCollection : CollectionBase, IEnumerable<BaseAction>
     {
+        public string EventName
+        {
+            get;
+            set;
+        }
+
+        public ActionCollection(string eventName)
+        {
+            EventName = eventName;
+        }
+
 
         public void Add(BaseAction f)
         {
@@ -28,6 +40,11 @@ namespace WorldSmith.DataClasses
             set { this.List[index] = value; }
         }
 
+
+        public KeyValue ToKV()
+        {
+            return ToKV(EventName);
+        }
 
         public KeyValue ToKV(string Key)
         {
@@ -52,6 +69,31 @@ namespace WorldSmith.DataClasses
             {
                 yield return o;
             }
+        }
+    }
+
+
+    class ActionCollectionConverter : TypeConverter
+    {
+        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+        {
+            return typeof(string) == sourceType;
+        }
+
+        public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
+        {
+            return typeof(string) == destinationType;
+        }
+
+        public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
+        {
+            return new ActionCollection((string)value);
+        }
+
+        public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
+        {
+            if (value == null) return "";
+            return (value as ActionCollection).ToKV().ToString();
         }
     }
 }

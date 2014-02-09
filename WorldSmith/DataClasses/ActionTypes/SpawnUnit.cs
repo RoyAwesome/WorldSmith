@@ -51,7 +51,7 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("Name")]
-		[DefaultValue(null)]
+		[DefaultValue(typeof(ActionCollection), "OnSpawn")]
 		public ActionCollection OnSpawn
 		{
 			get;

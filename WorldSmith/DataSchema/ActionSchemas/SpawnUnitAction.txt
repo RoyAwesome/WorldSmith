@@ -44,7 +44,7 @@
 		"Category"	"Misc"
 		"Description"	"Name"
 		"Type"	"ActionCollection"
-		"DefaultValue"	"\"OnSpawn\" { }"
+		"DefaultValue"	"OnSpawn"
 	}
 
 }
