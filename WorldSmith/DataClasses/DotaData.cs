@@ -88,7 +88,7 @@ namespace WorldSmith.DataClasses
         {
             if(!Directory.Exists("cache")) Directory.CreateDirectory("cache");
 
-            string path = Properties.Settings.Default.dotadir + Path.DirectorySeparatorChar + VPKPath;
+            string path = Properties.Settings.Default.DotaDir + Path.DirectorySeparatorChar + VPKPath;
             HLLib.hlInitialize();
 
             // Get the package type from the filename extension.
@@ -135,7 +135,7 @@ namespace WorldSmith.DataClasses
             {
                 MessageBox.Show("Error reading pak01_dir.vpk.\n\n The error reported was: " + HLLib.hlGetString(HLLib.HLOption.HL_ERROR_LONG_FORMATED), "Error opening .pak", MessageBoxButtons.OK);
                 Shutdown();
-                Properties.Settings.Default.ranonce = false;
+                Properties.Settings.Default.AddOnPath = String.Empty;
                 Properties.Settings.Default.Save();
                 Environment.Exit(0);
             }
@@ -175,12 +175,11 @@ namespace WorldSmith.DataClasses
        
         public static void ReadOverride<T>(string file, List<T> ListToLoadInto) where T : DotaDataObject
         {
-            if (!File.Exists(Properties.Settings.Default.AddonPath + file)) return;
+            if (!File.Exists(Properties.Settings.Default.AddOnPath + file)) return;
 
             ListToLoadInto.Clear();
             
-            
-            KeyValue doc = KVParser.ParseKeyValueText(File.ReadAllText(Properties.Settings.Default.AddonPath + file));
+            KeyValue doc = KVParser.ParseKeyValueText(File.ReadAllText(Properties.Settings.Default.AddOnPath + file));
             
             foreach(KeyValue hero in doc.Children)
             {
@@ -203,7 +202,7 @@ namespace WorldSmith.DataClasses
 
         public static void SaveList<T>(List<T> list, string RootKey, string outputFileName) where T : DotaDataObject
         {
-            string path = Properties.Settings.Default.AddonPath + Path.DirectorySeparatorChar
+            string path = Properties.Settings.Default.AddOnPath + Path.DirectorySeparatorChar
                 + "scripts" + Path.DirectorySeparatorChar + "npc" + Path.DirectorySeparatorChar;
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
 
