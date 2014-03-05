@@ -20,38 +20,40 @@ namespace WorldSmith
         static void Main()
         {
 
-     
 #if GENERATECLASSES         
             GenerateClasses();
 #else
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (!Properties.Settings.Default.ranonce)
+            // Prompt the user to specify the Dota 2 path if it has not been set
+            InitialSetup initial = new InitialSetup(true);
+            if (!initial.IsDotaDirSet())
             {
-                InitialSetup initial = new InitialSetup(true);
-                if (initial.ShowDialog() == DialogResult.OK) {
-                    Properties.Settings.Default.ranonce = true;
-                    Properties.Settings.Default.Save();
-                }
-                else {
-                    Application.Exit();
-                    return;
-                }
+                Application.Exit();
+                return;
             }
+
+            // Ensure that the AddOnPath user setting was set
+            if (!initial.IsAddOnPathSet())
+            {
+                Application.Exit();
+                return;
+            }
+
             Application.ApplicationExit += Application_ApplicationExit;
 
+            // Extract the Dota 2 pack01_dir VPK file and load all of the data
             AssetLoadingDialog assets = new AssetLoadingDialog();
             assets.ShowDialog(AssetLoadingDialog.InitialLoad);
-            if (Properties.Settings.Default.AddonPath != "")
+            if (!String.IsNullOrEmpty(Properties.Settings.Default.AddOnPath))
             {
                 assets = new AssetLoadingDialog();
                 assets.ShowDialog(AssetLoadingDialog.AddonLoadTasks);
             }
             
-
             System.Threading.Thread.CurrentThread.CurrentUICulture = 
-                System.Globalization.CultureInfo.CreateSpecificCulture(Properties.Settings.Default.language);
+                System.Globalization.CultureInfo.CreateSpecificCulture(Properties.Settings.Default.Language);
 
             Application.Run(mainForm = new MainForm());
 
@@ -67,7 +69,10 @@ namespace WorldSmith
 
         public static MainForm mainForm;
 
-
+        /// <summary>
+        /// Generates all of the Data Classes from the Data Schema. If Valve changes the Dota 2 schema,
+        /// edit the schema text files, and run this function to update the Data Classes.
+        /// </summary>
         public static void GenerateClasses()
         {
             string outputDir = "../../DataClasses/";            
@@ -79,15 +84,14 @@ namespace WorldSmith
             DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "UnitSchema.txt", unitDir);
             DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "AbilitySchema.txt", unitDir);
             DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "ItemSchema.txt", unitDir);
-            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "ModifierSchema.txt", unitDir);
-
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "ModifierSchema.txt", unitDir);            
 
             string actionInputDir = inputDir + "ActionSchemas/";
             string actionOutputDir = outputDir + "ActionTypes/";
 
             foreach(string file in Directory.GetFiles(actionInputDir))
             {
-                if (!file.EndsWith(".txt")) continue; //If it's no0t a text file, skip it
+                if (!file.EndsWith(".txt")) continue; //If it's not a text file, skip it
 
                 DataSchema.DataClassGenerator.GenerateClassForSchema(file, actionOutputDir);
             }

@@ -19,7 +19,7 @@ namespace WorldSmith.Dialogs
         public static Dictionary<string, Task> InitialLoad = new Dictionary<string, Task>()
         {
             {"Building Action Factory", () => { DotaActionFactory.BuildFactory(); } }, 
-            {"Opening pak01_dir.vpk",  () => { DotaData.LoadFromVPK(Properties.Settings.Default.dotadir); } },
+            {"Opening pak01_dir.vpk",  () => { DotaData.LoadFromVPK(Properties.Settings.Default.DotaDir); } },
             {"npc_units.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultUnitsFile, DotaData.DefaultUnits); } },
             {"npc_heroes.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultHeroesFile, DotaData.DefaultHeroes); } },
             {"npc_abilities.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultAbilitiesFile, DotaData.DefaultAbilities); } },

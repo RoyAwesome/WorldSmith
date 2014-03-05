@@ -26,48 +26,36 @@ namespace WorldSmith.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string dotadir {
+        public string DotaDir {
             get {
-                return ((string)(this["dotadir"]));
+                return ((string)(this["DotaDir"]));
             }
             set {
-                this["dotadir"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ranonce {
-            get {
-                return ((bool)(this["ranonce"]));
-            }
-            set {
-                this["ranonce"] = value;
+                this["DotaDir"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string AddonPath {
+        public string AddOnPath {
             get {
-                return ((string)(this["AddonPath"]));
+                return ((string)(this["AddOnPath"]));
             }
             set {
-                this["AddonPath"] = value;
+                this["AddOnPath"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("en")]
-        public string language {
+        public string Language {
             get {
-                return ((string)(this["language"]));
+                return ((string)(this["Language"]));
             }
             set {
-                this["language"] = value;
+                this["Language"] = value;
             }
         }
     }

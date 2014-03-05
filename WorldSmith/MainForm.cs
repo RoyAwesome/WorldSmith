@@ -49,7 +49,7 @@ namespace WorldSmith
             doc += new KeyValue("addonURL0") + wizard.addonURLBox.Text;
             doc += new KeyValue("addonDescription") + wizard.addonDescriptionBox.Text;
 
-            string addonPath = Properties.Settings.Default.dotadir + Path.DirectorySeparatorChar
+            string addonPath = Properties.Settings.Default.DotaDir + Path.DirectorySeparatorChar
                 + "dota" + Path.DirectorySeparatorChar + "addons" + Path.DirectorySeparatorChar
                 + wizard.addonNameBox.Text + Path.DirectorySeparatorChar;
 
@@ -57,7 +57,7 @@ namespace WorldSmith
             Directory.CreateDirectory(addonPath + "scripts");
             Directory.CreateDirectory(addonPath + "maps");
             Directory.CreateDirectory(addonPath + "materials");
-            Properties.Settings.Default.AddonPath = addonPath;
+            Properties.Settings.Default.AddOnPath = addonPath;
             Properties.Settings.Default.Save();
             
             File.WriteAllText(addonPath + "addoninfo.txt", DotaData.KVHeader + doc.ToString());
@@ -66,7 +66,7 @@ namespace WorldSmith
         private void addonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
-            dialog.SelectedPath = Properties.Settings.Default.dotadir + Path.DirectorySeparatorChar + "dota" + Path.DirectorySeparatorChar + "addons";
+            dialog.SelectedPath = Properties.Settings.Default.DotaDir + Path.DirectorySeparatorChar + "dota" + Path.DirectorySeparatorChar + "addons";
             if (dialog.ShowDialog() != DialogResult.OK) return;
             string folder = dialog.SelectedPath + Path.DirectorySeparatorChar;
 
@@ -77,7 +77,7 @@ namespace WorldSmith
             }
 
 
-            Properties.Settings.Default.AddonPath = folder;
+            Properties.Settings.Default.AddOnPath = folder;
             Properties.Settings.Default.Save();
 
             AssetLoadingDialog loader = new AssetLoadingDialog();
@@ -91,10 +91,10 @@ namespace WorldSmith
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(Properties.Settings.Default.AddonPath == "") //If we don't have an addon loaded, create a new one
+            if(Properties.Settings.Default.AddOnPath == "") //If we don't have an addon loaded, create a new one
             {
                 addonToolStripMenuItem1_Click(null, null);
-                if (Properties.Settings.Default.AddonPath == "") return; //if we still don't have an addon loaded, don't even bother
+                if (Properties.Settings.Default.AddOnPath == "") return; //if we still don't have an addon loaded, don't even bother
             }
 
             AssetLoadingDialog dialog = new AssetLoadingDialog();
@@ -142,7 +142,7 @@ namespace WorldSmith
 
         private void localize(String cultureName)
         {
-            Properties.Settings.Default.language = cultureName;
+            Properties.Settings.Default.Language = cultureName;
             Properties.Settings.Default.Save();
             localeManager1.updateCulture(cultureName);
         }
