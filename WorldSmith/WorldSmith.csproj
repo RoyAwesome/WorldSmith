@@ -143,6 +143,8 @@
     <Compile Include="DataClasses\PropertyTypes\ControlPointList.cs" />
     <Compile Include="DataClasses\ActionProperties\DotaActionAttribute.cs" />
     <Compile Include="DataClasses\ActionProperties\EditorGrammerAttribute.cs" />
+    <Compile Include="DataClasses\PropertyTypes\ModifierProperty.cs" />
+    <Compile Include="DataClasses\PropertyTypes\ModifierPropertyCollection.cs" />
     <Compile Include="DataClasses\PropertyTypes\TargetKey.cs" />
     <Compile Include="DataClasses\ScriptTypes\BaseScriptType.cs" />
     <Compile Include="DataClasses\ScriptTypes\DotaAbility.cs" />
