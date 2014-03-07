@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryEditor));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.itemPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.categoryEditorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addItemButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -42,6 +44,7 @@
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryEditorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,9 +95,11 @@
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addItemButton});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(111, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(66, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // itemPropertyGrid
@@ -110,6 +115,16 @@
             // 
             this.categoryEditorBindingSource.DataSource = typeof(WorldSmith.Panels.CategoryEditor);
             // 
+            // addItemButton
+            // 
+            this.addItemButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.addItemButton.Image = ((System.Drawing.Image)(resources.GetObject("addItemButton.Image")));
+            this.addItemButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addItemButton.Name = "addItemButton";
+            this.addItemButton.Size = new System.Drawing.Size(23, 22);
+            this.addItemButton.Text = "toolStripButton1";
+            this.addItemButton.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // CategoryEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,7 +134,6 @@
             this.Size = new System.Drawing.Size(573, 510);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
@@ -127,6 +141,8 @@
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryEditorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -140,5 +156,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         public System.Windows.Forms.PropertyGrid itemPropertyGrid;
         private System.Windows.Forms.BindingSource categoryEditorBindingSource;
+        private System.Windows.Forms.ToolStripButton addItemButton;
     }
 }

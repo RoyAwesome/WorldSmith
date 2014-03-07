@@ -52,18 +52,22 @@ namespace WorldSmith.DataClasses
         #region Ability Data Lists
         public static List<DotaAbility> DefaultAbilities = new List<DotaAbility>();
 
+        public static List<DotaAbility> OverridenAbilities = new List<DotaAbility>();
+
         public static List<DotaAbility> CustomAbilities = new List<DotaAbility>();
 
-        public static IEnumerable<DotaAbility> AllAbilities = DefaultAbilities.Union(CustomAbilities);
+        public static IEnumerable<DotaAbility> AllAbilities = DefaultAbilities.Union(CustomAbilities).Union(OverridenAbilities);
 
         #endregion
 
         #region Item Data Lists
         public static List<DotaItem> DefaultItems = new List<DotaItem>();
 
+        public static List<DotaItem> OverridenItems = new List<DotaItem>();
+
         public static List<DotaItem> CustomItems = new List<DotaItem>();
 
-        public static IEnumerable<DotaItem> AllItems = DefaultItems.Union(CustomItems);
+        public static IEnumerable<DotaItem> AllItems = DefaultItems.Union(CustomItems).Union(OverridenItems);
         #endregion
 
 

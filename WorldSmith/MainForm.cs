@@ -25,8 +25,8 @@ namespace WorldSmith
 
         private void InitTabs()
         {
-            abilityCategory.Init("Ability", DotaData.DefaultAbilities, DotaData.CustomAbilities);
-            itemCategory.Init("Items", DotaData.DefaultItems, DotaData.CustomItems);
+            abilityCategory.Init("Ability", DotaData.DefaultAbilities, DotaData.CustomAbilities, DotaData.OverridenAbilities);
+            itemCategory.Init("Items", DotaData.DefaultItems, DotaData.CustomItems, DotaData.OverridenItems);
             unitEditor.LoadFromData();
         }
 

@@ -27,14 +27,25 @@ namespace WorldSmith.Panels
 
         System.Collections.IList DefaultList;
 
-        public void Init<T>(string type, List<T> DefaultList, List<T> CustomList) where T : DotaDataObject
+        System.Collections.IList OverrideList;
+
+        string Type = "TypeUnset";
+
+        Type ObjectType;
+
+        public void Init<T>(string type, List<T> DefaultList, List<T> CustomList, List<T> OverrideList) where T : DotaDataObject
         {
             treeView1.Nodes.Clear();
 
-            AddDataSourceToNode("default" + type, "Default " + type, 0, DefaultList);
-            AddDataSourceToNode("custom" + type, "Custom " + type, 1, CustomList);
+            AddDataSourceToNode("default", "Default " + type, 0, DefaultList);
+            AddDataSourceToNode("custom", "Custom " + type, 1, CustomList);
+            AddDataSourceToNode("overriden", "Overriden" + type, 2, OverrideList);
             this.CustomList = CustomList;
             this.DefaultList = DefaultList;
+            this.OverrideList = OverrideList;
+            this.Type = type;
+
+            ObjectType = typeof(T);
         }
 
         private void AddDataSourceToNode<T>(string internalName, string displayName, int imageIndex, List<T> List) where T : DotaDataObject
@@ -75,7 +86,7 @@ namespace WorldSmith.Panels
 
         private void itemPropertyGrid_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
         {
-            if (!treeView1.SelectedNode.Parent.Name.Contains("Default")) return;
+            if (!treeView1.SelectedNode.Parent.Name.Contains("default")) return;
             DotaDataObject customObject = (itemPropertyGrid.SelectedObject as DotaDataObject).Clone() as DotaDataObject;
 
             
@@ -85,7 +96,16 @@ namespace WorldSmith.Panels
             prompt.Text = "Create New Ability Classname";
             prompt.PromptText = customObject.ClassName + "_custom";
 
-            CustomList.Add(customObject);
+            if(prompt.ShowDialog() == DialogResult.OK)
+            {
+                customObject.ClassName = prompt.PromptText;
+            }
+            else
+            {
+                return;
+            }
+            
+            OverrideList.Add(customObject);
             TreeNode n = new TreeNode()
             {
                 Name = customObject.ClassName,
@@ -94,7 +114,7 @@ namespace WorldSmith.Panels
                 SelectedImageIndex = 3,
                 ImageIndex = 3,
             };
-            treeView1.Nodes[1].Nodes.Add(n);
+            treeView1.Nodes[2].Nodes.Add(n);
 
             treeView1.SelectedNode = n;            
             treeView1.CollapseAll();
@@ -103,6 +123,36 @@ namespace WorldSmith.Panels
             e.ChangedItem.PropertyDescriptor.SetValue(itemPropertyGrid.SelectedObject, e.OldValue); //Reset the value
 
 
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            TextPrompt prompt = new TextPrompt();
+            prompt.Text = "Create New " + Type;
+            prompt.PromptText = "new_" + Type.ToLower();
+
+            if(prompt.ShowDialog() == DialogResult.OK)
+            {
+                DotaDataObject obj = ObjectType.GetConstructor(System.Type.EmptyTypes).Invoke(new object[] { }) as DotaDataObject;
+
+                obj.ClassName = prompt.PromptText;
+
+                CustomList.Add(obj);
+                TreeNode n = new TreeNode()
+                {
+                    Name = obj.ClassName,
+                    Text = obj.ClassName,
+                    Tag = "Item",
+                    SelectedImageIndex = 3,
+                    ImageIndex = 3,
+                };
+                treeView1.Nodes[1].Nodes.Add(n);
+
+                treeView1.SelectedNode = n;
+                treeView1.CollapseAll();
+                n.Parent.ExpandAll();
+
+            }
         }
     }
 }
