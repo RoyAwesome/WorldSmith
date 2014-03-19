@@ -29,6 +29,8 @@ namespace WorldSmith.Dialogs
             }
         }
 
+       
+
         public ActionEditor()
         {
             InitializeComponent();
@@ -189,6 +191,22 @@ namespace WorldSmith.Dialogs
             }
 
             
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            TextPrompt prompt = new TextPrompt();
+            prompt.Text = "New Modifier";
+            prompt.PromptText = "new_modifier";
+
+            if(prompt.ShowDialog() == DialogResult.OK)
+            {
+                DotaModifier mod = new DotaModifier();
+                mod.ClassName = prompt.PromptText;
+
+                actions.Modifiers.Add(mod);
+                BuildModifierTree();
+            }
         }
     }
 

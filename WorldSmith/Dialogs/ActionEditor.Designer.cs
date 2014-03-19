@@ -28,46 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("OnSpellStart");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("OnChannelSucceeded");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("OnChannelInterrupted");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("OnChannelFinish");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("OnToggleOn");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("OnToggleOff");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("OnAbilityPhaseStart");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("OnOwnerDied");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("OnOwnerSpawned");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("OnUpgrade");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("OnProjectileHitUnit");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("OnProjectileFinish");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Actions", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Variables");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Modifiers");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("OnSpellStart");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("OnChannelSucceeded");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("OnChannelInterrupted");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("OnChannelFinish");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("OnToggleOn");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("OnToggleOff");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("OnAbilityPhaseStart");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("OnOwnerDied");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("OnOwnerSpawned");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("OnUpgrade");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("OnProjectileHitUnit");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("OnProjectileFinish");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Actions", new System.Windows.Forms.TreeNode[] {
+            treeNode16,
+            treeNode17,
+            treeNode18,
+            treeNode19,
+            treeNode20,
+            treeNode21,
+            treeNode22,
+            treeNode23,
+            treeNode24,
+            treeNode25,
+            treeNode26,
+            treeNode27});
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Variables");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Modifiers");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActionEditor));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.objectLinkEdit1 = new WorldSmith.Panels.ObjectLinkEdit();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.newVariableButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.objectLinkEdit1 = new WorldSmith.Panels.ObjectLinkEdit();
+            this.newModifierButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -105,55 +105,55 @@
             this.treeView1.Indent = 10;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "OnSpellStart";
-            treeNode1.Tag = "Folder";
-            treeNode1.Text = "OnSpellStart";
-            treeNode2.Name = "OnChannelSucceeded";
-            treeNode2.Tag = "Folder";
-            treeNode2.Text = "OnChannelSucceeded";
-            treeNode3.Name = "OnChannelInterrupted";
-            treeNode3.Tag = "Folder";
-            treeNode3.Text = "OnChannelInterrupted";
-            treeNode4.Name = "OnChannelFinish";
-            treeNode4.Tag = "Folder";
-            treeNode4.Text = "OnChannelFinish";
-            treeNode5.Name = "OnToggleOn";
-            treeNode5.Tag = "Folder";
-            treeNode5.Text = "OnToggleOn";
-            treeNode6.Name = "OnToggleOff";
-            treeNode6.Tag = "Folder";
-            treeNode6.Text = "OnToggleOff";
-            treeNode7.Name = "OnAbilityPhaseStart";
-            treeNode7.Tag = "Folder";
-            treeNode7.Text = "OnAbilityPhaseStart";
-            treeNode8.Name = "OnOwnerDied";
-            treeNode8.Tag = "Folder";
-            treeNode8.Text = "OnOwnerDied";
-            treeNode9.Name = "OnOwnerSpawned";
-            treeNode9.Tag = "Folder";
-            treeNode9.Text = "OnOwnerSpawned";
-            treeNode10.Name = "OnUpgrade";
-            treeNode10.Tag = "Folder";
-            treeNode10.Text = "OnUpgrade";
-            treeNode11.Name = "OnProjectileHitUnit";
-            treeNode11.Tag = "Folder";
-            treeNode11.Text = "OnProjectileHitUnit";
-            treeNode12.Name = "OnProjectileFinish";
-            treeNode12.Tag = "Folder";
-            treeNode12.Text = "OnProjectileFinish";
-            treeNode13.Name = "actionRoot";
-            treeNode13.Tag = "Folder";
-            treeNode13.Text = "Actions";
-            treeNode14.Name = "Variables";
-            treeNode14.Tag = "Folder";
-            treeNode14.Text = "Variables";
-            treeNode15.Name = "modifiers";
-            treeNode15.Tag = "Folder";
-            treeNode15.Text = "Modifiers";
+            treeNode16.Name = "OnSpellStart";
+            treeNode16.Tag = "Folder";
+            treeNode16.Text = "OnSpellStart";
+            treeNode17.Name = "OnChannelSucceeded";
+            treeNode17.Tag = "Folder";
+            treeNode17.Text = "OnChannelSucceeded";
+            treeNode18.Name = "OnChannelInterrupted";
+            treeNode18.Tag = "Folder";
+            treeNode18.Text = "OnChannelInterrupted";
+            treeNode19.Name = "OnChannelFinish";
+            treeNode19.Tag = "Folder";
+            treeNode19.Text = "OnChannelFinish";
+            treeNode20.Name = "OnToggleOn";
+            treeNode20.Tag = "Folder";
+            treeNode20.Text = "OnToggleOn";
+            treeNode21.Name = "OnToggleOff";
+            treeNode21.Tag = "Folder";
+            treeNode21.Text = "OnToggleOff";
+            treeNode22.Name = "OnAbilityPhaseStart";
+            treeNode22.Tag = "Folder";
+            treeNode22.Text = "OnAbilityPhaseStart";
+            treeNode23.Name = "OnOwnerDied";
+            treeNode23.Tag = "Folder";
+            treeNode23.Text = "OnOwnerDied";
+            treeNode24.Name = "OnOwnerSpawned";
+            treeNode24.Tag = "Folder";
+            treeNode24.Text = "OnOwnerSpawned";
+            treeNode25.Name = "OnUpgrade";
+            treeNode25.Tag = "Folder";
+            treeNode25.Text = "OnUpgrade";
+            treeNode26.Name = "OnProjectileHitUnit";
+            treeNode26.Tag = "Folder";
+            treeNode26.Text = "OnProjectileHitUnit";
+            treeNode27.Name = "OnProjectileFinish";
+            treeNode27.Tag = "Folder";
+            treeNode27.Text = "OnProjectileFinish";
+            treeNode28.Name = "actionRoot";
+            treeNode28.Tag = "Folder";
+            treeNode28.Text = "Actions";
+            treeNode29.Name = "Variables";
+            treeNode29.Tag = "Folder";
+            treeNode29.Text = "Variables";
+            treeNode30.Name = "modifiers";
+            treeNode30.Tag = "Folder";
+            treeNode30.Text = "Modifiers";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode14,
-            treeNode15});
+            treeNode28,
+            treeNode29,
+            treeNode30});
             this.treeView1.ShowPlusMinus = false;
             this.treeView1.ShowRootLines = false;
             this.treeView1.Size = new System.Drawing.Size(213, 549);
@@ -177,6 +177,16 @@
             this.splitContainer2.Size = new System.Drawing.Size(774, 549);
             this.splitContainer2.SplitterDistance = 228;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // objectLinkEdit1
+            // 
+            this.objectLinkEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.objectLinkEdit1.Grammer = "No Object Selected";
+            this.objectLinkEdit1.Location = new System.Drawing.Point(0, 0);
+            this.objectLinkEdit1.Name = "objectLinkEdit1";
+            this.objectLinkEdit1.Object = null;
+            this.objectLinkEdit1.Size = new System.Drawing.Size(774, 228);
+            this.objectLinkEdit1.TabIndex = 0;
             // 
             // propertyGrid1
             // 
@@ -210,12 +220,12 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripSeparator1,
-            this.toolStripButton2,
+            this.newVariableButton,
             this.toolStripSeparator2,
-            this.toolStripButton3});
+            this.newModifierButton});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(260, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(291, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // toolStripButton1
@@ -234,39 +244,30 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton2
+            // newVariableButton
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(80, 22);
-            this.toolStripButton2.Text = "New Variable";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.newVariableButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.newVariableButton.Image = ((System.Drawing.Image)(resources.GetObject("newVariableButton.Image")));
+            this.newVariableButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newVariableButton.Name = "newVariableButton";
+            this.newVariableButton.Size = new System.Drawing.Size(80, 22);
+            this.newVariableButton.Text = "New Variable";
+            this.newVariableButton.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton3
+            // newModifierButton
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(83, 22);
-            this.toolStripButton3.Text = "New Modifier";
-            // 
-            // objectLinkEdit1
-            // 
-            this.objectLinkEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.objectLinkEdit1.Grammer = null;
-            this.objectLinkEdit1.Location = new System.Drawing.Point(0, 0);
-            this.objectLinkEdit1.Name = "objectLinkEdit1";
-            this.objectLinkEdit1.Object = null;
-            this.objectLinkEdit1.Size = new System.Drawing.Size(774, 228);
-            this.objectLinkEdit1.TabIndex = 0;
+            this.newModifierButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.newModifierButton.Image = ((System.Drawing.Image)(resources.GetObject("newModifierButton.Image")));
+            this.newModifierButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newModifierButton.Name = "newModifierButton";
+            this.newModifierButton.Size = new System.Drawing.Size(83, 22);
+            this.newModifierButton.Text = "New Modifier";
+            this.newModifierButton.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // ActionEditor
             // 
@@ -307,9 +308,9 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton newVariableButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton newModifierButton;
         private Panels.ObjectLinkEdit objectLinkEdit1;
 
     }
