@@ -22,6 +22,11 @@ namespace WorldSmith.DataClasses
             set;
         }
 
+        public DotaAbility()
+        {
+            ActionList = new AbilityActionCollection();
+        }
+
         public override void LoadFromKeyValues(KeyValue kv)
         {
             base.LoadFromKeyValues(kv);
