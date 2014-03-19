@@ -155,6 +155,7 @@
     <Compile Include="DataClasses\ScriptTypes\DotaHero.cs" />
     <Compile Include="DataClasses\ScriptTypes\DotaItem.cs" />
     <Compile Include="DataClasses\ScriptTypes\DotaModifier.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaModifierParser.cs" />
     <Compile Include="DataClasses\ScriptTypes\DotaUnit.cs" />
     <Compile Include="DataClasses\PropertyTypes\AbilitySpecial.cs" />
     <Compile Include="DataClasses\PropertyTypes\PerLevel.cs" />

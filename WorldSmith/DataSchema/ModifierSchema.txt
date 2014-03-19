@@ -217,9 +217,9 @@
 		"DefaultValue"	"MODIFIER_ATTRIBUTE_NONE"
 		"PossibleValues"
 		{
-			"0" "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE	"
-			"0" "MODIFIER_ATTRIBUTE_MULTIPLE"	
 			"0" "MODIFIER_ATTRIBUTE_NONE"	
+			"0" "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE	"
+			"0" "MODIFIER_ATTRIBUTE_MULTIPLE"				
 			"0" "MODIFIER_ATTRIBUTE_PERMANENT"
 		}
 	}
@@ -297,5 +297,12 @@
 		"DefaultValue"	"OnDestroy"
 	}
 	
+	"Properties"
+	{
+		Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"ModifierPropertyCollection"
+		"DefaultValue"	""
+	}
 
 }

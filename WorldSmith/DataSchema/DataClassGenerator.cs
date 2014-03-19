@@ -285,6 +285,10 @@ namespace WorldSmith.DataSchema
                     {
                         csFile.Append("typeof(NumberValue), \"" + c["DefaultValue"].GetString() + "\"");
                     }
+                    if (type == "ModifierPropertyCollection")
+                    {
+                        csFile.Append("typeof(ModifierPropertyCollection), \"" + c["DefaultValue"].GetString() + "\"");
+                    }
                     csFile.AppendLine(")]");
                 }
 

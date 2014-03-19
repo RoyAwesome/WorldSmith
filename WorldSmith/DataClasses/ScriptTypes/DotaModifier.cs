@@ -360,5 +360,14 @@ namespace WorldSmith.DataClasses
 			set;
 		}
 
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue(typeof(ModifierPropertyCollection), "")]
+		public ModifierPropertyCollection Properties
+		{
+			get;
+			set;
+		}
+
 	}
 }

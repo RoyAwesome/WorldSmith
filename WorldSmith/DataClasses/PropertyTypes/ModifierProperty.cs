@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WorldSmith.DataClasses.PropertyTypes
+namespace WorldSmith.DataClasses
 {
     public enum ModifierPropertyType
     {
@@ -101,13 +101,13 @@ namespace WorldSmith.DataClasses.PropertyTypes
 
     public class ModifierProperty
     {
-        ModifierPropertyType PropertyType
+        public ModifierPropertyType PropertyType
         {
             get;
             set;
         }
 
-        NumberValue Value
+        public NumberValue Value
         {
             get;
             set;

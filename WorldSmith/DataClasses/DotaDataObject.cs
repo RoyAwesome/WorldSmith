@@ -91,7 +91,8 @@ namespace WorldSmith.DataClasses
 
 
                 object data = info.GetMethod.Invoke(this, new object[] { });
-                //If the value is default, skip it.
+               
+               //If the value is default, skip it.
                 DefaultValueAttribute attib = info.GetCustomAttribute<DefaultValueAttribute>();
                 if ( attib != null && attib.Value == data) continue;
                
@@ -121,6 +122,10 @@ namespace WorldSmith.DataClasses
                 {
                     if (data == null) subkey.Set("");
                     else subkey.Set(((PerLevel)data).ToString());
+                }
+                if(info.PropertyType == typeof(ModifierPropertyCollection))
+                {
+                    subkey = (data as ModifierPropertyCollection).ToKV();
                 }
                 kv += subkey;
 
