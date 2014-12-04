@@ -99,7 +99,7 @@ namespace WorldSmith.DataClasses
             HLLib.HLPackageType PackageType = HLLib.hlGetPackageTypeFromName(path);
 
             HLLib.HLFileMode OpenMode = HLLib.HLFileMode.HL_MODE_READ |
-                HLLib.HLFileMode.HL_MODE_QUICK_FILEMAPPING |
+                //HLLib.HLFileMode.HL_MODE_QUICK_FILEMAPPING |
                 HLLib.HLFileMode.HL_MODE_VOLATILE;
 
             uint PackageID;
