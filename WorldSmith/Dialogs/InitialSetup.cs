@@ -101,8 +101,8 @@ namespace WorldSmith.Dialogs
             {
                 result = DialogResult.OK;
                 Properties.Settings.Default.DotaDir = txtDotaDir.Text;
-                Properties.Settings.Default.AddOnPath = txtDotaDir.Text + Path.DirectorySeparatorChar + "dota" +
-                                                        Path.DirectorySeparatorChar + "addons";
+                Properties.Settings.Default.AddOnPath = txtDotaDir.Text + Path.DirectorySeparatorChar + "dota_ugc" +
+                                                        Path.DirectorySeparatorChar + "game" + Path.DirectorySeparatorChar + "dota_addons";
                 this.Close();
             }
         }
