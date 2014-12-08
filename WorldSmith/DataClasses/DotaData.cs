@@ -15,7 +15,7 @@ namespace WorldSmith.DataClasses
             + "//Get WorldSmith at TODO: Put a URL here" + Environment.NewLine;
 
 
-        public static string VPKPath = "dota" + Path.DirectorySeparatorChar + "pak01_dir.vpk";
+        public static string VPKPath = "dota_ugc" + Path.DirectorySeparatorChar + "game" + Path.DirectorySeparatorChar + "dota_imported" + Path.DirectorySeparatorChar + "pak01_dir.vpk";
 
         #region Unit Data Lists
         public static List<DotaUnit> DefaultUnits = new List<DotaUnit>();
@@ -99,7 +99,7 @@ namespace WorldSmith.DataClasses
             HLLib.HLPackageType PackageType = HLLib.hlGetPackageTypeFromName(path);
 
             HLLib.HLFileMode OpenMode = HLLib.HLFileMode.HL_MODE_READ |
-                HLLib.HLFileMode.HL_MODE_QUICK_FILEMAPPING |
+                //HLLib.HLFileMode.HL_MODE_QUICK_FILEMAPPING |
                 HLLib.HLFileMode.HL_MODE_VOLATILE;
 
             uint PackageID;

@@ -50,6 +50,7 @@
 			"2" "DAMAGE_TYPE_MAGICAL"
 			"3" "DAMAGE_TYPE_PHYSICAL"
 			"4" "DAMAGE_TYPE_PURE"
+			"5" "DAMAGE_TYPE_NONE"
 		}
 	}
 
@@ -92,14 +93,14 @@
 			"DOTA_ABILITY_BEHAVIOR_RUNE_TARGET"				"1 << 26"
 			"DOTA_ABILITY_BEHAVIOR_IGNORE_TURN"				"1 << 27"
 			"DOTA_ABILITY_BEHAVIOR_POINT_TARGET"			"1 << 28"	
-
+			"DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"		"1 << 29"
 			//HACK HACK Valve likes to pipe other Enums with this set.  
 			//So instead of hacking together codegen to cross reference flag types
 			//i'm just going to add them to this list.  Gotta love strongly typed enums.  
 
-			"DOTA_ABILITY_TYPE_ULTIMATE"					"1 << 29"	
+			"DOTA_ABILITY_TYPE_ULTIMATE"					"1 << 30"	
 
-			"DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"	"1 << 30"
+			"DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"	"1 << 31"
 		}
 	}
 
