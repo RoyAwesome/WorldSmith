@@ -460,6 +460,7 @@ namespace WorldSmith.DataClasses
 			DOTA_TEAM_NEUTRALS,
 			DOTA_TEAM_BADGUYS,
 			DOTA_TEAM_GOODGUYS,
+			DOTA_TEAM_NOTEAM,
 		}
 
 		[Category("Team")]
