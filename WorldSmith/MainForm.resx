@@ -122,25 +122,25 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="addonToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>110, 22</value>
   </data>
   <data name="addonToolStripMenuItem1.Text" xml:space="preserve">
     <value>Addon</value>
   </data>
   <data name="fileMenuNew.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>138, 22</value>
   </data>
   <data name="fileMenuNew.Text" xml:space="preserve">
     <value>New</value>
   </data>
   <data name="addonToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>110, 22</value>
   </data>
   <data name="addonToolStripMenuItem.Text" xml:space="preserve">
     <value>Addon</value>
   </data>
   <data name="fileMenuOpen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>138, 22</value>
   </data>
   <data name="fileMenuOpen.Text" xml:space="preserve">
     <value>Open</value>
@@ -150,16 +150,16 @@
     <value>Ctrl+S</value>
   </data>
   <data name="fileMenuSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>138, 22</value>
   </data>
   <data name="fileMenuSave.Text" xml:space="preserve">
     <value>Save</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>135, 6</value>
   </data>
   <data name="fileMenuExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>138, 22</value>
   </data>
   <data name="fileMenuExit.Text" xml:space="preserve">
     <value>Exit</value>
@@ -199,6 +199,18 @@
   </data>
   <data name="optionsMenu.Text" xml:space="preserve">
     <value>Options</value>
+  </data>
+  <data name="textEditorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="textEditorToolStripMenuItem.Text" xml:space="preserve">
+    <value>TextEditor</value>
+  </data>
+  <data name="debugToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="debugToolStripMenuItem.Text" xml:space="preserve">
+    <value>Debug</value>
   </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -672,6 +684,18 @@ That is, until I figure out a good thing to put here.
   </data>
   <data name="&gt;&gt;localeManager1.Type" xml:space="preserve">
     <value>WorldSmith.LocaleManager, WorldSmith, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;debugToolStripMenuItem.Name" xml:space="preserve">
+    <value>debugToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;debugToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textEditorToolStripMenuItem.Name" xml:space="preserve">
+    <value>textEditorToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;textEditorToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

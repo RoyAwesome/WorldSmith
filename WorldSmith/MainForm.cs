@@ -154,5 +154,11 @@ namespace WorldSmith
         }
         #endregion
 
+        private void textEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TextEditor editor = new TextEditor();
+            editor.Show();
+        }
+
     }
 }

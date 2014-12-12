@@ -56,6 +56,8 @@
             this.abilityTab = new System.Windows.Forms.TabPage();
             this.abilityCategory = new WorldSmith.Panels.CategoryEditor();
             this.localeManager1 = new WorldSmith.LocaleManager(this.components);
+            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.addonConfig.SuspendLayout();
@@ -68,7 +70,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
-            this.optionsMenu});
+            this.optionsMenu,
+            this.debugToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
@@ -222,6 +225,19 @@
             // 
             this.localeManager1.ParentControl = this;
             // 
+            // debugToolStripMenuItem
+            // 
+            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.textEditorToolStripMenuItem});
+            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
+            resources.ApplyResources(this.debugToolStripMenuItem, "debugToolStripMenuItem");
+            // 
+            // textEditorToolStripMenuItem
+            // 
+            this.textEditorToolStripMenuItem.Name = "textEditorToolStripMenuItem";
+            resources.ApplyResources(this.textEditorToolStripMenuItem, "textEditorToolStripMenuItem");
+            this.textEditorToolStripMenuItem.Click += new System.EventHandler(this.textEditorToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -270,6 +286,8 @@
         private System.Windows.Forms.ToolStripMenuItem swedishToolStripMenuItem;
         private LocaleManager localeManager1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem textEditorToolStripMenuItem;
     }
 }
 
