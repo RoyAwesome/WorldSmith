@@ -46,14 +46,18 @@
             this.optionsMenuLanguage = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.swedishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dockPanel = new DigitalRune.Windows.Docking.DockPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.newUnitEditorButton = new System.Windows.Forms.ToolStripButton();
             this.newAbilityEditorButton = new System.Windows.Forms.ToolStripButton();
             this.newItemEditorButton = new System.Windows.Forms.ToolStripButton();
             this.localeManager1 = new WorldSmith.LocaleManager(this.components);
-            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unitEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abilityEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.dockPanel.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -64,6 +68,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.optionsMenu,
+            this.windowToolStripMenuItem,
             this.debugToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
@@ -156,6 +161,19 @@
             resources.ApplyResources(this.swedishToolStripMenuItem, "swedishToolStripMenuItem");
             this.swedishToolStripMenuItem.Click += new System.EventHandler(this.swedishToolStripMenuItem_Click);
             // 
+            // debugToolStripMenuItem
+            // 
+            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.textEditorToolStripMenuItem});
+            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
+            resources.ApplyResources(this.debugToolStripMenuItem, "debugToolStripMenuItem");
+            // 
+            // textEditorToolStripMenuItem
+            // 
+            this.textEditorToolStripMenuItem.Name = "textEditorToolStripMenuItem";
+            resources.ApplyResources(this.textEditorToolStripMenuItem, "textEditorToolStripMenuItem");
+            this.textEditorToolStripMenuItem.Click += new System.EventHandler(this.textEditorToolStripMenuItem_Click);
+            // 
             // dockPanel
             // 
             this.dockPanel.ActiveAutoHideContent = null;
@@ -200,18 +218,29 @@
             // 
             this.localeManager1.ParentControl = this;
             // 
-            // debugToolStripMenuItem
+            // windowToolStripMenuItem
             // 
-            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.textEditorToolStripMenuItem});
-            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
-            resources.ApplyResources(this.debugToolStripMenuItem, "debugToolStripMenuItem");
+            this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.unitEditorToolStripMenuItem,
+            this.itemEditorToolStripMenuItem,
+            this.abilityEditorToolStripMenuItem});
+            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
+            resources.ApplyResources(this.windowToolStripMenuItem, "windowToolStripMenuItem");
             // 
-            // textEditorToolStripMenuItem
+            // unitEditorToolStripMenuItem
             // 
-            this.textEditorToolStripMenuItem.Name = "textEditorToolStripMenuItem";
-            resources.ApplyResources(this.textEditorToolStripMenuItem, "textEditorToolStripMenuItem");
-            this.textEditorToolStripMenuItem.Click += new System.EventHandler(this.textEditorToolStripMenuItem_Click);
+            this.unitEditorToolStripMenuItem.Name = "unitEditorToolStripMenuItem";
+            resources.ApplyResources(this.unitEditorToolStripMenuItem, "unitEditorToolStripMenuItem");
+            // 
+            // itemEditorToolStripMenuItem
+            // 
+            this.itemEditorToolStripMenuItem.Name = "itemEditorToolStripMenuItem";
+            resources.ApplyResources(this.itemEditorToolStripMenuItem, "itemEditorToolStripMenuItem");
+            // 
+            // abilityEditorToolStripMenuItem
+            // 
+            this.abilityEditorToolStripMenuItem.Name = "abilityEditorToolStripMenuItem";
+            resources.ApplyResources(this.abilityEditorToolStripMenuItem, "abilityEditorToolStripMenuItem");
             // 
             // MainForm
             // 
@@ -257,6 +286,10 @@
         private System.Windows.Forms.ToolStripButton newUnitEditorButton;
         private System.Windows.Forms.ToolStripButton newAbilityEditorButton;
         private System.Windows.Forms.ToolStripButton newItemEditorButton;
+        private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unitEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itemEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abilityEditorToolStripMenuItem;
     }
 }
 

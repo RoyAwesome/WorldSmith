@@ -16,10 +16,11 @@ using DigitalRune.Windows.TextEditor.Highlighting;
 using DigitalRune.Windows.TextEditor.Insight;
 using DigitalRune.Windows.TextEditor.Markers;
 using DigitalRune.Windows.TextEditor.Selection;
+using DigitalRune.Windows.Docking;
 
 namespace WorldSmith
 {
-    public partial class TextEditor : Form
+    public partial class TextEditor : DockableForm
     {
         public enum TextEditorStyle
         {
