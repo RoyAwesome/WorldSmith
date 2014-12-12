@@ -13,21 +13,52 @@ using WorldSmith.DataClasses;
 using WorldSmith.Dialogs;
 using WorldSmith.Panels;
 
+using DigitalRune.Windows.Docking;
+
 namespace WorldSmith
 {
     public partial class MainForm : Form
     {
+        private readonly ContextMenuStrip _contextMenu;
+
         public MainForm()
         {
             InitializeComponent();
             InitTabs();
+
+            // Create a dummy context menu
+            _contextMenu = new ContextMenuStrip();
+            ToolStripMenuItem menuItem1 = new ToolStripMenuItem("Option &1");
+            ToolStripMenuItem menuItem2 = new ToolStripMenuItem("Option &2");
+            ToolStripMenuItem menuItem3 = new ToolStripMenuItem("Option &3");
+            _contextMenu.Items.Add(menuItem1);
+            _contextMenu.Items.Add(menuItem2);
+            _contextMenu.Items.Add(menuItem3);
         }
 
         private void InitTabs()
         {
-            abilityCategory.Init("Ability", DotaData.DefaultAbilities, DotaData.CustomAbilities, DotaData.OverridenAbilities);
-            itemCategory.Init("Items", DotaData.DefaultItems, DotaData.CustomItems, DotaData.OverridenItems);
-            unitEditor.LoadFromData();
+            IDockableForm[] documents = dockPanel.DocumentsToArray();
+            foreach (IDockableForm document in documents)
+            {
+                String type = document.GetType().ToString();
+                switch (type)
+                {
+                    case "WorldSmith.Panels.UnitEditor":
+                        Console.WriteLine("UNIT EDITOR!!!");
+                        //unitEditor.LoadFromData();
+                        break;
+                    case "WorldSmith.Panels.ItemEditor":
+                        Console.WriteLine("ITEM EDITOR!!!");
+                        //itemCategory.Init("Items", DotaData.DefaultItems, DotaData.CustomItems, DotaData.OverridenItems);
+                        break;
+                    case "WorldSmith.Panels.AbilityEditor":
+                        Console.WriteLine("ABILITY EDITOR!!!");
+                        //abilityCategory.Init("Ability", DotaData.DefaultAbilities, DotaData.CustomAbilities, DotaData.OverridenAbilities);
+                        break;
+                }
+            }
+
         }
 
         private void addonToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -160,5 +191,128 @@ namespace WorldSmith
             editor.Show();
         }
 
+        #region EditorCreation
+        private IDockableForm FindDocument(string title)
+        {
+            if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
+            {
+                foreach (Form form in MdiChildren)
+                    if (form.Text == title)
+                        return form as IDockableForm;
+
+                return null;
+            }
+
+            IDockableForm[] documents = dockPanel.DocumentsToArray();
+            foreach (IDockableForm document in documents)
+                if (document.DockingHandler.TabText == title)
+                    return document;
+            return null;
+        }
+        private AbilityEditor  CreateAbilityEditor()
+        {
+            AbilityEditor document = new AbilityEditor();
+
+            // Set document title
+            int count = 1;
+            string title = "CategoryEditor " + count;
+            while (FindDocument(title) != null)
+            {
+                count++;
+                title = "CategoryEditor" + count;
+            }
+
+            document.Text = title;
+            document.ToolTipText = "Tool tip of " + title;
+            document.TabPageContextMenuStrip = _contextMenu;
+            return document;
+        }
+        private ItemEditor CreateItemEditor()
+        {
+            ItemEditor document = new ItemEditor();
+
+            // Set document title
+            int count = 1;
+            string title = "Item Editor " + count;
+            while (FindDocument(title) != null)
+            {
+                count++;
+                title = "Item Editor" + count;
+            }
+
+            document.Text = title;
+            document.ToolTipText = "Tool tip of " + title;
+            document.TabPageContextMenuStrip = _contextMenu;
+            return document;
+        }
+        private UnitEditor CreateUnitEditor()
+        {
+            UnitEditor document = new UnitEditor();
+
+            // Set document title
+            int count = 1;
+            string title = "Unit Editor " + count;
+            while (FindDocument(title) != null)
+            {
+                count++;
+                title = "Unit Editor " + count;
+            }
+
+            document.Text = title;
+            document.ToolTipText = "Tool tip of " + title;
+            document.TabPageContextMenuStrip = _contextMenu;
+            return document;
+        }
+        #endregion
+
+        #region EditorButtons
+        private void newUnitEditorButton_Click(object sender, EventArgs e)
+        {
+            UnitEditor document = CreateUnitEditor();
+
+            // Show document
+            if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
+            {
+                document.MdiParent = this;
+                document.Show();
+            }
+            else
+            {
+                document.Show(dockPanel);
+            }
+        }
+
+        private void newAbilityEditorButton_Click(object sender, EventArgs e)
+        {
+            AbilityEditor document = CreateAbilityEditor();
+
+            // Show document
+            if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
+            {
+                document.MdiParent = this;
+                document.Show();
+            }
+            else
+            {
+                document.Show(dockPanel);
+            }
+        }
+
+        private void newItemEditorButton_Click(object sender, EventArgs e)
+        {
+            ItemEditor document = CreateItemEditor();
+
+            // Show document
+            if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
+            {
+                document.MdiParent = this;
+                document.Show();
+            }
+            else
+            {
+                document.Show(dockPanel);
+            }
+        }
+        #endregion
     }
 }

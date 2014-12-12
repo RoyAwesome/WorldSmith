@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{49800B5F-52E5-4A15-81E8-C010B89791F0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WorldSmith</RootNamespace>
+    <AssemblyName>WorldSmith</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>WSIconic.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>WorldSmith.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ClassGen|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ClassGen\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;GENERATECLASSES</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>47034E8BD1C9D972E1337A2FEF026E1032FCEC07</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>WorldSmith_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DigitalRune.Windows.TextEditor">
+      <HintPath>..\Libs\DigitalRune.Windows.TextEditor.dll</HintPath>
+      </Reference>
+    <Reference Include="DigitalRune.Windows.Docking">
+      <HintPath>DigitalRune\DigitalRune.Windows.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="KVLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\KVLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Sprache, Version=1.10.0.35, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\Sprache.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConsoleManager.cs" />
+    <Compile Include="DataClasses\ActionProperties\AbilityModifierCollection.cs" />
+    <Compile Include="DataClasses\ActionProperties\BaseActionVariable.cs" />
+    <Compile Include="DataClasses\ActionProperties\NumberValue.cs" />
+    <Compile Include="DataClasses\ActionTypes\ActOnTargets.cs" />
+    <Compile Include="DataClasses\ActionTypes\AddAbility.cs" />
+    <Compile Include="DataClasses\ActionTypes\ApplyModifier.cs" />
+    <Compile Include="DataClasses\ActionTypes\AttachEffect.cs" />
+    <Compile Include="DataClasses\ActionTypes\BaseAction.cs" />
+    <Compile Include="DataClasses\ActionTypes\Blink.cs" />
+    <Compile Include="DataClasses\ActionTypes\CleaveAttack.cs" />
+    <Compile Include="DataClasses\ActionTypes\CreateBonusAttack.cs" />
+    <Compile Include="DataClasses\ActionTypes\CreateItem.cs" />
+    <Compile Include="DataClasses\ActionTypes\CreateThinker.cs" />
+    <Compile Include="DataClasses\ActionTypes\CreateThinkerWall.cs" />
+    <Compile Include="DataClasses\ActionTypes\Damage.cs" />
+    <Compile Include="DataClasses\ActionTypes\DelayedAction.cs" />
+    <Compile Include="DataClasses\ActionTypes\DestroyTrees.cs" />
+    <Compile Include="DataClasses\ActionTypes\DropParentItem.cs" />
+    <Compile Include="DataClasses\ActionTypes\FireEffect.cs" />
+    <Compile Include="DataClasses\ActionTypes\FireSound.cs" />
+    <Compile Include="DataClasses\ActionTypes\Heal.cs" />
+    <Compile Include="DataClasses\ActionTypes\IsCasterAlive.cs" />
+    <Compile Include="DataClasses\ActionTypes\Knockback.cs" />
+    <Compile Include="DataClasses\ActionTypes\LevelUpAbility.cs" />
+    <Compile Include="DataClasses\ActionTypes\LifeSteal.cs" />
+    <Compile Include="DataClasses\ActionTypes\LinearProjectile.cs" />
+    <Compile Include="DataClasses\ActionTypes\MoveUnit.cs" />
+    <Compile Include="DataClasses\ActionTypes\RandomAction.cs" />
+    <Compile Include="DataClasses\ActionTypes\RemoveAbility.cs" />
+    <Compile Include="DataClasses\ActionTypes\RemoveModifier.cs" />
+    <Compile Include="DataClasses\ActionTypes\RemoveUnit.cs" />
+    <Compile Include="DataClasses\ActionTypes\ReplaceUnit.cs" />
+    <Compile Include="DataClasses\ActionTypes\RespawnHero.cs" />
+    <Compile Include="DataClasses\ActionTypes\Rotate.cs" />
+    <Compile Include="DataClasses\ActionTypes\RunScript.cs" />
+    <Compile Include="DataClasses\ActionTypes\SpawnUnit.cs" />
+    <Compile Include="DataClasses\ActionTypes\SpendCharge.cs" />
+    <Compile Include="DataClasses\ActionTypes\SpendMana.cs" />
+    <Compile Include="DataClasses\ActionTypes\Stun.cs" />
+    <Compile Include="DataClasses\ActionTypes\TargetedAction.cs" />
+    <Compile Include="DataClasses\ActionTypes\TrackingProjectile.cs" />
+    <Compile Include="DataClasses\DotaActionFactory.cs" />
+    <Compile Include="DataClasses\ActionProperties\AbilityActionCollection.cs" />
+    <Compile Include="DataClasses\ActionProperties\ActionCollection.cs" />
+    <Compile Include="DataClasses\PropertyTypes\ControlPointList.cs" />
+    <Compile Include="DataClasses\ActionProperties\DotaActionAttribute.cs" />
+    <Compile Include="DataClasses\ActionProperties\EditorGrammerAttribute.cs" />
+    <Compile Include="DataClasses\PropertyTypes\ModifierProperty.cs" />
+    <Compile Include="DataClasses\PropertyTypes\ModifierPropertyCollection.cs" />
+    <Compile Include="DataClasses\PropertyTypes\TargetKey.cs" />
+    <Compile Include="DataClasses\ScriptTypes\BaseScriptType.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaAbility.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaAbilityParser.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaBaseUnit.cs" />
+    <Compile Include="DataClasses\DotaData.cs" />
+    <Compile Include="DataClasses\DotaDataObject.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaHero.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaItem.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaModifier.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaModifierParser.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaUnit.cs" />
+    <Compile Include="DataClasses\PropertyTypes\AbilitySpecial.cs" />
+    <Compile Include="DataClasses\PropertyTypes\PerLevel.cs" />
+    <Compile Include="Dialogs\Actions\ActionListEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Actions\ActionListEditor.Designer.cs">
+      <DependentUpon>ActionListEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Actions\BoolEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Actions\BoolEditor.Designer.cs">
+      <DependentUpon>BoolEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Actions\EnumEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Actions\EnumEditor.Designer.cs">
+      <DependentUpon>EnumEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Actions\FlagCheckBoxEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Actions\FlagCheckBoxEditor.Designer.cs">
+      <DependentUpon>FlagCheckBoxEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Actions\NewActionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Actions\NewActionDialog.Designer.cs">
+      <DependentUpon>NewActionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\GenericGrammarPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\GenericGrammarPrompt.Designer.cs">
+      <DependentUpon>GenericGrammarPrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Localization\LocaleManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Localization\LocaleManager.Designer.cs">
+      <DependentUpon>LocaleManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Actions\TargetKeyEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Actions\TargetKeyEditor.Designer.cs">
+      <DependentUpon>TargetKeyEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Actions\VariableEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Actions\VariableEditor.Designer.cs">
+      <DependentUpon>VariableEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ItemEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\ItemEditor.Designer.cs">
+      <DependentUpon>ItemEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ObjectLinkEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ObjectLinkEdit.Designer.cs">
+      <DependentUpon>ObjectLinkEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\FlagCheckListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSchema\DataClassGenerator.cs" />
+    <Compile Include="Dialogs\ActionEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ActionEditor.Designer.cs">
+      <DependentUpon>ActionEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\AssetLoadingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AssetLoadingDialog.Designer.cs">
+      <DependentUpon>AssetLoadingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\InitialSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\InitialSetup.Designer.cs">
+      <DependentUpon>InitialSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\NewAddonWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\NewAddonWizard.Designer.cs">
+      <DependentUpon>NewAddonWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\TextPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\TextPrompt.Designer.cs">
+      <DependentUpon>TextPrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HLLib\HLLib.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\AbilityEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\AbilityEditor.Designer.cs">
+      <DependentUpon>AbilityEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FlagChecklistDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FlagChecklistDialog.Designer.cs">
+      <DependentUpon>FlagChecklistDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\UnitEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\UnitEditor.Designer.cs">
+      <DependentUpon>UnitEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\WinFormStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WinFormStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TextEditor\TextEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TextEditor\TextEditor.Designer.cs">
+      <DependentUpon>TextEditor.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Dialogs\ActionEditor.resx">
+      <DependentUpon>ActionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Actions\ActionListEditor.resx">
+      <DependentUpon>ActionListEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Actions\BoolEditor.resx">
+      <DependentUpon>BoolEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Actions\EnumEditor.resx">
+      <DependentUpon>EnumEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Actions\FlagCheckBoxEditor.resx">
+      <DependentUpon>FlagCheckBoxEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Actions\NewActionDialog.resx">
+      <DependentUpon>NewActionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Actions\TargetKeyEditor.resx">
+      <DependentUpon>TargetKeyEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Actions\VariableEditor.resx">
+      <DependentUpon>VariableEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AssetLoadingDialog.resx">
+      <DependentUpon>AssetLoadingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\GenericGrammarPrompt.resx">
+      <DependentUpon>GenericGrammarPrompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\InitialSetup.resx">
+      <DependentUpon>InitialSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\NewAddonWizard.resx">
+      <DependentUpon>NewAddonWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\TextPrompt.resx">
+      <DependentUpon>TextPrompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.sv.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ItemEditor.resx">
+      <DependentUpon>ItemEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ObjectLinkEdit.resx">
+      <DependentUpon>ObjectLinkEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\AbilityEditor.resx">
+      <DependentUpon>AbilityEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FlagChecklistDialog.resx">
+      <DependentUpon>FlagChecklistDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\UnitEditor.resx">
+      <DependentUpon>UnitEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\WinFormStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WinFormStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextEditor\TextEditor.resx">
+      <DependentUpon>TextEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\WorldSmith.DataClasses.DotaData.datasource" />
+    <None Include="Properties\DataSources\WorldSmith.Panels.CategoryEditor.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="WorldSmith_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WSIcon32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WSIconic.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HLLib\HLLib.x64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="HLLib\HLLib.x86.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="DataSchema\AbilitySchema.txt" />
+    <Content Include="DataSchema\ActionSchemas\ActOnTargetAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\AddAbilityAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\ApplyModifier.txt" />
+    <Content Include="DataSchema\ActionSchemas\AttachEffectAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\BaseAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\BlinkAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\CleaveAttackAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\CreateBonusAttackAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\CreateItemAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\CreateThinkerAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\CreateThinkerWallAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\DamageAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\DelayedActionAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\DestroyTreesAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\DropParentItemAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\FireEffectAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\FireSoundAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\HealAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\IsCasterAliveAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\KnockbackAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\LevelUpAbilityAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\LifeStealAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\LinearProjectile.txt" />
+    <Content Include="DataSchema\ActionSchemas\MoveUnitAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RandomAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RemoveAbilityAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RemoveModifierAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RemoveUnit.txt" />
+    <Content Include="DataSchema\ActionSchemas\ReplaceUnitAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RespawnHeroAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RunScriptAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\SpawnUnitAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\SpendChargeAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\SpendManaAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\StunAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\TargetedAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\RotateAction.txt" />
+    <Content Include="DataSchema\ActionSchemas\TrackingProjectileAction.txt" />
+    <Content Include="DataSchema\BaseUnitSchema.txt" />
+    <Content Include="DataSchema\HeroSchema.txt" />
+    <Content Include="DataSchema\ItemSchema.txt" />
+    <Content Include="DataSchema\ModifierSchema.txt" />
+    <Content Include="DataSchema\UnitSchema.txt" />
+    <None Include="Resources\saveHS.png" />
+    <None Include="Resources\CutHS.png" />
+    <None Include="Resources\CopyHS.png" />
+    <None Include="Resources\PasteHS.png" />
+    <Content Include="WSIconic.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataClasses\UI\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

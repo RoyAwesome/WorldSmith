@@ -40,17 +40,17 @@ namespace WorldSmith.Panels
         public new DialogResult ShowDialog()
         {
             //set the title of the dialog based on which property we are editing
-            TabPage selectedTab = Program.mainForm.tabControl1.SelectedTab;
-            for (int i = 0; i < selectedTab.Controls.Count; i++)
-            {
-                Control c = selectedTab.Controls[i];
-                if (c is CategoryEditor)
-                {
-                    CategoryEditor editor = c as CategoryEditor;
-                    this.Text = "Edit " + editor.itemPropertyGrid.SelectedGridItem.Label + " - " + editor.treeView1.SelectedNode.Text;
-                }
-            }
-            base.ShowDialog();
+            //TabPage selectedTab = Program.mainForm.tabControl1.SelectedTab;
+            //for (int i = 0; i < selectedTab.Controls.Count; i++)
+            //{
+            //    Control c = selectedTab.Controls[i];
+            //    if (c is CategoryEditor)
+            //    {
+            //        CategoryEditor editor = c as CategoryEditor;
+            //        this.Text = "Edit " + editor.itemPropertyGrid.SelectedGridItem.Label + " - " + editor.treeView1.SelectedNode.Text;
+            //    }
+            //}
+            //base.ShowDialog();
             return result;
         }
 
