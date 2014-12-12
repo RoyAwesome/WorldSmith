@@ -49,14 +49,11 @@ namespace WorldSmith
             doc += new KeyValue("addonURL0") + wizard.addonURLBox.Text;
             doc += new KeyValue("addonDescription") + wizard.addonDescriptionBox.Text;
 
-            string addonPath = Properties.Settings.Default.DotaDir + Path.DirectorySeparatorChar
-                + "dota" + Path.DirectorySeparatorChar + "addons" + Path.DirectorySeparatorChar
-                + wizard.addonNameBox.Text + Path.DirectorySeparatorChar;
+            string addonPath = Properties.Settings.Default.AddOnDir + Path.DirectorySeparatorChar + wizard.addonNameBox.Text + Path.DirectorySeparatorChar;
 
             Directory.CreateDirectory(addonPath);
             Directory.CreateDirectory(addonPath + "scripts");
-            Directory.CreateDirectory(addonPath + "maps");
-            Directory.CreateDirectory(addonPath + "materials");
+            Directory.CreateDirectory(addonPath + "resource");
             Properties.Settings.Default.AddOnPath = addonPath;
             Properties.Settings.Default.Save();
             
@@ -66,7 +63,7 @@ namespace WorldSmith
         private void addonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
-            dialog.SelectedPath = Properties.Settings.Default.DotaDir + Path.DirectorySeparatorChar + "dota" + Path.DirectorySeparatorChar + "addons";
+            dialog.SelectedPath = Properties.Settings.Default.AddOnDir;
             if (dialog.ShowDialog() != DialogResult.OK) return;
             string folder = dialog.SelectedPath + Path.DirectorySeparatorChar;
 

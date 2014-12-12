@@ -187,11 +187,19 @@ namespace WorldSmith.DataClasses
             
             foreach(KeyValue hero in doc.Children)
             {
-                if (!hero.HasChildren) continue;
-                T unit = typeof(T).GetConstructor(Type.EmptyTypes).Invoke(Type.EmptyTypes) as T;
-                unit.LoadFromKeyValues(hero);
-                
-                ListToLoadInto.Add(unit);
+                try
+                {
+                    if (!hero.HasChildren) continue;
+                    T unit = typeof(T).GetConstructor(Type.EmptyTypes).Invoke(Type.EmptyTypes) as T;
+                    unit.LoadFromKeyValues(hero);
+
+                    ListToLoadInto.Add(unit);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("ERROR in file:\"" + file + "\" on " + hero.Key);
+                    Console.WriteLine(e.Message);
+                }
             }
         }
         #endregion

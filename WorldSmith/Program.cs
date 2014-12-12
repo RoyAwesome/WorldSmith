@@ -23,6 +23,10 @@ namespace WorldSmith
 #if GENERATECLASSES         
             GenerateClasses();
 #else
+
+#if DEBUG
+            ConsoleManager.AllocConsole();
+#endif
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

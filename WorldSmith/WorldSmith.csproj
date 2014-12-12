@@ -96,6 +96,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleManager.cs" />
     <Compile Include="DataClasses\ActionProperties\AbilityModifierCollection.cs" />
     <Compile Include="DataClasses\ActionProperties\BaseActionVariable.cs" />
     <Compile Include="DataClasses\ActionProperties\NumberValue.cs" />

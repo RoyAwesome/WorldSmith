@@ -25,6 +25,10 @@ namespace WorldSmith.DataClasses
 
         public void Add(BaseAction f)
         {
+            if (f == null)
+            {
+                throw new Exception(EventName); //Dirty I know, but meh
+            }
             this.List.Add(f);
         }
         public void Remove(BaseAction f)
