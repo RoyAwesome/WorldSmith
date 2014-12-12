@@ -76,6 +76,9 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DigitalRune.Windows.Docking">
+      <HintPath>DigitalRune\DigitalRune.Windows.Docking.dll</HintPath>
+    </Reference>
     <Reference Include="KVLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\KVLib.dll</HintPath>
@@ -214,6 +217,12 @@
     <Compile Include="Dialogs\Actions\VariableEditor.Designer.cs">
       <DependentUpon>VariableEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Panels\ItemEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\ItemEditor.Designer.cs">
+      <DependentUpon>ItemEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Panels\ObjectLinkEdit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -261,11 +270,11 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panels\CategoryEditor.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Panels\AbilityEditor.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Panels\CategoryEditor.Designer.cs">
-      <DependentUpon>CategoryEditor.cs</DependentUpon>
+    <Compile Include="Panels\AbilityEditor.Designer.cs">
+      <DependentUpon>AbilityEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\FlagChecklistDialog.cs">
       <SubType>Form</SubType>
@@ -274,7 +283,7 @@
       <DependentUpon>FlagChecklistDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Panels\UnitEditor.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Panels\UnitEditor.Designer.cs">
       <DependentUpon>UnitEditor.cs</DependentUpon>
@@ -332,11 +341,14 @@
     <EmbeddedResource Include="MainForm.sv.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ItemEditor.resx">
+      <DependentUpon>ItemEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Panels\ObjectLinkEdit.resx">
       <DependentUpon>ObjectLinkEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\CategoryEditor.resx">
-      <DependentUpon>CategoryEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Panels\AbilityEditor.resx">
+      <DependentUpon>AbilityEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\FlagChecklistDialog.resx">
       <DependentUpon>FlagChecklistDialog.cs</DependentUpon>

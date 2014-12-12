@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorldSmith.DataClasses;
 using WorldSmith.Dialogs;
+using DigitalRune.Windows.Docking;
 
 namespace WorldSmith.Panels
 {
-    public partial class UnitEditor : UserControl
+    public partial class UnitEditor : DockableForm
     {
         public UnitEditor()
         {

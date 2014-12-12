@@ -182,27 +182,36 @@ namespace WorldSmith.DataClasses
             if (!File.Exists(Properties.Settings.Default.AddOnPath + file)) return;
 
             ListToLoadInto.Clear();
-            
-            KeyValue doc = KVParser.ParseKeyValueText(File.ReadAllText(Properties.Settings.Default.AddOnPath + file));
-            
-            foreach(KeyValue hero in doc.Children)
+            try
             {
-                try
+                KeyValue doc = KVParser.ParseKeyValueText(File.ReadAllText(Properties.Settings.Default.AddOnPath + file));
+                foreach(KeyValue hero in doc.Children)
                 {
-                    if (!hero.HasChildren) continue;
-                    T unit = typeof(T).GetConstructor(Type.EmptyTypes).Invoke(Type.EmptyTypes) as T;
-                    unit.LoadFromKeyValues(hero);
+                    try
+                    {
+                        if (!hero.HasChildren) continue;
+                        T unit = typeof(T).GetConstructor(Type.EmptyTypes).Invoke(Type.EmptyTypes) as T;
+                        unit.LoadFromKeyValues(hero);
 
-                    ListToLoadInto.Add(unit);
+                        ListToLoadInto.Add(unit);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("ERROR in file:\"" + file + "\" on " + hero.Key);
+                        Console.WriteLine(e.Message);
+                        Console.WriteLine(e.StackTrace);
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+                    }
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine("ERROR in file:\"" + file + "\" on " + hero.Key);
-                    Console.WriteLine(e.Message);
-                    Console.WriteLine(e.StackTrace);
-                    Console.WriteLine("");
-                    Console.WriteLine("");
-                }
+            }
+            catch (Exception e)
+            {
+                //WE HAD A SYNTAX ERROR OR SOMETHING
+                Console.WriteLine("SYNTAX ERROR in file:\"" + file + "\"");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("");
+                Console.WriteLine("");
             }
         }
         #endregion

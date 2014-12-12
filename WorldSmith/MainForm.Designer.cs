@@ -46,22 +46,15 @@
             this.optionsMenuLanguage = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.swedishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.addonConfig = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.unitTab = new System.Windows.Forms.TabPage();
-            this.unitEditor = new WorldSmith.Panels.UnitEditor();
-            this.itemTab = new System.Windows.Forms.TabPage();
-            this.itemCategory = new WorldSmith.Panels.CategoryEditor();
-            this.abilityTab = new System.Windows.Forms.TabPage();
-            this.abilityCategory = new WorldSmith.Panels.CategoryEditor();
+            this.dockPanel = new DigitalRune.Windows.Docking.DockPanel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.newUnitEditorButton = new System.Windows.Forms.ToolStripButton();
+            this.newAbilityEditorButton = new System.Windows.Forms.ToolStripButton();
+            this.newItemEditorButton = new System.Windows.Forms.ToolStripButton();
             this.localeManager1 = new WorldSmith.LocaleManager(this.components);
             this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.addonConfig.SuspendLayout();
-            this.unitTab.SuspendLayout();
-            this.itemTab.SuspendLayout();
-            this.abilityTab.SuspendLayout();
+            this.dockPanel.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -160,63 +153,45 @@
             resources.ApplyResources(this.swedishToolStripMenuItem, "swedishToolStripMenuItem");
             this.swedishToolStripMenuItem.Click += new System.EventHandler(this.swedishToolStripMenuItem_Click);
             // 
-            // tabControl1
+            // dockPanel
             // 
-            this.tabControl1.Controls.Add(this.addonConfig);
-            this.tabControl1.Controls.Add(this.unitTab);
-            this.tabControl1.Controls.Add(this.itemTab);
-            this.tabControl1.Controls.Add(this.abilityTab);
-            resources.ApplyResources(this.tabControl1, "tabControl1");
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
+            this.dockPanel.ActiveAutoHideContent = null;
+            this.dockPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.dockPanel.Controls.Add(this.toolStrip1);
+            this.dockPanel.DefaultFloatingWindowSize = new System.Drawing.Size(300, 300);
+            resources.ApplyResources(this.dockPanel, "dockPanel");
+            this.dockPanel.DockBottomPortion = 200D;
+            this.dockPanel.DockLeftPortion = 200D;
+            this.dockPanel.DockRightPortion = 200D;
+            this.dockPanel.DockTopPortion = 200D;
+            this.dockPanel.Name = "dockPanel";
             // 
-            // addonConfig
+            // toolStrip1
             // 
-            this.addonConfig.Controls.Add(this.label1);
-            resources.ApplyResources(this.addonConfig, "addonConfig");
-            this.addonConfig.Name = "addonConfig";
-            this.addonConfig.UseVisualStyleBackColor = true;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newUnitEditorButton,
+            this.newAbilityEditorButton,
+            this.newItemEditorButton});
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
+            this.toolStrip1.Name = "toolStrip1";
             // 
-            // label1
+            // newUnitEditorButton
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.newUnitEditorButton, "newUnitEditorButton");
+            this.newUnitEditorButton.Name = "newUnitEditorButton";
+            this.newUnitEditorButton.Click += new System.EventHandler(this.newUnitEditorButton_Click);
             // 
-            // unitTab
+            // newAbilityEditorButton
             // 
-            this.unitTab.Controls.Add(this.unitEditor);
-            resources.ApplyResources(this.unitTab, "unitTab");
-            this.unitTab.Name = "unitTab";
-            this.unitTab.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.newAbilityEditorButton, "newAbilityEditorButton");
+            this.newAbilityEditorButton.Name = "newAbilityEditorButton";
+            this.newAbilityEditorButton.Click += new System.EventHandler(this.newAbilityEditorButton_Click);
             // 
-            // unitEditor
+            // newItemEditorButton
             // 
-            resources.ApplyResources(this.unitEditor, "unitEditor");
-            this.unitEditor.Name = "unitEditor";
-            // 
-            // itemTab
-            // 
-            this.itemTab.Controls.Add(this.itemCategory);
-            resources.ApplyResources(this.itemTab, "itemTab");
-            this.itemTab.Name = "itemTab";
-            this.itemTab.UseVisualStyleBackColor = true;
-            // 
-            // itemCategory
-            // 
-            resources.ApplyResources(this.itemCategory, "itemCategory");
-            this.itemCategory.Name = "itemCategory";
-            // 
-            // abilityTab
-            // 
-            this.abilityTab.Controls.Add(this.abilityCategory);
-            resources.ApplyResources(this.abilityTab, "abilityTab");
-            this.abilityTab.Name = "abilityTab";
-            this.abilityTab.UseVisualStyleBackColor = true;
-            // 
-            // abilityCategory
-            // 
-            resources.ApplyResources(this.abilityCategory, "abilityCategory");
-            this.abilityCategory.Name = "abilityCategory";
+            resources.ApplyResources(this.newItemEditorButton, "newItemEditorButton");
+            this.newItemEditorButton.Name = "newItemEditorButton";
+            this.newItemEditorButton.Click += new System.EventHandler(this.newItemEditorButton_Click);
             // 
             // localeManager1
             // 
@@ -226,19 +201,17 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.dockPanel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.addonConfig.ResumeLayout(false);
-            this.addonConfig.PerformLayout();
-            this.unitTab.ResumeLayout(false);
-            this.itemTab.ResumeLayout(false);
-            this.abilityTab.ResumeLayout(false);
+            this.dockPanel.ResumeLayout(false);
+            this.dockPanel.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,11 +221,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileMenu;
-        public System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage addonConfig;
-        private System.Windows.Forms.TabPage unitTab;
-        private System.Windows.Forms.TabPage itemTab;
-        private System.Windows.Forms.TabPage abilityTab;
         private System.Windows.Forms.ToolStripMenuItem fileMenuNew;
         private System.Windows.Forms.ToolStripMenuItem addonToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fileMenuOpen;
@@ -260,16 +228,17 @@
         private System.Windows.Forms.ToolStripMenuItem fileMenuSave;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem fileMenuExit;
-        private Panels.CategoryEditor itemCategory;
-        private Panels.UnitEditor unitEditor;
-        private Panels.CategoryEditor abilityCategory;
         private System.Windows.Forms.ToolStripMenuItem optionsMenu;
         private System.Windows.Forms.ToolStripMenuItem optionsSetDotaDirectory;
         private System.Windows.Forms.ToolStripMenuItem optionsMenuLanguage;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem swedishToolStripMenuItem;
         private LocaleManager localeManager1;
-        private System.Windows.Forms.Label label1;
+        private DigitalRune.Windows.Docking.DockPanel dockPanel;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton newUnitEditorButton;
+        private System.Windows.Forms.ToolStripButton newAbilityEditorButton;
+        private System.Windows.Forms.ToolStripButton newItemEditorButton;
     }
 }
 
