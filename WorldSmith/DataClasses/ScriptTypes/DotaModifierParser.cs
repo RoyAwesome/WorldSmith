@@ -26,21 +26,24 @@ namespace WorldSmith.DataClasses
             }
 
             //Load the modifier events
-
             PropertyInfo[] eventprops = this.GetType().GetProperties().Where(t => t.PropertyType == typeof(ActionCollection)).ToArray();
             foreach(PropertyInfo prop in eventprops)
             {
                 string name = prop.Name;
 
-                KeyValue action = kv[name];
-                if (action == null) continue;
+                KeyValue actions = kv[name];
+                if (actions == null) continue;
 
-
-                ActionCollection actions = new ActionCollection(name);
-                BaseAction act = DotaActionFactory.CreateNewAction(action.Key);
-                actions.Add(act);
-
-                prop.SetMethod.Invoke(this, new object[] { actions });
+                ActionCollection actionCollection = new ActionCollection(name);
+                
+                foreach(KeyValue act in actions.Children)
+                {
+                    BaseAction action = DotaActionFactory.CreateNewAction(act.Key);
+                    if (action == null) continue;
+                    actionCollection.Add(action);
+                }
+ 
+                prop.SetMethod.Invoke(this, new object[] { actionCollection});
 
             }
             

@@ -199,6 +199,9 @@ namespace WorldSmith.DataClasses
                 {
                     Console.WriteLine("ERROR in file:\"" + file + "\" on " + hero.Key);
                     Console.WriteLine(e.Message);
+                    Console.WriteLine(e.StackTrace);
+                    Console.WriteLine("");
+                    Console.WriteLine("");
                 }
             }
         }
