@@ -21,10 +21,13 @@ namespace WorldSmith
     {
         private readonly ContextMenuStrip _contextMenu;
 
+        VPKView VPKView;
+
         public MainForm()
         {
             InitializeComponent();
             InitTabs();
+
 
             // Create a dummy context menu
             _contextMenu = new ContextMenuStrip();
@@ -34,8 +37,16 @@ namespace WorldSmith
             _contextMenu.Items.Add(menuItem1);
             _contextMenu.Items.Add(menuItem2);
             _contextMenu.Items.Add(menuItem3);
+
+            //Create the project views
+            VPKView = new VPKView();
+            VPKView.Show(dockPanel, DockState.DockLeft);
+            VPKView.HideOnClose = true;
+            //TODO: Figure out a way to toggle off the VPK View button when disabled
+
         }
 
+     
         private void InitTabs()
         {
             IDockableForm[] documents = dockPanel.DocumentsToArray();
@@ -314,5 +325,25 @@ namespace WorldSmith
             }
         }
         #endregion
+
+        private void vPKViewerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VPKView view = new VPKView();
+           
+            view.Show(dockPanel, DockState.DockLeft);
+        }
+
+        private void vPKExplorerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(VPKView.IsHidden)
+            {
+                VPKView.Show(dockPanel);
+            }
+            else
+            {
+                VPKView.Hide();
+            }
+            vpkviewToggleButton.Checked = !VPKView.IsHidden;
+        }
     }
 }
