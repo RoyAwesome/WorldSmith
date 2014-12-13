@@ -46,20 +46,23 @@ namespace WorldSmith
             }
 
             Application.ApplicationExit += Application_ApplicationExit;
+            System.Threading.Thread.CurrentThread.CurrentUICulture =
+           System.Globalization.CultureInfo.CreateSpecificCulture(Properties.Settings.Default.Language);
 
             // Extract the Dota 2 pack01_dir VPK file and load all of the data
             AssetLoadingDialog assets = new AssetLoadingDialog();
             assets.ShowDialog(AssetLoadingDialog.InitialLoad);
+
+            //Construct the main form and load the default project (if any).
+            MainForm mainForm = new MainForm();
             if (!String.IsNullOrEmpty(Properties.Settings.Default.AddOnPath))
             {
-                assets = new AssetLoadingDialog();
-                assets.ShowDialog(AssetLoadingDialog.AddonLoadTasks);
+                mainForm.LoadProject(Properties.Settings.Default.AddOnPath);
             }
             
-            System.Threading.Thread.CurrentThread.CurrentUICulture = 
-                System.Globalization.CultureInfo.CreateSpecificCulture(Properties.Settings.Default.Language);
-
-            Application.Run(mainForm = new MainForm());
+       
+            
+            Application.Run(mainForm);
 
             Properties.Settings.Default.Save();
 #endif

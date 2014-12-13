@@ -23,6 +23,8 @@ namespace WorldSmith
 
         VPKView VPKView;
 
+        ProjectView ProjectView;
+
         public MainForm()
         {
             InitializeComponent();
@@ -96,10 +98,9 @@ namespace WorldSmith
             Directory.CreateDirectory(addonPath);
             Directory.CreateDirectory(addonPath + "scripts");
             Directory.CreateDirectory(addonPath + "resource");
-            Properties.Settings.Default.AddOnPath = addonPath;
-            Properties.Settings.Default.Save();
-            
             File.WriteAllText(addonPath + "addoninfo.txt", DotaData.KVHeader + doc.ToString());
+
+            LoadProject(addonPath);         
         }
 
         private void addonToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,17 +116,22 @@ namespace WorldSmith
                 return;
             }
 
+            LoadProject(folder);            
+        }
 
-            Properties.Settings.Default.AddOnPath = folder;
+        public void LoadProject(string path)
+        {
+            Properties.Settings.Default.AddOnPath = path;
             Properties.Settings.Default.Save();
 
             AssetLoadingDialog loader = new AssetLoadingDialog();
             loader.ShowDialog(AssetLoadingDialog.AddonLoadTasks);
 
-            
             InitTabs();
 
-            
+
+            ProjectView = new ProjectView();
+            ProjectView.Show(dockPanel, DockState.DockLeft);
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)

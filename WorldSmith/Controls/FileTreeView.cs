@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WorldSmith.Controls
 {
@@ -32,7 +33,7 @@ namespace WorldSmith.Controls
             }
             else if(source == FileViewSource.Project)
             {
-
+                PopulateFromProject();
             }
 
             
@@ -90,8 +91,52 @@ namespace WorldSmith.Controls
                     parent.Nodes.Add(folder);
                 }
 
+            }
+        }
 
+        protected void PopulateFromProject()
+        {
+            TreeNode rootNode = treeView.Nodes[0];
+            string projectPath = Properties.Settings.Default.AddOnPath;
+            rootNode.Tag = projectPath;
 
+            RecursivePopulateFromProject(ref rootNode, projectPath);
+
+            rootNode.Expand();
+        }
+
+        protected void RecursivePopulateFromProject(ref TreeNode node, string path)
+        {
+            string[] directories = Directory.GetDirectories(path);
+            foreach(string dir in directories)
+            {
+                string name = Path.GetFileName(dir);
+                //Create a Folder node
+                TreeNode folder = new TreeNode()
+                {
+                    Name = name,
+                    Text = name,
+                    ImageIndex = 2,
+                    SelectedImageIndex = 2,
+                    Tag = dir,
+                };
+                node.Nodes.Add(folder);
+
+                string[] files = Directory.GetFiles(dir);
+                foreach(string f in files)
+                {
+                    name = Path.GetFileName(f);
+                    TreeNode file = new TreeNode()
+                    {
+                        Name = name,
+                        Text = name,
+                        ImageIndex = 0,
+                        Tag = f,
+                    };
+                    folder.Nodes.Add(file);
+                }
+
+                RecursivePopulateFromProject(ref folder, dir);
             }
         }
         
