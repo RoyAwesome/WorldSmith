@@ -141,6 +141,8 @@ namespace WorldSmith.Controls
                 };
                 node.Nodes.Add(folder);
 
+                RecursivePopulateFromProject(ref folder, dir);
+
                 string[] files = Directory.GetFiles(dir);
                 foreach(string f in files)
                 {
@@ -155,7 +157,7 @@ namespace WorldSmith.Controls
                     folder.Nodes.Add(file);
                 }
 
-                RecursivePopulateFromProject(ref folder, dir);
+               
             }
         }
         

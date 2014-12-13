@@ -30,6 +30,7 @@ namespace WorldSmith.Panels
             if(Path.GetExtension(path) == ".txt")
             {
                 TextEditor editor = new TextEditor();
+                editor.Text = selectedNode.Text;
                 editor.EditorStyle = TextEditor.TextEditorStyle.KeyValues;
                 editor.OpenFile(path, false);
              
