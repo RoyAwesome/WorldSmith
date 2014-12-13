@@ -17,6 +17,8 @@ using DigitalRune.Windows.TextEditor.Insight;
 using DigitalRune.Windows.TextEditor.Markers;
 using DigitalRune.Windows.TextEditor.Selection;
 using DigitalRune.Windows.Docking;
+using System.IO;
+using WorldSmith.DataClasses;
 
 namespace WorldSmith
 {
@@ -27,6 +29,8 @@ namespace WorldSmith
             KeyValues,
             Lua,
         }
+
+        public TextEditorStyle EditorStyle;
 
 
         private bool isReadOnly;
@@ -44,6 +48,7 @@ namespace WorldSmith
         }
 
         public string Filename;
+        
 
         public TextEditor()
         {
@@ -51,15 +56,40 @@ namespace WorldSmith
             Filename = String.Empty;
         }
 
+        public void OpenFile(string path, bool fromVPK)
+        {
+           if(fromVPK)
+           {
+               //Stuff for loading from vpk
+               string text = DotaData.ReadAllText(path);
+               Filename = Path.GetFileName(path);
+               IsReadOnly = true;
+
+               textEditorControl1.Document.TextContent = text;
+
+           }
+           else
+           {
+               Filename = Path.GetFileName(path);
+               IsReadOnly = false;
+               
+
+               textEditorControl1.Document.TextContent = File.ReadAllText(path);
+           }
+
+        }
+
         protected void ReadOnlyChanged(bool value)
         {
             if (value)
             {
                 saveButton.Enabled = false;
+                textEditorControl1.IsReadOnly = false;
             }
             else
             {
                 saveButton.Enabled = true;
+                textEditorControl1.IsReadOnly = true;
             }
         }
 

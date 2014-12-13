@@ -25,6 +25,8 @@ namespace WorldSmith
 
         ProjectView ProjectView;
 
+        public static DockPanel PrimaryDockingPanel;
+
         public MainForm()
         {
             InitializeComponent();
@@ -46,6 +48,8 @@ namespace WorldSmith
             VPKView.HideOnClose = true;
             //TODO: Figure out a way to toggle off the VPK View button when disabled
 
+
+            PrimaryDockingPanel = dockPanel; //Set a static accessor to our docking panel for all default controls to go to.
         }
 
      

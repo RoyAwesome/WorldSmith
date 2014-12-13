@@ -16,13 +16,29 @@ namespace WorldSmith.Controls
         Vpk,
         Project,
     }
+    public delegate void TreeViewDoubleClicked(object sender, TreeNode selectedNode);
+
 
     public partial class FileTreeView : UserControl
     {      
         public FileTreeView()
         {
             InitializeComponent();
+
+            treeView.DoubleClick += treeView_DoubleClick;
         }
+
+        public event TreeViewDoubleClicked ItemDoubleClicked;
+
+        void treeView_DoubleClick(object sender, EventArgs e)
+        {
+            if(ItemDoubleClicked != null)
+            {                
+                ItemDoubleClicked.Invoke(this, treeView.SelectedNode);
+            }
+        }
+
+        
 
         public void Populate(FileViewSource source)
         {
