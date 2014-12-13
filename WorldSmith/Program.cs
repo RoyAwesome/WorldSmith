@@ -55,9 +55,9 @@ namespace WorldSmith
 
             //Construct the main form and load the default project (if any).
             MainForm mainForm = new MainForm();
-            if (!String.IsNullOrEmpty(Properties.Settings.Default.AddOnPath))
+            if (!String.IsNullOrEmpty(Properties.Settings.Default.LoadedAddonDirectory))
             {
-                mainForm.LoadProject(Properties.Settings.Default.AddOnPath);
+                mainForm.LoadProject(Properties.Settings.Default.LoadedAddonDirectory);
             }
             
        

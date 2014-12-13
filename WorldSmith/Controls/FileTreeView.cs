@@ -44,6 +44,7 @@ namespace WorldSmith.Controls
         {
             TreeNode rootNode = treeView.Nodes[0];
             rootNode.Tag = "/";
+            rootNode.Text = "Dota 2 VPK";
             IntPtr rootptr = HLLib.hlPackageGetRoot();
 
             RecursivePopulateFromVPK(ref rootNode, rootptr);
@@ -97,7 +98,9 @@ namespace WorldSmith.Controls
         protected void PopulateFromProject()
         {
             TreeNode rootNode = treeView.Nodes[0];
-            string projectPath = Properties.Settings.Default.AddOnPath;
+            string projectPath = Properties.Settings.Default.LoadedAddonDirectory;
+            string projectName = Path.GetFileName(projectPath.Remove(projectPath.Length - 1));
+            rootNode.Text = projectName;
             rootNode.Tag = projectPath;
 
             RecursivePopulateFromProject(ref rootNode, projectPath);

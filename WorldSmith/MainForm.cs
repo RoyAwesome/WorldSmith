@@ -121,7 +121,7 @@ namespace WorldSmith
 
         public void LoadProject(string path)
         {
-            Properties.Settings.Default.AddOnPath = path;
+            Properties.Settings.Default.LoadedAddonDirectory = path;
             Properties.Settings.Default.Save();
 
             AssetLoadingDialog loader = new AssetLoadingDialog();
