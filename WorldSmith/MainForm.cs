@@ -110,7 +110,7 @@ namespace WorldSmith
         private void addonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
-            dialog.SelectedPath = Properties.Settings.Default.AddOnDir;
+            dialog.SelectedPath = Properties.Settings.Default.AddOnDir != "" ? Properties.Settings.Default.AddOnDir : Properties.Settings.Default.DotaDir;
             if (dialog.ShowDialog() != DialogResult.OK) return;
             string folder = dialog.SelectedPath + Path.DirectorySeparatorChar;
 
