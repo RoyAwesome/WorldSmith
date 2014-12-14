@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorldSmith.DataClasses;
+using WorldSmith.Documents;
 
 namespace WorldSmith.Panels
 {
@@ -43,10 +44,30 @@ namespace WorldSmith.Panels
                 {
                     Name = ddo.ClassName,
                     Text = ddo.ClassName,
-
+                    Tag = ddo,
                 };
                 Root.Nodes.Add(newNode);
             }
+        }
+
+        private void assetTreeView_DoubleClick(object sender, EventArgs e)
+        {
+            TreeNode SelectedNode = assetTreeView.SelectedNode;
+            DotaDataObject ddo = SelectedNode.Tag as DotaDataObject;
+
+            if (ddo == null) return; //We selected a root node.  Don't do anything here
+
+            //TODO: Search the document registry for this object's document. 
+            Document doc = DocumentRegistry.AllDocuments.FirstOrDefault(x => x.Name == ddo.ClassName);
+            if(doc == null)
+            {
+                //If we don't have this document open, create it and add it to the registry
+                doc = new DotaObjectDocument(ddo);
+                DocumentRegistry.OpenDocument(doc);
+            }
+            
+            doc.OpenDefaultEditor();
+
         }
     }
 }

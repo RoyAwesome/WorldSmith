@@ -224,7 +224,7 @@ namespace WorldSmith
             TextEditor editor = new TextEditor();
             editor.Show();
         }
-
+   
         #region EditorCreation
         private IDockableForm FindDocument(string title)
         {

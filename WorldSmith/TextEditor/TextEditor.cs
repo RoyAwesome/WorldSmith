@@ -19,6 +19,7 @@ using DigitalRune.Windows.TextEditor.Selection;
 using DigitalRune.Windows.Docking;
 using System.IO;
 using WorldSmith.DataClasses;
+using WorldSmith.Documents;
 
 namespace WorldSmith
 {
@@ -54,6 +55,14 @@ namespace WorldSmith
         {
             InitializeComponent();
             Filename = String.Empty;
+        }
+
+        public void OpenDocument(TextDocument document)
+        {
+            Filename = document.Path;
+            IsReadOnly = document.Source == DocumentSource.VPK;
+            textEditorControl1.Document.TextContent = document.Text;
+
         }
 
         public void OpenFile(string path, bool fromVPK)
