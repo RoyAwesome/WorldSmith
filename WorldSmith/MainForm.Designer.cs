@@ -48,17 +48,10 @@
             this.swedishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dockPanel = new DigitalRune.Windows.Docking.DockPanel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.newUnitEditorButton = new System.Windows.Forms.ToolStripButton();
-            this.newAbilityEditorButton = new System.Windows.Forms.ToolStripButton();
-            this.newItemEditorButton = new System.Windows.Forms.ToolStripButton();
             this.localeManager1 = new WorldSmith.LocaleManager(this.components);
+            this.objectBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            this.dockPanel.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -66,8 +59,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.optionsMenu,
-            this.windowToolStripMenuItem,
-            this.debugToolStripMenuItem});
+            this.windowToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
@@ -162,7 +154,8 @@
             // windowToolStripMenuItem
             // 
             this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.projectExplorerToolStripMenuItem});
+            this.projectExplorerToolStripMenuItem,
+            this.objectBrowserToolStripMenuItem});
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
             resources.ApplyResources(this.windowToolStripMenuItem, "windowToolStripMenuItem");
             // 
@@ -171,24 +164,10 @@
             this.projectExplorerToolStripMenuItem.Name = "projectExplorerToolStripMenuItem";
             resources.ApplyResources(this.projectExplorerToolStripMenuItem, "projectExplorerToolStripMenuItem");
             // 
-            // debugToolStripMenuItem
-            // 
-            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.textEditorToolStripMenuItem});
-            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
-            resources.ApplyResources(this.debugToolStripMenuItem, "debugToolStripMenuItem");
-            // 
-            // textEditorToolStripMenuItem
-            // 
-            this.textEditorToolStripMenuItem.Name = "textEditorToolStripMenuItem";
-            resources.ApplyResources(this.textEditorToolStripMenuItem, "textEditorToolStripMenuItem");
-            this.textEditorToolStripMenuItem.Click += new System.EventHandler(this.textEditorToolStripMenuItem_Click);
-            // 
             // dockPanel
             // 
             this.dockPanel.ActiveAutoHideContent = null;
             this.dockPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dockPanel.Controls.Add(this.toolStrip1);
             this.dockPanel.DefaultFloatingWindowSize = new System.Drawing.Size(300, 300);
             resources.ApplyResources(this.dockPanel, "dockPanel");
             this.dockPanel.DockBottomPortion = 200D;
@@ -197,36 +176,17 @@
             this.dockPanel.DockTopPortion = 200D;
             this.dockPanel.Name = "dockPanel";
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newUnitEditorButton,
-            this.newAbilityEditorButton,
-            this.newItemEditorButton});
-            resources.ApplyResources(this.toolStrip1, "toolStrip1");
-            this.toolStrip1.Name = "toolStrip1";
-            // 
-            // newUnitEditorButton
-            // 
-            resources.ApplyResources(this.newUnitEditorButton, "newUnitEditorButton");
-            this.newUnitEditorButton.Name = "newUnitEditorButton";
-            this.newUnitEditorButton.Click += new System.EventHandler(this.newUnitEditorButton_Click);
-            // 
-            // newAbilityEditorButton
-            // 
-            resources.ApplyResources(this.newAbilityEditorButton, "newAbilityEditorButton");
-            this.newAbilityEditorButton.Name = "newAbilityEditorButton";
-            this.newAbilityEditorButton.Click += new System.EventHandler(this.newAbilityEditorButton_Click);
-            // 
-            // newItemEditorButton
-            // 
-            resources.ApplyResources(this.newItemEditorButton, "newItemEditorButton");
-            this.newItemEditorButton.Name = "newItemEditorButton";
-            this.newItemEditorButton.Click += new System.EventHandler(this.newItemEditorButton_Click);
-            // 
             // localeManager1
             // 
             this.localeManager1.ParentControl = this;
+            // 
+            // objectBrowserToolStripMenuItem
+            // 
+            this.objectBrowserToolStripMenuItem.Checked = true;
+            this.objectBrowserToolStripMenuItem.CheckOnClick = true;
+            this.objectBrowserToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.objectBrowserToolStripMenuItem.Name = "objectBrowserToolStripMenuItem";
+            resources.ApplyResources(this.objectBrowserToolStripMenuItem, "objectBrowserToolStripMenuItem");
             // 
             // MainForm
             // 
@@ -239,10 +199,6 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.dockPanel.ResumeLayout(false);
-            this.dockPanel.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,14 +222,9 @@
         private System.Windows.Forms.ToolStripMenuItem swedishToolStripMenuItem;
         private LocaleManager localeManager1;
         private DigitalRune.Windows.Docking.DockPanel dockPanel;
-        private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem textEditorToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton newUnitEditorButton;
-        private System.Windows.Forms.ToolStripButton newAbilityEditorButton;
-        private System.Windows.Forms.ToolStripButton newItemEditorButton;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem projectExplorerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem objectBrowserToolStripMenuItem;
     }
 }
 
