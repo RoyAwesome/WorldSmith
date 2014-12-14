@@ -49,8 +49,8 @@ namespace WorldSmith.Documents
 
         public override void OpenDefaultEditor()
         {
-            OpenTextEditor(); //TODO: Change this to object editor
-
+            OpenObjectEditor(); 
+            //OpenTextEditor();
 
         }
 
@@ -61,9 +61,13 @@ namespace WorldSmith.Documents
             return editor;
         }
 
-        public void OpenObjectEditor()
+        public DotaObjectEditor OpenObjectEditor()
         {
-
+            DotaObjectEditor Editor = new DotaObjectEditor();
+            Editor.EditingObject = DotaObject;
+            Editor.TabText = DotaObject.ClassName;
+            Editor.Show(MainForm.PrimaryDockingPanel, DigitalRune.Windows.Docking.DockState.Document);
+            return Editor;
         }
     }
 }

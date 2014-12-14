@@ -62,8 +62,7 @@ namespace WorldSmith.Documents
         {
             TextEditor editor = new TextEditor();            
             editor.EditorStyle = TextEditor.TextEditorStyle.KeyValues;
-            editor.OpenDocument(this);
-            
+            editor.OpenDocument(this);           
 
             editor.Show(MainForm.PrimaryDockingPanel, DigitalRune.Windows.Docking.DockState.Document);
 
