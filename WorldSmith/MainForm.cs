@@ -59,6 +59,10 @@ namespace WorldSmith
             //TODO: Figure out a way to toggle off the VPK View button when disabled
 
 
+            DotaObjectBrowser ObjectBrowser = new DotaObjectBrowser();
+            ObjectBrowser.Show(dockPanel, DockState.DockLeft);
+
+
             PrimaryDockingPanel = dockPanel; //Set a static accessor to our docking panel for all default controls to go to.
         }
      
