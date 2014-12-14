@@ -24,9 +24,6 @@ namespace WorldSmith
             GenerateClasses();
 #else
 
-#if DEBUG
-            ConsoleManager.AllocConsole();
-#endif
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -73,8 +70,6 @@ namespace WorldSmith
         {
             DotaData.Shutdown();
         }
-
-        public static MainForm mainForm;
 
         /// <summary>
         /// Generates all of the Data Classes from the Data Schema. If Valve changes the Dota 2 schema,

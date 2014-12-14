@@ -102,7 +102,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleManager.cs" />
+    <Compile Include="ConsoleStringWriter.cs" />
     <Compile Include="Controls\FileTreeView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -225,6 +225,12 @@
     </Compile>
     <Compile Include="Dialogs\Actions\VariableEditor.Designer.cs">
       <DependentUpon>VariableEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ConsoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\ConsoleForm.Designer.cs">
+      <DependentUpon>ConsoleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Panels\ProjectView.cs">
       <SubType>Form</SubType>
@@ -368,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\TextPrompt.resx">
       <DependentUpon>TextPrompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConsoleForm.resx">
+      <DependentUpon>ConsoleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\ProjectView.resx">
       <DependentUpon>ProjectView.cs</DependentUpon>

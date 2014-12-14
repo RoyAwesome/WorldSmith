@@ -21,6 +21,9 @@ namespace WorldSmith
     {
         private readonly ContextMenuStrip _contextMenu;
 
+        ConsoleForm ConsoleForm;
+        ConsoleStringWriter _consoleWriter;
+
         VPKView VPKView;
 
         ProjectView ProjectView;
@@ -40,14 +43,20 @@ namespace WorldSmith
             _contextMenu.Items.Add(menuItem2);
             _contextMenu.Items.Add(menuItem3);
 
+            //Create the console and lock it
+            ConsoleForm = new ConsoleForm();
+            ConsoleForm.Show(dockPanel, DockState.DockBottom);
+            _consoleWriter = new ConsoleStringWriter(ConsoleForm);
+            Console.SetOut(_consoleWriter);
+
             //Create the project views
             VPKView = new VPKView();
             VPKView.Show(dockPanel, DockState.DockLeft);
             VPKView.HideOnClose = true;
+
             //TODO: Figure out a way to toggle off the VPK View button when disabled
 
         }
-
      
         private void InitTabs()
         {
