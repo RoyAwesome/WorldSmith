@@ -24,7 +24,7 @@ namespace WorldSmith
         ConsoleForm ConsoleForm;
         ConsoleStringWriter _consoleWriter;
 
-        VPKView VPKView;
+     
 
         ProjectView ProjectView;
 
@@ -51,16 +51,9 @@ namespace WorldSmith
             _consoleWriter = new ConsoleStringWriter(ConsoleForm);
             Console.SetOut(_consoleWriter);
 
-            //Create the project views
-            VPKView = new VPKView();
-            VPKView.Show(dockPanel, DockState.DockLeft);
-            VPKView.HideOnClose = true;
+        
 
-            //TODO: Figure out a way to toggle off the VPK View button when disabled
-
-
-            DotaObjectBrowser ObjectBrowser = new DotaObjectBrowser();
-            ObjectBrowser.Show(dockPanel, DockState.DockLeft);
+        
 
 
             PrimaryDockingPanel = dockPanel; //Set a static accessor to our docking panel for all default controls to go to.
@@ -143,12 +136,14 @@ namespace WorldSmith
 
             AssetLoadingDialog loader = new AssetLoadingDialog();
             loader.ShowDialog(AssetLoadingDialog.AddonLoadTasks);
-
+            
             InitTabs();
-
 
             ProjectView = new ProjectView();
             ProjectView.Show(dockPanel, DockState.DockLeft);
+
+            DotaObjectBrowser ObjectBrowser = new DotaObjectBrowser();
+            ObjectBrowser.Show(dockPanel, DockState.DockLeft);
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -349,24 +344,6 @@ namespace WorldSmith
         }
         #endregion
 
-        private void vPKViewerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            VPKView view = new VPKView();
-           
-            view.Show(dockPanel, DockState.DockLeft);
-        }
-
-        private void vPKExplorerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(VPKView.IsHidden)
-            {
-                VPKView.Show(dockPanel);
-            }
-            else
-            {
-                VPKView.Hide();
-            }
-            vpkviewToggleButton.Checked = !VPKView.IsHidden;
-        }
+   
     }
 }

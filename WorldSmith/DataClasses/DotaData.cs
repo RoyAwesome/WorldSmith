@@ -30,23 +30,11 @@ namespace WorldSmith.DataClasses
 
         public static List<DotaHero> CustomHeroes = new List<DotaHero>();
 
-        public static IEnumerable<DotaBaseUnit> AllDefaultUnits = DefaultUnits.Cast<DotaBaseUnit>()
-            .Union(DefaultHeroes.Cast<DotaBaseUnit>());
+        public static IEnumerable<DotaHero> AllCustomHeroes = OverridenHeroes.Union(CustomHeroes);
+        public static IEnumerable<DotaHero> AllHeroes = DefaultHeroes.Union(AllCustomHeroes);       
 
-        public static IEnumerable<DotaBaseUnit> AllOverridenUnits = OverriddenUnits.Cast<DotaBaseUnit>()
-            .Union(OverridenHeroes.Cast<DotaBaseUnit>());
-
-        public static IEnumerable<DotaBaseUnit> AllCustomUnits = CustomUnits.Cast<DotaBaseUnit>()
-            .Union(CustomHeroes.Cast<DotaBaseUnit>());
-
-        public static IEnumerable<DotaBaseUnit> AllSaveableUnits = AllOverridenUnits
-            .Union(AllCustomUnits);
-
-        public static IEnumerable<DotaBaseUnit> AllUnits = AllDefaultUnits
-            .Union(AllOverridenUnits)
-            .Union(CustomUnits.Cast<DotaBaseUnit>())
-            .Union(CustomUnits.Cast<DotaBaseUnit>());
-            
+        public static IEnumerable<DotaUnit> AllCustomUnits = OverriddenUnits.Union(CustomUnits);
+        public static IEnumerable<DotaUnit> AllUnits = DefaultUnits.Union(CustomUnits);            
         #endregion
 
         #region Ability Data Lists
@@ -198,12 +186,12 @@ namespace WorldSmith.DataClasses
        
         public static void ReadOverride<T>(string file, List<T> ListToLoadInto) where T : DotaDataObject
         {
-            if (!File.Exists(Properties.Settings.Default.AddOnPath + file)) return;
+            if (!File.Exists(Properties.Settings.Default.LoadedAddonDirectory + file)) return;
 
             ListToLoadInto.Clear();
             try
             {
-                KeyValue doc = KVParser.ParseKeyValueText(File.ReadAllText(Properties.Settings.Default.AddOnPath + file));
+                KeyValue doc = KVParser.ParseKeyValueText(File.ReadAllText(Properties.Settings.Default.LoadedAddonDirectory + file));
                 foreach(KeyValue hero in doc.Children)
                 {
                     try

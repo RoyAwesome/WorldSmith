@@ -55,7 +55,7 @@ namespace WorldSmith.Controls
             
         }
 
-     
+
         protected void PopulateFromVPK()
         {
             TreeNode rootNode = treeView.Nodes[0];
@@ -73,12 +73,12 @@ namespace WorldSmith.Controls
         {
             uint folderCount = HLLib.hlFolderGetCount(CurrentFolder);
 
-            for(uint i = 0; i < folderCount; i++)
+            for (uint i = 0; i < folderCount; i++)
             {
                 IntPtr subItem = HLLib.hlFolderGetItem(CurrentFolder, i);
                 string name = HLLib.hlItemGetName(subItem);
 
-                if(HLLib.hlItemGetType(subItem) == HLLib.HLDirectoryItemType.HL_ITEM_FOLDER)
+                if (HLLib.hlItemGetType(subItem) == HLLib.HLDirectoryItemType.HL_ITEM_FOLDER)
                 {
                     TreeNode folder = new TreeNode()
                     {
@@ -95,7 +95,7 @@ namespace WorldSmith.Controls
 
 
                 }
-                else if(HLLib.hlItemGetType(subItem) == HLLib.HLDirectoryItemType.HL_ITEM_FILE)
+                else if (HLLib.hlItemGetType(subItem) == HLLib.HLDirectoryItemType.HL_ITEM_FILE)
                 {
                     TreeNode folder = new TreeNode()
                     {
@@ -127,7 +127,7 @@ namespace WorldSmith.Controls
         protected void RecursivePopulateFromProject(ref TreeNode node, string path)
         {
             string[] directories = Directory.GetDirectories(path);
-            foreach(string dir in directories)
+            foreach (string dir in directories)
             {
                 string name = Path.GetFileName(dir);
                 //Create a Folder node
@@ -144,7 +144,7 @@ namespace WorldSmith.Controls
                 RecursivePopulateFromProject(ref folder, dir);
 
                 string[] files = Directory.GetFiles(dir);
-                foreach(string f in files)
+                foreach (string f in files)
                 {
                     name = Path.GetFileName(f);
                     TreeNode file = new TreeNode()
@@ -157,7 +157,7 @@ namespace WorldSmith.Controls
                     folder.Nodes.Add(file);
                 }
 
-               
+
             }
         }
         

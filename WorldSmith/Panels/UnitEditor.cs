@@ -56,7 +56,7 @@ namespace WorldSmith.Panels
         {
             TreeNode n = unitTreeView.SelectedNode;
             //Grab the unit out of the default list and put it in the Override list
-            DotaBaseUnit b = DotaData.AllDefaultUnits.FirstOrDefault(x => x.ClassName == n.Name);
+            DotaBaseUnit b = DotaData.DefaultUnits.FirstOrDefault(x => x.ClassName == n.Name);
             if (b == null) return;
             if (b is DotaUnit)
             {

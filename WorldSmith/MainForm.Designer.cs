@@ -47,6 +47,7 @@
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.swedishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.projectExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dockPanel = new DigitalRune.Windows.Docking.DockPanel();
@@ -54,8 +55,6 @@
             this.newUnitEditorButton = new System.Windows.Forms.ToolStripButton();
             this.newAbilityEditorButton = new System.Windows.Forms.ToolStripButton();
             this.newItemEditorButton = new System.Windows.Forms.ToolStripButton();
-            this.projectExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vpkviewToggleButton = new System.Windows.Forms.ToolStripMenuItem();
             this.localeManager1 = new WorldSmith.LocaleManager(this.components);
             this.menuStrip1.SuspendLayout();
             this.dockPanel.SuspendLayout();
@@ -163,10 +162,14 @@
             // windowToolStripMenuItem
             // 
             this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.projectExplorerToolStripMenuItem,
-            this.vpkviewToggleButton});
+            this.projectExplorerToolStripMenuItem});
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
             resources.ApplyResources(this.windowToolStripMenuItem, "windowToolStripMenuItem");
+            // 
+            // projectExplorerToolStripMenuItem
+            // 
+            this.projectExplorerToolStripMenuItem.Name = "projectExplorerToolStripMenuItem";
+            resources.ApplyResources(this.projectExplorerToolStripMenuItem, "projectExplorerToolStripMenuItem");
             // 
             // debugToolStripMenuItem
             // 
@@ -221,20 +224,6 @@
             this.newItemEditorButton.Name = "newItemEditorButton";
             this.newItemEditorButton.Click += new System.EventHandler(this.newItemEditorButton_Click);
             // 
-            // projectExplorerToolStripMenuItem
-            // 
-            this.projectExplorerToolStripMenuItem.Name = "projectExplorerToolStripMenuItem";
-            resources.ApplyResources(this.projectExplorerToolStripMenuItem, "projectExplorerToolStripMenuItem");
-            // 
-            // vpkviewToggleButton
-            // 
-            this.vpkviewToggleButton.Checked = true;
-            this.vpkviewToggleButton.CheckOnClick = true;
-            this.vpkviewToggleButton.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.vpkviewToggleButton.Name = "vpkviewToggleButton";
-            resources.ApplyResources(this.vpkviewToggleButton, "vpkviewToggleButton");
-            this.vpkviewToggleButton.Click += new System.EventHandler(this.vPKExplorerToolStripMenuItem_Click);
-            // 
             // localeManager1
             // 
             this.localeManager1.ParentControl = this;
@@ -285,7 +274,6 @@
         private System.Windows.Forms.ToolStripButton newItemEditorButton;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem projectExplorerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vpkviewToggleButton;
     }
 }
 

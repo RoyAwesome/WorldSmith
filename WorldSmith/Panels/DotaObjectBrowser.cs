@@ -38,12 +38,26 @@ namespace WorldSmith.Panels
             TreeNode Root = assetTreeView.Nodes[Type];
             Root.Nodes.Clear();
 
+            TreeNode DefaultFolder = new TreeNode()
+            {
+                Name = "defaultFolder",
+                Text = "Default",
+                ImageIndex = 0,
+                SelectedImageIndex = 0,
+            };
+            Root.Nodes.Add(DefaultFolder);
+
             foreach(DotaDataObject ddo in ObjectList)
             {
-                int imageIndex = 1;
-                if(ddo.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Custom)
+                bool Default = ddo.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default;
+
+                //If we are a custom unit, display the custom unit icon.  If we are default, display the dota icon and put us in the default folder
+                int imageIndex = 2;
+                TreeNode parent = Root;
+                if(Default)
                 {
-                    imageIndex = 2;
+                    imageIndex = 1;
+                    parent = DefaultFolder;
                 }
 
                 TreeNode newNode = new TreeNode()
@@ -54,7 +68,8 @@ namespace WorldSmith.Panels
                     ImageIndex = imageIndex,
                     SelectedImageIndex = imageIndex,
                 };
-                Root.Nodes.Add(newNode);
+
+                parent.Nodes.Add(newNode);
             }
         }
 

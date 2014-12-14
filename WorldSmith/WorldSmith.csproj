@@ -255,12 +255,6 @@
     <Compile Include="Panels\ProjectView.Designer.cs">
       <DependentUpon>ProjectView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panels\VPKView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Panels\VPKView.Designer.cs">
-      <DependentUpon>VPKView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Panels\ItemEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -403,9 +397,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\ProjectView.resx">
       <DependentUpon>ProjectView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Panels\VPKView.resx">
-      <DependentUpon>VPKView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

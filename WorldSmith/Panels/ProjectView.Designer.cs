@@ -28,24 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fileTreeView1 = new WorldSmith.Controls.FileTreeView();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Project", 4, 4);
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Dota 2 VPK", 3, 3);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectView));
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.images = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
-            // fileTreeView1
+            // treeView1
             // 
-            this.fileTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileTreeView1.Location = new System.Drawing.Point(0, 0);
-            this.fileTreeView1.Name = "fileTreeView1";
-            this.fileTreeView1.Size = new System.Drawing.Size(284, 579);
-            this.fileTreeView1.TabIndex = 0;
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.ImageIndex = 0;
+            this.treeView1.ImageList = this.images;
+            this.treeView1.Location = new System.Drawing.Point(0, 0);
+            this.treeView1.Name = "treeView1";
+            treeNode1.ImageIndex = 4;
+            treeNode1.Name = "project";
+            treeNode1.SelectedImageIndex = 4;
+            treeNode1.Text = "Project";
+            treeNode2.ImageIndex = 3;
+            treeNode2.Name = "vpk";
+            treeNode2.SelectedImageIndex = 3;
+            treeNode2.Text = "Dota 2 VPK";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            this.treeView1.SelectedImageIndex = 0;
+            this.treeView1.Size = new System.Drawing.Size(284, 579);
+            this.treeView1.TabIndex = 0;
+            this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
+            // 
+            // images
+            // 
+            this.images.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("images.ImageStream")));
+            this.images.TransparentColor = System.Drawing.Color.Transparent;
+            this.images.Images.SetKeyName(0, "Generic_Document.png");
+            this.images.Images.SetKeyName(1, "UtilityText.ico");
+            this.images.Images.SetKeyName(2, "Folder.ico");
+            this.images.Images.SetKeyName(3, "dotaicon16x16.png");
+            this.images.Images.SetKeyName(4, "WSIcon32.png");
             // 
             // ProjectView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 579);
-            this.Controls.Add(this.fileTreeView1);
+            this.Controls.Add(this.treeView1);
+            this.DockAreas = ((DigitalRune.Windows.Docking.DockAreas)((((((DigitalRune.Windows.Docking.DockAreas.Float | DigitalRune.Windows.Docking.DockAreas.Left) 
+            | DigitalRune.Windows.Docking.DockAreas.Right) 
+            | DigitalRune.Windows.Docking.DockAreas.Top) 
+            | DigitalRune.Windows.Docking.DockAreas.Bottom) 
+            | DigitalRune.Windows.Docking.DockAreas.Document)));
             this.Name = "ProjectView";
+            this.TabText = "Project View";
             this.Text = "Project View";
             this.ResumeLayout(false);
 
@@ -53,6 +89,8 @@
 
         #endregion
 
-        private Controls.FileTreeView fileTreeView1;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.ImageList images;
+
     }
 }

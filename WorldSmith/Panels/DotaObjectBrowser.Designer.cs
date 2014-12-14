@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Heroes");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Units");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Abilities");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Items");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Heroes");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Units");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Abilities");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Items");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DotaObjectBrowser));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.assetTreeView = new System.Windows.Forms.TreeView();
@@ -72,19 +72,19 @@
             this.assetTreeView.ImageList = this.imageList;
             this.assetTreeView.Location = new System.Drawing.Point(0, 0);
             this.assetTreeView.Name = "assetTreeView";
-            treeNode1.Name = "heroes";
-            treeNode1.Text = "Heroes";
-            treeNode2.Name = "units";
-            treeNode2.Text = "Units";
-            treeNode3.Name = "abilities";
-            treeNode3.Text = "Abilities";
-            treeNode4.Name = "items";
-            treeNode4.Text = "Items";
+            treeNode5.Name = "heroes";
+            treeNode5.Text = "Heroes";
+            treeNode6.Name = "units";
+            treeNode6.Text = "Units";
+            treeNode7.Name = "abilities";
+            treeNode7.Text = "Abilities";
+            treeNode8.Name = "items";
+            treeNode8.Text = "Items";
             this.assetTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.assetTreeView.SelectedImageIndex = 0;
             this.assetTreeView.Size = new System.Drawing.Size(245, 568);
             this.assetTreeView.TabIndex = 0;
@@ -133,6 +133,7 @@
             | DigitalRune.Windows.Docking.DockAreas.Top) 
             | DigitalRune.Windows.Docking.DockAreas.Bottom) 
             | DigitalRune.Windows.Docking.DockAreas.Document)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DotaObjectBrowser";
             this.TabText = "DotaObjectBrowser";
             this.Text = "DotaObjectBrowser";
