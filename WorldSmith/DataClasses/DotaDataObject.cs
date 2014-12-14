@@ -6,17 +6,48 @@ using System.Threading.Tasks;
 using KVLib;
 using System.ComponentModel;
 using System.Reflection;
+using WorldSmith.DataClasses.Attributes;
 
 namespace WorldSmith.DataClasses
 {
     public class DotaDataObject : ICloneable
     {
+        public class DataObjectInfo
+        {
+            public enum ObjectDataClass
+            {
+                Default,
+                Override,
+                Custom,
+            }
+
+            public string OriginatingFile;
+            public bool FromVPK;
+            public ObjectDataClass ObjectClass;
+
+        }
+
+
         [Category("Base")]
         [Description("Class name for this object")]
+        [NonKVSerialized]
         public string ClassName
         {
             get;
             set;
+        }
+
+        [NonKVSerialized]
+        [Browsable(false)]
+        public DataObjectInfo ObjectInfo
+        {
+            get;
+            set;
+        }
+
+        public DotaDataObject()
+        {
+            ObjectInfo = new DataObjectInfo();
         }
 
         public virtual void LoadFromKeyValues(KeyValue kv)
@@ -88,6 +119,10 @@ namespace WorldSmith.DataClasses
                 //Don't want to write ClassName to the file since it's the key
                 if (info.Name == "ClassName") continue;
                 if (info.Name == "WasModified") continue;
+
+                //If we are marked as NonSerialzed, skip us
+                NonKVSerializedAttribute ns = info.GetCustomAttribute<NonKVSerializedAttribute>();
+                if (ns != null) continue;
 
 
                 object data = info.GetMethod.Invoke(this, new object[] { });

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Heroes");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Units");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Abilities");
@@ -35,8 +36,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DotaObjectBrowser));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.assetTreeView = new System.Windows.Forms.TreeView();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -63,7 +66,10 @@
             // 
             // assetTreeView
             // 
+            this.assetTreeView.ContextMenuStrip = this.contextMenuStrip;
             this.assetTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.assetTreeView.ImageIndex = 0;
+            this.assetTreeView.ImageList = this.imageList;
             this.assetTreeView.Location = new System.Drawing.Point(0, 0);
             this.assetTreeView.Name = "assetTreeView";
             treeNode1.Name = "heroes";
@@ -79,9 +85,18 @@
             treeNode2,
             treeNode3,
             treeNode4});
+            this.assetTreeView.SelectedImageIndex = 0;
             this.assetTreeView.Size = new System.Drawing.Size(245, 568);
             this.assetTreeView.TabIndex = 0;
             this.assetTreeView.DoubleClick += new System.EventHandler(this.assetTreeView_DoubleClick);
+            // 
+            // imageList
+            // 
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "Folder.png");
+            this.imageList.Images.SetKeyName(1, "dotaicon16x16.png");
+            this.imageList.Images.SetKeyName(2, "WSIcon32.png");
             // 
             // toolStrip1
             // 
@@ -101,6 +116,11 @@
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(54, 22);
             this.toolStripDropDownButton1.Text = "Create";
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
             // 
             // DotaObjectBrowser
             // 
@@ -133,5 +153,7 @@
         private System.Windows.Forms.TreeView assetTreeView;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
     }
 }

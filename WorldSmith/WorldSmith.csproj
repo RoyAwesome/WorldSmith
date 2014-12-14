@@ -150,6 +150,7 @@
     <Compile Include="DataClasses\ActionTypes\Stun.cs" />
     <Compile Include="DataClasses\ActionTypes\TargetedAction.cs" />
     <Compile Include="DataClasses\ActionTypes\TrackingProjectile.cs" />
+    <Compile Include="DataClasses\Attributes\NonKVSerializedAttribute.cs" />
     <Compile Include="DataClasses\DotaActionFactory.cs" />
     <Compile Include="DataClasses\ActionProperties\AbilityActionCollection.cs" />
     <Compile Include="DataClasses\ActionProperties\ActionCollection.cs" />
@@ -517,6 +518,7 @@
     <None Include="Resources\CutHS.png" />
     <None Include="Resources\CopyHS.png" />
     <None Include="Resources\PasteHS.png" />
+    <None Include="Resources\dotaicon16x16.png" />
     <Content Include="WSIconic.ico" />
   </ItemGroup>
   <ItemGroup>

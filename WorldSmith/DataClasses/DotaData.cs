@@ -185,6 +185,11 @@ namespace WorldSmith.DataClasses
 
                 T unit = typeof(T).GetConstructor(Type.EmptyTypes).Invoke(new object[] { }) as T;
                 unit.LoadFromKeyValues(kv);
+
+                unit.ObjectInfo.FromVPK = true;
+                unit.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Default;
+                unit.ObjectInfo.OriginatingFile = filePath;
+
                 ListToInsert.Add(unit);
             }
             return;
@@ -206,6 +211,11 @@ namespace WorldSmith.DataClasses
                         if (!hero.HasChildren) continue;
                         T unit = typeof(T).GetConstructor(Type.EmptyTypes).Invoke(Type.EmptyTypes) as T;
                         unit.LoadFromKeyValues(hero);
+
+                        unit.ObjectInfo.FromVPK = false;
+                        unit.ObjectInfo.OriginatingFile = file;
+                        //TODO: Determine if it's an override
+                        unit.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Custom;
 
                         ListToLoadInto.Add(unit);
                     }

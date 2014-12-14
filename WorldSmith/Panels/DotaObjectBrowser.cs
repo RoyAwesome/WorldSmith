@@ -40,11 +40,19 @@ namespace WorldSmith.Panels
 
             foreach(DotaDataObject ddo in ObjectList)
             {
+                int imageIndex = 1;
+                if(ddo.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Custom)
+                {
+                    imageIndex = 2;
+                }
+
                 TreeNode newNode = new TreeNode()
                 {
                     Name = ddo.ClassName,
                     Text = ddo.ClassName,
                     Tag = ddo,
+                    ImageIndex = imageIndex,
+                    SelectedImageIndex = imageIndex,
                 };
                 Root.Nodes.Add(newNode);
             }
