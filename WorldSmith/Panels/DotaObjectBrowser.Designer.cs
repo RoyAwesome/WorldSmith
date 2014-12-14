@@ -29,17 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Heroes");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Units");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Abilities");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Items");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Heroes");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node3");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node4");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Units", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Abilities");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Items");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DotaObjectBrowser));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.assetTreeView = new System.Windows.Forms.TreeView();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -70,25 +80,41 @@
             this.assetTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.assetTreeView.ImageIndex = 0;
             this.assetTreeView.ImageList = this.imageList;
+            this.assetTreeView.Indent = 13;
             this.assetTreeView.Location = new System.Drawing.Point(0, 0);
             this.assetTreeView.Name = "assetTreeView";
-            treeNode5.Name = "heroes";
-            treeNode5.Text = "Heroes";
-            treeNode6.Name = "units";
-            treeNode6.Text = "Units";
-            treeNode7.Name = "abilities";
-            treeNode7.Text = "Abilities";
-            treeNode8.Name = "items";
-            treeNode8.Text = "Items";
+            treeNode1.Name = "heroes";
+            treeNode1.Text = "Heroes";
+            treeNode2.Name = "Node3";
+            treeNode2.Text = "Node3";
+            treeNode3.Name = "Node4";
+            treeNode3.Text = "Node4";
+            treeNode4.Name = "Node0";
+            treeNode4.Text = "Node0";
+            treeNode5.Name = "Node1";
+            treeNode5.Text = "Node1";
+            treeNode6.Name = "Node2";
+            treeNode6.Text = "Node2";
+            treeNode7.Name = "units";
+            treeNode7.Text = "Units";
+            treeNode8.Name = "abilities";
+            treeNode8.Text = "Abilities";
+            treeNode9.Name = "items";
+            treeNode9.Text = "Items";
             this.assetTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
+            treeNode1,
             treeNode7,
-            treeNode8});
+            treeNode8,
+            treeNode9});
             this.assetTreeView.SelectedImageIndex = 0;
             this.assetTreeView.Size = new System.Drawing.Size(245, 568);
             this.assetTreeView.TabIndex = 0;
             this.assetTreeView.DoubleClick += new System.EventHandler(this.assetTreeView_DoubleClick);
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
             // 
             // imageList
             // 
@@ -116,11 +142,6 @@
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(54, 22);
             this.toolStripDropDownButton1.Text = "Create";
-            // 
-            // contextMenuStrip
-            // 
-            this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
             // 
             // DotaObjectBrowser
             // 
