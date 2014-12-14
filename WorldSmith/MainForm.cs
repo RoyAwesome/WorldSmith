@@ -28,6 +28,8 @@ namespace WorldSmith
 
         ProjectView ProjectView;
 
+        public static DockPanel PrimaryDockingPanel;
+
         public MainForm()
         {
             InitializeComponent();
@@ -56,6 +58,8 @@ namespace WorldSmith
 
             //TODO: Figure out a way to toggle off the VPK View button when disabled
 
+
+            PrimaryDockingPanel = dockPanel; //Set a static accessor to our docking panel for all default controls to go to.
         }
      
         private void InitTabs()
@@ -115,7 +119,7 @@ namespace WorldSmith
         private void addonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
-            dialog.SelectedPath = Properties.Settings.Default.AddOnDir;
+            dialog.SelectedPath = Properties.Settings.Default.AddOnDir != "" ? Properties.Settings.Default.AddOnDir : Properties.Settings.Default.DotaDir;
             if (dialog.ShowDialog() != DialogResult.OK) return;
             string folder = dialog.SelectedPath + Path.DirectorySeparatorChar;
 
@@ -130,7 +134,7 @@ namespace WorldSmith
 
         public void LoadProject(string path)
         {
-            Properties.Settings.Default.AddOnPath = path;
+            Properties.Settings.Default.LoadedAddonDirectory = path;
             Properties.Settings.Default.Save();
 
             AssetLoadingDialog loader = new AssetLoadingDialog();

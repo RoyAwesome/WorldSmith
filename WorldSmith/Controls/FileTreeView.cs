@@ -16,13 +16,29 @@ namespace WorldSmith.Controls
         Vpk,
         Project,
     }
+    public delegate void TreeViewDoubleClicked(object sender, TreeNode selectedNode);
+
 
     public partial class FileTreeView : UserControl
     {      
         public FileTreeView()
         {
             InitializeComponent();
+
+            treeView.DoubleClick += treeView_DoubleClick;
         }
+
+        public event TreeViewDoubleClicked ItemDoubleClicked;
+
+        void treeView_DoubleClick(object sender, EventArgs e)
+        {
+            if(ItemDoubleClicked != null)
+            {                
+                ItemDoubleClicked.Invoke(this, treeView.SelectedNode);
+            }
+        }
+
+        
 
         public void Populate(FileViewSource source)
         {
@@ -44,6 +60,7 @@ namespace WorldSmith.Controls
         {
             TreeNode rootNode = treeView.Nodes[0];
             rootNode.Tag = "/";
+            rootNode.Text = "Dota 2 VPK";
             IntPtr rootptr = HLLib.hlPackageGetRoot();
 
             RecursivePopulateFromVPK(ref rootNode, rootptr);
@@ -97,7 +114,9 @@ namespace WorldSmith.Controls
         protected void PopulateFromProject()
         {
             TreeNode rootNode = treeView.Nodes[0];
-            string projectPath = Properties.Settings.Default.AddOnPath;
+            string projectPath = Properties.Settings.Default.LoadedAddonDirectory;
+            string projectName = Path.GetFileName(projectPath.Remove(projectPath.Length - 1));
+            rootNode.Text = projectName;
             rootNode.Tag = projectPath;
 
             RecursivePopulateFromProject(ref rootNode, projectPath);
@@ -122,6 +141,8 @@ namespace WorldSmith.Controls
                 };
                 node.Nodes.Add(folder);
 
+                RecursivePopulateFromProject(ref folder, dir);
+
                 string[] files = Directory.GetFiles(dir);
                 foreach(string f in files)
                 {
@@ -136,7 +157,7 @@ namespace WorldSmith.Controls
                     folder.Nodes.Add(file);
                 }
 
-                RecursivePopulateFromProject(ref folder, dir);
+               
             }
         }
         

@@ -132,6 +132,19 @@ namespace WorldSmith.DataClasses
             return str.ToString();
         }
 
+        public static string ReadAllText(string filePath)
+        {
+            IntPtr root = HLLib.hlPackageGetRoot();
+
+            IntPtr file = HLLib.hlFolderGetItemByPath(root, filePath, HLLib.HLFindType.HL_FIND_FILES);
+
+            IntPtr stream;
+            ErrorCheck(HLLib.hlPackageCreateStream(file, out stream));
+
+            string text = ReadTextFromHLLibStream(stream);
+
+            return text;
+        }
 
         public static void ErrorCheck(bool ret)
         {
