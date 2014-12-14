@@ -29,17 +29,17 @@ namespace WorldSmith.Panels
             ReadList("overriddenAbilities", DotaData.OverridenAbilities);
         }
 
-        private void ReadList<T>(string treeKey, List<T> unitList) where T : DotaDataObject
+        private void ReadList<T>(string treeKey, List<T> abilityList) where T : DotaDataObject
         {
             TreeNode n = abilityTreeView.Nodes.Find(treeKey, false)[0];
             //n.Nodes.Clear();
 
-            foreach (T unit in unitList)
+            foreach (T ability in abilityList)
             {
                 TreeNode newnode = new TreeNode()
                 {
-                    Name = unit.ClassName,
-                    Text = unit.ClassName,
+                    Name = ability.ClassName,
+                    Text = ability.ClassName,
                     Tag = "Item"
                 };
                 n.Nodes.Add(newnode);

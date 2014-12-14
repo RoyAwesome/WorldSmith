@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Default Abilities");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Custom Abilities");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Overridden Abilities");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Default Abilities");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Custom Abilities", 1, 1);
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Overridden Abilities", 1, 1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AbilityEditor));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
@@ -94,20 +94,22 @@
             this.abilityTreeView.ImageList = this.imageList1;
             this.abilityTreeView.Location = new System.Drawing.Point(0, 0);
             this.abilityTreeView.Name = "abilityTreeView";
-            treeNode4.ImageIndex = 0;
-            treeNode4.Name = "defaultAbilities";
-            treeNode4.Text = "Default Abilities";
-            treeNode5.ImageIndex = 1;
-            treeNode5.Name = "customAbilities";
-            treeNode5.Text = "Custom Abilities";
-            treeNode5.ToolTipText = "Abilities created by you";
-            treeNode6.ImageIndex = 1;
-            treeNode6.Name = "overriddenAbilities";
-            treeNode6.Text = "Overridden Abilities";
+            treeNode1.ImageIndex = 0;
+            treeNode1.Name = "defaultAbilities";
+            treeNode1.Text = "Default Abilities";
+            treeNode2.ImageIndex = 1;
+            treeNode2.Name = "customAbilities";
+            treeNode2.SelectedImageIndex = 1;
+            treeNode2.Text = "Custom Abilities";
+            treeNode2.ToolTipText = "Abilities created by you";
+            treeNode3.ImageIndex = 1;
+            treeNode3.Name = "overriddenAbilities";
+            treeNode3.SelectedImageIndex = 1;
+            treeNode3.Text = "Overridden Abilities";
             this.abilityTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode5,
-            treeNode6});
+            treeNode1,
+            treeNode2,
+            treeNode3});
             this.abilityTreeView.SelectedImageIndex = 0;
             this.abilityTreeView.Size = new System.Drawing.Size(185, 446);
             this.abilityTreeView.TabIndex = 0;
