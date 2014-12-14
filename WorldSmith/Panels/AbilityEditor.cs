@@ -32,7 +32,7 @@ namespace WorldSmith.Panels
         private void ReadList<T>(string treeKey, List<T> abilityList) where T : DotaDataObject
         {
             TreeNode n = abilityTreeView.Nodes.Find(treeKey, false)[0];
-            //n.Nodes.Clear();
+            n.Nodes.Clear();
 
             foreach (T ability in abilityList)
             {
@@ -46,13 +46,9 @@ namespace WorldSmith.Panels
             }
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        private void abilityTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if((string)abilityTreeView.SelectedNode.Tag != "Item") return;
-
-            string classname = abilityTreeView.SelectedNode.Name;
-            DotaDataObject obj = DotaData.AllClasses.First(x => x.ClassName == classname);
-            abilityPropertyGrid.SelectedObject = obj;
+            abilityPropertyGrid.SelectedObject = DotaData.AllClasses.FirstOrDefault(x => x.ClassName == e.Node.Name);
         }
 
         private void itemPropertyGrid_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)

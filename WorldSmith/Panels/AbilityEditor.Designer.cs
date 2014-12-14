@@ -113,7 +113,7 @@
             this.abilityTreeView.SelectedImageIndex = 0;
             this.abilityTreeView.Size = new System.Drawing.Size(185, 446);
             this.abilityTreeView.TabIndex = 0;
-            this.abilityTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.abilityTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.abilityTreeView_AfterSelect);
             // 
             // imageList1
             // 
