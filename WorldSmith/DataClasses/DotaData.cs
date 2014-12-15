@@ -238,7 +238,7 @@ namespace WorldSmith.DataClasses
 
         public static void SaveList<T>(List<T> list, string RootKey, string outputFileName) where T : DotaDataObject
         {
-            string path = Properties.Settings.Default.AddOnPath + Path.DirectorySeparatorChar
+            string path = Properties.Settings.Default.LoadedAddonDirectory + Path.DirectorySeparatorChar
                 + "scripts" + Path.DirectorySeparatorChar + "npc" + Path.DirectorySeparatorChar;
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
 

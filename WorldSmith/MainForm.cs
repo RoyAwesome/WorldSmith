@@ -133,6 +133,7 @@ namespace WorldSmith
         {
             Properties.Settings.Default.LoadedAddonDirectory = path;
             Properties.Settings.Default.Save();
+            Console.WriteLine("Loading Project: " + path);
 
             AssetLoadingDialog loader = new AssetLoadingDialog();
             loader.ShowDialog(AssetLoadingDialog.AddonLoadTasks);
@@ -144,14 +145,16 @@ namespace WorldSmith
 
             DotaObjectBrowser ObjectBrowser = new DotaObjectBrowser();
             ObjectBrowser.Show(dockPanel, DockState.DockLeft);
+
+            Console.WriteLine("Successfully Loaded Project: " + path);
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(Properties.Settings.Default.AddOnPath == "") //If we don't have an addon loaded, create a new one
+            if(Properties.Settings.Default.LoadedAddonDirectory == "") //If we don't have an addon loaded, create a new one
             {
                 addonToolStripMenuItem1_Click(null, null);
-                if (Properties.Settings.Default.AddOnPath == "") return; //if we still don't have an addon loaded, don't even bother
+                if (Properties.Settings.Default.LoadedAddonDirectory == "") return; //if we still don't have an addon loaded, don't even bother
             }
 
             AssetLoadingDialog dialog = new AssetLoadingDialog();
@@ -173,12 +176,7 @@ namespace WorldSmith
         {
             Application.Exit();
         }
-
-        private void oPENDIALOGToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FlagChecklistDialog dialog = new FlagChecklistDialog();
-            dialog.ShowDialog();
-        }
+              
 
         #region Localization functions
         private void englishToolStripMenuItem_Click(object sender, EventArgs e)
@@ -238,112 +236,9 @@ namespace WorldSmith
                     return document;
             return null;
         }
-        private AbilityEditor  CreateAbilityEditor()
-        {
-            AbilityEditor document = new AbilityEditor();
-
-            // Set document title
-            int count = 1;
-            string title = "CategoryEditor " + count;
-            while (FindDocument(title) != null)
-            {
-                count++;
-                title = "CategoryEditor" + count;
-            }
-
-            document.Text = title;
-            document.ToolTipText = "Tool tip of " + title;
-            document.TabPageContextMenuStrip = _contextMenu;
-            return document;
-        }
-        private ItemEditor CreateItemEditor()
-        {
-            ItemEditor document = new ItemEditor();
-
-            // Set document title
-            int count = 1;
-            string title = "Item Editor " + count;
-            while (FindDocument(title) != null)
-            {
-                count++;
-                title = "Item Editor" + count;
-            }
-
-            document.Text = title;
-            document.ToolTipText = "Tool tip of " + title;
-            document.TabPageContextMenuStrip = _contextMenu;
-            return document;
-        }
-        private UnitEditor CreateUnitEditor()
-        {
-            UnitEditor document = new UnitEditor();
-
-            // Set document title
-            int count = 1;
-            string title = "Unit Editor " + count;
-            while (FindDocument(title) != null)
-            {
-                count++;
-                title = "Unit Editor " + count;
-            }
-
-            document.Text = title;
-            document.ToolTipText = "Tool tip of " + title;
-            document.TabPageContextMenuStrip = _contextMenu;
-            return document;
-        }
         #endregion
 
-        #region EditorButtons
-        private void newUnitEditorButton_Click(object sender, EventArgs e)
-        {
-            UnitEditor document = CreateUnitEditor();
 
-            // Show document
-            if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
-            {
-                document.MdiParent = this;
-                document.Show();
-            }
-            else
-            {
-                document.Show(dockPanel);
-            }
-        }
 
-        private void newAbilityEditorButton_Click(object sender, EventArgs e)
-        {
-            AbilityEditor document = CreateAbilityEditor();
-
-            // Show document
-            if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
-            {
-                document.MdiParent = this;
-                document.Show();
-            }
-            else
-            {
-                document.Show(dockPanel);
-            }
-        }
-
-        private void newItemEditorButton_Click(object sender, EventArgs e)
-        {
-            ItemEditor document = CreateItemEditor();
-
-            // Show document
-            if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
-            {
-                document.MdiParent = this;
-                document.Show();
-            }
-            else
-            {
-                document.Show(dockPanel);
-            }
-        }
-        #endregion
-
-   
     }
 }

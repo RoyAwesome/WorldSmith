@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AbilityEditor));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -110,15 +109,11 @@
             this.itemPropertyGrid.Size = new System.Drawing.Size(378, 510);
             this.itemPropertyGrid.TabIndex = 0;
             this.itemPropertyGrid.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.itemPropertyGrid_PropertyValueChanged);
-            // 
-            // categoryEditorBindingSource
-            // 
-            this.categoryEditorBindingSource.DataSource = typeof(WorldSmith.Panels.AbilityEditor);
+          
             // 
             // addItemButton
             // 
             this.addItemButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.addItemButton.Image = ((System.Drawing.Image)(resources.GetObject("addItemButton.Image")));
             this.addItemButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.addItemButton.Name = "addItemButton";
             this.addItemButton.Size = new System.Drawing.Size(23, 22);

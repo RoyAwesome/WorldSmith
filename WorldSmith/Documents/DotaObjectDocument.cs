@@ -63,6 +63,7 @@ namespace WorldSmith.Documents
 
         public DotaObjectEditor OpenObjectEditor()
         {
+            Console.WriteLine("Opening Object Editor for " + DotaObject.ClassName);
             DotaObjectEditor Editor = new DotaObjectEditor();
             Editor.EditingObject = DotaObject;
             Editor.TabText = DotaObject.ClassName;
