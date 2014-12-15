@@ -146,7 +146,7 @@ namespace WorldSmith
             DotaObjectBrowser ObjectBrowser = new DotaObjectBrowser();
             ObjectBrowser.Show(dockPanel, DockState.DockLeft);
 
-            Console.WriteLine("Successfully Loaded Project: " + path);
+            Console.WriteLine("Successfully Loaded Project: " + path); 
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
