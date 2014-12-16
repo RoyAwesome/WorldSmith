@@ -191,27 +191,32 @@
             this.systemThemeButton});
             this.themesToolStripMenuItem.Name = "themesToolStripMenuItem";
             resources.ApplyResources(this.themesToolStripMenuItem, "themesToolStripMenuItem");
+            this.themesToolStripMenuItem.DropDownOpening += new System.EventHandler(this.themesToolStripMenuItem_DropDownOpening);
             // 
             // blackThemeButton
             // 
+            this.blackThemeButton.CheckOnClick = true;
             this.blackThemeButton.Name = "blackThemeButton";
             resources.ApplyResources(this.blackThemeButton, "blackThemeButton");
             this.blackThemeButton.Click += new System.EventHandler(this.blackThemeButton_Click);
             // 
             // blueThemeButton
             // 
+            this.blueThemeButton.CheckOnClick = true;
             this.blueThemeButton.Name = "blueThemeButton";
             resources.ApplyResources(this.blueThemeButton, "blueThemeButton");
             this.blueThemeButton.Click += new System.EventHandler(this.blueThemeButton_Click);
             // 
             // silverThemeButton
             // 
+            this.silverThemeButton.CheckOnClick = true;
             this.silverThemeButton.Name = "silverThemeButton";
             resources.ApplyResources(this.silverThemeButton, "silverThemeButton");
             this.silverThemeButton.Click += new System.EventHandler(this.silverThemeButton_Click);
             // 
             // professionalThemeButton
             // 
+            this.professionalThemeButton.CheckOnClick = true;
             this.professionalThemeButton.Name = "professionalThemeButton";
             resources.ApplyResources(this.professionalThemeButton, "professionalThemeButton");
             this.professionalThemeButton.Click += new System.EventHandler(this.professionalThemeButton_Click);
@@ -219,6 +224,7 @@
             // visualThemeButton
             // 
             this.visualThemeButton.Checked = true;
+            this.visualThemeButton.CheckOnClick = true;
             this.visualThemeButton.CheckState = System.Windows.Forms.CheckState.Checked;
             this.visualThemeButton.Name = "visualThemeButton";
             resources.ApplyResources(this.visualThemeButton, "visualThemeButton");
@@ -226,6 +232,7 @@
             // 
             // systemThemeButton
             // 
+            this.systemThemeButton.CheckOnClick = true;
             this.systemThemeButton.Name = "systemThemeButton";
             resources.ApplyResources(this.systemThemeButton, "systemThemeButton");
             this.systemThemeButton.Click += new System.EventHandler(this.systemThemeButton_Click);

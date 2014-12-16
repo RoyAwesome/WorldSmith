@@ -292,6 +292,16 @@ namespace WorldSmith
             dockPanel.Refresh();
         }
 
+        private void themesToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            professionalThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.Professional;
+            systemThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.System;
+            visualThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.VisualStyles;
+            blackThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.Office2007Black;
+            blueThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.Office2007Blue;
+            silverThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.Office2007Silver;
+        }
+
 
 
     }
