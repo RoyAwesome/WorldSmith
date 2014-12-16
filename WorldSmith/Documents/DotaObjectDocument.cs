@@ -63,7 +63,6 @@ namespace WorldSmith.Documents
 
         public DotaObjectEditor OpenObjectEditor()
         {
-            Console.WriteLine("Opening Object Editor for " + DotaObject.ClassName);
             bool EditorWasOpen = ContainsEditor<DotaObjectEditor>();
             DotaObjectEditor Editor = OpenEditor<DotaObjectEditor>();
             if(!EditorWasOpen)

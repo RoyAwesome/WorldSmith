@@ -70,14 +70,13 @@ namespace WorldSmith.Documents
         /// </summary>
         public event DocumentEventHandler OnDocumentSaved;
 
-
+        
         protected abstract void DoSave();
 
         public virtual void Save(IEditor source)
         {
             if (!IsEdited) return; //Don't bother saving if we haven't edited this document
-
-
+            
             DoSave();
             if(OnDocumentSaved == null)
             {
@@ -85,6 +84,7 @@ namespace WorldSmith.Documents
                 return;
             }
             OnDocumentSaved(source);
+            Console.WriteLine("Saved " + Name + " to " + Path);
         }
 
         public abstract void Reload();
@@ -101,7 +101,7 @@ namespace WorldSmith.Documents
                 return;
             }
             OnDocumentEdited(source);
-
+            IsEdited = true;
         }
 
         /// <summary>
@@ -111,6 +111,7 @@ namespace WorldSmith.Documents
         /// <returns></returns>
         public virtual T OpenEditor<T>() where T : IEditor
         {
+            Console.WriteLine("Opening a " + typeof(T).Name + " for document " + Name);
             T Editor = (T)AttachedEditors.FirstOrDefault(x => x.GetType() == typeof(T));
             if(Editor != null)
             {
@@ -150,6 +151,22 @@ namespace WorldSmith.Documents
         public virtual bool ContainsEditor<T>() where T : IEditor
         {           
              return GetEditor<T>() != null;
+        }
+
+        public void NotifyEditorClosed(IEditor editor)
+        {
+            OnDocumentEdited -= editor.NotifyDocumentModified;
+            OnDocumentSaved -= editor.NotifyDocumentSaved;
+
+            AttachedEditors.Remove(editor);
+            Reload();
+
+            //No more editors? Lets close this document
+            if(AttachedEditors.Count == 0)
+            {
+                Console.WriteLine("Closing document: " + Name);
+                DocumentRegistry.CloseDocument(this);
+            }
         }
 
     }

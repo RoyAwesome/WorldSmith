@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorldSmith.Documents
 {
-    class DocumentRegistry
+    static class DocumentRegistry
     {
         static Dictionary<object, Document> OpenDocuments = new Dictionary<object, Document>();
 
@@ -28,6 +28,25 @@ namespace WorldSmith.Documents
             return null;
         }
         
+        public static void CloseDocument(Document document)
+        {
+            OpenDocuments.RemoveByValue(document);
+        }
 
+        private static void RemoveByValue<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TValue someValue)
+        {
+            List<TKey> itemsToRemove = new List<TKey>();
+
+            foreach (var pair in dictionary)
+            {
+                if (pair.Value.Equals(someValue))
+                    itemsToRemove.Add(pair.Key);
+            }
+
+            foreach (TKey item in itemsToRemove)
+            {
+                dictionary.Remove(item);
+            }
+        }
     }
 }

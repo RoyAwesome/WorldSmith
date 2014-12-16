@@ -30,6 +30,12 @@ namespace WorldSmith.Panels
         public DotaObjectEditor()
         {
             InitializeComponent();
+            this.FormClosing += DotaObjectEditor_FormClosing;
+        }
+
+        void DotaObjectEditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ActiveDocument.NotifyEditorClosed(this);
         }
 
         public Documents.Document ActiveDocument

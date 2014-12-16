@@ -56,39 +56,42 @@ namespace WorldSmith
         {
             InitializeComponent();
             Filename = String.Empty;
+
+            textEditorControl1.DocumentChanged += textEditorControl1_DocumentChanged;
+          
+            this.FormClosed += TextEditor_FormClosed;
         }
+
+        void textEditorControl1_DocumentChanged(object sender, DocumentEventArgs e)
+        {
+            if(e.Length != 0) 
+                ActiveDocument.DocumentEdited(this);
+        }
+
+        void TextEditor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //TODO: Check for changes and ask to save if we are closing.
+            if(ActiveDocument.IsEdited)
+            {
+                if(MessageBox.Show("This editor contains unsaved changes! Do you want to save now?", "Are you sure?", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    ActiveDocument.Save(this);
+                }
+              
+            }
+
+            ActiveDocument.NotifyEditorClosed(this);
+        }
+
+    
 
         public void OpenDocument(TextDocument document)
         {
             Filename = document.Path;
             IsReadOnly = document.Source == DocumentSource.VPK;
             textEditorControl1.Document.TextContent = document.Text;
-
         }
-
-        public void OpenFile(string path, bool fromVPK)
-        {
-           if(fromVPK)
-           {
-               //Stuff for loading from vpk
-               string text = DotaData.ReadAllText(path);
-               Filename = Path.GetFileName(path);
-               IsReadOnly = true;
-
-               textEditorControl1.Document.TextContent = text;
-
-           }
-           else
-           {
-               Filename = Path.GetFileName(path);
-               IsReadOnly = false;
-               
-
-               textEditorControl1.Document.TextContent = File.ReadAllText(path);
-           }
-
-        }
-
+     
         public string GetEditorText()
         {
             return textEditorControl1.Text;
@@ -99,12 +102,14 @@ namespace WorldSmith
             if (value)
             {
                 saveButton.Enabled = false;
-                textEditorControl1.IsReadOnly = false;
+                textEditorControl1.IsReadOnly = true;
+                saveButton.ToolTipText = "Cannot Save, File is read only";
             }
             else
             {
                 saveButton.Enabled = true;
-                textEditorControl1.IsReadOnly = true;
+                textEditorControl1.IsReadOnly = false;
+                saveButton.ToolTipText = "Save";
             }
         }
 
@@ -117,7 +122,10 @@ namespace WorldSmith
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-
+            if(ActiveDocument.IsEdited)
+            {
+                ActiveDocument.Save(this);
+            }
         }
 
         private void copyButton_Click(object sender, EventArgs e)
@@ -141,7 +149,7 @@ namespace WorldSmith
 
         public void NotifyDocumentModified(IEditor source)
         {
-           
+            
         }
 
         public void NotifyDocumentSaved(IEditor source)
