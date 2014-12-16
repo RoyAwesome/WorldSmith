@@ -121,78 +121,11 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="addonToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 22</value>
-  </data>
-  <data name="addonToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Addon</value>
-  </data>
-  <data name="fileMenuNew.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="fileMenuNew.Text" xml:space="preserve">
-    <value>New</value>
-  </data>
-  <data name="addonToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 22</value>
-  </data>
-  <data name="addonToolStripMenuItem.Text" xml:space="preserve">
-    <value>Addon</value>
-  </data>
-  <data name="fileMenuOpen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="fileMenuOpen.Text" xml:space="preserve">
-    <value>Open</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="fileMenuSave.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+S</value>
-  </data>
-  <data name="fileMenuSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="fileMenuSave.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
-  </data>
-  <data name="fileMenuExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="fileMenuExit.Text" xml:space="preserve">
-    <value>Exit</value>
-  </data>
   <data name="fileMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 20</value>
   </data>
   <data name="fileMenu.Text" xml:space="preserve">
     <value>File</value>
-  </data>
-  <data name="optionsSetDotaDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
-  </data>
-  <data name="optionsSetDotaDirectory.Text" xml:space="preserve">
-    <value>Set Dota Directory</value>
-  </data>
-  <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
-  </data>
-  <data name="englishToolStripMenuItem.Text" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="swedishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
-  </data>
-  <data name="swedishToolStripMenuItem.Text" xml:space="preserve">
-    <value>Swedish (Svenska)</value>
-  </data>
-  <data name="optionsMenuLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
-  </data>
-  <data name="optionsMenuLanguage.Text" xml:space="preserve">
-    <value>Language</value>
   </data>
   <data name="optionsMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 20</value>
@@ -200,23 +133,53 @@
   <data name="optionsMenu.Text" xml:space="preserve">
     <value>Options</value>
   </data>
-  <data name="projectExplorerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 22</value>
-  </data>
-  <data name="projectExplorerToolStripMenuItem.Text" xml:space="preserve">
-    <value>Project Explorer</value>
-  </data>
-  <data name="objectBrowserToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 22</value>
-  </data>
-  <data name="objectBrowserToolStripMenuItem.Text" xml:space="preserve">
-    <value>Object Browser</value>
-  </data>
   <data name="windowToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 20</value>
   </data>
   <data name="windowToolStripMenuItem.Text" xml:space="preserve">
     <value>Window</value>
+  </data>
+  <data name="blackThemeButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="blackThemeButton.Text" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="blueThemeButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="blueThemeButton.Text" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="silverThemeButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="silverThemeButton.Text" xml:space="preserve">
+    <value>Silver</value>
+  </data>
+  <data name="professionalThemeButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="professionalThemeButton.Text" xml:space="preserve">
+    <value>Professional</value>
+  </data>
+  <data name="visualThemeButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="visualThemeButton.Text" xml:space="preserve">
+    <value>Visual Styles</value>
+  </data>
+  <data name="systemThemeButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="systemThemeButton.Text" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="themesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
+  <data name="themesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Themes</value>
   </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -242,6 +205,85 @@
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="fileMenuNew.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
+  </data>
+  <data name="fileMenuNew.Text" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="addonToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 22</value>
+  </data>
+  <data name="addonToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Addon</value>
+  </data>
+  <data name="fileMenuOpen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
+  </data>
+  <data name="fileMenuOpen.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="addonToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 22</value>
+  </data>
+  <data name="addonToolStripMenuItem.Text" xml:space="preserve">
+    <value>Addon</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="fileMenuSave.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+S</value>
+  </data>
+  <data name="fileMenuSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
+  </data>
+  <data name="fileMenuSave.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 6</value>
+  </data>
+  <data name="fileMenuExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
+  </data>
+  <data name="fileMenuExit.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="optionsSetDotaDirectory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="optionsSetDotaDirectory.Text" xml:space="preserve">
+    <value>Set Dota Directory</value>
+  </data>
+  <data name="optionsMenuLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="optionsMenuLanguage.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
+  </data>
+  <data name="englishToolStripMenuItem.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="swedishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
+  </data>
+  <data name="swedishToolStripMenuItem.Text" xml:space="preserve">
+    <value>Swedish (Svenska)</value>
+  </data>
+  <data name="projectExplorerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 22</value>
+  </data>
+  <data name="projectExplorerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Project Explorer</value>
+  </data>
+  <data name="objectBrowserToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 22</value>
+  </data>
+  <data name="objectBrowserToolStripMenuItem.Text" xml:space="preserve">
+    <value>Object Browser</value>
   </data>
   <data name="dockPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -490,17 +532,59 @@
   <data name="&gt;&gt;projectExplorerToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;localeManager1.Name" xml:space="preserve">
-    <value>localeManager1</value>
-  </data>
-  <data name="&gt;&gt;localeManager1.Type" xml:space="preserve">
-    <value>WorldSmith.LocaleManager, WorldSmith, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="&gt;&gt;objectBrowserToolStripMenuItem.Name" xml:space="preserve">
     <value>objectBrowserToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;objectBrowserToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;themesToolStripMenuItem.Name" xml:space="preserve">
+    <value>themesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;themesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;blackThemeButton.Name" xml:space="preserve">
+    <value>blackThemeButton</value>
+  </data>
+  <data name="&gt;&gt;blackThemeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;blueThemeButton.Name" xml:space="preserve">
+    <value>blueThemeButton</value>
+  </data>
+  <data name="&gt;&gt;blueThemeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;silverThemeButton.Name" xml:space="preserve">
+    <value>silverThemeButton</value>
+  </data>
+  <data name="&gt;&gt;silverThemeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;professionalThemeButton.Name" xml:space="preserve">
+    <value>professionalThemeButton</value>
+  </data>
+  <data name="&gt;&gt;professionalThemeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;visualThemeButton.Name" xml:space="preserve">
+    <value>visualThemeButton</value>
+  </data>
+  <data name="&gt;&gt;visualThemeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;systemThemeButton.Name" xml:space="preserve">
+    <value>systemThemeButton</value>
+  </data>
+  <data name="&gt;&gt;systemThemeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;localeManager1.Name" xml:space="preserve">
+    <value>localeManager1</value>
+  </data>
+  <data name="&gt;&gt;localeManager1.Type" xml:space="preserve">
+    <value>WorldSmith.LocaleManager, WorldSmith, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

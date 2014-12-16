@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SyntaxDefinition name="KeyValues" extensions="*.txt">
+  <RuleSets>
+    <RuleSet ignorecase="false">
+      <Span name="Comment" bold="false" italic="false" color="Green" stopateol="true">
+        <Begin>//</Begin>
+      </Span>
+      <Span name="String" bold="false" italic="false" color="Blue" stopateol="true">
+        <Begin>"</Begin>
+        <End>"</End>
+      </Span>
+    </RuleSet>
+  </RuleSets>
+</SyntaxDefinition>

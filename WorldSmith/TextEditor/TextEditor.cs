@@ -21,6 +21,7 @@ using System.IO;
 using WorldSmith.DataClasses;
 using WorldSmith.Documents;
 using WorldSmith.Panels;
+using DigitalRune.Windows.TextEditor.Folding;
 
 namespace WorldSmith
 {
@@ -32,7 +33,25 @@ namespace WorldSmith
             Lua,
         }
 
-        public TextEditorStyle EditorStyle;
+        public TextEditorStyle EditorStyle
+        {
+            get { return EditorStyle; }
+            set
+            {
+                Console.WriteLine("EDITOR STYLE: " + value.ToString());
+                if (value == TextEditorStyle.KeyValues)
+                {
+                    Console.WriteLine("KEYVALUES TIME BITCHEZ");
+                    var test = HighlightingManager.Manager.FindHighlighter("KeyValues");
+                    Console.WriteLine(test.Name);
+                    textEditorControl1.Document.HighlightingStrategy = HighlightingManager.Manager.FindHighlighter("KeyValues");
+                    textEditorControl1.EnableFolding = true;
+                    textEditorControl1.Document.FoldingManager.FoldingStrategy = new CodeFoldingStrategy();
+                }
+                else
+                    textEditorControl1.Document.HighlightingStrategy = HighlightingManager.Manager.FindHighlighter("Lua");
+            }
+        }
 
 
         private bool isReadOnly;

@@ -48,9 +48,16 @@
             this.swedishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.objectBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.themesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blackThemeButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.blueThemeButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.silverThemeButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.professionalThemeButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.visualThemeButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.systemThemeButton = new System.Windows.Forms.ToolStripMenuItem();
             this.dockPanel = new DigitalRune.Windows.Docking.DockPanel();
             this.localeManager1 = new WorldSmith.LocaleManager(this.components);
-            this.objectBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +66,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.optionsMenu,
-            this.windowToolStripMenuItem});
+            this.windowToolStripMenuItem,
+            this.themesToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
@@ -164,6 +172,64 @@
             this.projectExplorerToolStripMenuItem.Name = "projectExplorerToolStripMenuItem";
             resources.ApplyResources(this.projectExplorerToolStripMenuItem, "projectExplorerToolStripMenuItem");
             // 
+            // objectBrowserToolStripMenuItem
+            // 
+            this.objectBrowserToolStripMenuItem.Checked = true;
+            this.objectBrowserToolStripMenuItem.CheckOnClick = true;
+            this.objectBrowserToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.objectBrowserToolStripMenuItem.Name = "objectBrowserToolStripMenuItem";
+            resources.ApplyResources(this.objectBrowserToolStripMenuItem, "objectBrowserToolStripMenuItem");
+            // 
+            // themesToolStripMenuItem
+            // 
+            this.themesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.blackThemeButton,
+            this.blueThemeButton,
+            this.silverThemeButton,
+            this.professionalThemeButton,
+            this.visualThemeButton,
+            this.systemThemeButton});
+            this.themesToolStripMenuItem.Name = "themesToolStripMenuItem";
+            resources.ApplyResources(this.themesToolStripMenuItem, "themesToolStripMenuItem");
+            // 
+            // blackThemeButton
+            // 
+            this.blackThemeButton.Name = "blackThemeButton";
+            resources.ApplyResources(this.blackThemeButton, "blackThemeButton");
+            this.blackThemeButton.Click += new System.EventHandler(this.blackThemeButton_Click);
+            // 
+            // blueThemeButton
+            // 
+            this.blueThemeButton.Name = "blueThemeButton";
+            resources.ApplyResources(this.blueThemeButton, "blueThemeButton");
+            this.blueThemeButton.Click += new System.EventHandler(this.blueThemeButton_Click);
+            // 
+            // silverThemeButton
+            // 
+            this.silverThemeButton.Name = "silverThemeButton";
+            resources.ApplyResources(this.silverThemeButton, "silverThemeButton");
+            this.silverThemeButton.Click += new System.EventHandler(this.silverThemeButton_Click);
+            // 
+            // professionalThemeButton
+            // 
+            this.professionalThemeButton.Name = "professionalThemeButton";
+            resources.ApplyResources(this.professionalThemeButton, "professionalThemeButton");
+            this.professionalThemeButton.Click += new System.EventHandler(this.professionalThemeButton_Click);
+            // 
+            // visualThemeButton
+            // 
+            this.visualThemeButton.Checked = true;
+            this.visualThemeButton.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.visualThemeButton.Name = "visualThemeButton";
+            resources.ApplyResources(this.visualThemeButton, "visualThemeButton");
+            this.visualThemeButton.Click += new System.EventHandler(this.visualThemeButton_Click);
+            // 
+            // systemThemeButton
+            // 
+            this.systemThemeButton.Name = "systemThemeButton";
+            resources.ApplyResources(this.systemThemeButton, "systemThemeButton");
+            this.systemThemeButton.Click += new System.EventHandler(this.systemThemeButton_Click);
+            // 
             // dockPanel
             // 
             this.dockPanel.ActiveAutoHideContent = null;
@@ -179,14 +245,6 @@
             // localeManager1
             // 
             this.localeManager1.ParentControl = this;
-            // 
-            // objectBrowserToolStripMenuItem
-            // 
-            this.objectBrowserToolStripMenuItem.Checked = true;
-            this.objectBrowserToolStripMenuItem.CheckOnClick = true;
-            this.objectBrowserToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.objectBrowserToolStripMenuItem.Name = "objectBrowserToolStripMenuItem";
-            resources.ApplyResources(this.objectBrowserToolStripMenuItem, "objectBrowserToolStripMenuItem");
             // 
             // MainForm
             // 
@@ -225,6 +283,13 @@
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem projectExplorerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem objectBrowserToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem themesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem blackThemeButton;
+        private System.Windows.Forms.ToolStripMenuItem blueThemeButton;
+        private System.Windows.Forms.ToolStripMenuItem silverThemeButton;
+        private System.Windows.Forms.ToolStripMenuItem professionalThemeButton;
+        private System.Windows.Forms.ToolStripMenuItem visualThemeButton;
+        private System.Windows.Forms.ToolStripMenuItem systemThemeButton;
     }
 }
 

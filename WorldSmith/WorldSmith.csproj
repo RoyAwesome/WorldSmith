@@ -327,6 +327,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WinFormStrings.resx</DependentUpon>
     </Compile>
+    <Compile Include="TextEditor\CodeFoldingStrategy.cs" />
     <Compile Include="TextEditor\TextEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -426,6 +427,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="Resources\KVSyntax.xshd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\LuaSyntax.xshd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="WorldSmith_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -493,6 +500,9 @@
     <None Include="Resources\CopyHS.png" />
     <None Include="Resources\PasteHS.png" />
     <None Include="Resources\dotaicon16x16.png" />
+    <Content Include="Resources\SyntaxMode.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="WSIconic.ico" />
   </ItemGroup>
   <ItemGroup>

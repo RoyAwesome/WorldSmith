@@ -238,6 +238,60 @@ namespace WorldSmith
         }
         #endregion
 
+        private void blackThemeButton_Click(object sender, EventArgs e)
+        {
+            ToolStripManager.VisualStylesEnabled = true;
+            ToolStripManager.Renderer = new ToolStripOffice2007Renderer(Office2007Theme.Black);
+            DockPanelManager.RenderMode = DockPanelRenderMode.Office2007Black;
+            BackColor = DockPanelManager.BackColor;   // To avoid artifacts when resizing the main window.
+            dockPanel.Refresh();
+        }
+
+        private void blueThemeButton_Click(object sender, EventArgs e)
+        {
+            ToolStripManager.VisualStylesEnabled = true;
+            ToolStripManager.Renderer = new ToolStripOffice2007Renderer(Office2007Theme.Blue);
+            DockPanelManager.RenderMode = DockPanelRenderMode.Office2007Blue;
+            BackColor = DockPanelManager.BackColor;   // To avoid artifacts when resizing the main window.
+            dockPanel.Refresh();
+        }
+
+        private void silverThemeButton_Click(object sender, EventArgs e)
+        {
+            ToolStripManager.VisualStylesEnabled = true;
+            ToolStripManager.Renderer = new ToolStripOffice2007Renderer(Office2007Theme.Silver);
+            DockPanelManager.RenderMode = DockPanelRenderMode.Office2007Silver;
+            BackColor = DockPanelManager.BackColor;   // To avoid artifacts when resizing the main window.
+            dockPanel.Refresh();
+        }
+
+        private void professionalThemeButton_Click(object sender, EventArgs e)
+        {
+            ToolStripManager.RenderMode = ToolStripManagerRenderMode.Professional;
+            ToolStripManager.VisualStylesEnabled = false;
+            DockPanelManager.RenderMode = DockPanelRenderMode.Professional;
+            BackColor = DockPanelManager.BackColor;   // To avoid artifacts when resizing the main window.
+            dockPanel.Refresh();
+        }
+
+        private void visualThemeButton_Click(object sender, EventArgs e)
+        {
+            ToolStripManager.RenderMode = ToolStripManagerRenderMode.System;
+            ToolStripManager.VisualStylesEnabled = true;
+            DockPanelManager.RenderMode = DockPanelRenderMode.VisualStyles;
+            BackColor = DockPanelManager.BackColor;   // To avoid artifacts when resizing the main window.
+            dockPanel.Refresh();
+        }
+
+        private void systemThemeButton_Click(object sender, EventArgs e)
+        {
+            ToolStripManager.RenderMode = ToolStripManagerRenderMode.System;
+            ToolStripManager.VisualStylesEnabled = false;
+            DockPanelManager.RenderMode = DockPanelRenderMode.System;
+            BackColor = DockPanelManager.BackColor;   // To avoid artifacts when resizing the main window.
+            dockPanel.Refresh();
+        }
+
 
 
     }

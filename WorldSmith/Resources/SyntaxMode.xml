@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SyntaxModes version="1.0">
+  <Mode file="LuaSyntax.xshd" name="Lua" extensions=".lua" />
+  <Mode file="KVSyntax.xshd" name="KeyValues" extensions=".txt" />
+</SyntaxModes>

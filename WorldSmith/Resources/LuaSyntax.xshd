@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SyntaxDefinition name="Lua" extensions="*.lua">
+  <RuleSets>
+    <RuleSet ignorecase="false">
+      <Span name="Comment" bold="false" italic="false" color="Green" stopateol="true">
+        <Begin>--</Begin>
+      </Span>
+    </RuleSet>
+  </RuleSets>
+</SyntaxDefinition>
