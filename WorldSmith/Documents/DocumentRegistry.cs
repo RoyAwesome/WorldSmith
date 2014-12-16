@@ -8,17 +8,26 @@ namespace WorldSmith.Documents
 {
     class DocumentRegistry
     {
-        static List<Document> OpenDocuments = new List<Document>();
+        static Dictionary<object, Document> OpenDocuments = new Dictionary<object, Document>();
 
-        public static IEnumerable<Document> AllDocuments = OpenDocuments;
-        public static IEnumerable<Document> ModifiedDocuments = OpenDocuments.Where(x => x.IsEdited);
+        public static IEnumerable<Document> AllDocuments = OpenDocuments.Values;
+        public static IEnumerable<Document> ModifiedDocuments = OpenDocuments.Values.Where(x => x.IsEdited);
 
-        public static void OpenDocument(Document document)
+        public static void OpenDocument(object ParentObject, Document document)
         {
-            OpenDocuments.Add(document);
+            OpenDocuments[ParentObject] = document;
         }
 
 
+        public static Document GetDocumentFor(object ParentObject)
+        {
+            if (OpenDocuments.ContainsKey(ParentObject))
+            {
+                return OpenDocuments[ParentObject];
+            }
+            return null;
+        }
+        
 
     }
 }

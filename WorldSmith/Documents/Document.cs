@@ -71,7 +71,21 @@ namespace WorldSmith.Documents
         public event DocumentEventHandler OnDocumentSaved;
 
 
-        public abstract void Save();
+        protected abstract void DoSave();
+
+        public virtual void Save(IEditor source)
+        {
+            if (!IsEdited) return; //Don't bother saving if we haven't edited this document
+
+
+            DoSave();
+            if(OnDocumentSaved == null)
+            {
+                Console.WriteLine("[Warning] Received Notification that" + Name + " was saved but we have no save handlers!");
+                return;
+            }
+            OnDocumentSaved(source);
+        }
 
         public abstract void Reload();
 
@@ -79,6 +93,22 @@ namespace WorldSmith.Documents
 
         public abstract void OpenDefaultEditor();
 
+        public void DocumentEdited(IEditor source)
+        {
+            if(OnDocumentEdited == null)
+            {
+                Console.WriteLine("[Warning] Received Notification that"+ Name +" was edited but we have no edited handlers!");
+                return;
+            }
+            OnDocumentEdited(source);
+
+        }
+
+        /// <summary>
+        /// Creates an editor of the given type, or if one is already open, brings it to focus
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public virtual T OpenEditor<T>() where T : IEditor
         {
             T Editor = (T)AttachedEditors.FirstOrDefault(x => x.GetType() == typeof(T));
@@ -106,11 +136,20 @@ namespace WorldSmith.Documents
 
             return Editor;
         }
+        /// <summary>
+        /// Get an editor of the given type. Returns null if editor does not exist
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public virtual T GetEditor<T>() where T : IEditor
+        {
+            T Editor = (T)AttachedEditors.FirstOrDefault(x => x.GetType() == typeof(T));
+            return Editor;
+        }
 
         public virtual bool ContainsEditor<T>() where T : IEditor
-        {
-             T Editor = (T)AttachedEditors.FirstOrDefault(x => x.GetType() == typeof(T));
-             return Editor != null;
+        {           
+             return GetEditor<T>() != null;
         }
 
     }

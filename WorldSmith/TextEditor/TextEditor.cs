@@ -89,6 +89,11 @@ namespace WorldSmith
 
         }
 
+        public string GetEditorText()
+        {
+            return textEditorControl1.Text;
+        }
+
         protected void ReadOnlyChanged(bool value)
         {
             if (value)

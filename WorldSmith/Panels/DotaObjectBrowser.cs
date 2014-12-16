@@ -81,12 +81,12 @@ namespace WorldSmith.Panels
             if (ddo == null) return; //We selected a root node.  Don't do anything here
 
             //TODO: Search the document registry for this object's document. 
-            Document doc = DocumentRegistry.AllDocuments.FirstOrDefault(x => x.Name == ddo.ClassName);
+            Document doc = DocumentRegistry.GetDocumentFor(ddo);
             if(doc == null)
             {
                 //If we don't have this document open, create it and add it to the registry
                 doc = new DotaObjectDocument(ddo);
-                DocumentRegistry.OpenDocument(doc);
+                DocumentRegistry.OpenDocument(ddo, doc);
             }
             
             doc.OpenDefaultEditor();

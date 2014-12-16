@@ -30,7 +30,7 @@ namespace WorldSmith.Documents
             return DotaObject.SaveToKV().ToString();
         }
 
-        public override void Save()
+        protected override void DoSave()
         {
             //Commit these changes to the dota object.  
             //TODO: If a text editor is open here, get the text and serialize it into the dota object

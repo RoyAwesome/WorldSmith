@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using WorldSmith.Documents;
 
 namespace WorldSmith.Panels
 {
@@ -60,7 +61,7 @@ namespace WorldSmith.Panels
                         Text = name,
                         ImageIndex = 2,
                         SelectedImageIndex = 2,
-                        Tag = ((string)parent.Tag) + name,
+                        Tag = ((string)parent.Tag) + name + "/",
                     };
 
                     parent.Nodes.Add(folder);
@@ -147,6 +148,16 @@ namespace WorldSmith.Panels
             return cur;
         }
 
+        private bool CanOpenDocument(string path)
+        {
+            //TODO: Disallow opening files that the object browser modifies
+
+            if (Path.GetExtension(path) == ".txt") return true;
+            if (Path.GetExtension(path) == ".lua") return true;
+
+            return false;
+        }
+
         private void treeView1_DoubleClick(object sender, EventArgs e)
         {
             TreeNode selectedNode = treeView1.SelectedNode;
@@ -154,18 +165,21 @@ namespace WorldSmith.Panels
 
             //The path of the file double clicked is stored in the treenode's tag
             string path = selectedNode.Tag as string;
-            
-            if (Path.GetExtension(path) == ".txt")
+            if(!CanOpenDocument(path))
             {
-                TextEditor editor = new TextEditor();
-                editor.Text = selectedNode.Text;
-                editor.EditorStyle = TextEditor.TextEditorStyle.KeyValues;
-
-                TreeNode root = GetRootNode(selectedNode); 
-                editor.OpenFile(path, root.Name == "vpk");
-
-                editor.Show(MainForm.PrimaryDockingPanel, DigitalRune.Windows.Docking.DockState.Document);
+                return;
             }
+            TreeNode root = GetRootNode(selectedNode); 
+            bool FromVPK = root.Name == "vpk";
+
+            TextDocument document = DocumentRegistry.GetDocumentFor(path) as TextDocument;
+            if(document == null)
+            {
+                document = new TextDocument(path, FromVPK);
+                DocumentRegistry.OpenDocument(path, document);
+            }
+
+            document.OpenDefaultEditor();          
         }
         
     }
