@@ -75,6 +75,8 @@ namespace WorldSmith.Panels
 
         private void assetTreeView_DoubleClick(object sender, EventArgs e)
         {
+            if (assetTreeView.SelectedNode == null) return;
+
             TreeNode SelectedNode = assetTreeView.SelectedNode;
             DotaDataObject ddo = SelectedNode.Tag as DotaDataObject;
 
@@ -91,6 +93,11 @@ namespace WorldSmith.Panels
             
             doc.OpenDefaultEditor();
 
+        }
+
+        private void assetTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            //Get the item and the context menu options available to it
         }
     }
 }
