@@ -12,7 +12,7 @@ using WorldSmith.DataClasses;
 
 namespace WorldSmith.Panels
 {
-    public partial class DotaObjectEditor : DockableForm
+    public partial class DotaObjectEditor : DockableForm, IEditor
     {
 
         public DotaDataObject EditingObject
@@ -30,6 +30,30 @@ namespace WorldSmith.Panels
         public DotaObjectEditor()
         {
             InitializeComponent();
+        }
+
+        public Documents.Document ActiveDocument
+        {
+            get;
+            set;
+        }
+
+        public void NotifyDocumentModified(IEditor source)
+        {
+            
+        }
+
+        public void NotifyDocumentSaved(IEditor source)
+        {
+            //If we are the source, don't do anything.  We already have the changes
+            if(source != this)
+            {
+                DotaDataObject obj = EditingObject;
+                //Force the property editor to clear out the data and redraw
+                EditingObject = null;
+                EditingObject = obj;
+            }
+          
         }
     }
 }

@@ -64,10 +64,14 @@ namespace WorldSmith.Documents
         public DotaObjectEditor OpenObjectEditor()
         {
             Console.WriteLine("Opening Object Editor for " + DotaObject.ClassName);
-            DotaObjectEditor Editor = new DotaObjectEditor();
-            Editor.EditingObject = DotaObject;
-            Editor.TabText = DotaObject.ClassName;
-            Editor.Show(MainForm.PrimaryDockingPanel, DigitalRune.Windows.Docking.DockState.Document);
+            bool EditorWasOpen = ContainsEditor<DotaObjectEditor>();
+            DotaObjectEditor Editor = OpenEditor<DotaObjectEditor>();
+            if(!EditorWasOpen)
+            {
+                Editor.EditingObject = DotaObject;
+                Editor.TabText = DotaObject.ClassName;
+                Editor.Show(MainForm.PrimaryDockingPanel, DigitalRune.Windows.Docking.DockState.Document);
+            }         
             return Editor;
         }
     }

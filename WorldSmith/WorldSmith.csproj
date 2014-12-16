@@ -243,6 +243,7 @@
     <Compile Include="Panels\DotaObjectEditor.Designer.cs">
       <DependentUpon>DotaObjectEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Panels\IEditor.cs" />
     <Compile Include="Panels\ProjectView.cs">
       <SubType>Form</SubType>
     </Compile>

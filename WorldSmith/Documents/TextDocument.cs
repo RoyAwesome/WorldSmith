@@ -60,11 +60,15 @@ namespace WorldSmith.Documents
 
         public virtual TextEditor OpenTextEditor()
         {
-            TextEditor editor = new TextEditor();            
-            editor.EditorStyle = TextEditor.TextEditorStyle.KeyValues;
-            editor.OpenDocument(this);           
+            bool EditorAlreadyOpen = ContainsEditor<TextEditor>();
+            TextEditor editor = OpenEditor<TextEditor>();
+            if(!EditorAlreadyOpen)
+            {
+                editor.EditorStyle = TextEditor.TextEditorStyle.KeyValues;
+                editor.OpenDocument(this);
 
-            editor.Show(MainForm.PrimaryDockingPanel, DigitalRune.Windows.Docking.DockState.Document);
+                editor.Show(MainForm.PrimaryDockingPanel, DigitalRune.Windows.Docking.DockState.Document);
+            }         
 
             return editor;
         }

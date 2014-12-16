@@ -20,10 +20,11 @@ using DigitalRune.Windows.Docking;
 using System.IO;
 using WorldSmith.DataClasses;
 using WorldSmith.Documents;
+using WorldSmith.Panels;
 
 namespace WorldSmith
 {
-    public partial class TextEditor : DockableForm
+    public partial class TextEditor : DockableForm, IEditor
     {
         public enum TextEditorStyle
         {
@@ -124,6 +125,28 @@ namespace WorldSmith
         {
             Paste paste = new Paste();
             paste.Execute(textEditorControl1);
+        }
+
+        public Document ActiveDocument
+        {
+            get;
+            set;
+
+        }
+
+        public void NotifyDocumentModified(IEditor source)
+        {
+           
+        }
+
+        public void NotifyDocumentSaved(IEditor source)
+        {
+            //Are we the source?  If not, reload the document in the editor
+            if (source != this)
+            {
+                TextDocument document = ActiveDocument as TextDocument;
+                textEditorControl1.Text = document.Text;
+            }
         }
     }
 }
