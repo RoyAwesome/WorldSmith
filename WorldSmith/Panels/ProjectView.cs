@@ -10,15 +10,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using WorldSmith.Documents;
+using System.Text.RegularExpressions;
 
 namespace WorldSmith.Panels
 {
     public partial class ProjectView : DockableForm
     {
+        public string currentCopyPath = null;
+        public bool currentCut = false;
+        public bool createFileMode = false;
         public ProjectView()
         {
             InitializeComponent();
+            
+            //without this line, right-clicks don't change focus.
+            treeView1.NodeMouseClick += (sender, args) => treeView1.SelectedNode = args.Node;
 
+            //show the selection passively
+            treeView1.HideSelection = false;
+
+            //allow renaming
+            treeView1.LabelEdit = true;
 
             ReloadTreeView();
         }
@@ -62,6 +74,7 @@ namespace WorldSmith.Panels
                         ImageIndex = 2,
                         SelectedImageIndex = 2,
                         Tag = ((string)parent.Tag) + name + "/",
+                        ContextMenu = folder_context_menu,
                     };
 
                     parent.Nodes.Add(folder);
@@ -78,6 +91,7 @@ namespace WorldSmith.Panels
                         Text = name,
                         ImageIndex = 0,
                         Tag = ((string)parent.Tag) + name,
+                        ContextMenu = file_context_menu,
                     };
 
                     parent.Nodes.Add(folder);
@@ -113,7 +127,8 @@ namespace WorldSmith.Panels
                     Text = name,
                     ImageIndex = 2,
                     SelectedImageIndex = 2,
-                    Tag = dir,
+                    Tag = path + dir,
+                    ContextMenu = folder_context_menu,
                 };
                 node.Nodes.Add(folder);
 
@@ -129,6 +144,7 @@ namespace WorldSmith.Panels
                         Text = name,
                         ImageIndex = 0,
                         Tag = f,
+                        ContextMenu = file_context_menu,
                     };
                     folder.Nodes.Add(file);
                 }
@@ -181,6 +197,187 @@ namespace WorldSmith.Panels
 
             document.OpenDefaultEditor();          
         }
-        
+
+        private void context_add_lua_Click(object sender, EventArgs e)
+        {
+            TreeNode selectedNode = treeView1.SelectedNode;
+            string path = selectedNode.Tag as string;
+            createFileMode = true;
+            TreeNode newfile = new TreeNode()
+            {
+                Name = "untitled.lua",
+                Text = "untitled.lua",
+                ImageIndex = 0,
+                SelectedImageIndex = 0,
+                Tag = path + "untitled.lua",
+            };
+            selectedNode.Nodes.Add(newfile);
+            treeView1.SelectedNode = newfile;
+            newfile.BeginEdit();
+            // Note that we haven't actually created the file yet... that's done after we let the user change the name
+        }
+
+        private void context_openInExplorer_Click(object sender, EventArgs e)
+        {
+            TreeNode selectedNode = treeView1.SelectedNode;
+            string path = selectedNode.Tag as string;
+            //TODO: put the folder path in the treenode, then look it up from there when we use this
+            System.Diagnostics.Process.Start("explorer.exe", path);
+        }
+
+        private void context_cut_Click(object sender, EventArgs e)
+        {
+            TreeNode selectedNode = treeView1.SelectedNode;
+            string path = selectedNode.Tag as string;
+            currentCopyPath = path;
+            currentCut = true;
+        }
+
+        private void context_copy_Click(object sender, EventArgs e)
+        {
+            TreeNode selectedNode = treeView1.SelectedNode;
+            string path = selectedNode.Tag as string;
+            currentCopyPath = path;
+            currentCut = false;
+        }
+
+        private void context_paste_Click(object sender, EventArgs e)
+        {
+            TreeNode selectedNode = treeView1.SelectedNode;
+            string path = selectedNode.Tag as string;
+            //TODO: functionality
+        }
+
+        private void context_delete_Click(object sender, EventArgs e)
+        {
+            TreeNode selectedNode = treeView1.SelectedNode;
+            string path = selectedNode.Tag as string;
+            if (MessageBox.Show("Are you sure you want to delete " + path + " and all files contained therein?", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                //TODO: remove all contained files from any file-dependent analyses
+                Directory.Delete(path,true);
+                selectedNode.Remove();
+            }
+        }
+
+        private void context_rename_simple_Click(object sender, EventArgs e)
+        {
+            TreeNode selectedNode = treeView1.SelectedNode;
+            if (selectedNode != null && selectedNode.Parent != null)
+            {
+                treeView1.SelectedNode = selectedNode;
+                selectedNode.BeginEdit();
+            }
+        }
+
+        private void treeView1_afterLabelEdit(object sender, System.Windows.Forms.NodeLabelEditEventArgs e)
+        {
+            if (e.Label != null)
+            {
+                if (e.Node.Parent != null)
+                {
+                    if (e.Label.Length > 0)
+                    {
+                        if (e.Label.IndexOfAny(new char[] { '<', '>', ':', '"', '/', '\\', '|', '?', '*' }) == -1)
+                        {
+                            // get the absolute file/folder location
+                            Regex directorygetter = new Regex("/[^/]*$");
+                            //TODO: fix directory stuff
+                            string directory = Path.GetFullPath(e.Node.Tag as string);
+                            string oldfilename = Path.GetFileName(e.Node.Tag as string);
+                            MessageBox.Show(directory + " | " + oldfilename);
+                            /* TODO:
+                             * if (targetfileexists) {
+                             *     e.CancelEdit = true;
+                             *     e.Node.BeginEdit();
+                             *     return;
+                             * }
+                             */
+                            if (createFileMode)
+                            {
+                                // We're in the process of making a new file
+
+                                // Done making the file; leave this whole shebang.
+                                createFileMode = false;
+                                e.Node.EndEdit(false);
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    File.Move(directory + (e.Node.Tag as string), directory + e.Label);
+                                }
+                                catch (Exception ex)
+                                {
+                                    e.CancelEdit = true;
+                                    MessageBox.Show("File rename failed: " + ex.ToString());
+                                    e.Node.EndEdit(true);
+                                    return;
+                                }
+                                // No error, so stop editing without canceling the label change.
+                                e.Node.EndEdit(false);
+                            }
+                        }
+                        else
+                        {
+                            /* Cancel the label edit action, inform the user, and 
+                               place the node in edit mode again. */
+                            e.CancelEdit = true;
+                            MessageBox.Show("Invalid tree node label.\n" +
+                               "The invalid characters are: '<', '>', ':', '\"', '/', '\\', '|', '?', '*'",
+                               "Node Label Edit");
+                            e.Node.BeginEdit();
+                        }
+                    }
+                    else
+                    {
+                        /* Cancel the label edit action, inform the user, and 
+                           place the node in edit mode again. */
+                        e.CancelEdit = true;
+                        MessageBox.Show("Invalid tree node label.\nThe label cannot be blank",
+                           "Node Label Edit");
+                        e.Node.BeginEdit();
+                    }
+                }
+                else
+                {
+                    e.CancelEdit = true;
+                    MessageBox.Show("Top level renaming not currently supported");
+                }
+            }
+        }
+
+        private void folder_context_menu_Popup(object sender, EventArgs e)
+        {
+            TreeNode selectedNode = treeView1.SelectedNode;
+            if (selectedNode != null)
+            {
+                TreeNode root = GetRootNode(selectedNode);
+                bool FromVPK = root.Name == "vpk";
+                // VPK is read-only for now
+                context_delete.Enabled = !FromVPK;
+                // These two are disabled regardless right now
+                //context_cut.Enabled = !FromVPK;
+                //context_paste.Enabled = !FromVPK && currentCopyPath != null;
+                context_add.Enabled = !FromVPK;
+                context_rename.Enabled = !FromVPK;
+                context_openInExplorer.Enabled = !FromVPK;
+            }
+        }
+
+        private void file_context_menu_Popup(object sender, EventArgs e)
+        {
+            TreeNode selectedNode = treeView1.SelectedNode;
+            if (selectedNode != null)
+            {
+                TreeNode root = GetRootNode(selectedNode);
+                bool FromVPK = root.Name == "vpk";
+                // VPK is read-only for now
+                file_context_delete.Enabled = !FromVPK;
+                // This one is disabled regardless right now
+                //file_context_cut.Enabled = !FromVPK;
+                file_context_rename.Enabled = !FromVPK;
+            }
+        }
     }
 }
