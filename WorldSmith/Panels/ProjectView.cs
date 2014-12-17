@@ -127,7 +127,7 @@ namespace WorldSmith.Panels
                     Text = name,
                     ImageIndex = 2,
                     SelectedImageIndex = 2,
-                    Tag = path + dir,
+                    Tag = dir,
                     ContextMenu = folder_context_menu,
                 };
                 node.Nodes.Add(folder);
@@ -177,7 +177,6 @@ namespace WorldSmith.Panels
         private void treeView1_DoubleClick(object sender, EventArgs e)
         {
             TreeNode selectedNode = treeView1.SelectedNode;
-
 
             //The path of the file double clicked is stored in the treenode's tag
             string path = selectedNode.Tag as string;
