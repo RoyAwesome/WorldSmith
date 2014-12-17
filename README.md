@@ -18,6 +18,13 @@ Like this project? Want to help?  Here are a few ideas:
 
 ## Credits
 
+Current Team
+
+* RoyAwesome
+* SinZ
+* Aderum
+* penguinwizzard
+
 Without a few people, this project would be much much harder.  In no particular order:
 
 * penguinwizzard for figuring out how to write maps.
@@ -37,6 +44,8 @@ Without a few people, this project would be much much harder.  In no particular 
 All major dependencies are included in the repository.  They are 
 * [KVLib] - Valve Key-Value parsing library in C#
 * [Sprache] - Monadic Parsing library for C# 
+
+Worldsmith also relies on some NuGet packages.  If you are using Visual Studio 2012 or 2013, this will be automatically handled.  If not, you need to install NuGet and restore the dependencies. 
 
 Worldsmith was created with Visual Studio 2013.
 
