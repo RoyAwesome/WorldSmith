@@ -166,7 +166,7 @@ namespace WorldSmith.Panels
 
         private bool CanOpenDocument(string path)
         {
-            //TODO: Disallow opening files that the object browser modifies
+            //TODO: Disallow opening files that the object browser modifies - or just have it open them in the object browser
 
             if (Path.GetExtension(path) == ".txt") return true;
             if (Path.GetExtension(path) == ".lua") return true;
