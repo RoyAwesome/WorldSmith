@@ -233,9 +233,9 @@ namespace WorldSmith.Dialogs
                 {
                     AbilityActionCollection actionCollection = (AbilityActionCollection)value;
                     actionEditor.Actions = actionCollection;
-                    if (actionEditor.ShowDialog() == DialogResult.OK)
+                     if (actionEditor.ShowDialog(MainForm.ActiveForm) == DialogResult.OK)
                     {
-                                              
+                       
                     }
                   
                     return actionCollection;

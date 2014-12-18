@@ -101,7 +101,7 @@ namespace WorldSmith.Panels
                     Enum e = (Enum)Convert.ChangeType(value, context.PropertyDescriptor.PropertyType);
                     dialog.ListBox.EnumValue = e;
                     dialog.resize();
-                    if (dialog.ShowDialog() == DialogResult.OK)
+                    if (dialog.ShowDialog(MainForm.ActiveForm) == DialogResult.OK)
                     {
                         return dialog.ListBox.EnumValue;
                     }
