@@ -142,9 +142,11 @@ namespace WorldSmith
 
             ProjectView = new ProjectView();
             ProjectView.Show(dockPanel, DockState.DockLeft);
+            ProjectView.TabText = Path.GetFileName(path.Remove(path.Length - 1)) + " Project View";
 
             DotaObjectBrowser ObjectBrowser = new DotaObjectBrowser();
             ObjectBrowser.Show(dockPanel, DockState.DockLeft);
+            ObjectBrowser.TabText = Path.GetFileName(path.Remove(path.Length - 1)) + " Objects";
 
             Console.WriteLine("Successfully Loaded Project: " + path);
         }
