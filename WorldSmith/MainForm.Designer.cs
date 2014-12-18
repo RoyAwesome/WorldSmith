@@ -37,7 +37,7 @@
             this.fileMenuNew = new System.Windows.Forms.ToolStripMenuItem();
             this.addonToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenuOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.addonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileMenuOpenAddon = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenuSave = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.fileMenuExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +58,8 @@
             this.systemThemeButton = new System.Windows.Forms.ToolStripMenuItem();
             this.dockPanel = new DigitalRune.Windows.Docking.DockPanel();
             this.localeManager1 = new WorldSmith.LocaleManager(this.components);
+            this.fileMenuClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileMenuCloseAddon = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +78,7 @@
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenuNew,
             this.fileMenuOpen,
+            this.fileMenuClose,
             this.fileMenuSave,
             this.toolStripSeparator1,
             this.fileMenuExit});
@@ -98,15 +101,15 @@
             // fileMenuOpen
             // 
             this.fileMenuOpen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addonToolStripMenuItem});
+            this.fileMenuOpenAddon});
             this.fileMenuOpen.Name = "fileMenuOpen";
             resources.ApplyResources(this.fileMenuOpen, "fileMenuOpen");
             // 
-            // addonToolStripMenuItem
+            // fileMenuOpenAddon
             // 
-            this.addonToolStripMenuItem.Name = "addonToolStripMenuItem";
-            resources.ApplyResources(this.addonToolStripMenuItem, "addonToolStripMenuItem");
-            this.addonToolStripMenuItem.Click += new System.EventHandler(this.addonToolStripMenuItem_Click);
+            this.fileMenuOpenAddon.Name = "fileMenuOpenAddon";
+            resources.ApplyResources(this.fileMenuOpenAddon, "fileMenuOpenAddon");
+            this.fileMenuOpenAddon.Click += new System.EventHandler(this.addonToolStripMenuItem_Click);
             // 
             // fileMenuSave
             // 
@@ -253,6 +256,19 @@
             // 
             this.localeManager1.ParentControl = this;
             // 
+            // fileMenuClose
+            // 
+            this.fileMenuClose.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileMenuCloseAddon});
+            this.fileMenuClose.Name = "fileMenuClose";
+            resources.ApplyResources(this.fileMenuClose, "fileMenuClose");
+            // 
+            // fileMenuCloseAddon
+            // 
+            this.fileMenuCloseAddon.Name = "fileMenuCloseAddon";
+            resources.ApplyResources(this.fileMenuCloseAddon, "fileMenuCloseAddon");
+            this.fileMenuCloseAddon.Click += new System.EventHandler(this.fileMenuCloseAddon_Click);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -276,7 +292,7 @@
         private System.Windows.Forms.ToolStripMenuItem fileMenuNew;
         private System.Windows.Forms.ToolStripMenuItem addonToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fileMenuOpen;
-        private System.Windows.Forms.ToolStripMenuItem addonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileMenuOpenAddon;
         private System.Windows.Forms.ToolStripMenuItem fileMenuSave;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem fileMenuExit;
@@ -297,6 +313,8 @@
         private System.Windows.Forms.ToolStripMenuItem professionalThemeButton;
         private System.Windows.Forms.ToolStripMenuItem visualThemeButton;
         private System.Windows.Forms.ToolStripMenuItem systemThemeButton;
+        private System.Windows.Forms.ToolStripMenuItem fileMenuClose;
+        private System.Windows.Forms.ToolStripMenuItem fileMenuCloseAddon;
     }
 }
 

@@ -323,6 +323,16 @@ namespace WorldSmith.DataClasses
         }
         #endregion
 
+        #region UnloadData
+        public static void UnloadUnits()
+        {
+            OverriddenUnits.Clear();
+            CustomUnits.Clear();
+            OverridenHeroes.Clear();
+            CustomHeroes.Clear();
+        }
+        #endregion
+
 
     }
 }

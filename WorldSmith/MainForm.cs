@@ -21,12 +21,12 @@ namespace WorldSmith
     {
         private readonly ContextMenuStrip _contextMenu;
 
+        #region DockableForms
         ConsoleForm ConsoleForm;
-        ConsoleStringWriter _consoleWriter;
-
-     
-
+        ConsoleStringWriter _consoleWriter;  
         ProjectView ProjectView;
+        DotaObjectBrowser ObjectBrowser;
+        #endregion
 
         public static DockPanel PrimaryDockingPanel;
 
@@ -113,10 +113,11 @@ namespace WorldSmith
             LoadProject(addonPath);         
         }
 
+        //Open addon button clickevent
         private void addonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
-            dialog.SelectedPath = Properties.Settings.Default.AddOnDir != "" ? Properties.Settings.Default.AddOnDir : Properties.Settings.Default.DotaDir;
+            dialog.SelectedPath = Properties.Settings.Default.DotaDir + "\\dota_ugc\\game\\dota_addons\\";
             if (dialog.ShowDialog() != DialogResult.OK) return;
             string folder = dialog.SelectedPath + Path.DirectorySeparatorChar;
 
@@ -144,11 +145,32 @@ namespace WorldSmith
             ProjectView.Show(dockPanel, DockState.DockLeft);
             ProjectView.TabText = Path.GetFileName(path.Remove(path.Length - 1)) + " Project View";
 
-            DotaObjectBrowser ObjectBrowser = new DotaObjectBrowser();
+            ObjectBrowser = new DotaObjectBrowser();
             ObjectBrowser.Show(dockPanel, DockState.DockLeft);
             ObjectBrowser.TabText = Path.GetFileName(path.Remove(path.Length - 1)) + " Objects";
 
             Console.WriteLine("Successfully Loaded Project: " + path);
+        }
+
+        //Close addon button clickevent
+        private void fileMenuCloseAddon_Click(object sender, EventArgs e)
+        {
+            string closingPath = Properties.Settings.Default.LoadedAddonDirectory;
+            Console.WriteLine("Unloading project: " + closingPath);
+
+            Properties.Settings.Default.LoadedAddonDirectory = "";
+            Properties.Settings.Default.Save();
+
+            ProjectView.Hide();
+            ObjectBrowser.Hide();
+
+            foreach(Documents.Document doc in Documents.DocumentRegistry.AllDocuments.ToList())
+            {
+                doc.CloseAllEditors(true);
+            }
+
+            DotaData.UnloadUnits();
+            Console.WriteLine("Successfully unloaded project: " + closingPath);
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -303,7 +325,6 @@ namespace WorldSmith
             blueThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.Office2007Blue;
             silverThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.Office2007Silver;
         }
-
 
 
     }
