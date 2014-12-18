@@ -15,6 +15,8 @@ namespace WorldSmith.Panels
     public partial class DotaObjectEditor : DockableForm, IEditor
     {
 
+        private bool HideConfirmation = false;
+
         public DotaDataObject EditingObject
         {
             get
@@ -60,6 +62,13 @@ namespace WorldSmith.Panels
                 EditingObject = obj;
             }
           
+        }
+
+
+        public void CloseDocument(bool ConfirmChanges)
+        {
+            HideConfirmation = !ConfirmChanges;
+            this.Close();
         }
     }
 }

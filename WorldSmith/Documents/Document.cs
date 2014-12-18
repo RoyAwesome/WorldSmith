@@ -169,5 +169,15 @@ namespace WorldSmith.Documents
             }
         }
 
+        public void CloseAllEditors(bool askForSave)
+        {
+            do
+            {
+                IEditor editor = AttachedEditors.FirstOrDefault();
+                editor.CloseDocument(false);
+            } while (AttachedEditors.Count != 0);
+            DocumentRegistry.CloseDocument(this);
+        }
+
     }
 }

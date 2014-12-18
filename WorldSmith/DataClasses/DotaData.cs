@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using KVLib;
+using System.Collections;
 
 namespace WorldSmith.DataClasses
 {
@@ -63,6 +64,75 @@ namespace WorldSmith.DataClasses
         public static IEnumerable<DotaDataObject> AllClasses = AllUnits.Cast<DotaDataObject>()
             .Union(AllAbilities.Cast<DotaDataObject>())
             .Union(AllItems.Cast<DotaDataObject>());
+
+        public static IList FindListThatHasObject(DotaDataObject ddo)
+        {
+            //I hate writing code like this
+
+
+            DotaDataObject.DataObjectInfo.ObjectDataClass ObjectClass = ddo.ObjectInfo.ObjectClass;
+            if(ddo is DotaHero)
+            {
+                if (ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default)
+                {
+                    return DefaultHeroes;
+                }
+                else if (ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Override)
+                {
+                    return OverridenHeroes;
+                }
+                else
+                {
+                    return CustomHeroes;
+                }
+            }
+            else if(ddo is DotaUnit)
+            {
+                if(ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default)
+                {
+                    return DefaultUnits;
+                }
+                else if(ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Override)
+                {
+                    return OverriddenUnits;
+                }
+                else
+                {
+                    return CustomUnits;
+                }
+            }
+            else if(ddo is DotaItem)
+            {
+                if(ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default)
+                {
+                    return DefaultItems;
+                }
+                else if(ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Override)
+                {
+                    return OverridenItems;
+                }
+                else
+                {
+                    return CustomItems;
+                }
+            }
+            else if(ddo is DotaAbility)
+            {
+                if(ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default)
+                {
+                    return DefaultAbilities;
+                }
+                else if(ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Override)
+                {
+                    return OverridenAbilities;
+                }
+                else
+                {
+                    return CustomAbilities;
+                }
+            }
+            throw new ArgumentException("Don't have a list for that type");
+        }
 
         public static string NPCScriptPath = "scripts" + Path.DirectorySeparatorChar + "npc" + Path.DirectorySeparatorChar;
         public static string CustomHeroesFile = NPCScriptPath + "npc_heroes_custom.txt";

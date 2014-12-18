@@ -17,5 +17,7 @@ namespace WorldSmith.Panels
         void NotifyDocumentModified(IEditor source);
 
         void NotifyDocumentSaved(IEditor source);
+
+        void CloseDocument(bool ConfirmChanges);
     }
 }

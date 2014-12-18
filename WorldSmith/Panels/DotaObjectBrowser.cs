@@ -1,5 +1,6 @@
 ﻿using DigitalRune.Windows.Docking;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -73,31 +74,147 @@ namespace WorldSmith.Panels
             }
         }
 
-        private void assetTreeView_DoubleClick(object sender, EventArgs e)
-        {
-            if (assetTreeView.SelectedNode == null) return;
-
-            TreeNode SelectedNode = assetTreeView.SelectedNode;
-            DotaDataObject ddo = SelectedNode.Tag as DotaDataObject;
-
-            if (ddo == null) return; //We selected a root node.  Don't do anything here
-
-            //TODO: Search the document registry for this object's document. 
+        private void OpenObjectEditor(DotaDataObject ddo)
+        {                        
             Document doc = DocumentRegistry.GetDocumentFor(ddo);
-            if(doc == null)
+            if (doc == null)
             {
                 //If we don't have this document open, create it and add it to the registry
                 doc = new DotaObjectDocument(ddo);
                 DocumentRegistry.OpenDocument(ddo, doc);
             }
-            
-            doc.OpenDefaultEditor();
 
+            doc.OpenDefaultEditor();
+        }
+
+        private void OpenTextEditor(DotaDataObject ddo)
+        {
+            Document doc = DocumentRegistry.GetDocumentFor(ddo);
+            if (doc == null)
+            {
+                //If we don't have this document open, create it and add it to the registry
+                doc = new DotaObjectDocument(ddo);
+                DocumentRegistry.OpenDocument(ddo, doc);
+            }
+
+            (doc as DotaObjectDocument).OpenTextEditor();
+        }
+
+        private void assetTreeView_DoubleClick(object sender, EventArgs e)
+        {
+            if (assetTreeView.SelectedNode == null) return;
+            
+            TreeNode SelectedNode = assetTreeView.SelectedNode;
+            DotaDataObject ddo = SelectedNode.Tag as DotaDataObject;
+
+            if (ddo == null) return; //We selected a root node.  Don't do anything here
+
+            OpenObjectEditor(ddo);
+        }
+
+        private TreeNode SelectedNode()
+        {
+            return assetTreeView.SelectedNode;
         }
 
         private void assetTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             //Get the item and the context menu options available to it
+            
+        }
+
+
+        private void contextMenuStrip_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TreeNode node = SelectedNode();
+            if (node == null) return;
+
+            DotaDataObject ddo = node.Tag as DotaDataObject;
+            if(ddo == null) //We are a folder.  Disable all of the options
+            {
+                foreach(ToolStripItem item in contextMenuStrip.Items)
+                {
+                    item.Enabled = false;
+                }
+
+                return;
+            }
+            else
+            { //We are not a folder, so lets enable everything then decide what to disable
+
+                openAsTextToolStripMenuItem.Enabled = true;
+                openToolStripMenuItem.Enabled = true;
+            }
+
+            //Enable the delete option if not from the VPK.  Disable override if we are not default
+           deleteToolStripMenuItem.Enabled = !ddo.ObjectInfo.FromVPK;
+           overrideToolStripMenuItem.Enabled = ddo.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default;
+
+
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TreeNode node = SelectedNode();
+            if (node == null) return;
+            DotaDataObject ddo = node.Tag as DotaDataObject;
+
+            if (ddo == null) return; //It's a folder!
+
+            OpenObjectEditor(ddo);
+        }
+
+        private void openAsTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TreeNode node = SelectedNode();
+            if (node == null) return;
+            DotaDataObject ddo = node.Tag as DotaDataObject;
+
+            if (ddo == null) return; //It's a folder!
+
+            OpenTextEditor(ddo);
+        }
+
+       
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TreeNode node = SelectedNode();
+            if (node == null) return;
+            DotaDataObject ddo = node.Tag as DotaDataObject;
+
+            if (ddo == null) return; //It's a folder, we cant delete this.
+            if (ddo.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default) return; //Can't delete default objects
+
+            if(MessageBox.Show("Are you sure?  This cannot be undone", "Delete Object", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                //Get the document for this and close the editors
+                Document doc = DocumentRegistry.GetDocumentFor(ddo);
+                if(doc != null)
+                {
+                    doc.CloseAllEditors(false);
+                }
+
+
+                IList list = DotaData.FindListThatHasObject(ddo);
+                list.Remove(ddo);
+
+                //remove this node from the tree view
+                node.Parent.Nodes.Remove(node);
+                //And it's gone!  
+            }
+            
+
+        }
+
+        private void overrideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TreeNode node = SelectedNode();
+            if (node == null) return;
+            DotaDataObject ddo = node.Tag as DotaDataObject;
+            if (ddo == null) return; //It's a folder, we cant override this.
+
+            
         }
     }
 }

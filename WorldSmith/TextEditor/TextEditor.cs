@@ -69,6 +69,8 @@ namespace WorldSmith
         }
 
         public string Filename;
+
+        private bool HideConfirmation = false;
         
 
         public TextEditor()
@@ -92,10 +94,14 @@ namespace WorldSmith
             //TODO: Check for changes and ask to save if we are closing.
             if(ActiveDocument.IsEdited)
             {
-                if(MessageBox.Show("This editor contains unsaved changes! Do you want to save now?", "Are you sure?", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                if(!HideConfirmation)
                 {
-                    ActiveDocument.Save(this);
+                    if (MessageBox.Show("This editor contains unsaved changes! Do you want to save now?", "Are you sure?", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        ActiveDocument.Save(this);
+                    }
                 }
+              
               
             }
 
@@ -179,6 +185,13 @@ namespace WorldSmith
                 TextDocument document = ActiveDocument as TextDocument;
                 textEditorControl1.Text = document.Text;
             }
+        }
+
+
+        public void CloseDocument(bool ConfirmChanges)
+        {
+            HideConfirmation = !ConfirmChanges;
+            this.Close();
         }
     }
 }
