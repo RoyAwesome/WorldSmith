@@ -9,7 +9,8 @@ using KVLib;
 namespace WorldSmith.DataSchema
 {
     static class DataClassGenerator
-    {
+    {      
+
         #region PropertyFinder
         public static void GenerateDataPropertiesFromKeyValues(string file, string baseKey, string outputFile)
         {
@@ -200,7 +201,8 @@ namespace WorldSmith.DataSchema
                 {
                     type = c.Key + "Flags";
                     csFile.AppendLine("\t\t[Flags]");
-                    csFile.AppendLine("\t\tpublic enum " + c.Key + "Flags");
+                    
+                    csFile.AppendLine("\t\tpublic enum " + c.Key + "Flags : long");
                     csFile.AppendLine("\t\t{");
                     foreach(KeyValue kv in c["PossibleValues"].Children)
                     {

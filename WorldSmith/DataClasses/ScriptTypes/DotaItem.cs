@@ -146,7 +146,7 @@ namespace WorldSmith.DataClasses
 		}
 
 		[Flags]
-		public enum ItemDeclarationsFlags
+		public enum ItemDeclarationsFlags : long
 		{
 			DECLARE_PURCHASES_NONE = 0,
 			DECLARE_PURCHASES_IN_SPEECH = 1,

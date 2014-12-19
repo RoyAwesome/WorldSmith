@@ -88,6 +88,7 @@ namespace WorldSmith.DataClasses
 			follow_rootbone,
 			follow_attachment_substepped,
 			follow_renderorigin,
+			attach_hitloc,
 		}
 
 		[Category("Misc")]
@@ -154,7 +155,7 @@ namespace WorldSmith.DataClasses
 		}
 
 		[Flags]
-		public enum Aura_TeamsFlags
+		public enum Aura_TeamsFlags : long
 		{
 			DOTA_UNIT_TARGET_TEAM_NONE = 0,
 			DOTA_UNIT_TARGET_TEAM_ENEMY = 1 << 1,
@@ -184,7 +185,7 @@ namespace WorldSmith.DataClasses
 		}
 
 		[Flags]
-		public enum Aura_TypesFlags
+		public enum Aura_TypesFlags : long
 		{
 			DOTA_UNIT_TARGET_NONE = 0,
 			DOTA_UNIT_TARGET_HERO = 1 << 1,
@@ -196,6 +197,7 @@ namespace WorldSmith.DataClasses
 			DOTA_UNIT_TARGET_TREE = 1 << 7,
 			DOTA_UNIT_TARGET_CUSTOM = 1 << 8,
 			DOTA_UNIT_TARGET_BASIC = 1 << 9,
+			DOTA_UNIT_TARGET_OTHERS = 1 << 10,
 			DOTA_UNIT_TARGET_ALL = 0xFFFF,
 		}
 
@@ -210,7 +212,7 @@ namespace WorldSmith.DataClasses
 		}
 
 		[Flags]
-		public enum Aura_FlagsFlags
+		public enum Aura_FlagsFlags : long
 		{
 			DOTA_UNIT_TARGET_FLAG_NONE = 0,
 			DOTA_UNIT_TARGET_FLAG_RANGED_ONLY = 1 << 1,

@@ -76,7 +76,8 @@
 			"0"		"world_origin"
 			"0"		"follow_rootbone"
 			"0"		"follow_attachment_substepped"
-			"0"		"follow_renderorigin"			
+			"0"		"follow_renderorigin"		
+			"0"		"attach_hitloc"	
 		}
 	}
 	"StatusEffectName"
@@ -167,6 +168,7 @@
             "DOTA_UNIT_TARGET_TREE"          "1 << 7"
             "DOTA_UNIT_TARGET_CUSTOM"        "1 << 8"
             "DOTA_UNIT_TARGET_BASIC"         "1 << 9"
+			"DOTA_UNIT_TARGET_OTHERS"		 "1 << 10"
 			"DOTA_UNIT_TARGET_ALL"			 "0xFFFF"
 		}
 	}

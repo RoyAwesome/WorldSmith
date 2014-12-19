@@ -67,7 +67,7 @@ namespace WorldSmith.DataClasses
 		}
 
 		[Flags]
-		public enum AbilityBehaviorFlags
+		public enum AbilityBehaviorFlags : long
 		{
 			DOTA_ABILITY_BEHAVIOR_NONE = 0,
 			DOTA_ABILITY_BEHAVIOR_HIDDEN = 1 << 0,
@@ -102,6 +102,7 @@ namespace WorldSmith.DataClasses
 			DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL = 1 << 29,
 			DOTA_ABILITY_TYPE_ULTIMATE = 1 << 30,
 			DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET = 1 << 31,
+			DOTA_ABILITY_IMMEDIATE = 1 << 32,
 		}
 
 		[Editor(typeof(FlagEnumDialogUIEditor), typeof(System.Drawing.Design.UITypeEditor))]
@@ -124,7 +125,7 @@ namespace WorldSmith.DataClasses
 		}
 
 		[Flags]
-		public enum AbilityUnitTargetTeamFlags
+		public enum AbilityUnitTargetTeamFlags : long
 		{
 			DOTA_UNIT_TARGET_TEAM_NONE = 0,
 			DOTA_UNIT_TARGET_TEAM_ENEMY = 1 << 1,
@@ -145,7 +146,7 @@ namespace WorldSmith.DataClasses
 		}
 
 		[Flags]
-		public enum AbilityUnitTargetTypeFlags
+		public enum AbilityUnitTargetTypeFlags : long
 		{
 			DOTA_UNIT_TARGET_NONE = 0,
 			DOTA_UNIT_TARGET_HERO = 1 << 1,
@@ -157,6 +158,7 @@ namespace WorldSmith.DataClasses
 			DOTA_UNIT_TARGET_TREE = 1 << 7,
 			DOTA_UNIT_TARGET_CUSTOM = 1 << 8,
 			DOTA_UNIT_TARGET_BASIC = 1 << 9,
+			DOTA_UNIT_TARGET_OTHERS = 1 << 10,
 			DOTA_UNIT_TARGET_ALL = 0xFFFF,
 		}
 
@@ -171,7 +173,7 @@ namespace WorldSmith.DataClasses
 		}
 
 		[Flags]
-		public enum AbilityUnitTargetFlagsFlags
+		public enum AbilityUnitTargetFlagsFlags : long
 		{
 			DOTA_UNIT_TARGET_FLAG_NONE = 0,
 			DOTA_UNIT_TARGET_FLAG_RANGED_ONLY = 1 << 1,

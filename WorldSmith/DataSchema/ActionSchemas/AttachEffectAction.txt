@@ -42,7 +42,7 @@
 		"Category"	"Misc"
 		"Description"	"No Description Set"
 		"Type"	"ControlPointList"
-		"DefaultValue"	"ControlPointList { }"
+		"DefaultValue"	"ControlPointList"
 	}
 
 

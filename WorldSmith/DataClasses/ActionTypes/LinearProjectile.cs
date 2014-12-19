@@ -134,7 +134,7 @@ namespace WorldSmith.DataClasses
 		}
 
 		[Flags]
-		public enum TargetTeamsFlags
+		public enum TargetTeamsFlags : long
 		{
 			DOTA_UNIT_TARGET_TEAM_NONE = 0,
 			DOTA_UNIT_TARGET_TEAM_ENEMY = 1 << 1,
@@ -155,7 +155,7 @@ namespace WorldSmith.DataClasses
 		}
 
 		[Flags]
-		public enum TargetTypesFlags
+		public enum TargetTypesFlags : long
 		{
 			DOTA_UNIT_TARGET_NONE = 0,
 			DOTA_UNIT_TARGET_HERO = 1 << 1,
@@ -181,7 +181,7 @@ namespace WorldSmith.DataClasses
 		}
 
 		[Flags]
-		public enum TargetFlagsFlags
+		public enum TargetFlagsFlags : long
 		{
 			DOTA_UNIT_TARGET_FLAG_NONE = 0,
 			DOTA_UNIT_TARGET_FLAG_RANGED_ONLY = 1 << 1,

@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node3");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node1", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Project", 4, 4, new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Dota 2 VPK", 3, 3);
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node3");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Node1", new System.Windows.Forms.TreeNode[] {
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Project", 4, 4, new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Dota 2 VPK", 3, 3);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectView));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.images = new System.Windows.Forms.ImageList(this.components);
@@ -86,23 +86,23 @@
             this.treeView1.Indent = 13;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node3";
-            treeNode1.Text = "Node3";
-            treeNode2.Name = "Node1";
-            treeNode2.Text = "Node1";
-            treeNode3.Name = "Node2";
-            treeNode3.Text = "Node2";
-            treeNode4.ImageIndex = 4;
-            treeNode4.Name = "project";
-            treeNode4.SelectedImageIndex = 4;
-            treeNode4.Text = "Project";
-            treeNode5.ImageIndex = 3;
-            treeNode5.Name = "vpk";
-            treeNode5.SelectedImageIndex = 3;
-            treeNode5.Text = "Dota 2 VPK";
+            treeNode6.Name = "Node3";
+            treeNode6.Text = "Node3";
+            treeNode7.Name = "Node1";
+            treeNode7.Text = "Node1";
+            treeNode8.Name = "Node2";
+            treeNode8.Text = "Node2";
+            treeNode9.ImageIndex = 4;
+            treeNode9.Name = "project";
+            treeNode9.SelectedImageIndex = 4;
+            treeNode9.Text = "Project";
+            treeNode10.ImageIndex = 3;
+            treeNode10.Name = "vpk";
+            treeNode10.SelectedImageIndex = 3;
+            treeNode10.Text = "Dota 2 VPK";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode5});
+            treeNode9,
+            treeNode10});
             this.treeView1.SelectedImageIndex = 0;
             this.treeView1.Size = new System.Drawing.Size(284, 579);
             this.treeView1.TabIndex = 0;

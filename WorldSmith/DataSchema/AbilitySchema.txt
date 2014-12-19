@@ -101,6 +101,7 @@
 			"DOTA_ABILITY_TYPE_ULTIMATE"					"1 << 30"	
 
 			"DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"	"1 << 31"
+			"DOTA_ABILITY_IMMEDIATE"						"1 << 32"
 		}
 	}
 
@@ -147,6 +148,7 @@
             "DOTA_UNIT_TARGET_TREE"          "1 << 7"
             "DOTA_UNIT_TARGET_CUSTOM"        "1 << 8"
             "DOTA_UNIT_TARGET_BASIC"         "1 << 9"
+			"DOTA_UNIT_TARGET_OTHERS"		 "1 << 10"
 			"DOTA_UNIT_TARGET_ALL"			 "0xFFFF"
 		}
 	}
