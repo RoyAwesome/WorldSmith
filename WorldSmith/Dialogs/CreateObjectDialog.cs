@@ -7,44 +7,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorldSmith.DataClasses;
 
 namespace WorldSmith.Dialogs
 {
     public partial class CreateObjectDialog : Form
     {
-        public CreateObjectDialog(int Type)
+        public CreateObjectDialog(DotaType type)
         {
             InitializeComponent();
+        
 
-            switch (Type)
+ 
+            switch (type)
             {
-                case 1: //Type 1 is heroes
+                case DotaType.Hero:
                     labelBase.Text = "Base Hero:";
                     this.Text = "Create New Custom Hero";
-                    codFillInFromList(1, WorldSmith.DataClasses.DotaData.DefaultHeroes);
+                    FillInFromList(1, DotaData.DefaultHeroes);
                     break;
-                case 2: //Type 2 is units
+                case DotaType.Unit:
                     labelBase.Text = "Base Unit:";
                     this.Text = "Create New Custom Unit";
-                    codFillInFromList(1, WorldSmith.DataClasses.DotaData.AllUnits);
+                    FillInFromList(1, DotaData.AllUnits);
                     break;
-                case 3: //Type 3 is abilities
+                case DotaType.Ability:
                     labelBase.Text = "Base Ability:";
                     this.Text = "Create New Custom Ability";
-                    codFillInFromList(1, WorldSmith.DataClasses.DotaData.AllAbilities);
+                    FillInFromList(1, DotaData.AllAbilities);
                     break;
-                case 4: //Type 4 is items
+                case DotaType.Item:
                     labelBase.Text = "Base Item:";
                     this.Text = "Create New Custom Item";
-                    codFillInFromList(1, WorldSmith.DataClasses.DotaData.AllItems);
+                    FillInFromList(1, DotaData.AllItems);
                     break;
 
             }
         }
 
-        private void codFillInFromList(int Type, IEnumerable<WorldSmith.DataClasses.DotaDataObject> ObjectList)
+        public enum DotaType
         {
-            foreach (WorldSmith.DataClasses.DotaDataObject ddo in ObjectList)
+            Hero,
+            Unit,
+            Ability,
+            Item
+        };
+
+        private void FillInFromList(int Type, IEnumerable<DotaDataObject> ObjectList)
+        {
+            foreach (DotaDataObject ddo in ObjectList)
             {
                 objectListBox.Items.Add(ddo.ClassName);
             }
