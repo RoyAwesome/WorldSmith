@@ -99,36 +99,5 @@ namespace WorldSmith.Panels
         {
             //Get the item and the context menu options available to it
         }
-
-        private void heroToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Heroes are assigned to Type = 1
-            Dialogs.CreateObjectDialog dialog = new Dialogs.CreateObjectDialog(1);
-            dialog.ShowDialog();
-
-        }
-
-        private void unitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Units are assigned to Type = 2
-            Dialogs.CreateObjectDialog dialog = new Dialogs.CreateObjectDialog(2);
-            dialog.ShowDialog();
-        }
-
-        private void abilityToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Abilities are assigned to Type = 3
-            Dialogs.CreateObjectDialog dialog = new Dialogs.CreateObjectDialog(3);
-            dialog.ShowDialog();
-        }
-
-        private void itemToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Items are assigned to Type = 4
-            Dialogs.CreateObjectDialog dialog = new Dialogs.CreateObjectDialog(4);
-            dialog.ShowDialog();
-        }
-
-        
     }
 }
