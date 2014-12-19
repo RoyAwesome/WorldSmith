@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorldSmith.DataClasses;
 using WorldSmith.Documents;
+using WorldSmith.Dialogs;
 
 namespace WorldSmith.Panels
 {
@@ -215,6 +216,34 @@ namespace WorldSmith.Panels
             if (ddo == null) return; //It's a folder, we cant override this.
 
             
+        }
+
+        private void heroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Heroes are assigned to Type = 1
+            CreateObjectDialog dialog = new CreateObjectDialog(CreateObjectDialog.DotaType.Hero);
+            dialog.ShowDialog();
+        }
+
+        private void unitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Units are assigned to Type = 2
+            CreateObjectDialog dialog = new CreateObjectDialog(CreateObjectDialog.DotaType.Unit);
+            dialog.ShowDialog();
+        }
+
+        private void abilityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Abilities are assigned to Type = 3
+            CreateObjectDialog dialog = new CreateObjectDialog(CreateObjectDialog.DotaType.Ability);
+            dialog.ShowDialog();
+        }
+
+        private void itemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Items are assigned to Type = 4
+            Dialogs.CreateObjectDialog dialog = new Dialogs.CreateObjectDialog(CreateObjectDialog.DotaType.Item);
+            dialog.ShowDialog();
         }
     }
 }
