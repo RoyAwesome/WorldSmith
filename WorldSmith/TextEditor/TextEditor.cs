@@ -193,5 +193,10 @@ namespace WorldSmith
             HideConfirmation = !ConfirmChanges;
             this.Close();
         }
+
+        private void foldTimer_Tick(object sender, EventArgs e)
+        {
+            textEditorControl1.Document.FoldingManager.UpdateFolds();
+        }
     }
 }

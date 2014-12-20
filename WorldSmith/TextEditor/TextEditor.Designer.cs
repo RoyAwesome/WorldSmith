@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.textEditorControl1 = new DigitalRune.Windows.TextEditor.TextEditorControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -36,6 +37,7 @@
             this.cutButton = new System.Windows.Forms.ToolStripButton();
             this.copyButton = new System.Windows.Forms.ToolStripButton();
             this.pasteButton = new System.Windows.Forms.ToolStripButton();
+            this.foldTimer = new System.Windows.Forms.Timer(this.components);
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -80,7 +82,7 @@
             this.pasteButton});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(141, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(110, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // saveButton
@@ -128,13 +130,25 @@
             this.pasteButton.Text = "toolStripButton1";
             this.pasteButton.Click += new System.EventHandler(this.pasteButton_Click);
             // 
+            // foldTimer
+            // 
+            this.foldTimer.Enabled = true;
+            this.foldTimer.Interval = 2000;
+            this.foldTimer.Tick += new System.EventHandler(this.foldTimer_Tick);
+            // 
             // TextEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 395);
             this.Controls.Add(this.toolStripContainer1);
+            this.DockAreas = ((DigitalRune.Windows.Docking.DockAreas)((((((DigitalRune.Windows.Docking.DockAreas.Float | DigitalRune.Windows.Docking.DockAreas.Left) 
+            | DigitalRune.Windows.Docking.DockAreas.Right) 
+            | DigitalRune.Windows.Docking.DockAreas.Top) 
+            | DigitalRune.Windows.Docking.DockAreas.Bottom) 
+            | DigitalRune.Windows.Docking.DockAreas.Document)));
             this.Name = "TextEditor";
+            this.TabText = "TextEditor";
             this.Text = "TextEditor";
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
@@ -157,6 +171,7 @@
         private System.Windows.Forms.ToolStripButton cutButton;
         private System.Windows.Forms.ToolStripButton pasteButton;
         private System.Windows.Forms.ToolStripButton copyButton;
+        private System.Windows.Forms.Timer foldTimer;
 
     }
 }
