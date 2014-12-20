@@ -222,10 +222,6 @@ namespace WorldSmith
         {
             string[] recentAddons = Properties.Settings.Default.RecentAddons;
 
-            List<string> recent = new List<string>();
-            recent.Remove(name);
-            recent.Insert(0, name);
-
             if(recentAddons == null)
             {
                 //first time, set it up
