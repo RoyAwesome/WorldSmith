@@ -26,6 +26,7 @@ namespace WorldSmith
         ConsoleStringWriter _consoleWriter;  
         ProjectView ProjectView;
         DotaObjectBrowser ObjectBrowser;
+        StartPageForm StartPageForm;
         #endregion
 
         public static DockPanel PrimaryDockingPanel;
@@ -51,11 +52,10 @@ namespace WorldSmith
             _consoleWriter = new ConsoleStringWriter(ConsoleForm);
             Console.SetOut(_consoleWriter);
 
-        
-
-        
-
-
+            //Create the start page
+            StartPageForm = new StartPageForm();
+            StartPageForm.Show(dockPanel, DockState.Document);
+ 
             PrimaryDockingPanel = dockPanel; //Set a static accessor to our docking panel for all default controls to go to.
         }
      
@@ -127,11 +127,12 @@ namespace WorldSmith
                 return;
             }
 
-            LoadProject(folder);            
+            LoadProject(folder);
         }
 
         public void LoadProject(string path)
         {
+
             Properties.Settings.Default.LoadedAddonDirectory = path;
             Properties.Settings.Default.Save();
             Console.WriteLine("Loading Project: " + path);
@@ -147,7 +148,11 @@ namespace WorldSmith
             ObjectBrowser = new DotaObjectBrowser();
             ObjectBrowser.Show(dockPanel, DockState.DockLeft);
 
-            this.Text = "Worldsmith - " + Path.GetFileName(path.Remove(path.Length - 1));
+            string addonName = Path.GetFileName(path.Remove(path.Length - 1));
+            this.Text = "Worldsmith - " + addonName;
+
+            AddToRecentAddonsList(addonName);
+            UpdateStartPage(); 
 
             Console.WriteLine("Successfully Loaded Project: " + path);
         }
@@ -155,23 +160,112 @@ namespace WorldSmith
         //Close addon button clickevent
         private void fileMenuCloseAddon_Click(object sender, EventArgs e)
         {
+            UnloadProject();
+        }
+
+        private void UnloadProject()
+        {
             string closingPath = Properties.Settings.Default.LoadedAddonDirectory;
             Console.WriteLine("Unloading project: " + closingPath);
 
             Properties.Settings.Default.LoadedAddonDirectory = "";
             Properties.Settings.Default.Save();
 
-            ProjectView.Hide();
-            ObjectBrowser.Hide();
+            CloseFormsAndEditors();
+            DotaData.UnloadUnits();
+            ShowStartPage();
 
+            this.Text = "Worldsmith";
+            Console.WriteLine("Successfully unloaded project: " + closingPath);
+        }
+
+        #region UnloadAddon
+        private void CloseFormsAndEditors()
+        {
+            if ( ProjectView != null && !ProjectView.IsDisposed) 
+            { 
+                ProjectView.Hide(); 
+            }
+            if ( ObjectBrowser != null && !ObjectBrowser.IsDisposed) 
+            { 
+                ObjectBrowser.Hide(); 
+            }
             foreach(Documents.Document doc in Documents.DocumentRegistry.AllDocuments.ToList())
             {
                 doc.CloseAllEditors(true);
             }
-
-            DotaData.UnloadUnits();
-            Console.WriteLine("Successfully unloaded project: " + closingPath);
         }
+        #endregion
+
+
+        #region StartPage
+
+        private void UpdateStartPage()
+        {
+            if (StartPageForm == null || StartPageForm.IsDisposed) { return; }
+            StartPageForm.ListRecentAddons();
+        }
+
+        private void ShowStartPage()
+        {
+            if (StartPageForm.Visible) { return; }
+            if (StartPageForm == null || StartPageForm.IsDisposed) { StartPageForm = new StartPageForm(); }
+            StartPageForm.Show(dockPanel, DockState.Document);
+        }
+
+        private void HideStartPage()
+        {
+            if (StartPageForm == null || !StartPageForm.Visible) { return; }
+            StartPageForm.Hide(); 
+        }
+        private void AddToRecentAddonsList(string name)
+        {
+            string[] recentAddons = Properties.Settings.Default.RecentAddons;
+
+            List<string> recent = new List<string>();
+            recent.Remove(name);
+            recent.Insert(0, name);
+
+            if(recentAddons == null)
+            {
+                //first time, set it up
+                recentAddons = new string[5];
+                recentAddons[0] = name;
+                for(int i=1;i<5;i++)
+                {
+                    recentAddons[i] = "";
+                }
+            }
+            else
+            {
+                if(recentAddons.Contains(name))
+                {
+                    //make sure we dont store the same addon twice
+                    for(int i=0;i<5;i++)
+                    {
+                        if(recentAddons[i] == name)
+                        {
+                            for(int j=i;j<5;j++)
+                            {
+                                recentAddons[j] = j == 4 ? "" : recentAddons[j + 1];
+                            }
+                            break;
+                        }
+                    }
+                }
+                string[] oldAddons = new string[5];
+                recentAddons.CopyTo(oldAddons, 0);
+                recentAddons[0] = name;
+                for(int i=1; i<5; i++)
+                {
+                    recentAddons[i] = oldAddons[i - 1];
+                }
+            }
+            Properties.Settings.Default.RecentAddons = recentAddons;
+            Properties.Settings.Default.Save();
+        }
+        #endregion
+
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
