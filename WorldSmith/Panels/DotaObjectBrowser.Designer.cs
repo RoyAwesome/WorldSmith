@@ -234,11 +234,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(245, 593);
             this.Controls.Add(this.toolStripContainer1);
-            this.DockAreas = ((DigitalRune.Windows.Docking.DockAreas)((((((DigitalRune.Windows.Docking.DockAreas.Float | DigitalRune.Windows.Docking.DockAreas.Left) 
-            | DigitalRune.Windows.Docking.DockAreas.Right) 
-            | DigitalRune.Windows.Docking.DockAreas.Top) 
-            | DigitalRune.Windows.Docking.DockAreas.Bottom) 
-            | DigitalRune.Windows.Docking.DockAreas.Document)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DotaObjectBrowser";
             this.TabText = "DotaObjectBrowser";

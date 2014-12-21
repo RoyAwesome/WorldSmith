@@ -32,12 +32,29 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
+            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin1 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient1 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient2 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient3 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient4 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient5 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient3 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient6 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient7 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenuNew = new System.Windows.Forms.ToolStripMenuItem();
             this.addonToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenuOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenuOpenAddon = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileMenuClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileMenuCloseAddon = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenuSave = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.fileMenuExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,16 +67,15 @@
             this.projectExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.objectBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.themesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.blackThemeButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.blueThemeButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.silverThemeButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.professionalThemeButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.visualThemeButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.systemThemeButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.dockPanel = new DigitalRune.Windows.Docking.DockPanel();
+            this.theme2003Button = new System.Windows.Forms.ToolStripMenuItem();
+            this.theme2005Button = new System.Windows.Forms.ToolStripMenuItem();
+            this.theme2012LightButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
+            this.vS2003Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2003Theme();
+            this.vS2005Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2005Theme();
+            this.vS2012LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2012LightTheme();
             this.localeManager1 = new WorldSmith.LocaleManager(this.components);
-            this.fileMenuClose = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileMenuCloseAddon = new System.Windows.Forms.ToolStripMenuItem();
+            this.vS2012ToolStripExtender1 = new DockSample.VS2012ToolStripExtender(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,6 +126,19 @@
             this.fileMenuOpenAddon.Name = "fileMenuOpenAddon";
             resources.ApplyResources(this.fileMenuOpenAddon, "fileMenuOpenAddon");
             this.fileMenuOpenAddon.Click += new System.EventHandler(this.addonToolStripMenuItem_Click);
+            // 
+            // fileMenuClose
+            // 
+            this.fileMenuClose.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileMenuCloseAddon});
+            this.fileMenuClose.Name = "fileMenuClose";
+            resources.ApplyResources(this.fileMenuClose, "fileMenuClose");
+            // 
+            // fileMenuCloseAddon
+            // 
+            this.fileMenuCloseAddon.Name = "fileMenuCloseAddon";
+            resources.ApplyResources(this.fileMenuCloseAddon, "fileMenuCloseAddon");
+            this.fileMenuCloseAddon.Click += new System.EventHandler(this.fileMenuCloseAddon_Click);
             // 
             // fileMenuSave
             // 
@@ -186,88 +215,98 @@
             // themesToolStripMenuItem
             // 
             this.themesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.blackThemeButton,
-            this.blueThemeButton,
-            this.silverThemeButton,
-            this.professionalThemeButton,
-            this.visualThemeButton,
-            this.systemThemeButton});
+            this.theme2003Button,
+            this.theme2005Button,
+            this.theme2012LightButton});
             this.themesToolStripMenuItem.Name = "themesToolStripMenuItem";
             resources.ApplyResources(this.themesToolStripMenuItem, "themesToolStripMenuItem");
-            this.themesToolStripMenuItem.DropDownOpening += new System.EventHandler(this.themesToolStripMenuItem_DropDownOpening);
             // 
-            // blackThemeButton
+            // theme2003Button
             // 
-            this.blackThemeButton.CheckOnClick = true;
-            this.blackThemeButton.Name = "blackThemeButton";
-            resources.ApplyResources(this.blackThemeButton, "blackThemeButton");
-            this.blackThemeButton.Click += new System.EventHandler(this.blackThemeButton_Click);
+            this.theme2003Button.Name = "theme2003Button";
+            resources.ApplyResources(this.theme2003Button, "theme2003Button");
+            this.theme2003Button.Click += new System.EventHandler(this.SetSchema);
             // 
-            // blueThemeButton
+            // theme2005Button
             // 
-            this.blueThemeButton.CheckOnClick = true;
-            this.blueThemeButton.Name = "blueThemeButton";
-            resources.ApplyResources(this.blueThemeButton, "blueThemeButton");
-            this.blueThemeButton.Click += new System.EventHandler(this.blueThemeButton_Click);
+            this.theme2005Button.Checked = true;
+            this.theme2005Button.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.theme2005Button.Name = "theme2005Button";
+            resources.ApplyResources(this.theme2005Button, "theme2005Button");
+            this.theme2005Button.Click += new System.EventHandler(this.SetSchema);
             // 
-            // silverThemeButton
+            // theme2012LightButton
             // 
-            this.silverThemeButton.CheckOnClick = true;
-            this.silverThemeButton.Name = "silverThemeButton";
-            resources.ApplyResources(this.silverThemeButton, "silverThemeButton");
-            this.silverThemeButton.Click += new System.EventHandler(this.silverThemeButton_Click);
-            // 
-            // professionalThemeButton
-            // 
-            this.professionalThemeButton.CheckOnClick = true;
-            this.professionalThemeButton.Name = "professionalThemeButton";
-            resources.ApplyResources(this.professionalThemeButton, "professionalThemeButton");
-            this.professionalThemeButton.Click += new System.EventHandler(this.professionalThemeButton_Click);
-            // 
-            // visualThemeButton
-            // 
-            this.visualThemeButton.Checked = true;
-            this.visualThemeButton.CheckOnClick = true;
-            this.visualThemeButton.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.visualThemeButton.Name = "visualThemeButton";
-            resources.ApplyResources(this.visualThemeButton, "visualThemeButton");
-            this.visualThemeButton.Click += new System.EventHandler(this.visualThemeButton_Click);
-            // 
-            // systemThemeButton
-            // 
-            this.systemThemeButton.CheckOnClick = true;
-            this.systemThemeButton.Name = "systemThemeButton";
-            resources.ApplyResources(this.systemThemeButton, "systemThemeButton");
-            this.systemThemeButton.Click += new System.EventHandler(this.systemThemeButton_Click);
+            this.theme2012LightButton.Name = "theme2012LightButton";
+            resources.ApplyResources(this.theme2012LightButton, "theme2012LightButton");
+            this.theme2012LightButton.Click += new System.EventHandler(this.SetSchema);
             // 
             // dockPanel
             // 
-            this.dockPanel.ActiveAutoHideContent = null;
-            this.dockPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dockPanel.DefaultFloatingWindowSize = new System.Drawing.Size(300, 300);
             resources.ApplyResources(this.dockPanel, "dockPanel");
-            this.dockPanel.DockBottomPortion = 200D;
+            this.dockPanel.DockBackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.dockPanel.DockBottomPortion = 150D;
             this.dockPanel.DockLeftPortion = 200D;
             this.dockPanel.DockRightPortion = 200D;
-            this.dockPanel.DockTopPortion = 200D;
+            this.dockPanel.DockTopPortion = 150D;
+            this.dockPanel.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow;
             this.dockPanel.Name = "dockPanel";
+            this.dockPanel.RightToLeftLayout = true;
+            dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
+            autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
+            tabGradient1.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient1.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient1.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            autoHideStripSkin1.TabGradient = tabGradient1;
+            autoHideStripSkin1.TextFont = new System.Drawing.Font("Segoe UI", 9F);
+            dockPanelSkin1.AutoHideStripSkin = autoHideStripSkin1;
+            tabGradient2.EndColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient2.StartColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient2.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient1.ActiveTabGradient = tabGradient2;
+            dockPanelGradient2.EndColor = System.Drawing.SystemColors.Control;
+            dockPanelGradient2.StartColor = System.Drawing.SystemColors.Control;
+            dockPaneStripGradient1.DockStripGradient = dockPanelGradient2;
+            tabGradient3.EndColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient3.StartColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient3.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient1.InactiveTabGradient = tabGradient3;
+            dockPaneStripSkin1.DocumentGradient = dockPaneStripGradient1;
+            dockPaneStripSkin1.TextFont = new System.Drawing.Font("Segoe UI", 9F);
+            tabGradient4.EndColor = System.Drawing.SystemColors.ActiveCaption;
+            tabGradient4.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient4.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
+            tabGradient4.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dockPaneStripToolWindowGradient1.ActiveCaptionGradient = tabGradient4;
+            tabGradient5.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient5.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient5.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient1.ActiveTabGradient = tabGradient5;
+            dockPanelGradient3.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient3.StartColor = System.Drawing.SystemColors.ControlLight;
+            dockPaneStripToolWindowGradient1.DockStripGradient = dockPanelGradient3;
+            tabGradient6.EndColor = System.Drawing.SystemColors.InactiveCaption;
+            tabGradient6.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient6.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            tabGradient6.TextColor = System.Drawing.SystemColors.InactiveCaptionText;
+            dockPaneStripToolWindowGradient1.InactiveCaptionGradient = tabGradient6;
+            tabGradient7.EndColor = System.Drawing.Color.Transparent;
+            tabGradient7.StartColor = System.Drawing.Color.Transparent;
+            tabGradient7.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            dockPaneStripToolWindowGradient1.InactiveTabGradient = tabGradient7;
+            dockPaneStripSkin1.ToolWindowGradient = dockPaneStripToolWindowGradient1;
+            dockPanelSkin1.DockPaneStripSkin = dockPaneStripSkin1;
+            this.dockPanel.Skin = dockPanelSkin1;
             // 
             // localeManager1
             // 
             this.localeManager1.ParentControl = this;
             // 
-            // fileMenuClose
+            // vS2012ToolStripExtender1
             // 
-            this.fileMenuClose.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileMenuCloseAddon});
-            this.fileMenuClose.Name = "fileMenuClose";
-            resources.ApplyResources(this.fileMenuClose, "fileMenuClose");
-            // 
-            // fileMenuCloseAddon
-            // 
-            this.fileMenuCloseAddon.Name = "fileMenuCloseAddon";
-            resources.ApplyResources(this.fileMenuCloseAddon, "fileMenuCloseAddon");
-            this.fileMenuCloseAddon.Click += new System.EventHandler(this.fileMenuCloseAddon_Click);
+            this.vS2012ToolStripExtender1.DefaultRenderer = null;
+            this.vS2012ToolStripExtender1.VS2012Renderer = null;
             // 
             // MainForm
             // 
@@ -302,19 +341,20 @@
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem swedishToolStripMenuItem;
         private LocaleManager localeManager1;
-        private DigitalRune.Windows.Docking.DockPanel dockPanel;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem projectExplorerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem objectBrowserToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem themesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem blackThemeButton;
-        private System.Windows.Forms.ToolStripMenuItem blueThemeButton;
-        private System.Windows.Forms.ToolStripMenuItem silverThemeButton;
-        private System.Windows.Forms.ToolStripMenuItem professionalThemeButton;
-        private System.Windows.Forms.ToolStripMenuItem visualThemeButton;
-        private System.Windows.Forms.ToolStripMenuItem systemThemeButton;
         private System.Windows.Forms.ToolStripMenuItem fileMenuClose;
         private System.Windows.Forms.ToolStripMenuItem fileMenuCloseAddon;
+        private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel;
+        private WeifenLuo.WinFormsUI.Docking.VS2003Theme vS2003Theme1;
+        private WeifenLuo.WinFormsUI.Docking.VS2005Theme vS2005Theme1;
+        private WeifenLuo.WinFormsUI.Docking.VS2012LightTheme vS2012LightTheme1;
+        private System.Windows.Forms.ToolStripMenuItem themesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem theme2003Button;
+        private System.Windows.Forms.ToolStripMenuItem theme2005Button;
+        private System.Windows.Forms.ToolStripMenuItem theme2012LightButton;
+        private DockSample.VS2012ToolStripExtender vS2012ToolStripExtender1;
     }
 }
 

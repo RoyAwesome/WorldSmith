@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeifenLuo.WinFormsUI.Docking;
 using WorldSmith.DataClasses;
 using WorldSmith.Panels;
 
@@ -69,7 +70,7 @@ namespace WorldSmith.Documents
             {
                 Editor.EditingObject = DotaObject;
                 Editor.TabText = DotaObject.ClassName;
-                Editor.Show(MainForm.PrimaryDockingPanel, DigitalRune.Windows.Docking.DockState.Document);
+                Editor.Show(MainForm.PrimaryDockingPanel, DockState.Document);
             }         
             return Editor;
         }

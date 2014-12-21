@@ -79,9 +79,6 @@
     <Reference Include="DigitalRune.Windows.TextEditor">
       <HintPath>..\Libs\DigitalRune.Windows.TextEditor.dll</HintPath>
     </Reference>
-    <Reference Include="DigitalRune.Windows.Docking">
-      <HintPath>DigitalRune\DigitalRune.Windows.Docking.dll</HintPath>
-    </Reference>
     <Reference Include="KVLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libs\KVLib.dll</HintPath>
@@ -100,6 +97,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.9.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleStringWriter.cs" />
@@ -335,6 +336,12 @@
     <Compile Include="TextEditor\TextEditor.Designer.cs">
       <DependentUpon>TextEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Themes\VS2012ColorTable.cs" />
+    <Compile Include="Themes\VS2012ToolStripExtender.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Themes\VS2012ToolStripExtender.Designer.cs" />
+    <Compile Include="Themes\VS2012ToolStripRenderer.cs" />
     <EmbeddedResource Include="Dialogs\ActionEditor.resx">
       <DependentUpon>ActionEditor.cs</DependentUpon>
     </EmbeddedResource>

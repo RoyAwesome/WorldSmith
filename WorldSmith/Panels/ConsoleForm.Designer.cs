@@ -48,11 +48,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.consoleBox);
-            this.DockAreas = ((DigitalRune.Windows.Docking.DockAreas)((((((DigitalRune.Windows.Docking.DockAreas.Float | DigitalRune.Windows.Docking.DockAreas.Left) 
-            | DigitalRune.Windows.Docking.DockAreas.Right) 
-            | DigitalRune.Windows.Docking.DockAreas.Top) 
-            | DigitalRune.Windows.Docking.DockAreas.Bottom) 
-            | DigitalRune.Windows.Docking.DockAreas.Document)));
             this.Name = "ConsoleForm";
             this.TabText = "Console";
             this.Text = "Console";
