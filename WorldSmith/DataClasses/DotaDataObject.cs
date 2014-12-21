@@ -60,12 +60,13 @@ namespace WorldSmith.DataClasses
             KeyValue = DataSource;
         }
         public DotaDataObject(string ClassName)
+            : this()
         {
             KeyValue = new KeyValue(ClassName);
             
         }
 
-        //TODO: hide this
+  
         private DotaDataObject()
         {
             ObjectInfo = new DataObjectInfo();
