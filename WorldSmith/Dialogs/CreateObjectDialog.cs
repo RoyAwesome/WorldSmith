@@ -92,27 +92,27 @@ namespace WorldSmith.Dialogs
 
                         DotaUnit baseUnit =
                             DotaData.AllUnits.FirstOrDefault(x => x.ClassName == objectListBox.SelectedItem.ToString());
-                        DotaUnit unit = new DotaUnit();
+                        DotaUnit unit = new DotaUnit(nameTextBox.Text);
                         unit.BaseClass = baseUnit.ClassName;
-                        unit.ClassName = nameTextBox.Text;
+                        unit.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Custom;
                         DotaData.AllUnits.Add(unit);
                         break;
 
                     case DotaType.Ability:
                         DotaAbility baseAbility =
                             DotaData.AllAbilities.FirstOrDefault(x => x.ClassName == objectListBox.SelectedItem.ToString());
-                        DotaAbility ability = new DotaAbility();
+                        DotaAbility ability = new DotaAbility(nameTextBox.Text);
                         ability.BaseClass = baseAbility.ClassName;
-                        ability.ClassName = nameTextBox.Text;
+                        ability.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Custom;
                         DotaData.AllAbilities.Add(ability);
                         break;
 
                     case DotaType.Item:
                         DotaItem baseItem =
                             DotaData.AllItems.FirstOrDefault(x => x.ClassName == objectListBox.SelectedItem.ToString());
-                        DotaItem item = new DotaItem();
+                        DotaItem item = new DotaItem(nameTextBox.Text);
                         item.BaseClass = baseItem.ClassName;
-                        item.ClassName = nameTextBox.Text;
+                        item.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Custom;
                         DotaData.AllItems.Add(item);
                         break;
                 }
