@@ -53,8 +53,7 @@ namespace WorldSmith
             Console.SetOut(_consoleWriter);
 
             //Create the start page
-            StartPageForm = new StartPageForm();
-            StartPageForm.Show(dockPanel, DockState.Document);
+            ShowStartPage();
  
             PrimaryDockingPanel = dockPanel; //Set a static accessor to our docking panel for all default controls to go to.
         }
@@ -86,7 +85,11 @@ namespace WorldSmith
 
         private void addonToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //Create the new Addon Wizard
+            ShowNewAddonWizard();
+        }
+
+        private void ShowNewAddonWizard()
+        {
             NewAddonWizard wizard = new NewAddonWizard();
             if (wizard.ShowDialog() != DialogResult.OK) return; //They didnt want to make a new addon.  Whatever...
 
@@ -110,11 +113,16 @@ namespace WorldSmith
             Directory.CreateDirectory(addonPath + "resource");
             File.WriteAllText(addonPath + "addoninfo.txt", DotaData.KVHeader + doc.ToString());
 
-            LoadProject(addonPath);         
+            LoadProject(addonPath);  
         }
 
         //Open addon button clickevent
         private void addonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadAddon();
+        }
+
+        public void LoadAddon()
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             dialog.SelectedPath = Properties.Settings.Default.DotaDir + "\\dota_ugc\\game\\dota_addons\\";
@@ -208,8 +216,8 @@ namespace WorldSmith
 
         private void ShowStartPage()
         {
+            if (StartPageForm == null || StartPageForm.IsDisposed) { StartPageForm = new StartPageForm(ShowNewAddonWizard,LoadAddon); }
             if (StartPageForm.Visible) { return; }
-            if (StartPageForm == null || StartPageForm.IsDisposed) { StartPageForm = new StartPageForm(); }
             StartPageForm.Show(dockPanel, DockState.Document);
         }
 

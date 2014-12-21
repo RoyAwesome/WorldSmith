@@ -66,6 +66,7 @@
             this.lblNewAddon.Size = new System.Drawing.Size(79, 15);
             this.lblNewAddon.TabIndex = 4;
             this.lblNewAddon.Text = "New Addon...";
+            this.lblNewAddon.Click += new System.EventHandler(this.lblNewAddon_Click);
             // 
             // lblLoadAddon
             // 
@@ -78,6 +79,7 @@
             this.lblLoadAddon.Size = new System.Drawing.Size(82, 15);
             this.lblLoadAddon.TabIndex = 5;
             this.lblLoadAddon.Text = "Load Addon...";
+            this.lblLoadAddon.Click += new System.EventHandler(this.lblLoadAddon_Click);
             // 
             // recentAddonsFlowPanel
             // 

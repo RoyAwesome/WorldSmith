@@ -16,11 +16,19 @@ namespace WorldSmith.Panels
         #region LabelSettings
         private static Font lblFont = new Font(new FontFamily("Microsoft Sans Serif"), 9);
         #endregion
+        #region SharedFunctions
+        public delegate void ShowNewAddonWizzardDelegate();
+        public delegate void LoadAddonDelegate();
+        private ShowNewAddonWizzardDelegate ShowNewAddonWizzard;
+        private LoadAddonDelegate LoadAddon;
+        #endregion
 
-        public StartPageForm()
+        public StartPageForm(ShowNewAddonWizzardDelegate snawd, LoadAddonDelegate la)
         {
             InitializeComponent();
             ListRecentAddons();
+            this.ShowNewAddonWizzard = snawd;
+            this.LoadAddon = la;
         }
 
         public void ListRecentAddons()
@@ -39,6 +47,28 @@ namespace WorldSmith.Panels
                 lblAddon.Parent = recentAddonsFlowPanel;
                 lblAddon.Cursor = Cursors.Hand; 
             }
+        }
+
+        private void lblNewAddon_Click(object sender, EventArgs e)
+        {
+            //Call the mainforms function for displaying the NewAddonWizzard
+            if(ShowNewAddonWizzard == null)
+            {
+                Console.WriteLine("Error: ShowNewAddonWizzard is not set");
+                return;    
+            }
+            ShowNewAddonWizzard();
+        }
+
+        private void lblLoadAddon_Click(object sender, EventArgs e)
+        {
+            //Call the mainforms function for loading an addon
+            if(LoadAddon == null)
+            {
+                Console.WriteLine("Error: LoadAddon is not set");
+                return;    
+            }
+            LoadAddon();
         }
     }
 }
