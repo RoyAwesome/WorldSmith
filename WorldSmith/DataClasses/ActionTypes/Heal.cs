@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Heal %Target for %HealAmount hitpoints")]
 	public partial class Heal : TargetedAction
 	{
+		public Heal(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public Heal(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("int")]
 		[DefaultValue("")]
 		public string HealAmount
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("HealAmount");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("HealAmount").Set(value.ToString());
+			}
 		}
 
 	}

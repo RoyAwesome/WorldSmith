@@ -6,10 +6,19 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
 	public partial class BaseAction : DotaDataObject
 	{
+		public BaseAction(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public BaseAction(string className)
+			: base(className)
+		{
+		}
 	}
 }

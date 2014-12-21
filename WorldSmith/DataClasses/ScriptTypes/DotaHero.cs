@@ -6,18 +6,34 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
 	public partial class DotaHero : DotaBaseUnit
 	{
+		public DotaHero(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public DotaHero(string className)
+			: base(className)
+		{
+		}
 		[Category("General")]
 		[Description("Enable/disable this hero.")]
 		[DefaultValue(true)]
 		public bool Enabled
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Enabled");
+				return (kv == null ? true : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("Enabled").Set(value.ToString());
+			}
 		}
 
 		[Category("General")]
@@ -25,8 +41,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool BotImplemented
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("BotImplemented");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("BotImplemented").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -34,8 +57,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool NewHero
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("NewHero");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("NewHero").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -43,8 +73,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool HeroPool1
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("HeroPool1");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("HeroPool1").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -52,8 +89,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(1)]
 		public int HeroUnlockOrder
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("HeroUnlockOrder");
+				return (kv == null ? 1 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("HeroUnlockOrder").Set(value.ToString());
+			}
 		}
 
 		[Category("General")]
@@ -61,8 +105,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool CMEnabled
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("CMEnabled");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("CMEnabled").Set(value.ToString());
+			}
 		}
 
 		[Category("General")]
@@ -70,8 +121,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool CMTournamentIgnore
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("CMTournamentIgnore");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("CMTournamentIgnore").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -79,8 +137,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool new_player_enable
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("new_player_enable");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("new_player_enable").Set(value.ToString());
+			}
 		}
 
 		[Category("Voice")]
@@ -88,8 +153,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string VoiceBackgroundSound
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("VoiceBackgroundSound");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("VoiceBackgroundSound").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -97,8 +169,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("scenes\\default_idle.vcd")]
 		public string IdleExpression
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("IdleExpression");
+				return (kv == null ? "scenes\\default_idle.vcd" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("IdleExpression").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -106,8 +185,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string HUD
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("HUD");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("HUD").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -115,8 +201,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string override_hero
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("override_hero");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("override_hero").Set(value.ToString());
+			}
 		}
 
 	}

@@ -6,18 +6,34 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
 	public partial class DotaItem : DotaAbility
 	{
+		public DotaItem(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public DotaItem(string className)
+			: base(className)
+		{
+		}
 		[Category("General")]
 		[Description("How much this item costs. This value is overriden by recipe requirements.")]
 		[DefaultValue(0)]
 		public int ItemCost
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemCost");
+				return (kv == null ? 0 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("ItemCost").Set(value.ToString());
+			}
 		}
 
 		[Category("Charges")]
@@ -25,8 +41,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0)]
 		public int ItemInitialCharges
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemInitialCharges");
+				return (kv == null ? 0 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("ItemInitialCharges").Set(value.ToString());
+			}
 		}
 
 		[Category("General")]
@@ -34,8 +57,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(true)]
 		public bool ItemCombinable
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemCombinable");
+				return (kv == null ? true : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("ItemCombinable").Set(value.ToString());
+			}
 		}
 
 		[Category("General")]
@@ -43,8 +73,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(true)]
 		public bool ItemPermanent
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemPermanent");
+				return (kv == null ? true : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("ItemPermanent").Set(value.ToString());
+			}
 		}
 
 		[Category("General")]
@@ -52,8 +89,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool ItemStackable
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemStackable");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("ItemStackable").Set(value.ToString());
+			}
 		}
 
 		[Category("General")]
@@ -61,8 +105,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool ItemRecipe
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemRecipe");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("ItemRecipe").Set(value.ToString());
+			}
 		}
 
 		[Category("General")]
@@ -70,8 +121,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(true)]
 		public bool ItemDroppable
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemDroppable");
+				return (kv == null ? true : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("ItemDroppable").Set(value.ToString());
+			}
 		}
 
 		[Category("Purchase")]
@@ -79,8 +137,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(true)]
 		public bool ItemPurchasable
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemPurchasable");
+				return (kv == null ? true : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("ItemPurchasable").Set(value.ToString());
+			}
 		}
 
 		[Category("Purchase")]
@@ -88,8 +153,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(true)]
 		public bool ItemSellable
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemSellable");
+				return (kv == null ? true : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("ItemSellable").Set(value.ToString());
+			}
 		}
 
 		[Category("Charges")]
@@ -97,8 +169,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool ItemRequiresCharges
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemRequiresCharges");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("ItemRequiresCharges").Set(value.ToString());
+			}
 		}
 
 		[Category("General")]
@@ -106,8 +185,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(true)]
 		public bool ItemKillable
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemKillable");
+				return (kv == null ? true : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("ItemKillable").Set(value.ToString());
+			}
 		}
 
 		[Category("General")]
@@ -115,8 +201,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool ItemDisassemblable
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemDisassemblable");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("ItemDisassemblable").Set(value.ToString());
+			}
 		}
 
 		public enum ItemShareabilityEnum
@@ -132,8 +225,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(ItemShareabilityEnum.ITEM_NOT_SHAREABLE)]
 		public ItemShareabilityEnum ItemShareability
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemShareability");
+				return (kv == null ? ItemShareabilityEnum.ITEM_NOT_SHAREABLE : kv.GetEnum<ItemShareabilityEnum>());
+			}
+			set
+			{
+				GetSubkey("ItemShareability").Set(value.ToString());
+			}
 		}
 
 		[Category("Purchase")]
@@ -141,8 +241,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool ItemDeclaresPurchase
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemDeclaresPurchase");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("ItemDeclaresPurchase").Set(value.ToString());
+			}
 		}
 
 		[Flags]
@@ -160,8 +267,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(ItemDeclarationsFlags.DECLARE_PURCHASES_NONE)]
 		public ItemDeclarationsFlags ItemDeclarations
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemDeclarations");
+				return (kv == null ? ItemDeclarationsFlags.DECLARE_PURCHASES_NONE : kv.GetEnum<ItemDeclarationsFlags>());
+			}
+			set
+			{
+				GetSubkey("ItemDeclarations").Set(value.ToString());
+			}
 		}
 
 	}

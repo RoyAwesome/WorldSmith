@@ -213,6 +213,7 @@
     <Compile Include="Documents\DocumentRegistry.cs" />
     <Compile Include="Documents\DotaObjectDocument.cs" />
     <Compile Include="Documents\TextDocument.cs" />
+    <Compile Include="KeyValueExt.cs" />
     <Compile Include="Localization\LocaleManager.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -261,12 +262,6 @@
     </Compile>
     <Compile Include="Panels\ProjectView.Designer.cs">
       <DependentUpon>ProjectView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Panels\ItemEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Panels\ItemEditor.Designer.cs">
-      <DependentUpon>ItemEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Panels\ObjectLinkEdit.cs">
       <SubType>UserControl</SubType>
@@ -403,9 +398,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.sv.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Panels\ItemEditor.resx">
-      <DependentUpon>ItemEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\ObjectLinkEdit.resx">
       <DependentUpon>ObjectLinkEdit.cs</DependentUpon>

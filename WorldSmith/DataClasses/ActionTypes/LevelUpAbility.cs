@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Level up %AbilityName on %Target")]
 	public partial class LevelUpAbility : TargetedAction
 	{
+		public LevelUpAbility(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public LevelUpAbility(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("Name")]
 		[DefaultValue("")]
 		public string AbilityName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AbilityName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("AbilityName").Set(value.ToString());
+			}
 		}
 
 	}

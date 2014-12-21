@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,27 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("If the caster is alive, do %OnSuccess actions.  Else, do %OnFailure actions")]
 	public partial class IsCasterAlive : BaseAction
 	{
+		public IsCasterAlive(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public IsCasterAlive(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(typeof(ActionCollection), "Default")]
 		public ActionCollection OnSuccess
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnSuccess").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -27,8 +42,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "Default")]
 		public ActionCollection OnFailure
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnFailure").Set(value.ToString());
+			}
 		}
 
 	}

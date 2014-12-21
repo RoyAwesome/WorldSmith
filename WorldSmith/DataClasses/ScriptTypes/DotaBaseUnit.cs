@@ -6,18 +6,34 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
 	public partial class DotaBaseUnit : BaseScriptType
 	{
+		public DotaBaseUnit(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public DotaBaseUnit(string className)
+			: base(className)
+		{
+		}
 		[Category("General")]
 		[Description("Model.")]
 		[DefaultValue("models/error.mdl")]
 		public string Model
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Model");
+				return (kv == null ? "models/error.mdl" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("Model").Set(value.ToString());
+			}
 		}
 
 		[Category("General")]
@@ -25,8 +41,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("0")]
 		public string SoundSet
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("SoundSet");
+				return (kv == null ? "0" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("SoundSet").Set(value.ToString());
+			}
 		}
 
 		[Category("General")]
@@ -34,8 +57,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(1)]
 		public int Level
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Level");
+				return (kv == null ? 1 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("Level").Set(value.ToString());
+			}
 		}
 
 		[Category("Abilities")]
@@ -43,8 +73,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(4)]
 		public int AbilityLayout
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AbilityLayout");
+				return (kv == null ? 4 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("AbilityLayout").Set(value.ToString());
+			}
 		}
 
 		[Category("Abilities")]
@@ -52,8 +89,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string Ability1
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Ability1");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("Ability1").Set(value.ToString());
+			}
 		}
 
 		[Category("Abilities")]
@@ -61,8 +105,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string Ability2
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Ability2");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("Ability2").Set(value.ToString());
+			}
 		}
 
 		[Category("Abilities")]
@@ -70,8 +121,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string Ability3
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Ability3");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("Ability3").Set(value.ToString());
+			}
 		}
 
 		[Category("Abilities")]
@@ -79,8 +137,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string Ability4
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Ability4");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("Ability4").Set(value.ToString());
+			}
 		}
 
 		[Category("Abilities")]
@@ -88,8 +153,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string Ability5
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Ability5");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("Ability5").Set(value.ToString());
+			}
 		}
 
 		[Category("Abilities")]
@@ -97,8 +169,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string Ability6
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Ability6");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("Ability6").Set(value.ToString());
+			}
 		}
 
 		[Category("Abilities")]
@@ -106,8 +185,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string Ability7
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Ability7");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("Ability7").Set(value.ToString());
+			}
 		}
 
 		[Category("Abilities")]
@@ -115,8 +201,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string Ability8
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Ability8");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("Ability8").Set(value.ToString());
+			}
 		}
 
 		[Category("Armor")]
@@ -124,8 +217,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(-1)]
 		public int ArmorPhysical
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ArmorPhysical");
+				return (kv == null ? -1 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("ArmorPhysical").Set(value.ToString());
+			}
 		}
 
 		[Category("Armor")]
@@ -133,8 +233,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(25)]
 		public int MagicalResistance
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("MagicalResistance");
+				return (kv == null ? 25 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("MagicalResistance").Set(value.ToString());
+			}
 		}
 
 		public enum AttackCapabilitiesEnum
@@ -149,8 +256,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(AttackCapabilitiesEnum.DOTA_UNIT_CAP_RANGED_ATTACK)]
 		public AttackCapabilitiesEnum AttackCapabilities
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttackCapabilities");
+				return (kv == null ? AttackCapabilitiesEnum.DOTA_UNIT_CAP_RANGED_ATTACK : kv.GetEnum<AttackCapabilitiesEnum>());
+			}
+			set
+			{
+				GetSubkey("AttackCapabilities").Set(value.ToString());
+			}
 		}
 
 		[Category("Attack")]
@@ -158,8 +272,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(1)]
 		public int AttackDamageMin
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttackDamageMin");
+				return (kv == null ? 1 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("AttackDamageMin").Set(value.ToString());
+			}
 		}
 
 		[Category("Attack")]
@@ -167,8 +288,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(1)]
 		public int AttackDamageMax
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttackDamageMax");
+				return (kv == null ? 1 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("AttackDamageMax").Set(value.ToString());
+			}
 		}
 
 		public enum AttackDamageTypeEnum
@@ -181,8 +309,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(AttackDamageTypeEnum.DAMAGE_TYPE_ArmorPhysical)]
 		public AttackDamageTypeEnum AttackDamageType
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttackDamageType");
+				return (kv == null ? AttackDamageTypeEnum.DAMAGE_TYPE_ArmorPhysical : kv.GetEnum<AttackDamageTypeEnum>());
+			}
+			set
+			{
+				GetSubkey("AttackDamageType").Set(value.ToString());
+			}
 		}
 
 		[Category("Attack")]
@@ -190,8 +325,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(1.7f)]
 		public float AttackRate
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttackRate");
+				return (kv == null ? 1.7f : kv.GetFloat());
+			}
+			set
+			{
+				GetSubkey("AttackRate").Set(value.ToString());
+			}
 		}
 
 		[Category("Attack")]
@@ -199,8 +341,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0.75f)]
 		public float AttackAnimationPoint
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttackAnimationPoint");
+				return (kv == null ? 0.75f : kv.GetFloat());
+			}
+			set
+			{
+				GetSubkey("AttackAnimationPoint").Set(value.ToString());
+			}
 		}
 
 		[Category("Attack")]
@@ -208,8 +357,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(true)]
 		public bool AttackAcquisitionRange
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttackAcquisitionRange");
+				return (kv == null ? true : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("AttackAcquisitionRange").Set(value.ToString());
+			}
 		}
 
 		[Category("Attack")]
@@ -217,8 +373,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(600)]
 		public int AttackRange
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttackRange");
+				return (kv == null ? 600 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("AttackRange").Set(value.ToString());
+			}
 		}
 
 		[Category("Attack")]
@@ -226,8 +389,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("ranged_hero")]
 		public string ProjectileModel
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ProjectileModel");
+				return (kv == null ? "ranged_hero" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("ProjectileModel").Set(value.ToString());
+			}
 		}
 
 		[Category("Attack")]
@@ -235,8 +405,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(900)]
 		public int ProjectileSpeed
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ProjectileSpeed");
+				return (kv == null ? 900 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("ProjectileSpeed").Set(value.ToString());
+			}
 		}
 
 		public enum AttributePrimaryEnum
@@ -251,8 +428,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(AttributePrimaryEnum.DOTA_ATTRIBUTE_STRENGTH)]
 		public AttributePrimaryEnum AttributePrimary
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttributePrimary");
+				return (kv == null ? AttributePrimaryEnum.DOTA_ATTRIBUTE_STRENGTH : kv.GetEnum<AttributePrimaryEnum>());
+			}
+			set
+			{
+				GetSubkey("AttributePrimary").Set(value.ToString());
+			}
 		}
 
 		[Category("Attributes")]
@@ -260,8 +444,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0)]
 		public int AttributeBaseStrength
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttributeBaseStrength");
+				return (kv == null ? 0 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("AttributeBaseStrength").Set(value.ToString());
+			}
 		}
 
 		[Category("Attributes")]
@@ -269,8 +460,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0)]
 		public int AttributeStrengthGain
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttributeStrengthGain");
+				return (kv == null ? 0 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("AttributeStrengthGain").Set(value.ToString());
+			}
 		}
 
 		[Category("Attributes")]
@@ -278,8 +476,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0)]
 		public int AttributeBaseIntelligence
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttributeBaseIntelligence");
+				return (kv == null ? 0 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("AttributeBaseIntelligence").Set(value.ToString());
+			}
 		}
 
 		[Category("Attributes")]
@@ -287,8 +492,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0)]
 		public int AttributeIntelligenceGain
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttributeIntelligenceGain");
+				return (kv == null ? 0 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("AttributeIntelligenceGain").Set(value.ToString());
+			}
 		}
 
 		[Category("Attributes")]
@@ -296,8 +508,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0)]
 		public int AttributeBaseAgility
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttributeBaseAgility");
+				return (kv == null ? 0 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("AttributeBaseAgility").Set(value.ToString());
+			}
 		}
 
 		[Category("Attributes")]
@@ -305,8 +524,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0)]
 		public int AttributeAgilityGain
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AttributeAgilityGain");
+				return (kv == null ? 0 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("AttributeAgilityGain").Set(value.ToString());
+			}
 		}
 
 		[Category("Bounty")]
@@ -314,8 +540,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(62)]
 		public int BountyXP
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("BountyXP");
+				return (kv == null ? 62 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("BountyXP").Set(value.ToString());
+			}
 		}
 
 		[Category("Bounty")]
@@ -323,8 +556,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0)]
 		public int BountyGoldMin
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("BountyGoldMin");
+				return (kv == null ? 0 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("BountyGoldMin").Set(value.ToString());
+			}
 		}
 
 		[Category("Bounty")]
@@ -332,8 +572,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0)]
 		public int BountyGoldMax
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("BountyGoldMax");
+				return (kv == null ? 0 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("BountyGoldMax").Set(value.ToString());
+			}
 		}
 
 		public enum BoundsHullNameEnum
@@ -354,8 +601,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(BoundsHullNameEnum.DOTA_HULL_SIZE_HERO)]
 		public BoundsHullNameEnum BoundsHullName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("BoundsHullName");
+				return (kv == null ? BoundsHullNameEnum.DOTA_HULL_SIZE_HERO : kv.GetEnum<BoundsHullNameEnum>());
+			}
+			set
+			{
+				GetSubkey("BoundsHullName").Set(value.ToString());
+			}
 		}
 
 		[Category("Bounds")]
@@ -363,8 +617,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(70)]
 		public int RingRadius
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("RingRadius");
+				return (kv == null ? 70 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("RingRadius").Set(value.ToString());
+			}
 		}
 
 		public enum MovementCapabilitiesEnum
@@ -379,8 +640,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(MovementCapabilitiesEnum.DOTA_UNIT_CAP_MOVE_GROUND)]
 		public MovementCapabilitiesEnum MovementCapabilities
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("MovementCapabilities");
+				return (kv == null ? MovementCapabilitiesEnum.DOTA_UNIT_CAP_MOVE_GROUND : kv.GetEnum<MovementCapabilitiesEnum>());
+			}
+			set
+			{
+				GetSubkey("MovementCapabilities").Set(value.ToString());
+			}
 		}
 
 		[Category("Movement")]
@@ -388,8 +656,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(300)]
 		public int MovementSpeed
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("MovementSpeed");
+				return (kv == null ? 300 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("MovementSpeed").Set(value.ToString());
+			}
 		}
 
 		[Category("Movement")]
@@ -397,8 +672,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0.5f)]
 		public float MovementTurnRate
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("MovementTurnRate");
+				return (kv == null ? 0.5f : kv.GetFloat());
+			}
+			set
+			{
+				GetSubkey("MovementTurnRate").Set(value.ToString());
+			}
 		}
 
 		[Category("Movement")]
@@ -406,8 +688,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool HasAggressiveStance
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("HasAggressiveStance");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("HasAggressiveStance").Set(value.ToString());
+			}
 		}
 
 		[Category("Status")]
@@ -415,8 +704,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(150)]
 		public int StatusHealth
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("StatusHealth");
+				return (kv == null ? 150 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("StatusHealth").Set(value.ToString());
+			}
 		}
 
 		[Category("Status")]
@@ -424,8 +720,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0.25f)]
 		public float StatusHealthRegen
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("StatusHealthRegen");
+				return (kv == null ? 0.25f : kv.GetFloat());
+			}
+			set
+			{
+				GetSubkey("StatusHealthRegen").Set(value.ToString());
+			}
 		}
 
 		[Category("Status")]
@@ -433,8 +736,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0)]
 		public int StatusMana
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("StatusMana");
+				return (kv == null ? 0 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("StatusMana").Set(value.ToString());
+			}
 		}
 
 		[Category("Status")]
@@ -442,8 +752,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(0.01f)]
 		public float StatusManaRegen
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("StatusManaRegen");
+				return (kv == null ? 0.01f : kv.GetFloat());
+			}
+			set
+			{
+				GetSubkey("StatusManaRegen").Set(value.ToString());
+			}
 		}
 
 		[Category("Status")]
@@ -451,8 +768,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(-1)]
 		public int StatusStartingMana
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("StatusStartingMana");
+				return (kv == null ? -1 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("StatusStartingMana").Set(value.ToString());
+			}
 		}
 
 		public enum TeamNameEnum
@@ -468,8 +792,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(TeamNameEnum.DOTA_TEAM_GOODGUYS)]
 		public TeamNameEnum TeamName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("TeamName");
+				return (kv == null ? TeamNameEnum.DOTA_TEAM_GOODGUYS : kv.GetEnum<TeamNameEnum>());
+			}
+			set
+			{
+				GetSubkey("TeamName").Set(value.ToString());
+			}
 		}
 
 		public enum CombatClassAttackEnum
@@ -486,8 +817,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(CombatClassAttackEnum.DOTA_COMBAT_CLASS_ATTACK_HERO)]
 		public CombatClassAttackEnum CombatClassAttack
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("CombatClassAttack");
+				return (kv == null ? CombatClassAttackEnum.DOTA_COMBAT_CLASS_ATTACK_HERO : kv.GetEnum<CombatClassAttackEnum>());
+			}
+			set
+			{
+				GetSubkey("CombatClassAttack").Set(value.ToString());
+			}
 		}
 
 		public enum CombatClassDefendEnum
@@ -505,8 +843,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(CombatClassDefendEnum.DOTA_COMBAT_CLASS_DEFEND_HERO)]
 		public CombatClassDefendEnum CombatClassDefend
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("CombatClassDefend");
+				return (kv == null ? CombatClassDefendEnum.DOTA_COMBAT_CLASS_DEFEND_HERO : kv.GetEnum<CombatClassDefendEnum>());
+			}
+			set
+			{
+				GetSubkey("CombatClassDefend").Set(value.ToString());
+			}
 		}
 
 		public enum UnitRelationshipClassEnum
@@ -525,8 +870,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(UnitRelationshipClassEnum.DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO)]
 		public UnitRelationshipClassEnum UnitRelationshipClass
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("UnitRelationshipClass");
+				return (kv == null ? UnitRelationshipClassEnum.DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO : kv.GetEnum<UnitRelationshipClassEnum>());
+			}
+			set
+			{
+				GetSubkey("UnitRelationshipClass").Set(value.ToString());
+			}
 		}
 
 		[Category("Vision")]
@@ -534,8 +886,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(1800)]
 		public int VisionDaytimeRange
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("VisionDaytimeRange");
+				return (kv == null ? 1800 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("VisionDaytimeRange").Set(value.ToString());
+			}
 		}
 
 		[Category("Vision")]
@@ -543,8 +902,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(800)]
 		public int VisionNighttimeRange
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("VisionNighttimeRange");
+				return (kv == null ? 800 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("VisionNighttimeRange").Set(value.ToString());
+			}
 		}
 
 		[Category("Inventory")]
@@ -552,8 +918,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(true)]
 		public bool HasInventory
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("HasInventory");
+				return (kv == null ? true : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("HasInventory").Set(value.ToString());
+			}
 		}
 
 		[Category("Bounds")]
@@ -561,8 +934,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(-1)]
 		public int HealthBarOffset
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("HealthBarOffset");
+				return (kv == null ? -1 : kv.GetInt());
+			}
+			set
+			{
+				GetSubkey("HealthBarOffset").Set(value.ToString());
+			}
 		}
 
 		[Category("Idle")]
@@ -570,8 +950,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string IdleSoundLoop
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("IdleSoundLoop");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("IdleSoundLoop").Set(value.ToString());
+			}
 		}
 
 	}

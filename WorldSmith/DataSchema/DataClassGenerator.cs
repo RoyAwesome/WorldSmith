@@ -153,6 +153,7 @@ namespace WorldSmith.DataSchema
             csFile.AppendLine("using System.ComponentModel;");
             csFile.AppendLine("using WorldSmith.Panels;");
             csFile.AppendLine("using WorldSmith.Dialogs;");
+            csFile.AppendLine("using KVLib;");
             
 
             csFile.AppendLine();
@@ -176,6 +177,17 @@ namespace WorldSmith.DataSchema
 
             csFile.AppendLine("\tpublic partial class " + classname + " : " + baseclass);
             csFile.AppendLine("\t{");
+
+            //Create the constructors
+            csFile.AppendLine("\t\tpublic " + classname + "(KeyValue kv)");
+            csFile.AppendLine("\t\t\t: base(kv)");
+            csFile.AppendLine("\t\t{");
+            csFile.AppendLine("\t\t}");
+
+            csFile.AppendLine("\t\tpublic " + classname + "(string className)");
+            csFile.AppendLine("\t\t\t: base(className)");
+            csFile.AppendLine("\t\t{");
+            csFile.AppendLine("\t\t}");
 
             foreach(KeyValue c in doc.Children)
             {               
@@ -296,8 +308,47 @@ namespace WorldSmith.DataSchema
 
                 csFile.AppendLine(string.Format("\t\tpublic {0} {1}", type, c.Key));
                 csFile.AppendLine("\t\t{");
-                csFile.AppendLine("\t\t\tget;");
-                csFile.AppendLine("\t\t\tset;");
+                csFile.AppendLine("\t\t\tget");
+                csFile.AppendLine("\t\t\t{");
+                csFile.Append("\t\t\t\t");
+                if(type == "int")
+                {
+                    csFile.AppendLine("KeyValue kv = GetSubkey(\"" + c.Key + "\");");
+                    csFile.AppendLine("\t\t\t\treturn (kv == null ? " + c["DefaultValue"].GetInt() + " : kv.GetInt());");
+                }
+                else if(type == "float")
+                {
+                    csFile.AppendLine("KeyValue kv = GetSubkey(\"" + c.Key + "\");");
+                    csFile.AppendLine("\t\t\t\treturn (kv == null ? " + c["DefaultValue"].GetFloat() +"f" + " : kv.GetFloat());");
+                }
+                else if(type == "bool")
+                {
+                    csFile.AppendLine("KeyValue kv = GetSubkey(\"" + c.Key + "\");");
+                    csFile.AppendLine("\t\t\t\treturn (kv == null ? " + c["DefaultValue"].GetBool().ToString().ToLower() + " : kv.GetBool());");
+                }
+                else if(type == "string")
+                {
+                    csFile.AppendLine("KeyValue kv = GetSubkey(\"" + c.Key + "\");");
+                    csFile.AppendLine("\t\t\t\treturn (kv == null ? \"" + c["DefaultValue"].GetString().Replace(@"\", @"\\") + "\" : kv.GetString());");
+                }
+                else if(c["Type"].GetString() == "enum" || c["Type"].GetString() == "flags")
+                {
+                    csFile.AppendLine("KeyValue kv = GetSubkey(\"" + c.Key + "\");");
+                    csFile.AppendLine("\t\t\t\treturn (kv == null ? " + type +"."+ c["DefaultValue"].GetString() + " : kv.GetEnum<" + type + ">());");                   
+                }
+                    //TODO: Add other getters here.  Probably need to do some extensions to KeyValue
+                else
+                {
+
+                    csFile.AppendLine("return default(" + type + ");");
+                }               
+                csFile.AppendLine("\t\t\t}");
+
+
+                csFile.AppendLine("\t\t\tset");
+                csFile.AppendLine("\t\t\t{");
+                csFile.AppendLine("\t\t\t\tGetSubkey(\"" + c.Key + "\").Set(value.ToString());");
+                csFile.AppendLine("\t\t\t}");
                 csFile.AppendLine("\t\t}");
                 csFile.AppendLine();
 

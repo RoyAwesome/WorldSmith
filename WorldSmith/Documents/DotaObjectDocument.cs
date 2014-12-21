@@ -27,7 +27,7 @@ namespace WorldSmith.Documents
 
         protected override string GetDocumentText()
         {
-            return DotaObject.SaveToKV().ToString();
+            return DotaObject.KeyValue.ToString();
         }
 
         protected override void DoSave()

@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,27 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Apply %CleavePercent percent of attack to all targets in %CleaveRadius units")]
 	public partial class CleaveAttack : BaseAction
 	{
+		public CleaveAttack(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public CleaveAttack(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue CleavePercent
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("CleavePercent").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -27,8 +42,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue CleaveRadius
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("CleaveRadius").Set(value.ToString());
+			}
 		}
 
 	}

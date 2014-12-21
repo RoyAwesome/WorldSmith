@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,5 +14,13 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Create a bonus attack against %Target")]
 	public partial class CreateBonusAttack : TargetedAction
 	{
+		public CreateBonusAttack(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public CreateBonusAttack(string className)
+			: base(className)
+		{
+		}
 	}
 }

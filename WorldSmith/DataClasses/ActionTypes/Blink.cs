@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,5 +14,13 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Blink to %Target")]
 	public partial class Blink : TargetedAction
 	{
+		public Blink(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public Blink(string className)
+			: base(className)
+		{
+		}
 	}
 }

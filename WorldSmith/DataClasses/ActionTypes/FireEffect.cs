@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Create %EffectName on %Target attached by %EffectAttachType with a radius of %EffectRadius units.  It's Primary color is %EffectColorA and Secondary color is %EffectColorB.  It's duration is scaled by %EffectDurationScale and life is scaled by %EffectLifeDurationScale")]
 	public partial class FireEffect : TargetedAction
 	{
+		public FireEffect(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public FireEffect(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue("")]
 		public string EffectName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("EffectName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("EffectName").Set(value.ToString());
+			}
 		}
 
 		public enum EffectAttachTypeEnum
@@ -43,8 +59,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(EffectAttachTypeEnum.follow_origin)]
 		public EffectAttachTypeEnum EffectAttachType
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("EffectAttachType");
+				return (kv == null ? EffectAttachTypeEnum.follow_origin : kv.GetEnum<EffectAttachTypeEnum>());
+			}
+			set
+			{
+				GetSubkey("EffectAttachType").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -52,8 +75,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue EffectRadius
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("EffectRadius").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -61,8 +90,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue EffectDurationScale
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("EffectDurationScale").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -70,8 +105,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue EffectLifeDurationScale
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("EffectLifeDurationScale").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -79,8 +120,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue EffectColorA
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("EffectColorA").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -88,8 +135,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue EffectColorB
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("EffectColorB").Set(value.ToString());
+			}
 		}
 
 	}

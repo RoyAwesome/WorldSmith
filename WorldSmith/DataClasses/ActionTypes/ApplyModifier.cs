@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Apply %ModifierName on %Target")]
 	public partial class ApplyModifier : TargetedAction
 	{
+		public ApplyModifier(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public ApplyModifier(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue("")]
 		public string ModifierName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ModifierName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("ModifierName").Set(value.ToString());
+			}
 		}
 
 	}

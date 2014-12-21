@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,27 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Create a thinking %ModifierName wall that is %Width by %Length units rotated %Rotation degrees at %Target")]
 	public partial class CreateThinkerWall : CreateThinker
 	{
+		public CreateThinkerWall(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public CreateThinkerWall(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("int")]
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue Width
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Width").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -27,8 +42,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue Length
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Length").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -36,8 +57,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue Rotation
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Rotation").Set(value.ToString());
+			}
 		}
 
 	}

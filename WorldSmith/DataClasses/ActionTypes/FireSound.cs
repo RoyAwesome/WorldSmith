@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Play %EffectName on %Target")]
 	public partial class FireSound : TargetedAction
 	{
+		public FireSound(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public FireSound(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue("")]
 		public string EffectName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("EffectName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("EffectName").Set(value.ToString());
+			}
 		}
 
 	}

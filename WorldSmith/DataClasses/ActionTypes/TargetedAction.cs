@@ -6,18 +6,33 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
 	public partial class TargetedAction : BaseAction
 	{
+		public TargetedAction(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public TargetedAction(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(null)]
 		public TargetKey Target
 		{
-			get;
-			set;
+			get
+			{
+				return default(TargetKey);
+			}
+			set
+			{
+				GetSubkey("Target").Set(value.ToString());
+			}
 		}
 
 	}

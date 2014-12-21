@@ -11,7 +11,7 @@ namespace WorldSmith.DataClasses
     public partial class DotaModifier
     {
 
-
+        /*
         public override void LoadFromKeyValues(KeyValue kv)
         {
             base.LoadFromKeyValues(kv);
@@ -46,7 +46,9 @@ namespace WorldSmith.DataClasses
                 prop.SetMethod.Invoke(this, new object[] { actionCollection});
 
             }
+        
             
         }
+         */
     }
 }

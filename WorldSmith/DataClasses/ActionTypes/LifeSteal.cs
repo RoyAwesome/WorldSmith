@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,27 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Steal %LifeStealPercent percent of damage done to %Target")]
 	public partial class LifeSteal : TargetedAction
 	{
+		public LifeSteal(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public LifeSteal(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("float")]
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue LifeStealPercent
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("LifeStealPercent").Set(value.ToString());
+			}
 		}
 
 	}

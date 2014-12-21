@@ -33,8 +33,10 @@ namespace WorldSmith.DataClasses
         [NonKVSerialized]
         public string ClassName
         {
-            get;
-            set;
+            get
+            {
+                return KeyValue.Key;
+            }
         }
 
         [NonKVSerialized]
@@ -45,129 +47,45 @@ namespace WorldSmith.DataClasses
             set;
         }
 
-        public DotaDataObject()
+        [Browsable(false)]
+        public KeyValue KeyValue
+        {
+            get;
+            private set;
+        }
+
+        public DotaDataObject(KeyValue DataSource)
+            : this()
+        {
+            KeyValue = DataSource;
+        }
+        public DotaDataObject(string ClassName)
+        {
+            KeyValue = new KeyValue(ClassName);
+            
+        }
+
+        //TODO: hide this
+        private DotaDataObject()
         {
             ObjectInfo = new DataObjectInfo();
         }
 
-        public virtual void LoadFromKeyValues(KeyValue kv)
-        {
-            PropertyInfo[] properties = this.GetType().GetProperties();
-
-            ClassName = kv.Key;
-
-            foreach(PropertyInfo info in properties)
-            {
-                if (info.Name == "ClassName") continue;
-                if (info.Name == "WasModified") continue;
-
-                KeyValue subkey = kv[info.Name];
-                if (subkey == null)
-                {                  
-                    continue;
-                }
-                if (subkey.HasChildren) continue; //TODO parse children because this is AbilitySpecial
-                
-                object data = null;
-                if(info.PropertyType == typeof(int))
-                {
-                    data = subkey.GetInt();
-                }
-                if(info.PropertyType == typeof(float))
-                {
-                    data = subkey.GetFloat();
-                }
-                if(info.PropertyType == typeof(bool))
-                {
-                    data = subkey.GetBool();
-                }
-                if(info.PropertyType == typeof(string))
-                {
-                    data = subkey.GetString();
-                }
-                if (typeof(Enum).IsAssignableFrom(info.PropertyType) && subkey.GetString() != "")
-                {
-                    if (info.PropertyType.GetCustomAttribute(typeof(FlagsAttribute)) != null)
-                    {
-                        string[] flags = subkey.GetString().Replace(" ", "").Split('|').Where(x => x != "").ToArray();
-                        string p = String.Join(", ", flags);
-
-                        data = Enum.Parse(info.PropertyType, p);                        
-                    }
-                    else
-                    {
-                        data = Enum.Parse(info.PropertyType, subkey.GetString());
-                    }
-                }
-                if (info.PropertyType == typeof(PerLevel))
-                {
-                    data = new PerLevel(subkey.GetString().Trim());
-                }
-                if(data != null) info.SetMethod.Invoke(this, new object[] { data });
-
-            } 
+        protected KeyValue GetSubkey(string property)
+        {            
+            return KeyValue[property];
         }
 
+        [Obsolete("Use the Key-Value constructor")]
+        public virtual void LoadFromKeyValues(KeyValue kv)
+        {
+            KeyValue = kv;
+        }
+
+        [Obsolete("use the KeyValue property")]
         public virtual KeyValue SaveToKV()
         {
-            PropertyInfo[] properties = this.GetType().GetProperties();
-
-            KeyValue kv = new KeyValue(ClassName);
-
-            foreach (PropertyInfo info in properties)
-            {
-                //Don't want to write ClassName to the file since it's the key
-                if (info.Name == "ClassName") continue;
-                if (info.Name == "WasModified") continue;
-
-                //If we are marked as NonSerialzed, skip us
-                NonKVSerializedAttribute ns = info.GetCustomAttribute<NonKVSerializedAttribute>();
-                if (ns != null) continue;
-
-
-                object data = info.GetMethod.Invoke(this, new object[] { });
-               
-               //If the value is default, skip it.
-                DefaultValueAttribute attib = info.GetCustomAttribute<DefaultValueAttribute>();
-                if ( attib != null && attib.Value == data) continue;
-               
-
-                KeyValue subkey = new KeyValue(info.Name);    
-                if (info.PropertyType == typeof(int))
-                {                    
-                    subkey.Set((int)data);
-                }
-                if (info.PropertyType == typeof(float))
-                {                    
-                    subkey.Set((float)data);
-                }
-                if (info.PropertyType == typeof(bool))
-                {                    
-                    subkey.Set((bool)data);
-                }
-                if (info.PropertyType == typeof(string))
-                {                   
-                    subkey.Set((string)data);
-                }
-                if (typeof(Enum).IsAssignableFrom(info.PropertyType))
-                {
-                    subkey.Set(data.ToString().Replace(",", " |"));
-                }
-                if (info.PropertyType == typeof(PerLevel))
-                {
-                    if (data == null) subkey.Set("");
-                    else subkey.Set(((PerLevel)data).ToString());
-                }
-                if(info.PropertyType == typeof(ModifierPropertyCollection))
-                {
-                    subkey = (data as ModifierPropertyCollection).ToKV();
-                }
-                kv += subkey;
-
-            }
-
-            return kv;
-
+            return KeyValue;
         }
 
 

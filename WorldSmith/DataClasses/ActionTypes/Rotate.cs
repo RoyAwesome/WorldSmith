@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,27 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Rotate %Target by %PitchYawRoll degrees")]
 	public partial class Rotate : TargetedAction
 	{
+		public Rotate(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public Rotate(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(typeof(NumberValue), "0 0 0")]
 		public NumberValue PitchYawRoll
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("PitchYawRoll").Set(value.ToString());
+			}
 		}
 
 	}

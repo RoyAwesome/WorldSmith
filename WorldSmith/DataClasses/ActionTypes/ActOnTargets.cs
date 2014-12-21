@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,27 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Apply %Action on %Target")]
 	public partial class ActOnTargets : TargetedAction
 	{
+		public ActOnTargets(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public ActOnTargets(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(typeof(ActionCollection), "Default")]
 		public ActionCollection Action
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("Action").Set(value.ToString());
+			}
 		}
 
 	}

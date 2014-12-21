@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,5 +14,13 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Spend 1 charge when this item is used")]
 	public partial class SpendCharge : BaseAction
 	{
+		public SpendCharge(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public SpendCharge(string className)
+			: base(className)
+		{
+		}
 	}
 }

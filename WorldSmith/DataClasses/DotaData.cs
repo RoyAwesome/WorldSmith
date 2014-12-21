@@ -208,9 +208,8 @@ namespace WorldSmith.DataClasses
             {
                 if (!kv.HasChildren) continue; //Get rid of that pesky "Version" "1" key
 
-                T unit = typeof(T).GetConstructor(Type.EmptyTypes).Invoke(new object[] { }) as T;
-                unit.LoadFromKeyValues(kv);
-
+                T unit = typeof(T).GetConstructor(new Type[] { typeof(KeyValue)}).Invoke(new object[] { kv }) as T;
+              
                 unit.ObjectInfo.FromVPK = true;
                 unit.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Default;
                 unit.ObjectInfo.OriginatingFile = filePath;
@@ -228,14 +227,13 @@ namespace WorldSmith.DataClasses
             try
             {
                 KeyValue doc = KVParser.ParseKeyValueText(File.ReadAllText(Properties.Settings.Default.LoadedAddonDirectory + file));
-                foreach (KeyValue hero in doc.Children)
+                foreach (KeyValue kv in doc.Children)
                 {
                     try
                     {
-                        if (!hero.HasChildren) continue;
-                        T unit = typeof(T).GetConstructor(Type.EmptyTypes).Invoke(Type.EmptyTypes) as T;
-                        unit.LoadFromKeyValues(hero);
-
+                        if (!kv.HasChildren) continue;
+                        T unit = typeof(T).GetConstructor(new Type[] { typeof(KeyValue) }).Invoke(new object[] { kv }) as T;
+                      
                         unit.ObjectInfo.FromVPK = false;
                         unit.ObjectInfo.OriginatingFile = file;
                         //TODO: Determine if it's an override
@@ -245,7 +243,9 @@ namespace WorldSmith.DataClasses
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("ERROR in file:\"" + file + "\" on " + hero.Key);
+                        if (System.Diagnostics.Debugger.IsAttached) System.Diagnostics.Debugger.Break(); //Don't surpress errors when debugging
+
+                        Console.WriteLine("ERROR in file:\"" + file + "\" on " + kv.Key);
                         Console.WriteLine(e.Message);
                         Console.WriteLine(e.StackTrace);
                         Console.WriteLine("");
@@ -255,6 +255,8 @@ namespace WorldSmith.DataClasses
             }
             catch (Exception e)
             {
+                if (System.Diagnostics.Debugger.IsAttached) System.Diagnostics.Debugger.Break();
+
                 //WE HAD A SYNTAX ERROR OR SOMETHING
                 Console.WriteLine("SYNTAX ERROR in file:\"" + file + "\"");
                 Console.WriteLine(e.Message);

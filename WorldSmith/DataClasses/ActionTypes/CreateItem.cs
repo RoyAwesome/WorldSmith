@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Create %ItemName within a %SpawnRadius unit radius around %Target with %ItemChargeCount charges and belongs to caster %BelongsToCaster")]
 	public partial class CreateItem : TargetedAction
 	{
+		public CreateItem(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public CreateItem(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue("")]
 		public string ItemName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ItemName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("ItemName").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -27,8 +43,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue SpawnRadius
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("SpawnRadius").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -36,8 +58,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue ItemChargeCount
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("ItemChargeCount").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -45,8 +73,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string BelongsToCaster
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("BelongsToCaster");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("BelongsToCaster").Set(value.ToString());
+			}
 		}
 
 	}

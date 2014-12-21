@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,27 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Move %Target to %MoveToTarget")]
 	public partial class MoveUnit : TargetedAction
 	{
+		public MoveUnit(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public MoveUnit(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(null)]
 		public TargetKey MoveToTarget
 		{
-			get;
-			set;
+			get
+			{
+				return default(TargetKey);
+			}
+			set
+			{
+				GetSubkey("MoveToTarget").Set(value.ToString());
+			}
 		}
 
 	}

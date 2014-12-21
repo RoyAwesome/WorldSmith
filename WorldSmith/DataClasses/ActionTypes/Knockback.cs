@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Knock back %Target units by %Distance units.  Throw them %Height units in the air for %Duration seconds.  Using fixed distance %IsFixedDistance")]
 	public partial class Knockback : TargetedAction
 	{
+		public Knockback(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public Knockback(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("probably null")]
 		[DefaultValue("")]
 		public string Center
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Center");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("Center").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -27,8 +43,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue Distance
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Distance").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -36,8 +58,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool IsFixedDistance
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("IsFixedDistance");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("IsFixedDistance").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -45,8 +74,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue Height
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Height").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -54,8 +89,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue Duration
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Duration").Set(value.ToString());
+			}
 		}
 
 	}

@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,27 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Destroy all trees in a %Radius unit circle around %Target")]
 	public partial class DestroyTrees : TargetedAction
 	{
+		public DestroyTrees(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public DestroyTrees(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("float")]
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue Radius
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Radius").Set(value.ToString());
+			}
 		}
 
 	}

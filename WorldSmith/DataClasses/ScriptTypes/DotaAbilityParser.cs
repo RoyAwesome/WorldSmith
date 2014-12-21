@@ -22,11 +22,8 @@ namespace WorldSmith.DataClasses
             set;
         }
 
-        public DotaAbility()
-        {
-            ActionList = new AbilityActionCollection();
-        }
-
+      
+        /*
         public override void LoadFromKeyValues(KeyValue kv)
         {
             base.LoadFromKeyValues(kv);
@@ -71,9 +68,9 @@ namespace WorldSmith.DataClasses
             {
                 foreach(KeyValue mod in modifiers.Children)
                 {
-                    DotaModifier modifier = new DotaModifier();
-                    modifier.LoadFromKeyValues(mod);
-                    ActionList.Modifiers.Add(modifier);
+                    //DotaModifier modifier = new DotaModifier();
+                    //modifier.LoadFromKeyValues(mod);
+                   // ActionList.Modifiers.Add(modifier);
                 }
 
             }
@@ -107,5 +104,6 @@ namespace WorldSmith.DataClasses
 
             return kv;
         }
+         * */
     }
 }

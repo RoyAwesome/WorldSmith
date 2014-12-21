@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Throw a Projectile from %StartPosition toward %Target moving %MoveSpeed units per second.  The projectile hits with a start radius of %StartRadius units and an end radius of %EndRadius units and has a Frontal Cone %HasFrontalCone .  The projectile hits %TargetTypes units on %TargetTeams with %TargetFlags . The Projectile Has Vision %ProvidesVision of %VisionRadius units")]
 	public partial class LinearProjectile : TargetedAction
 	{
+		public LinearProjectile(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public LinearProjectile(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("Effect Name")]
 		[DefaultValue("")]
 		public string EffectName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("EffectName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("EffectName").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -27,8 +43,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue MoveSpeed
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("MoveSpeed").Set(value.ToString());
+			}
 		}
 
 		public enum StartPositionEnum
@@ -111,8 +133,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(StartPositionEnum.attach_attack1)]
 		public StartPositionEnum StartPosition
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("StartPosition");
+				return (kv == null ? StartPositionEnum.attach_attack1 : kv.GetEnum<StartPositionEnum>());
+			}
+			set
+			{
+				GetSubkey("StartPosition").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -120,8 +149,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue StartRadius
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("StartRadius").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -129,8 +164,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue EndRadius
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("EndRadius").Set(value.ToString());
+			}
 		}
 
 		[Flags]
@@ -150,8 +191,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(TargetTeamsFlags.DOTA_UNIT_TARGET_TEAM_NONE)]
 		public TargetTeamsFlags TargetTeams
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("TargetTeams");
+				return (kv == null ? TargetTeamsFlags.DOTA_UNIT_TARGET_TEAM_NONE : kv.GetEnum<TargetTeamsFlags>());
+			}
+			set
+			{
+				GetSubkey("TargetTeams").Set(value.ToString());
+			}
 		}
 
 		[Flags]
@@ -176,8 +224,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(TargetTypesFlags.DOTA_UNIT_TARGET_NONE)]
 		public TargetTypesFlags TargetTypes
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("TargetTypes");
+				return (kv == null ? TargetTypesFlags.DOTA_UNIT_TARGET_NONE : kv.GetEnum<TargetTypesFlags>());
+			}
+			set
+			{
+				GetSubkey("TargetTypes").Set(value.ToString());
+			}
 		}
 
 		[Flags]
@@ -211,8 +266,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(TargetFlagsFlags.DOTA_UNIT_TARGET_FLAG_NONE)]
 		public TargetFlagsFlags TargetFlags
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("TargetFlags");
+				return (kv == null ? TargetFlagsFlags.DOTA_UNIT_TARGET_FLAG_NONE : kv.GetEnum<TargetFlagsFlags>());
+			}
+			set
+			{
+				GetSubkey("TargetFlags").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -220,8 +282,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool HasFrontalCone
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("HasFrontalCone");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("HasFrontalCone").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -229,8 +298,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool ProvidesVision
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ProvidesVision");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("ProvidesVision").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -238,8 +314,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue VisionRadius
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("VisionRadius").Set(value.ToString());
+			}
 		}
 
 	}

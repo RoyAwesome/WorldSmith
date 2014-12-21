@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,27 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("With a %Chance percent chance of happening using pseudo random %PseudoRandom , do %OnSuccess on success and %OnFailure on failure.")]
 	public partial class RandomAction : BaseAction
 	{
+		public RandomAction(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public RandomAction(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(typeof(NumberValue), ".5")]
 		public NumberValue Chance
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Chance").Set(value.ToString());
+			}
 		}
 
 		public enum PseudoRandomEnum
@@ -56,8 +71,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(PseudoRandomEnum.DOTA_PSEUDO_RANDOM_JUGG_CRIT)]
 		public PseudoRandomEnum PseudoRandom
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("PseudoRandom");
+				return (kv == null ? PseudoRandomEnum.DOTA_PSEUDO_RANDOM_JUGG_CRIT : kv.GetEnum<PseudoRandomEnum>());
+			}
+			set
+			{
+				GetSubkey("PseudoRandom").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -65,8 +87,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "Default")]
 		public ActionCollection OnSuccess
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnSuccess").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -74,8 +102,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "Default")]
 		public ActionCollection OnFailure
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnFailure").Set(value.ToString());
+			}
 		}
 
 	}

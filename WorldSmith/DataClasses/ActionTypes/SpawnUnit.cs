@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Spawn %UnitCount %UnitName around %Target with a radius of %Radius units for %Duration seconds.  After spawn, execute %OnSpawn actions")]
 	public partial class SpawnUnit : TargetedAction
 	{
+		public SpawnUnit(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public SpawnUnit(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("Name")]
 		[DefaultValue("")]
 		public string UnitName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("UnitName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("UnitName").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -27,8 +43,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue UnitCount
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("UnitCount").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -36,8 +58,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue SpawnRadius
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("SpawnRadius").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -45,8 +73,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue Duration
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Duration").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -54,8 +88,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "OnSpawn")]
 		public ActionCollection OnSpawn
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnSpawn").Set(value.ToString());
+			}
 		}
 
 	}

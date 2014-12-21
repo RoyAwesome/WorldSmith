@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Apply %EffectName on %Target using attach behavior %EffectAttachType and custom %ControlPoints")]
 	public partial class AttachEffect : TargetedAction
 	{
+		public AttachEffect(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public AttachEffect(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue("")]
 		public string EffectName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("EffectName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("EffectName").Set(value.ToString());
+			}
 		}
 
 		public enum EffectAttachTypeEnum
@@ -43,8 +59,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(EffectAttachTypeEnum.follow_origin)]
 		public EffectAttachTypeEnum EffectAttachType
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("EffectAttachType");
+				return (kv == null ? EffectAttachTypeEnum.follow_origin : kv.GetEnum<EffectAttachTypeEnum>());
+			}
+			set
+			{
+				GetSubkey("EffectAttachType").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -52,8 +75,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(null)]
 		public ControlPointList ControlPoints
 		{
-			get;
-			set;
+			get
+			{
+				return default(ControlPointList);
+			}
+			set
+			{
+				GetSubkey("ControlPoints").Set(value.ToString());
+			}
 		}
 
 	}

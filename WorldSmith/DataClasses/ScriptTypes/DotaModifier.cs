@@ -6,18 +6,33 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
 	public partial class DotaModifier : BaseScriptType
 	{
+		public DotaModifier(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public DotaModifier(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue Duration
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Duration").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -25,8 +40,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool IsDebuff
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("IsDebuff");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("IsDebuff").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -34,8 +56,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool IsPurgable
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("IsPurgable");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("IsPurgable").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -43,8 +72,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool IsHidden
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("IsHidden");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("IsHidden").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -52,8 +88,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool RemoveOnDeath
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("RemoveOnDeath");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("RemoveOnDeath").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -61,8 +104,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool AllowIllusionDuplicate
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AllowIllusionDuplicate");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("AllowIllusionDuplicate").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -70,8 +120,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string EffectName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("EffectName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("EffectName").Set(value.ToString());
+			}
 		}
 
 		public enum EffectAttachTypeEnum
@@ -96,8 +153,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(EffectAttachTypeEnum.follow_origin)]
 		public EffectAttachTypeEnum EffectAttachType
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("EffectAttachType");
+				return (kv == null ? EffectAttachTypeEnum.follow_origin : kv.GetEnum<EffectAttachTypeEnum>());
+			}
+			set
+			{
+				GetSubkey("EffectAttachType").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -105,8 +169,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string StatusEffectName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("StatusEffectName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("StatusEffectName").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -114,8 +185,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue StatusEffectPriority
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("StatusEffectPriority").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -123,8 +200,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string ModelName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ModelName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("ModelName").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -132,8 +216,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string OverrideAnimation
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("OverrideAnimation");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("OverrideAnimation").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -141,8 +232,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue ThinkInterval
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("ThinkInterval").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -150,8 +247,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string Aura
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Aura");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("Aura").Set(value.ToString());
+			}
 		}
 
 		[Flags]
@@ -171,8 +275,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(Aura_TeamsFlags.DOTA_UNIT_TARGET_TEAM_NONE)]
 		public Aura_TeamsFlags Aura_Teams
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Aura_Teams");
+				return (kv == null ? Aura_TeamsFlags.DOTA_UNIT_TARGET_TEAM_NONE : kv.GetEnum<Aura_TeamsFlags>());
+			}
+			set
+			{
+				GetSubkey("Aura_Teams").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -180,8 +291,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue Aura_Radius
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Aura_Radius").Set(value.ToString());
+			}
 		}
 
 		[Flags]
@@ -207,8 +324,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(Aura_TypesFlags.DOTA_UNIT_TARGET_NONE)]
 		public Aura_TypesFlags Aura_Types
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Aura_Types");
+				return (kv == null ? Aura_TypesFlags.DOTA_UNIT_TARGET_NONE : kv.GetEnum<Aura_TypesFlags>());
+			}
+			set
+			{
+				GetSubkey("Aura_Types").Set(value.ToString());
+			}
 		}
 
 		[Flags]
@@ -242,8 +366,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(Aura_FlagsFlags.DOTA_UNIT_TARGET_FLAG_NONE)]
 		public Aura_FlagsFlags Aura_Flags
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Aura_Flags");
+				return (kv == null ? Aura_FlagsFlags.DOTA_UNIT_TARGET_FLAG_NONE : kv.GetEnum<Aura_FlagsFlags>());
+			}
+			set
+			{
+				GetSubkey("Aura_Flags").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -251,8 +382,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool Aura_ApplyToCaster
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Aura_ApplyToCaster");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("Aura_ApplyToCaster").Set(value.ToString());
+			}
 		}
 
 		public enum AttributesEnum
@@ -268,8 +406,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(AttributesEnum.MODIFIER_ATTRIBUTE_NONE)]
 		public AttributesEnum Attributes
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Attributes");
+				return (kv == null ? AttributesEnum.MODIFIER_ATTRIBUTE_NONE : kv.GetEnum<AttributesEnum>());
+			}
+			set
+			{
+				GetSubkey("Attributes").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -277,8 +422,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "OnCreated")]
 		public ActionCollection OnCreated
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnCreated").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -286,8 +437,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "OnIntervalThink")]
 		public ActionCollection OnIntervalThink
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnIntervalThink").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -295,8 +452,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "OnAttacked")]
 		public ActionCollection OnAttacked
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnAttacked").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -304,8 +467,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "OnAttackLanded")]
 		public ActionCollection OnAttackLanded
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnAttackLanded").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -313,8 +482,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "OnTakeDamage")]
 		public ActionCollection OnTakeDamage
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnTakeDamage").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -322,8 +497,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "OnDealDamage")]
 		public ActionCollection OnDealDamage
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnDealDamage").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -331,8 +512,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "OnDeath")]
 		public ActionCollection OnDeath
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnDeath").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -340,8 +527,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "OnKill")]
 		public ActionCollection OnKill
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnKill").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -349,8 +542,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "OnAttackStart")]
 		public ActionCollection OnAttackStart
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnAttackStart").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -358,8 +557,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ActionCollection), "OnDestroy")]
 		public ActionCollection OnDestroy
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("OnDestroy").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -367,8 +572,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(ModifierPropertyCollection), "")]
 		public ModifierPropertyCollection Properties
 		{
-			get;
-			set;
+			get
+			{
+				return default(ModifierPropertyCollection);
+			}
+			set
+			{
+				GetSubkey("Properties").Set(value.ToString());
+			}
 		}
 
 	}

@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,6 +14,14 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Do %DamageAmount of %Type damage to %Target")]
 	public partial class Damage : TargetedAction
 	{
+		public Damage(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public Damage(string className)
+			: base(className)
+		{
+		}
 		public enum TypeEnum
 		{
 			DAMAGE_TYPE_COMPOSITE,
@@ -27,8 +36,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(TypeEnum.DAMAGE_TYPE_MAGICAL)]
 		public TypeEnum Type
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Type");
+				return (kv == null ? TypeEnum.DAMAGE_TYPE_MAGICAL : kv.GetEnum<TypeEnum>());
+			}
+			set
+			{
+				GetSubkey("Type").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -36,8 +52,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue DamageAmount
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("DamageAmount").Set(value.ToString());
+			}
 		}
 
 	}

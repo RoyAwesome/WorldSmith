@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Run Lua function %Function defined in %ScriptFile")]
 	public partial class RunScript : BaseAction
 	{
+		public RunScript(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public RunScript(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("filename")]
 		[DefaultValue("")]
 		public string ScriptFile
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ScriptFile");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("ScriptFile").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -27,8 +43,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string Function
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Function");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("Function").Set(value.ToString());
+			}
 		}
 
 	}

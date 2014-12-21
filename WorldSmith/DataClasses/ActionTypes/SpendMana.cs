@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,27 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Spend %Mana mana points")]
 	public partial class SpendMana : BaseAction
 	{
+		public SpendMana(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public SpendMana(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("int")]
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue Mana
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Mana").Set(value.ToString());
+			}
 		}
 
 	}

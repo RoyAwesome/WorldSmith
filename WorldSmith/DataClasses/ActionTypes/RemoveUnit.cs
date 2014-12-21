@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,5 +14,13 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Destroy %Target unit")]
 	public partial class RemoveUnit : TargetedAction
 	{
+		public RemoveUnit(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public RemoveUnit(string className)
+			: base(className)
+		{
+		}
 	}
 }

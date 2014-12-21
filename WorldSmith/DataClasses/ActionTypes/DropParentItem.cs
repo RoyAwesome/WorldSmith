@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,5 +14,13 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Drop Item")]
 	public partial class DropParentItem : BaseAction
 	{
+		public DropParentItem(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public DropParentItem(string className)
+			: base(className)
+		{
+		}
 	}
 }

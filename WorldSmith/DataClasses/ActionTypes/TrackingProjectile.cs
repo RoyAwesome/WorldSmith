@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Fire a Tracking projectile at the target that is dodgable %Dodgeable with the effect %EffectName and moves at %MoveSpeed units per second.  It provides vision %ProvidesVision of %VisionRadius units")]
 	public partial class TrackingProjectile : BaseAction
 	{
+		public TrackingProjectile(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public TrackingProjectile(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("bool")]
 		[DefaultValue(false)]
 		public bool Dodgeable
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("Dodgeable");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("Dodgeable").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -27,8 +43,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(false)]
 		public bool ProvidesVision
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("ProvidesVision");
+				return (kv == null ? false : kv.GetBool());
+			}
+			set
+			{
+				GetSubkey("ProvidesVision").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -36,8 +59,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue VisionRadius
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("VisionRadius").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -45,8 +74,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string EffectName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("EffectName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("EffectName").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -54,8 +90,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue MoveSpeed
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("MoveSpeed").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -63,8 +105,15 @@ namespace WorldSmith.DataClasses
 		[DefaultValue("")]
 		public string SourceAttachment
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("SourceAttachment");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("SourceAttachment").Set(value.ToString());
+			}
 		}
 
 	}

@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,27 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Do %Action after a %Delay second delay")]
 	public partial class DelayedAction : BaseAction
 	{
+		public DelayedAction(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public DelayedAction(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("No Description Set")]
 		[DefaultValue(typeof(ActionCollection), "Default")]
 		public ActionCollection Action
 		{
-			get;
-			set;
+			get
+			{
+				return default(ActionCollection);
+			}
+			set
+			{
+				GetSubkey("Action").Set(value.ToString());
+			}
 		}
 
 		[Category("Misc")]
@@ -27,8 +42,14 @@ namespace WorldSmith.DataClasses
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue Delay
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Delay").Set(value.ToString());
+			}
 		}
 
 	}

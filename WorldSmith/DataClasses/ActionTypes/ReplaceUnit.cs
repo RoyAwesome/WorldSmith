@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Replace %Target with %UnitName")]
 	public partial class ReplaceUnit : TargetedAction
 	{
+		public ReplaceUnit(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public ReplaceUnit(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("Unit Name")]
 		[DefaultValue("")]
 		public string UnitName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("UnitName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("UnitName").Set(value.ToString());
+			}
 		}
 
 	}

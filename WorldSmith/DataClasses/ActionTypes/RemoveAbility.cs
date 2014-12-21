@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,28 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Remove %AbilityName from %Target")]
 	public partial class RemoveAbility : TargetedAction
 	{
+		public RemoveAbility(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public RemoveAbility(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("Name")]
 		[DefaultValue("")]
 		public string AbilityName
 		{
-			get;
-			set;
+			get
+			{
+				KeyValue kv = GetSubkey("AbilityName");
+				return (kv == null ? "" : kv.GetString());
+			}
+			set
+			{
+				GetSubkey("AbilityName").Set(value.ToString());
+			}
 		}
 
 	}

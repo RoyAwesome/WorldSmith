@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,5 +14,13 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Respawn %Target hero")]
 	public partial class RespawnHero : TargetedAction
 	{
+		public RespawnHero(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public RespawnHero(string className)
+			: base(className)
+		{
+		}
 	}
 }

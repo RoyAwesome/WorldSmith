@@ -201,11 +201,11 @@ namespace WorldSmith.Dialogs
 
             if(prompt.ShowDialog() == DialogResult.OK)
             {
-                DotaModifier mod = new DotaModifier();
-                mod.ClassName = prompt.PromptText;
+                //DotaModifier mod = new DotaModifier();
+                //mod.ClassName = prompt.PromptText;
 
-                actions.Modifiers.Add(mod);
-                BuildModifierTree();
+                //actions.Modifiers.Add(mod);
+               // BuildModifierTree();
             }
         }
     }

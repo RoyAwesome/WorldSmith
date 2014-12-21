@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using WorldSmith.Panels;
 using WorldSmith.Dialogs;
+using KVLib;
 
 namespace WorldSmith.DataClasses
 {
@@ -13,13 +14,27 @@ namespace WorldSmith.DataClasses
 	[EditorGrammar("Stun %Target for %Duration seconds")]
 	public partial class Stun : TargetedAction
 	{
+		public Stun(KeyValue kv)
+			: base(kv)
+		{
+		}
+		public Stun(string className)
+			: base(className)
+		{
+		}
 		[Category("Misc")]
 		[Description("float")]
 		[DefaultValue(typeof(NumberValue), "")]
 		public NumberValue Duration
 		{
-			get;
-			set;
+			get
+			{
+				return default(NumberValue);
+			}
+			set
+			{
+				GetSubkey("Duration").Set(value.ToString());
+			}
 		}
 
 	}
