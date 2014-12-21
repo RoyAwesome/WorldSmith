@@ -512,6 +512,7 @@
     <Content Include="Resources\SyntaxMode.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Scripts\ObjectBrowserFolderOverride.txt" />
     <Content Include="WSIconic.ico" />
   </ItemGroup>
   <ItemGroup>

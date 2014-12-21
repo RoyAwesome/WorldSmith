@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using WorldSmith.DataClasses;
 using WorldSmith.Documents;
 using WorldSmith.Dialogs;
+using KVLib;
+using System.Reflection;
 
 namespace WorldSmith.Panels
 {
@@ -21,18 +23,35 @@ namespace WorldSmith.Panels
         {
             InitializeComponent();
 
+            ReadDefaultFolders();
+
             RefreshTreeView();
+
+            
+        }
+
+        KeyValue DefaultFolders;
+
+        private void ReadDefaultFolders()
+        {
+            //Read the default folder script that is in the executable.  
+            Assembly asm = Assembly.GetExecutingAssembly();
+            string resName = "WorldSmith.Scripts.ObjectBrowserFolderOverride.txt";
+                     
+
+            using (System.IO.Stream s = asm.GetManifestResourceStream(resName))
+            using (System.IO.StreamReader reader = new System.IO.StreamReader(s))
+            {
+                DefaultFolders = KVParser.ParseKeyValueText(reader.ReadToEnd());
+            }
         }
 
         public void RefreshTreeView()
         {
-
             FillInFromList("heroes", DotaData.AllHeroes); //TODO: Create a list of 'valid' heroes.  Remove Default heroes that are overridden            
             FillInFromList("units", DotaData.AllUnits);            
             FillInFromList("abilities", DotaData.AllAbilities);
             FillInFromList("items", DotaData.AllItems);
-
-
         }
 
         private void FillInFromList(string Type, IEnumerable<DotaDataObject> ObjectList)
@@ -49,6 +68,7 @@ namespace WorldSmith.Panels
             };
             Root.Nodes.Add(DefaultFolder);
 
+          
             foreach(DotaDataObject ddo in ObjectList)
             {
                 bool Default = ddo.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default;
@@ -59,7 +79,38 @@ namespace WorldSmith.Panels
                 if(Default)
                 {
                     imageIndex = 1;
-                    parent = DefaultFolder;
+                    //Figure out the parent folder
+                    parent = DefaultFolder;   //Start off with the default folder.  If we don't have an entry, we'll just default to this
+
+                    KeyValue folderKV = DefaultFolders[Type][ddo.ClassName];
+                    if(folderKV != null)
+                    {
+                        //Get the folder tree we should be in
+                        string path = folderKV.GetString();
+                        if(!String.IsNullOrEmpty(path))
+                        {
+                            string[] Folders = path.Split('/');
+                            for(int i = 0; i < Folders.Length; i++)
+                            {
+                                TreeNode f = parent.Nodes.Find(Folders[i], false).FirstOrDefault();
+                                if(f == null)
+                                {
+                                    f = new TreeNode()
+                                    {
+                                        Name = Folders[i],
+                                        Text = Folders[i],
+                                        ImageIndex = 0,
+                                        SelectedImageIndex = 0,
+                                    };
+                                    parent.Nodes.Insert(0, f);
+
+                                    
+                                }
+                                parent = f;
+                            }
+                        }
+                    }
+                           
                 }
 
                 TreeNode newNode = new TreeNode()
@@ -73,6 +124,8 @@ namespace WorldSmith.Panels
 
                 parent.Nodes.Add(newNode);
             }
+
+           
         }
 
         private void OpenObjectEditor(DotaDataObject ddo)
