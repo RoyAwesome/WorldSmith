@@ -19,44 +19,55 @@ namespace WorldSmith.DataClasses
         public static string VPKPath = "dota_ugc" + Path.DirectorySeparatorChar + "game" + Path.DirectorySeparatorChar + "dota_imported" + Path.DirectorySeparatorChar + "pak01_dir.vpk";
 
         #region Unit Data Lists
-        public static List<DotaUnit> DefaultUnits = new List<DotaUnit>();
+        public static List<DotaUnit> AllUnits = new List<DotaUnit>();
 
-        public static List<DotaUnit> OverriddenUnits = new List<DotaUnit>();
 
-        public static List<DotaUnit> CustomUnits = new List<DotaUnit>();
+        public static IEnumerable<DotaUnit> DefaultUnits = AllUnits.Where(x => x.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default);
 
-        public static List<DotaHero> DefaultHeroes = new List<DotaHero>();
+        public static IEnumerable<DotaUnit> OverriddenUnits = AllUnits.Where(x => x.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Override);
 
-        public static List<DotaHero> OverridenHeroes = new List<DotaHero>();
-
-        public static List<DotaHero> CustomHeroes = new List<DotaHero>();
-
-        public static IEnumerable<DotaHero> AllCustomHeroes = OverridenHeroes.Union(CustomHeroes);
-        public static IEnumerable<DotaHero> AllHeroes = DefaultHeroes.Union(AllCustomHeroes);       
+        public static IEnumerable<DotaUnit> CustomUnits = AllUnits.Where(x => x.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Custom);
 
         public static IEnumerable<DotaUnit> AllCustomUnits = OverriddenUnits.Union(CustomUnits);
-        public static IEnumerable<DotaUnit> AllUnits = DefaultUnits.Union(CustomUnits);            
+
+        #endregion
+
+        #region Hero Data Lists
+
+        public static List<DotaHero> AllHeroes = new List<DotaHero>();
+
+        public static IEnumerable<DotaHero> DefaultHeroes = AllHeroes.Where(x => x.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default);
+
+        public static IEnumerable<DotaHero> OverridenHeroes = AllHeroes.Where(x => x.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Override);
+
+        public static IEnumerable<DotaHero> CustomHeroes = AllHeroes.Where(x => x.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Custom);
+
+        public static IEnumerable<DotaHero> AllCustomHeroes = OverridenHeroes.Union(CustomHeroes);
+
         #endregion
 
         #region Ability Data Lists
-        public static List<DotaAbility> DefaultAbilities = new List<DotaAbility>();
+        public static List<DotaAbility> AllAbilities = new List<DotaAbility>();
 
-        public static List<DotaAbility> OverridenAbilities = new List<DotaAbility>();
+        public static IEnumerable<DotaAbility> DefaultAbilities = AllAbilities.Where(x => x.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default);
 
-        public static List<DotaAbility> CustomAbilities = new List<DotaAbility>();
+        public static IEnumerable<DotaAbility> OverridenAbilities = AllAbilities.Where(x => x.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Override);
 
-        public static IEnumerable<DotaAbility> AllAbilities = DefaultAbilities.Union(CustomAbilities).Union(OverridenAbilities);
+        public static IEnumerable<DotaAbility> CustomAbilities = AllAbilities.Where(x => x.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Custom);
+              
 
         #endregion
 
         #region Item Data Lists
-        public static List<DotaItem> DefaultItems = new List<DotaItem>();
+        public static List<DotaItem> AllItems = new List<DotaItem>();
 
-        public static List<DotaItem> OverridenItems = new List<DotaItem>();
+        public static IEnumerable<DotaItem> DefaultItems = AllItems.Where(x => x.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default);
 
-        public static List<DotaItem> CustomItems = new List<DotaItem>();
+        public static IEnumerable<DotaItem> OverridenItems = AllItems.Where(x=> x.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Override);
 
-        public static IEnumerable<DotaItem> AllItems = DefaultItems.Union(CustomItems).Union(OverridenItems);
+        public static IEnumerable<DotaItem> CustomItems = AllItems.Where(x=> x.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Custom);
+
+        
         #endregion
 
 
@@ -71,65 +82,21 @@ namespace WorldSmith.DataClasses
 
 
             DotaDataObject.DataObjectInfo.ObjectDataClass ObjectClass = ddo.ObjectInfo.ObjectClass;
-            if(ddo is DotaHero)
+            if (ddo is DotaHero)
             {
-                if (ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default)
-                {
-                    return DefaultHeroes;
-                }
-                else if (ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Override)
-                {
-                    return OverridenHeroes;
-                }
-                else
-                {
-                    return CustomHeroes;
-                }
+                return AllHeroes;
             }
-            else if(ddo is DotaUnit)
+            else if (ddo is DotaUnit)
             {
-                if(ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default)
-                {
-                    return DefaultUnits;
-                }
-                else if(ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Override)
-                {
-                    return OverriddenUnits;
-                }
-                else
-                {
-                    return CustomUnits;
-                }
+                return AllUnits;
             }
-            else if(ddo is DotaItem)
+            else if (ddo is DotaItem)
             {
-                if(ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default)
-                {
-                    return DefaultItems;
-                }
-                else if(ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Override)
-                {
-                    return OverridenItems;
-                }
-                else
-                {
-                    return CustomItems;
-                }
+                return AllItems;
             }
-            else if(ddo is DotaAbility)
+            else if (ddo is DotaAbility)
             {
-                if(ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Default)
-                {
-                    return DefaultAbilities;
-                }
-                else if(ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Override)
-                {
-                    return OverridenAbilities;
-                }
-                else
-                {
-                    return CustomAbilities;
-                }
+                return AllAbilities;
             }
             throw new ArgumentException("Don't have a list for that type");
         }
@@ -148,7 +115,7 @@ namespace WorldSmith.DataClasses
         #region HLLib Usage
         public static void LoadFromVPK(string vpkPath)
         {
-            if(!Directory.Exists("cache")) Directory.CreateDirectory("cache");
+            if (!Directory.Exists("cache")) Directory.CreateDirectory("cache");
 
             string path = Properties.Settings.Default.DotaDir + Path.DirectorySeparatorChar + VPKPath;
             HLLib.hlInitialize();
@@ -162,12 +129,12 @@ namespace WorldSmith.DataClasses
 
             uint PackageID;
 
-            ErrorCheck(HLLib.hlCreatePackage(PackageType, out PackageID));            
+            ErrorCheck(HLLib.hlCreatePackage(PackageType, out PackageID));
 
             ErrorCheck(HLLib.hlBindPackage(PackageID));
 
-            ErrorCheck(HLLib.hlPackageOpenFile(path, (uint)OpenMode));           
-            
+            ErrorCheck(HLLib.hlPackageOpenFile(path, (uint)OpenMode));
+
         }
 
 
@@ -221,7 +188,7 @@ namespace WorldSmith.DataClasses
             HLLib.hlShutdown();
         }
 
-        #endregion       
+        #endregion
 
         #region LoadData
         public static void ReadScriptFromVPK<T>(string filePath, List<T> ListToInsert) where T : DotaDataObject
@@ -253,16 +220,15 @@ namespace WorldSmith.DataClasses
             return;
         }
 
-       
+
         public static void ReadOverride<T>(string file, List<T> ListToLoadInto) where T : DotaDataObject
         {
             if (!File.Exists(Properties.Settings.Default.LoadedAddonDirectory + file)) return;
 
-            ListToLoadInto.Clear();
             try
             {
                 KeyValue doc = KVParser.ParseKeyValueText(File.ReadAllText(Properties.Settings.Default.LoadedAddonDirectory + file));
-                foreach(KeyValue hero in doc.Children)
+                foreach (KeyValue hero in doc.Children)
                 {
                     try
                     {
@@ -300,13 +266,13 @@ namespace WorldSmith.DataClasses
 
         #region SaveData
         public static void SaveUnits()
-        {          
+        {
             SaveList(CustomUnits, "DOTAUnits", "npc_units_custom.txt");
             SaveList(OverridenHeroes, "DOTAHeroes", "npc_heroes_custom.txt");
             SaveList(CustomAbilities, "DOTAAbilities", "npc_abilities_custom.txt");
         }
 
-        public static void SaveList<T>(List<T> list, string RootKey, string outputFileName) where T : DotaDataObject
+        public static void SaveList<T>(IEnumerable<T> list, string RootKey, string outputFileName) where T : DotaDataObject
         {
             string path = Properties.Settings.Default.LoadedAddonDirectory + Path.DirectorySeparatorChar
                 + "scripts" + Path.DirectorySeparatorChar + "npc" + Path.DirectorySeparatorChar;
@@ -319,17 +285,17 @@ namespace WorldSmith.DataClasses
                 doc += unit.SaveToKV();
             }
 
-            File.WriteAllText(path +outputFileName, KVHeader + doc.ToString());
+            File.WriteAllText(path + outputFileName, KVHeader + doc.ToString());
         }
         #endregion
 
         #region UnloadData
         public static void UnloadUnits()
         {
-            OverriddenUnits.Clear();
-            CustomUnits.Clear();
-            OverridenHeroes.Clear();
-            CustomHeroes.Clear();
+            AllUnits.Clear();
+            AllItems.Clear();
+            AllAbilities.Clear();
+            AllHeroes.Clear();
         }
         #endregion
 

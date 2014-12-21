@@ -27,7 +27,7 @@ namespace WorldSmith.Panels
         public void RefreshTreeView()
         {
 
-            FillInFromList("heroes", DotaData.DefaultHeroes); //TODO: Create a list of 'valid' heroes.  Remove Default heroes that are overridden            
+            FillInFromList("heroes", DotaData.AllHeroes); //TODO: Create a list of 'valid' heroes.  Remove Default heroes that are overridden            
             FillInFromList("units", DotaData.AllUnits);            
             FillInFromList("abilities", DotaData.AllAbilities);
             FillInFromList("items", DotaData.AllItems);

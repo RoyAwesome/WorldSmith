@@ -20,35 +20,35 @@ namespace WorldSmith.Dialogs
         {
             {"Building Action Factory", () => { DotaActionFactory.BuildFactory(); } }, 
             {"Opening pak01_dir.vpk",  () => { DotaData.LoadFromVPK(Properties.Settings.Default.DotaDir); } },
-            {"npc_units.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultUnitsFile, DotaData.DefaultUnits); } },
-            {"npc_heroes.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultHeroesFile, DotaData.DefaultHeroes); } },
-            {"npc_abilities.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultAbilitiesFile, DotaData.DefaultAbilities); } },
-            {"items.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultItemsFile, DotaData.DefaultItems); } },
+            {"npc_units.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultUnitsFile, DotaData.AllUnits); } },
+            {"npc_heroes.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultHeroesFile, DotaData.AllHeroes); } },
+            {"npc_abilities.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultAbilitiesFile, DotaData.AllAbilities); } },
+            {"items.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultItemsFile, DotaData.AllItems); } },
         };
 
         public static Dictionary<string, Task> AddonLoadTasks = new Dictionary<string, Task>()
         {
             {"npc_units_custom.txt", () => {
                 
-                DotaData.ReadOverride(DotaData.CustomUnitsFile, DotaData.CustomUnits); 
+                DotaData.ReadOverride(DotaData.CustomUnitsFile, DotaData.AllUnits); 
             } },
             {"npc_heroes_custom.txt", () => {
                 
-                DotaData.ReadOverride(DotaData.CustomHeroesFile, DotaData.OverridenHeroes); 
+                DotaData.ReadOverride(DotaData.CustomHeroesFile, DotaData.AllHeroes); 
             } },
             {"npc_abilities_custom.txt", () => {
                 
-                DotaData.ReadOverride(DotaData.CustomAbilityFile, DotaData.CustomAbilities); 
+                DotaData.ReadOverride(DotaData.CustomAbilityFile, DotaData.AllAbilities); 
             } },
             {"npc_items_custom.txt", () => {
                 ;
-                DotaData.ReadOverride(DotaData.CustomItemsFile, DotaData.CustomItems); 
+                DotaData.ReadOverride(DotaData.CustomItemsFile, DotaData.AllItems); 
             } },
             {"Cleaning HeroOverrideList", () => {
                 foreach(DotaHero hero in DotaData.OverridenHeroes)
                 {
                     DotaHero baseHero = DotaData.DefaultHeroes.FirstOrDefault(h => h.ClassName == hero.override_hero);
-                    if (baseHero != null) DotaData.DefaultHeroes.Remove(baseHero);
+                    
                 }
             } },           
         };
