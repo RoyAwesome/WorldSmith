@@ -33,7 +33,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Action").Set(value.ToString());
+				KeyValue kv = GetSubkey("Action");
+				if(kv == null)
+				{
+					kv = new KeyValue("Action");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -48,7 +54,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Delay").Set(value.ToString());
+				KeyValue kv = GetSubkey("Delay");
+				if(kv == null)
+				{
+					kv = new KeyValue("Delay");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

@@ -34,7 +34,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("UnitName").Set(value.ToString());
+				KeyValue kv = GetSubkey("UnitName");
+				if(kv == null)
+				{
+					kv = new KeyValue("UnitName");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

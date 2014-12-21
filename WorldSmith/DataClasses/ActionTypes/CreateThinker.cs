@@ -34,7 +34,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ModifierName").Set(value.ToString());
+				KeyValue kv = GetSubkey("ModifierName");
+				if(kv == null)
+				{
+					kv = new KeyValue("ModifierName");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

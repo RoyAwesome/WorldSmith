@@ -33,7 +33,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Width").Set(value.ToString());
+				KeyValue kv = GetSubkey("Width");
+				if(kv == null)
+				{
+					kv = new KeyValue("Width");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -48,7 +54,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Length").Set(value.ToString());
+				KeyValue kv = GetSubkey("Length");
+				if(kv == null)
+				{
+					kv = new KeyValue("Length");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -63,7 +75,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Rotation").Set(value.ToString());
+				KeyValue kv = GetSubkey("Rotation");
+				if(kv == null)
+				{
+					kv = new KeyValue("Rotation");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

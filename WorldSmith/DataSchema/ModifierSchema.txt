@@ -301,7 +301,7 @@
 	
 	"Properties"
 	{
-		Category"	"Misc"
+		"Category"	"Misc"
 		"Description"	"No Description Set"
 		"Type"	"ModifierPropertyCollection"
 		"DefaultValue"	""

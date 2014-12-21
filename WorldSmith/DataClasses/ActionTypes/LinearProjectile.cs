@@ -34,7 +34,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("EffectName").Set(value.ToString());
+				KeyValue kv = GetSubkey("EffectName");
+				if(kv == null)
+				{
+					kv = new KeyValue("EffectName");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -49,7 +55,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("MoveSpeed").Set(value.ToString());
+				KeyValue kv = GetSubkey("MoveSpeed");
+				if(kv == null)
+				{
+					kv = new KeyValue("MoveSpeed");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -140,7 +152,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("StartPosition").Set(value.ToString());
+				KeyValue kv = GetSubkey("StartPosition");
+				if(kv == null)
+				{
+					kv = new KeyValue("StartPosition");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -155,7 +173,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("StartRadius").Set(value.ToString());
+				KeyValue kv = GetSubkey("StartRadius");
+				if(kv == null)
+				{
+					kv = new KeyValue("StartRadius");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -170,7 +194,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("EndRadius").Set(value.ToString());
+				KeyValue kv = GetSubkey("EndRadius");
+				if(kv == null)
+				{
+					kv = new KeyValue("EndRadius");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -198,7 +228,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("TargetTeams").Set(value.ToString());
+				KeyValue kv = GetSubkey("TargetTeams");
+				if(kv == null)
+				{
+					kv = new KeyValue("TargetTeams");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -231,7 +267,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("TargetTypes").Set(value.ToString());
+				KeyValue kv = GetSubkey("TargetTypes");
+				if(kv == null)
+				{
+					kv = new KeyValue("TargetTypes");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -273,7 +315,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("TargetFlags").Set(value.ToString());
+				KeyValue kv = GetSubkey("TargetFlags");
+				if(kv == null)
+				{
+					kv = new KeyValue("TargetFlags");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -289,7 +337,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("HasFrontalCone").Set(value.ToString());
+				KeyValue kv = GetSubkey("HasFrontalCone");
+				if(kv == null)
+				{
+					kv = new KeyValue("HasFrontalCone");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -305,7 +359,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ProvidesVision").Set(value.ToString());
+				KeyValue kv = GetSubkey("ProvidesVision");
+				if(kv == null)
+				{
+					kv = new KeyValue("ProvidesVision");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -320,7 +380,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("VisionRadius").Set(value.ToString());
+				KeyValue kv = GetSubkey("VisionRadius");
+				if(kv == null)
+				{
+					kv = new KeyValue("VisionRadius");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

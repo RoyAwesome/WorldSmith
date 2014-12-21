@@ -32,7 +32,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemCost").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemCost");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemCost");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -48,7 +54,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemInitialCharges").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemInitialCharges");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemInitialCharges");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -64,7 +76,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemCombinable").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemCombinable");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemCombinable");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -80,7 +98,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemPermanent").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemPermanent");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemPermanent");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -96,7 +120,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemStackable").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemStackable");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemStackable");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -112,7 +142,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemRecipe").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemRecipe");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemRecipe");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -128,7 +164,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemDroppable").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemDroppable");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemDroppable");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -144,7 +186,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemPurchasable").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemPurchasable");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemPurchasable");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -160,7 +208,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemSellable").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemSellable");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemSellable");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -176,7 +230,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemRequiresCharges").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemRequiresCharges");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemRequiresCharges");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -192,7 +252,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemKillable").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemKillable");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemKillable");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -208,7 +274,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemDisassemblable").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemDisassemblable");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemDisassemblable");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -232,7 +304,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemShareability").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemShareability");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemShareability");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -248,7 +326,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemDeclaresPurchase").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemDeclaresPurchase");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemDeclaresPurchase");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -274,7 +358,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemDeclarations").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemDeclarations");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemDeclarations");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

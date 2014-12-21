@@ -34,7 +34,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("HealAmount").Set(value.ToString());
+				KeyValue kv = GetSubkey("HealAmount");
+				if(kv == null)
+				{
+					kv = new KeyValue("HealAmount");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

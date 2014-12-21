@@ -34,7 +34,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Dodgeable").Set(value.ToString());
+				KeyValue kv = GetSubkey("Dodgeable");
+				if(kv == null)
+				{
+					kv = new KeyValue("Dodgeable");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -50,7 +56,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ProvidesVision").Set(value.ToString());
+				KeyValue kv = GetSubkey("ProvidesVision");
+				if(kv == null)
+				{
+					kv = new KeyValue("ProvidesVision");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -65,7 +77,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("VisionRadius").Set(value.ToString());
+				KeyValue kv = GetSubkey("VisionRadius");
+				if(kv == null)
+				{
+					kv = new KeyValue("VisionRadius");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -81,7 +99,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("EffectName").Set(value.ToString());
+				KeyValue kv = GetSubkey("EffectName");
+				if(kv == null)
+				{
+					kv = new KeyValue("EffectName");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -96,7 +120,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("MoveSpeed").Set(value.ToString());
+				KeyValue kv = GetSubkey("MoveSpeed");
+				if(kv == null)
+				{
+					kv = new KeyValue("MoveSpeed");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -112,7 +142,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("SourceAttachment").Set(value.ToString());
+				KeyValue kv = GetSubkey("SourceAttachment");
+				if(kv == null)
+				{
+					kv = new KeyValue("SourceAttachment");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

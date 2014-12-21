@@ -32,7 +32,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Enabled").Set(value.ToString());
+				KeyValue kv = GetSubkey("Enabled");
+				if(kv == null)
+				{
+					kv = new KeyValue("Enabled");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -48,7 +54,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("BotImplemented").Set(value.ToString());
+				KeyValue kv = GetSubkey("BotImplemented");
+				if(kv == null)
+				{
+					kv = new KeyValue("BotImplemented");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -64,7 +76,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("NewHero").Set(value.ToString());
+				KeyValue kv = GetSubkey("NewHero");
+				if(kv == null)
+				{
+					kv = new KeyValue("NewHero");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -80,7 +98,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("HeroPool1").Set(value.ToString());
+				KeyValue kv = GetSubkey("HeroPool1");
+				if(kv == null)
+				{
+					kv = new KeyValue("HeroPool1");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -96,7 +120,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("HeroUnlockOrder").Set(value.ToString());
+				KeyValue kv = GetSubkey("HeroUnlockOrder");
+				if(kv == null)
+				{
+					kv = new KeyValue("HeroUnlockOrder");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -112,7 +142,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("CMEnabled").Set(value.ToString());
+				KeyValue kv = GetSubkey("CMEnabled");
+				if(kv == null)
+				{
+					kv = new KeyValue("CMEnabled");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -128,7 +164,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("CMTournamentIgnore").Set(value.ToString());
+				KeyValue kv = GetSubkey("CMTournamentIgnore");
+				if(kv == null)
+				{
+					kv = new KeyValue("CMTournamentIgnore");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -144,7 +186,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("new_player_enable").Set(value.ToString());
+				KeyValue kv = GetSubkey("new_player_enable");
+				if(kv == null)
+				{
+					kv = new KeyValue("new_player_enable");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -160,7 +208,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("VoiceBackgroundSound").Set(value.ToString());
+				KeyValue kv = GetSubkey("VoiceBackgroundSound");
+				if(kv == null)
+				{
+					kv = new KeyValue("VoiceBackgroundSound");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -176,7 +230,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("IdleExpression").Set(value.ToString());
+				KeyValue kv = GetSubkey("IdleExpression");
+				if(kv == null)
+				{
+					kv = new KeyValue("IdleExpression");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -192,7 +252,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("HUD").Set(value.ToString());
+				KeyValue kv = GetSubkey("HUD");
+				if(kv == null)
+				{
+					kv = new KeyValue("HUD");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -208,7 +274,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("override_hero").Set(value.ToString());
+				KeyValue kv = GetSubkey("override_hero");
+				if(kv == null)
+				{
+					kv = new KeyValue("override_hero");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

@@ -34,7 +34,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("EffectName").Set(value.ToString());
+				KeyValue kv = GetSubkey("EffectName");
+				if(kv == null)
+				{
+					kv = new KeyValue("EffectName");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -66,7 +72,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("EffectAttachType").Set(value.ToString());
+				KeyValue kv = GetSubkey("EffectAttachType");
+				if(kv == null)
+				{
+					kv = new KeyValue("EffectAttachType");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -81,7 +93,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("EffectRadius").Set(value.ToString());
+				KeyValue kv = GetSubkey("EffectRadius");
+				if(kv == null)
+				{
+					kv = new KeyValue("EffectRadius");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -96,7 +114,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("EffectDurationScale").Set(value.ToString());
+				KeyValue kv = GetSubkey("EffectDurationScale");
+				if(kv == null)
+				{
+					kv = new KeyValue("EffectDurationScale");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -111,7 +135,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("EffectLifeDurationScale").Set(value.ToString());
+				KeyValue kv = GetSubkey("EffectLifeDurationScale");
+				if(kv == null)
+				{
+					kv = new KeyValue("EffectLifeDurationScale");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -126,7 +156,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("EffectColorA").Set(value.ToString());
+				KeyValue kv = GetSubkey("EffectColorA");
+				if(kv == null)
+				{
+					kv = new KeyValue("EffectColorA");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -141,7 +177,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("EffectColorB").Set(value.ToString());
+				KeyValue kv = GetSubkey("EffectColorB");
+				if(kv == null)
+				{
+					kv = new KeyValue("EffectColorB");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

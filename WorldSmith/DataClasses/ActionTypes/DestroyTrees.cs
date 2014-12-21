@@ -33,7 +33,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Radius").Set(value.ToString());
+				KeyValue kv = GetSubkey("Radius");
+				if(kv == null)
+				{
+					kv = new KeyValue("Radius");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

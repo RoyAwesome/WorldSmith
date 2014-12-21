@@ -33,7 +33,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("PitchYawRoll").Set(value.ToString());
+				KeyValue kv = GetSubkey("PitchYawRoll");
+				if(kv == null)
+				{
+					kv = new KeyValue("PitchYawRoll");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

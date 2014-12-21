@@ -34,7 +34,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("EffectName").Set(value.ToString());
+				KeyValue kv = GetSubkey("EffectName");
+				if(kv == null)
+				{
+					kv = new KeyValue("EffectName");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

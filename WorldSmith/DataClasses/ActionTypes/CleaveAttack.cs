@@ -33,7 +33,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("CleavePercent").Set(value.ToString());
+				KeyValue kv = GetSubkey("CleavePercent");
+				if(kv == null)
+				{
+					kv = new KeyValue("CleavePercent");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -48,7 +54,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("CleaveRadius").Set(value.ToString());
+				KeyValue kv = GetSubkey("CleaveRadius");
+				if(kv == null)
+				{
+					kv = new KeyValue("CleaveRadius");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

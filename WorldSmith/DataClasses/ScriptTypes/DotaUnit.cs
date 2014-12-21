@@ -32,7 +32,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("IsAncient").Set(value.ToString());
+				KeyValue kv = GetSubkey("IsAncient");
+				if(kv == null)
+				{
+					kv = new KeyValue("IsAncient");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -48,7 +54,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("IsNeutralUnitType").Set(value.ToString());
+				KeyValue kv = GetSubkey("IsNeutralUnitType");
+				if(kv == null)
+				{
+					kv = new KeyValue("IsNeutralUnitType");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -64,7 +76,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("SelectionGroup").Set(value.ToString());
+				KeyValue kv = GetSubkey("SelectionGroup");
+				if(kv == null)
+				{
+					kv = new KeyValue("SelectionGroup");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -80,7 +98,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("SelectOnSpawn").Set(value.ToString());
+				KeyValue kv = GetSubkey("SelectOnSpawn");
+				if(kv == null)
+				{
+					kv = new KeyValue("SelectOnSpawn");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -96,7 +120,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("CanBeDominated").Set(value.ToString());
+				KeyValue kv = GetSubkey("CanBeDominated");
+				if(kv == null)
+				{
+					kv = new KeyValue("CanBeDominated");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -112,7 +142,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("IgnoreAddSummonedToSelection").Set(value.ToString());
+				KeyValue kv = GetSubkey("IgnoreAddSummonedToSelection");
+				if(kv == null)
+				{
+					kv = new KeyValue("IgnoreAddSummonedToSelection");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -128,7 +164,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AutoAttacksByDefault").Set(value.ToString());
+				KeyValue kv = GetSubkey("AutoAttacksByDefault");
+				if(kv == null)
+				{
+					kv = new KeyValue("AutoAttacksByDefault");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -144,7 +186,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AttackRangeBuffer").Set(value.ToString());
+				KeyValue kv = GetSubkey("AttackRangeBuffer");
+				if(kv == null)
+				{
+					kv = new KeyValue("AttackRangeBuffer");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -160,7 +208,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("FollowRange").Set(value.ToString());
+				KeyValue kv = GetSubkey("FollowRange");
+				if(kv == null)
+				{
+					kv = new KeyValue("FollowRange");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -176,7 +230,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AttackDesire").Set(value.ToString());
+				KeyValue kv = GetSubkey("AttackDesire");
+				if(kv == null)
+				{
+					kv = new KeyValue("AttackDesire");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -192,7 +252,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("WakesNeutrals").Set(value.ToString());
+				KeyValue kv = GetSubkey("WakesNeutrals");
+				if(kv == null)
+				{
+					kv = new KeyValue("WakesNeutrals");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

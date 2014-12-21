@@ -34,7 +34,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ScriptFile").Set(value.ToString());
+				KeyValue kv = GetSubkey("ScriptFile");
+				if(kv == null)
+				{
+					kv = new KeyValue("ScriptFile");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -50,7 +56,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Function").Set(value.ToString());
+				KeyValue kv = GetSubkey("Function");
+				if(kv == null)
+				{
+					kv = new KeyValue("Function");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

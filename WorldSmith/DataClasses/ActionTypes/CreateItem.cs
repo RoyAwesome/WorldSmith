@@ -34,7 +34,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemName").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemName");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemName");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -49,7 +55,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("SpawnRadius").Set(value.ToString());
+				KeyValue kv = GetSubkey("SpawnRadius");
+				if(kv == null)
+				{
+					kv = new KeyValue("SpawnRadius");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -64,7 +76,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ItemChargeCount").Set(value.ToString());
+				KeyValue kv = GetSubkey("ItemChargeCount");
+				if(kv == null)
+				{
+					kv = new KeyValue("ItemChargeCount");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -80,7 +98,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("BelongsToCaster").Set(value.ToString());
+				KeyValue kv = GetSubkey("BelongsToCaster");
+				if(kv == null)
+				{
+					kv = new KeyValue("BelongsToCaster");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

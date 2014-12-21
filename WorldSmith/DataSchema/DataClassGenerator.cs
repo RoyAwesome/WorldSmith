@@ -232,11 +232,11 @@ namespace WorldSmith.DataSchema
                     csFile.AppendLine("\t\t[Editor(typeof(AbilityActionEditor), "
                         + "typeof(System.Drawing.Design.UITypeEditor))]");
                 }
-              
 
-                
 
-                csFile.AppendLine(string.Format("\t\t[Category(\"{0}\")]", c["Category"].GetString()));
+
+                KeyValue cat = c["Category"];
+                csFile.AppendLine(string.Format("\t\t[Category(\"{0}\")]",cat.GetString()));
                 csFile.AppendLine(string.Format("\t\t[Description(\"{0}\")]", c["Description"].GetString()));
                 if (c["ReadOnly"] != null && c["ReadOnly"].GetBool())
                     csFile.AppendLine("\t\t[ReadOnly(true)]");
@@ -347,7 +347,14 @@ namespace WorldSmith.DataSchema
 
                 csFile.AppendLine("\t\t\tset");
                 csFile.AppendLine("\t\t\t{");
-                csFile.AppendLine("\t\t\t\tGetSubkey(\"" + c.Key + "\").Set(value.ToString());");
+                csFile.AppendLine("\t\t\t\tKeyValue kv = GetSubkey(\"" + c.Key + "\");");
+                csFile.AppendLine("\t\t\t\tif(kv == null)");
+                csFile.AppendLine("\t\t\t\t{");
+                csFile.AppendLine("\t\t\t\t\tkv = new KeyValue(\"" + c.Key + "\");");                
+                csFile.AppendLine("\t\t\t\t\tKeyValue.AddChild(kv);");
+                csFile.AppendLine("\t\t\t\t}");
+
+                csFile.AppendLine("\t\t\t\tkv.Set(value.ToString());");
                 csFile.AppendLine("\t\t\t}");
                 csFile.AppendLine("\t\t}");
                 csFile.AppendLine();

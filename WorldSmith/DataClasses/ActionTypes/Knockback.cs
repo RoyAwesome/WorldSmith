@@ -34,7 +34,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Center").Set(value.ToString());
+				KeyValue kv = GetSubkey("Center");
+				if(kv == null)
+				{
+					kv = new KeyValue("Center");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -49,7 +55,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Distance").Set(value.ToString());
+				KeyValue kv = GetSubkey("Distance");
+				if(kv == null)
+				{
+					kv = new KeyValue("Distance");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -65,7 +77,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("IsFixedDistance").Set(value.ToString());
+				KeyValue kv = GetSubkey("IsFixedDistance");
+				if(kv == null)
+				{
+					kv = new KeyValue("IsFixedDistance");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -80,7 +98,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Height").Set(value.ToString());
+				KeyValue kv = GetSubkey("Height");
+				if(kv == null)
+				{
+					kv = new KeyValue("Height");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -95,7 +119,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Duration").Set(value.ToString());
+				KeyValue kv = GetSubkey("Duration");
+				if(kv == null)
+				{
+					kv = new KeyValue("Duration");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

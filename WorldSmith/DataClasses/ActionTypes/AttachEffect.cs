@@ -34,7 +34,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("EffectName").Set(value.ToString());
+				KeyValue kv = GetSubkey("EffectName");
+				if(kv == null)
+				{
+					kv = new KeyValue("EffectName");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -66,7 +72,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("EffectAttachType").Set(value.ToString());
+				KeyValue kv = GetSubkey("EffectAttachType");
+				if(kv == null)
+				{
+					kv = new KeyValue("EffectAttachType");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -81,7 +93,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ControlPoints").Set(value.ToString());
+				KeyValue kv = GetSubkey("ControlPoints");
+				if(kv == null)
+				{
+					kv = new KeyValue("ControlPoints");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

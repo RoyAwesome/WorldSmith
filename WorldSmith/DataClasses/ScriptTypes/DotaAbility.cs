@@ -33,7 +33,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("ID").Set(value.ToString());
+				KeyValue kv = GetSubkey("ID");
+				if(kv == null)
+				{
+					kv = new KeyValue("ID");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -49,7 +55,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityName").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityName");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityName");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -73,7 +85,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityType").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityType");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityType");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -99,7 +117,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityUnitDamageType").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityUnitDamageType");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityUnitDamageType");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -155,7 +179,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityBehavior").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityBehavior");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityBehavior");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -171,7 +201,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityTextureName").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityTextureName");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityTextureName");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -199,7 +235,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityUnitTargetTeam").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityUnitTargetTeam");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityUnitTargetTeam");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -233,7 +275,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityUnitTargetType").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityUnitTargetType");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityUnitTargetType");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -275,7 +323,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityUnitTargetFlags").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityUnitTargetFlags");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityUnitTargetFlags");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -291,7 +345,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("OnCastbar").Set(value.ToString());
+				KeyValue kv = GetSubkey("OnCastbar");
+				if(kv == null)
+				{
+					kv = new KeyValue("OnCastbar");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -307,7 +367,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("OnLearnbar").Set(value.ToString());
+				KeyValue kv = GetSubkey("OnLearnbar");
+				if(kv == null)
+				{
+					kv = new KeyValue("OnLearnbar");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -323,7 +389,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityCastRange").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityCastRange");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityCastRange");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -339,7 +411,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityCastRangeBuffer").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityCastRangeBuffer");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityCastRangeBuffer");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -354,7 +432,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityCastPoint").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityCastPoint");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityCastPoint");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -369,7 +453,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityChannelTime").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityChannelTime");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityChannelTime");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -384,7 +474,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityCooldown").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityCooldown");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityCooldown");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -399,7 +495,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityDuration").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityDuration");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityDuration");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -415,7 +517,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilitySharedCooldown").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilitySharedCooldown");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilitySharedCooldown");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -430,7 +538,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityDamage").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityDamage");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityDamage");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -445,7 +559,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityManaCost").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityManaCost");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityManaCost");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -461,7 +581,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityModifierSupportValue").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityModifierSupportValue");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityModifierSupportValue");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -477,7 +603,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityModifierSupportBonus").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityModifierSupportBonus");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityModifierSupportBonus");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -493,7 +625,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("AbilityProcsMagicStick").Set(value.ToString());
+				KeyValue kv = GetSubkey("AbilityProcsMagicStick");
+				if(kv == null)
+				{
+					kv = new KeyValue("AbilityProcsMagicStick");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

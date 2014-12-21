@@ -34,7 +34,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("UnitName").Set(value.ToString());
+				KeyValue kv = GetSubkey("UnitName");
+				if(kv == null)
+				{
+					kv = new KeyValue("UnitName");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -49,7 +55,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("UnitCount").Set(value.ToString());
+				KeyValue kv = GetSubkey("UnitCount");
+				if(kv == null)
+				{
+					kv = new KeyValue("UnitCount");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -64,7 +76,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("SpawnRadius").Set(value.ToString());
+				KeyValue kv = GetSubkey("SpawnRadius");
+				if(kv == null)
+				{
+					kv = new KeyValue("SpawnRadius");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -79,7 +97,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Duration").Set(value.ToString());
+				KeyValue kv = GetSubkey("Duration");
+				if(kv == null)
+				{
+					kv = new KeyValue("Duration");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
@@ -94,7 +118,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("OnSpawn").Set(value.ToString());
+				KeyValue kv = GetSubkey("OnSpawn");
+				if(kv == null)
+				{
+					kv = new KeyValue("OnSpawn");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 

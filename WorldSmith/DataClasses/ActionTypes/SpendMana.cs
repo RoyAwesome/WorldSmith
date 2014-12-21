@@ -33,7 +33,13 @@ namespace WorldSmith.DataClasses
 			}
 			set
 			{
-				GetSubkey("Mana").Set(value.ToString());
+				KeyValue kv = GetSubkey("Mana");
+				if(kv == null)
+				{
+					kv = new KeyValue("Mana");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value.ToString());
 			}
 		}
 
