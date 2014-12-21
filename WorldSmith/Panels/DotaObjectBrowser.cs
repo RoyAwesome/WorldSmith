@@ -276,6 +276,10 @@ namespace WorldSmith.Panels
             //Heroes are assigned to Type = 1
             CreateObjectDialog dialog = new CreateObjectDialog(CreateObjectDialog.DotaType.Hero);
             dialog.ShowDialog();
+            if (dialog.DialogResult == DialogResult.OK)
+            {
+                RefreshTreeView();
+            }
         }
 
         private void unitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -283,6 +287,11 @@ namespace WorldSmith.Panels
             //Units are assigned to Type = 2
             CreateObjectDialog dialog = new CreateObjectDialog(CreateObjectDialog.DotaType.Unit);
             dialog.ShowDialog();
+            if (dialog.DialogResult == DialogResult.OK)
+            {
+                RefreshTreeView();
+            }
+            
         }
 
         private void abilityToolStripMenuItem_Click(object sender, EventArgs e)
@@ -290,6 +299,10 @@ namespace WorldSmith.Panels
             //Abilities are assigned to Type = 3
             CreateObjectDialog dialog = new CreateObjectDialog(CreateObjectDialog.DotaType.Ability);
             dialog.ShowDialog();
+            if (dialog.DialogResult == DialogResult.OK)
+            {
+                RefreshTreeView();
+            }
         }
 
         private void itemToolStripMenuItem_Click(object sender, EventArgs e)
@@ -297,6 +310,10 @@ namespace WorldSmith.Panels
             //Items are assigned to Type = 4
             Dialogs.CreateObjectDialog dialog = new Dialogs.CreateObjectDialog(CreateObjectDialog.DotaType.Item);
             dialog.ShowDialog();
+            if (dialog.DialogResult == DialogResult.OK)
+            {
+                RefreshTreeView();
+            }
         }
     }
 }
