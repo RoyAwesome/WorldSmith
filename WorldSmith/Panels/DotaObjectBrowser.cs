@@ -42,7 +42,7 @@ namespace WorldSmith.Panels
             using (System.IO.Stream s = asm.GetManifestResourceStream(resName))
             using (System.IO.StreamReader reader = new System.IO.StreamReader(s))
             {
-                DefaultFolders = KVParser.ParseKeyValueText(reader.ReadToEnd());
+                DefaultFolders = KVParser.KV1.Parse(reader.ReadToEnd());
             }
         }
 

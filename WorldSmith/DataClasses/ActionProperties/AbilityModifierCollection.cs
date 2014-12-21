@@ -16,7 +16,7 @@ namespace WorldSmith.DataClasses
             
             foreach(DotaModifier mod in this)
             {
-                doc += mod.SaveToKV();
+                doc += mod.KeyValue;
             }
 
             return doc;

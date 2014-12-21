@@ -202,7 +202,7 @@ namespace WorldSmith.DataClasses
 
             string unitsText = ReadTextFromHLLibStream(stream);
 
-            KeyValue rootkv = KVLib.KVParser.ParseKeyValueText(unitsText);
+            KeyValue rootkv = KVLib.KVParser.KV1.Parse(unitsText);
 
             foreach (KeyValue kv in rootkv.Children)
             {
@@ -226,7 +226,7 @@ namespace WorldSmith.DataClasses
 
             try
             {
-                KeyValue doc = KVParser.ParseKeyValueText(File.ReadAllText(Properties.Settings.Default.LoadedAddonDirectory + file));
+                KeyValue doc = KVParser.KV1.Parse(File.ReadAllText(Properties.Settings.Default.LoadedAddonDirectory + file));
                 foreach (KeyValue kv in doc.Children)
                 {
                     try
@@ -284,7 +284,7 @@ namespace WorldSmith.DataClasses
 
             foreach (T unit in list)
             {
-                doc += unit.SaveToKV();
+                doc += unit.KeyValue;
             }
 
             File.WriteAllText(path + outputFileName, KVHeader + doc.ToString());

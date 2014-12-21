@@ -35,7 +35,7 @@ namespace WorldSmith.DataClasses
     {
         public ControlPointList(string KVstring)
         {
-            KeyValue doc = KVParser.ParseKeyValueText(KVstring);
+            KeyValue doc = KVParser.KV1.Parse(KVstring);
             
             foreach(KeyValue kv in doc.Children)
             {
