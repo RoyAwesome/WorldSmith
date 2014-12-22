@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Heroes");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node3");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node4");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Units", new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode5,
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Abilities");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Items");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Heroes");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Node3");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Node4");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Units", new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode14,
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Abilities");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Items");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DotaObjectBrowser));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.assetTreeView = new System.Windows.Forms.TreeView();
@@ -93,29 +93,29 @@
             this.assetTreeView.Indent = 13;
             this.assetTreeView.Location = new System.Drawing.Point(0, 0);
             this.assetTreeView.Name = "assetTreeView";
-            treeNode1.Name = "heroes";
-            treeNode1.Text = "Heroes";
-            treeNode2.Name = "Node3";
-            treeNode2.Text = "Node3";
-            treeNode3.Name = "Node4";
-            treeNode3.Text = "Node4";
-            treeNode4.Name = "Node0";
-            treeNode4.Text = "Node0";
-            treeNode5.Name = "Node1";
-            treeNode5.Text = "Node1";
-            treeNode6.Name = "Node2";
-            treeNode6.Text = "Node2";
-            treeNode7.Name = "units";
-            treeNode7.Text = "Units";
-            treeNode8.Name = "abilities";
-            treeNode8.Text = "Abilities";
-            treeNode9.Name = "items";
-            treeNode9.Text = "Items";
+            treeNode10.Name = "heroes";
+            treeNode10.Text = "Heroes";
+            treeNode11.Name = "Node3";
+            treeNode11.Text = "Node3";
+            treeNode12.Name = "Node4";
+            treeNode12.Text = "Node4";
+            treeNode13.Name = "Node0";
+            treeNode13.Text = "Node0";
+            treeNode14.Name = "Node1";
+            treeNode14.Text = "Node1";
+            treeNode15.Name = "Node2";
+            treeNode15.Text = "Node2";
+            treeNode16.Name = "units";
+            treeNode16.Text = "Units";
+            treeNode17.Name = "abilities";
+            treeNode17.Text = "Abilities";
+            treeNode18.Name = "items";
+            treeNode18.Text = "Items";
             this.assetTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode7,
-            treeNode8,
-            treeNode9});
+            treeNode10,
+            treeNode16,
+            treeNode17,
+            treeNode18});
             this.assetTreeView.SelectedImageIndex = 0;
             this.assetTreeView.Size = new System.Drawing.Size(245, 568);
             this.assetTreeView.TabIndex = 0;
@@ -202,9 +202,11 @@
             // 
             // heroToolStripMenuItem
             // 
+            this.heroToolStripMenuItem.Enabled = false;
             this.heroToolStripMenuItem.Name = "heroToolStripMenuItem";
             this.heroToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.heroToolStripMenuItem.Text = "Hero";
+            this.heroToolStripMenuItem.ToolTipText = "This is not currently supported by Dota 2.";
             this.heroToolStripMenuItem.Click += new System.EventHandler(this.heroToolStripMenuItem_Click);
             // 
             // unitToolStripMenuItem
@@ -212,6 +214,7 @@
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
             this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.unitToolStripMenuItem.Text = "Unit";
+            this.unitToolStripMenuItem.ToolTipText = "Create a new unit.";
             this.unitToolStripMenuItem.Click += new System.EventHandler(this.unitToolStripMenuItem_Click);
             // 
             // abilityToolStripMenuItem
@@ -219,6 +222,7 @@
             this.abilityToolStripMenuItem.Name = "abilityToolStripMenuItem";
             this.abilityToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.abilityToolStripMenuItem.Text = "Ability";
+            this.abilityToolStripMenuItem.ToolTipText = "Create a new ability.";
             this.abilityToolStripMenuItem.Click += new System.EventHandler(this.abilityToolStripMenuItem_Click);
             // 
             // itemToolStripMenuItem
@@ -226,6 +230,7 @@
             this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
             this.itemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.itemToolStripMenuItem.Text = "Item";
+            this.itemToolStripMenuItem.ToolTipText = "Create a new item.";
             this.itemToolStripMenuItem.Click += new System.EventHandler(this.itemToolStripMenuItem_Click);
             // 
             // DotaObjectBrowser
