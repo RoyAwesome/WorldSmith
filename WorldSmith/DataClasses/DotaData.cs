@@ -294,34 +294,10 @@ namespace WorldSmith.DataClasses
         #region UnloadData
         public static void UnloadUnits()
         {
-            for (int i = AllUnits.Count - 1; i > -1; i--)
-            {
-                if (AllUnits[i].ObjectInfo.ObjectClass != DotaDataObject.DataObjectInfo.ObjectDataClass.Default)
-                {
-                    AllUnits.RemoveAt(i);
-                }
-            }
-            for (int i = AllItems.Count - 1; i > -1; i--)
-            {
-                if (AllItems[i].ObjectInfo.ObjectClass != DotaDataObject.DataObjectInfo.ObjectDataClass.Default)
-                {
-                    AllItems.RemoveAt(i);
-                }
-            }
-            for (int i = AllAbilities.Count - 1; i > -1; i--)
-            {
-                if (AllAbilities[i].ObjectInfo.ObjectClass != DotaDataObject.DataObjectInfo.ObjectDataClass.Default)
-                {
-                    AllAbilities.RemoveAt(i);
-                }
-            }
-            for (int i = AllHeroes.Count - 1; i > -1; i--)
-            {
-                if (AllHeroes[i].ObjectInfo.ObjectClass != DotaDataObject.DataObjectInfo.ObjectDataClass.Default)
-                {
-                    AllHeroes.RemoveAt(i);
-                }
-            }
+            AllUnits.RemoveAll(x => x.ObjectInfo.ObjectClass != DotaDataObject.DataObjectInfo.ObjectDataClass.Default);
+            AllItems.RemoveAll(x => x.ObjectInfo.ObjectClass != DotaDataObject.DataObjectInfo.ObjectDataClass.Default);
+            AllAbilities.RemoveAll(x => x.ObjectInfo.ObjectClass != DotaDataObject.DataObjectInfo.ObjectDataClass.Default);
+            AllHeroes.RemoveAll(x => x.ObjectInfo.ObjectClass != DotaDataObject.DataObjectInfo.ObjectDataClass.Default);
         }
         #endregion
 
