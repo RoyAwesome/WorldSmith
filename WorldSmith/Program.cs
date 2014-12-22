@@ -55,7 +55,7 @@ namespace WorldSmith
 
             //Construct the main form and load the default project (if any).
             MainForm mainForm = new MainForm();
-            if (!String.IsNullOrEmpty(Properties.Settings.Default.LoadedAddonDirectory))
+            if (IsLoaddedAddonDirectoryValid())
             {
                 mainForm.LoadProject(Properties.Settings.Default.LoadedAddonDirectory);
             }
@@ -72,6 +72,11 @@ namespace WorldSmith
         static void Application_ApplicationExit(object sender, EventArgs e)
         {
             DotaData.Shutdown();
+        }
+
+        static bool IsLoaddedAddonDirectoryValid()
+        {
+            return !String.IsNullOrEmpty(Properties.Settings.Default.LoadedAddonDirectory) && Directory.Exists(Properties.Settings.Default.LoadedAddonDirectory);
         }
 
         /// <summary>
