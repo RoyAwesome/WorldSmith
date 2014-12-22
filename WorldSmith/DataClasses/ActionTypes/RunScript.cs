@@ -40,7 +40,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ScriptFile");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -62,7 +62,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Function");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

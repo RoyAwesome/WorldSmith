@@ -40,7 +40,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityName");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

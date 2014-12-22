@@ -40,7 +40,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("UnitName");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -61,7 +61,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("UnitCount");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -82,7 +82,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("SpawnRadius");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -103,7 +103,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Duration");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -124,7 +124,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("OnSpawn");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

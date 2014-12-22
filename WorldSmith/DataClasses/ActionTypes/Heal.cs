@@ -40,7 +40,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("HealAmount");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

@@ -39,7 +39,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("LifeStealPercent");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

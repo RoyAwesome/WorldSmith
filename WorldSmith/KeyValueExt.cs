@@ -22,9 +22,24 @@ namespace WorldSmith
             return value;
         }
 
+        /// <summary>
+        /// Enum Set to fix the C# seperating flags with ,
+        /// </summary>
+        /// <param name="kv"></param>
+        /// <param name="e"></param>
         public static void Set(this KeyValue kv, Enum e)
         {
             kv.Set(e.ToString().Replace(',', '|')); //Replace the commas with pipes.  C# seperates flags with ,
+        }
+
+        /// <summary>
+        /// Catchall Set for generic objects
+        /// </summary>
+        /// <param name="kv"></param>
+        /// <param name="o"></param>
+        public static void Set(this KeyValue kv, object o)
+        {
+            kv.Set(o.ToString());
         }
 
     }

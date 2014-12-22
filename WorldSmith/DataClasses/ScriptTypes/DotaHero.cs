@@ -38,7 +38,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Enabled");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -60,7 +60,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("BotImplemented");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -82,7 +82,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("NewHero");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -104,7 +104,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("HeroPool1");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -126,7 +126,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("HeroUnlockOrder");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -148,7 +148,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("CMEnabled");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -170,7 +170,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("CMTournamentIgnore");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -192,7 +192,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("new_player_enable");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -214,7 +214,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("VoiceBackgroundSound");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -236,7 +236,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("IdleExpression");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -258,7 +258,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("HUD");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -280,7 +280,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("override_hero");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

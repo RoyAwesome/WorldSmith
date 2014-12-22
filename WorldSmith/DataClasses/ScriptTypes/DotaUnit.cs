@@ -38,7 +38,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("IsAncient");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -60,7 +60,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("IsNeutralUnitType");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -82,7 +82,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("SelectionGroup");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -104,7 +104,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("SelectOnSpawn");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -126,7 +126,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("CanBeDominated");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -148,7 +148,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("IgnoreAddSummonedToSelection");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -170,7 +170,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AutoAttacksByDefault");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -192,7 +192,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttackRangeBuffer");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -214,7 +214,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("FollowRange");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -236,7 +236,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttackDesire");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -258,7 +258,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("WakesNeutrals");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

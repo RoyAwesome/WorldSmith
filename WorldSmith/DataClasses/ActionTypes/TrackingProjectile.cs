@@ -40,7 +40,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Dodgeable");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -62,7 +62,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ProvidesVision");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -83,7 +83,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("VisionRadius");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -105,7 +105,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("EffectName");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -126,7 +126,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("MoveSpeed");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -148,7 +148,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("SourceAttachment");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

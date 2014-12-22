@@ -40,7 +40,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Center");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -61,7 +61,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Distance");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -83,7 +83,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("IsFixedDistance");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -104,7 +104,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Height");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -125,7 +125,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Duration");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

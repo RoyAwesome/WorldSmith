@@ -39,7 +39,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ID");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -61,7 +61,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityName");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -91,7 +91,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityType");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -123,7 +123,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityUnitDamageType");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -185,7 +185,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityBehavior");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -207,7 +207,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityTextureName");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -241,7 +241,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityUnitTargetTeam");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -281,7 +281,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityUnitTargetType");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -329,7 +329,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityUnitTargetFlags");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -351,7 +351,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("OnCastbar");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -373,7 +373,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("OnLearnbar");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -395,7 +395,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityCastRange");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -417,7 +417,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityCastRangeBuffer");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -438,7 +438,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityCastPoint");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -459,7 +459,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityChannelTime");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -480,7 +480,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityCooldown");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -501,7 +501,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityDuration");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -523,7 +523,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilitySharedCooldown");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -544,7 +544,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityDamage");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -565,7 +565,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityManaCost");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -587,7 +587,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityModifierSupportValue");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -609,7 +609,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityModifierSupportBonus");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -631,7 +631,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityProcsMagicStick");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

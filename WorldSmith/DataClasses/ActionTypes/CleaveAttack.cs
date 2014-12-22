@@ -39,7 +39,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("CleavePercent");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -60,7 +60,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("CleaveRadius");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

@@ -39,7 +39,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Action");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -60,7 +60,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Delay");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

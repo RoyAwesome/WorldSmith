@@ -354,7 +354,7 @@ namespace WorldSmith.DataSchema
                 csFile.AppendLine("\t\t\t\t\tKeyValue.AddChild(kv);");
                 csFile.AppendLine("\t\t\t\t}");
 
-                csFile.AppendLine("\t\t\t\tkv.Set(value.ToString());");
+                csFile.AppendLine("\t\t\t\tkv.Set(value);");
                 csFile.AppendLine("\t\t\t}");
                 csFile.AppendLine("\t\t}");
                 csFile.AppendLine();

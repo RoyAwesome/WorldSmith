@@ -38,7 +38,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemCost");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -60,7 +60,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemInitialCharges");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -82,7 +82,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemCombinable");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -104,7 +104,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemPermanent");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -126,7 +126,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemStackable");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -148,7 +148,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemRecipe");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -170,7 +170,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemDroppable");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -192,7 +192,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemPurchasable");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -214,7 +214,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemSellable");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -236,7 +236,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemRequiresCharges");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -258,7 +258,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemKillable");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -280,7 +280,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemDisassemblable");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -310,7 +310,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemShareability");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -332,7 +332,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemDeclaresPurchase");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -364,7 +364,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ItemDeclarations");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

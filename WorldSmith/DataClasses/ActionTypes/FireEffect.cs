@@ -40,7 +40,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("EffectName");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -78,7 +78,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("EffectAttachType");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -99,7 +99,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("EffectRadius");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -120,7 +120,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("EffectDurationScale");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -141,7 +141,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("EffectLifeDurationScale");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -162,7 +162,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("EffectColorA");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -183,7 +183,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("EffectColorB");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

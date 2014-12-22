@@ -38,7 +38,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Model");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -60,7 +60,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("SoundSet");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -82,7 +82,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Level");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -104,7 +104,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AbilityLayout");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -126,7 +126,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Ability1");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -148,7 +148,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Ability2");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -170,7 +170,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Ability3");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -192,7 +192,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Ability4");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -214,7 +214,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Ability5");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -236,7 +236,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Ability6");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -258,7 +258,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Ability7");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -280,7 +280,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Ability8");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -302,7 +302,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ArmorPhysical");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -324,7 +324,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("MagicalResistance");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -353,7 +353,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttackCapabilities");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -375,7 +375,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttackDamageMin");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -397,7 +397,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttackDamageMax");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -424,7 +424,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttackDamageType");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -446,7 +446,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttackRate");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -468,7 +468,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttackAnimationPoint");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -490,7 +490,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttackAcquisitionRange");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -512,7 +512,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttackRange");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -534,7 +534,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ProjectileModel");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -556,7 +556,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ProjectileSpeed");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -585,7 +585,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttributePrimary");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -607,7 +607,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttributeBaseStrength");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -629,7 +629,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttributeStrengthGain");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -651,7 +651,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttributeBaseIntelligence");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -673,7 +673,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttributeIntelligenceGain");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -695,7 +695,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttributeBaseAgility");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -717,7 +717,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("AttributeAgilityGain");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -739,7 +739,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("BountyXP");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -761,7 +761,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("BountyGoldMin");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -783,7 +783,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("BountyGoldMax");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -818,7 +818,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("BoundsHullName");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -840,7 +840,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("RingRadius");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -869,7 +869,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("MovementCapabilities");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -891,7 +891,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("MovementSpeed");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -913,7 +913,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("MovementTurnRate");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -935,7 +935,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("HasAggressiveStance");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -957,7 +957,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("StatusHealth");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -979,7 +979,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("StatusHealthRegen");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -1001,7 +1001,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("StatusMana");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -1023,7 +1023,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("StatusManaRegen");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -1045,7 +1045,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("StatusStartingMana");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -1075,7 +1075,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("TeamName");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -1106,7 +1106,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("CombatClassAttack");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -1138,7 +1138,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("CombatClassDefend");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -1171,7 +1171,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("UnitRelationshipClass");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -1193,7 +1193,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("VisionDaytimeRange");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -1215,7 +1215,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("VisionNighttimeRange");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -1237,7 +1237,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("HasInventory");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -1259,7 +1259,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("HealthBarOffset");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -1281,7 +1281,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("IdleSoundLoop");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

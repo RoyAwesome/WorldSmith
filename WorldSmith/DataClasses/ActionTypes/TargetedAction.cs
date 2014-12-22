@@ -37,7 +37,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("Target");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 

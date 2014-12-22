@@ -40,7 +40,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("EffectName");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -61,7 +61,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("MoveSpeed");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -158,7 +158,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("StartPosition");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -179,7 +179,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("StartRadius");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -200,7 +200,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("EndRadius");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -234,7 +234,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("TargetTeams");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -273,7 +273,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("TargetTypes");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -321,7 +321,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("TargetFlags");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -343,7 +343,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("HasFrontalCone");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -365,7 +365,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("ProvidesVision");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
@@ -386,7 +386,7 @@ namespace WorldSmith.DataClasses
 					kv = new KeyValue("VisionRadius");
 					KeyValue.AddChild(kv);
 				}
-				kv.Set(value.ToString());
+				kv.Set(value);
 			}
 		}
 
