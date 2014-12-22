@@ -92,76 +92,35 @@ namespace WorldSmith.Dialogs
         {
             if (!String.IsNullOrEmpty(nameTextBox.Text))
             {
-                switch (dialogType)
+
+                switch(dialogType)
                 {
                     case DotaType.Hero:
-                        MessageBox.Show("Creating of custom heroes is not yet supported.");
-                        /**
-                        DotaHero baseHero =
-                            DotaData.AllHeroes.FirstOrDefault(x => x.ClassName == objectListBox.SelectedItem.ToString());
-                        DotaHero hero = new DotaHero();
-                        hero.BaseClass = baseHero.ClassName;
-                        hero.ClassName = nameTextBox.Text;
-                        DotaData.AllHeroes.Add(hero); 
-                        **/
+                        MessageBox.Show("Dota 2 does not currently support custom heroes.");
                         break;
-
                     case DotaType.Unit:
-
-                        DotaUnit baseUnit;
                         DotaUnit unit = new DotaUnit(nameTextBox.Text);
-
-                        if (objectListBox.SelectedIndex != -1)
-                        {
-                             baseUnit = DotaData.AllUnits.FirstOrDefault(x => x.ClassName == objectListBox.SelectedItem.ToString());
-                             unit.BaseClass = baseUnit.ClassName;
-                        }
-                        else
-                        {
-                            unit.BaseClass = DEFAULT_UNIT_CLASS;
-                        }
-
+                        unit.BaseClass = DEFAULT_UNIT_CLASS;
+                        if (objectListBox.SelectedIndex != -1) unit.BaseClass = objectListBox.SelectedItem.ToString();
                         unit.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Custom;
                         DotaData.AllUnits.Add(unit);
                         break;
-
                     case DotaType.Ability:
-
-                        DotaAbility baseAbility;
                         DotaAbility ability = new DotaAbility(nameTextBox.Text);
-
-                        if (objectListBox.SelectedIndex != -1)
-                        {
-                            baseAbility = DotaData.AllAbilities.FirstOrDefault(x => x.ClassName == objectListBox.SelectedItem.ToString());
-                            ability.BaseClass = baseAbility.ClassName;
-                        }
-                        else
-                        {
-                            ability.BaseClass = DEFAULT_ABILITY_CLASS;
-                        }
-                        
+                        ability.BaseClass = DEFAULT_ABILITY_CLASS;
+                        if (objectListBox.SelectedIndex != -1) ability.BaseClass = objectListBox.SelectedItem.ToString();
                         ability.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Custom;
                         DotaData.AllAbilities.Add(ability);
                         break;
-
                     case DotaType.Item:
-                        DotaItem baseItem;
                         DotaItem item = new DotaItem(nameTextBox.Text);
-
-                        if (objectListBox.SelectedIndex != -1)
-                        {
-                            baseItem = DotaData.AllItems.FirstOrDefault(x => x.ClassName == objectListBox.SelectedItem.ToString());
-                            item.BaseClass = baseItem.ClassName;
-                        }
-                        else
-                        {
-                            item.BaseClass = DEFAULT_ITEM_CLASS;
-                        }
-                        
+                        item.BaseClass = DEFAULT_ITEM_CLASS;
+                        if (objectListBox.SelectedIndex != -1) item.BaseClass = objectListBox.SelectedItem.ToString();
                         item.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Custom;
                         DotaData.AllItems.Add(item);
                         break;
                 }
+         
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
