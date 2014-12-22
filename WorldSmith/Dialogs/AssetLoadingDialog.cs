@@ -30,20 +30,29 @@ namespace WorldSmith.Dialogs
         {
             {"npc_units_custom.txt", () => {
                 
-                DotaData.ReadOverride(DotaData.CustomUnitsFile, DotaData.AllUnits); 
+                DotaData.ReadCustom(DotaData.CustomUnitsFile, DotaData.AllUnits); 
             } },
             {"npc_heroes_custom.txt", () => {
                 
-                DotaData.ReadOverride(DotaData.CustomHeroesFile, DotaData.AllHeroes); 
+                DotaData.ReadCustom(DotaData.CustomHeroesFile, DotaData.AllHeroes, true); 
             } },
             {"npc_abilities_custom.txt", () => {
                 
-                DotaData.ReadOverride(DotaData.CustomAbilityFile, DotaData.AllAbilities); 
+                DotaData.ReadCustom(DotaData.CustomAbilityFile, DotaData.AllAbilities); 
             } },
             {"npc_items_custom.txt", () => {
                 ;
-                DotaData.ReadOverride(DotaData.CustomItemsFile, DotaData.AllItems); 
+                DotaData.ReadCustom(DotaData.CustomItemsFile, DotaData.AllItems); 
             } },
+            { "npc_abilities_override.txt", () => {
+                DotaData.ReadCustom(DotaData.OverrideAbilityFile, DotaData.AllAbilities, true);
+            }},
+            { "npc_items_override.txt", () => {
+                DotaData.ReadCustom(DotaData.OverrideItemsFile, DotaData.AllItems, true);
+            }},
+            { "npc_units_override.txt", () => {
+                DotaData.ReadCustom(DotaData.OverrideUnitsFile, DotaData.AllUnits, true);
+            }},
             {"Cleaning HeroOverrideList", () => {
                 foreach(DotaHero hero in DotaData.OverridenHeroes)
                 {
@@ -58,7 +67,10 @@ namespace WorldSmith.Dialogs
             {"Saving npc_units_custom.txt", () => { DotaData.SaveList(DotaData.CustomUnits, "DOTAUnits", "npc_units_custom.txt");} },
             {"Saving npc_heroes_custom.txt", () => { DotaData.SaveList(DotaData.OverridenHeroes, "DOTAHeroes", "npc_heroes_custom.txt");} },
             {"Saving npc_abilities_custom.txt", () => { DotaData.SaveList(DotaData.CustomAbilities, "DOTAAbilities", "npc_abilities_custom.txt");} },
-            {"Saving npc_items_custom.txt", () => { DotaData.SaveList(DotaData.CustomItems, "DOTAAbilities", "npc_items_custom.txt"); } }
+            {"Saving npc_items_custom.txt", () => { DotaData.SaveList(DotaData.CustomItems, "DOTAAbilities", "npc_items_custom.txt"); } },
+            {"Saving npc_abilities_override.txt", () => { DotaData.SaveList(DotaData.OverridenAbilities, "DOTAAbilities", "npc_abilities_override.txt"); } },
+            {"Saving npc_items_override.txt", () => { DotaData.SaveList(DotaData.OverridenItems, "DOTAAbilities", "npc_items_override.txt"); } },
+
             
         };
 
