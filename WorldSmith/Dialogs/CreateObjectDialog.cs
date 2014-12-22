@@ -56,8 +56,26 @@ namespace WorldSmith.Dialogs
 
         private DotaType dialogType;
 
+        public const string DEFAULT_UNIT_CLASS = "npc_dota_creature";
+        public const string DEFAULT_ABILITY_CLASS = "ability_datadriven";
+        public const string DEFAULT_ITEM_CLASS = "item_datadriven";
+
         private void FillInFromList(int Type, IEnumerable<DotaDataObject> ObjectList)
         {
+            switch (dialogType)
+            {
+                case DotaType.Hero:
+                    break;
+                case DotaType.Unit:
+                    objectListBox.Items.Add(DEFAULT_UNIT_CLASS);
+                    break;
+                case DotaType.Ability:
+                    objectListBox.Items.Add(DEFAULT_ABILITY_CLASS);
+                    break;
+                case DotaType.Item:
+                    objectListBox.Items.Add(DEFAULT_ITEM_CLASS);
+                    break;
+            }
             foreach (DotaDataObject ddo in ObjectList)
             {
                 objectListBox.Items.Add(ddo.ClassName);
@@ -72,7 +90,7 @@ namespace WorldSmith.Dialogs
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            if ((!String.IsNullOrEmpty(nameTextBox.Text)) && (!String.IsNullOrEmpty(objectListBox.SelectedItem.ToString())))
+            if (!String.IsNullOrEmpty(nameTextBox.Text))
             {
                 switch (dialogType)
                 {
@@ -90,28 +108,56 @@ namespace WorldSmith.Dialogs
 
                     case DotaType.Unit:
 
-                        DotaUnit baseUnit =
-                            DotaData.AllUnits.FirstOrDefault(x => x.ClassName == objectListBox.SelectedItem.ToString());
+                        DotaUnit baseUnit;
                         DotaUnit unit = new DotaUnit(nameTextBox.Text);
-                        unit.BaseClass = baseUnit.ClassName;
+
+                        if (objectListBox.SelectedIndex != -1)
+                        {
+                             baseUnit = DotaData.AllUnits.FirstOrDefault(x => x.ClassName == objectListBox.SelectedItem.ToString());
+                             unit.BaseClass = baseUnit.ClassName;
+                        }
+                        else
+                        {
+                            unit.BaseClass = DEFAULT_UNIT_CLASS;
+                        }
+
                         unit.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Custom;
                         DotaData.AllUnits.Add(unit);
                         break;
 
                     case DotaType.Ability:
-                        DotaAbility baseAbility =
-                            DotaData.AllAbilities.FirstOrDefault(x => x.ClassName == objectListBox.SelectedItem.ToString());
+
+                        DotaAbility baseAbility;
                         DotaAbility ability = new DotaAbility(nameTextBox.Text);
-                        ability.BaseClass = baseAbility.ClassName;
+
+                        if (objectListBox.SelectedIndex != -1)
+                        {
+                            baseAbility = DotaData.AllAbilities.FirstOrDefault(x => x.ClassName == objectListBox.SelectedItem.ToString());
+                            ability.BaseClass = baseAbility.ClassName;
+                        }
+                        else
+                        {
+                            ability.BaseClass = DEFAULT_ABILITY_CLASS;
+                        }
+                        
                         ability.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Custom;
                         DotaData.AllAbilities.Add(ability);
                         break;
 
                     case DotaType.Item:
-                        DotaItem baseItem =
-                            DotaData.AllItems.FirstOrDefault(x => x.ClassName == objectListBox.SelectedItem.ToString());
+                        DotaItem baseItem;
                         DotaItem item = new DotaItem(nameTextBox.Text);
-                        item.BaseClass = baseItem.ClassName;
+
+                        if (objectListBox.SelectedIndex != -1)
+                        {
+                            baseItem = DotaData.AllItems.FirstOrDefault(x => x.ClassName == objectListBox.SelectedItem.ToString());
+                            item.BaseClass = baseItem.ClassName;
+                        }
+                        else
+                        {
+                            item.BaseClass = DEFAULT_ITEM_CLASS;
+                        }
+                        
                         item.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Custom;
                         DotaData.AllItems.Add(item);
                         break;
@@ -124,16 +170,16 @@ namespace WorldSmith.Dialogs
                 switch (dialogType)
                 {
                     case DotaType.Hero:
-                        MessageBox.Show("Please enter a valid hero name and select a base hero.");
+                        MessageBox.Show("Please enter a valid hero name.");
                         break;
                     case DotaType.Unit:
-                        MessageBox.Show("Please enter a valid unit name and select a base unit.");
+                        MessageBox.Show("Please enter a valid unit name.");
                         break;
                     case DotaType.Ability:
-                        MessageBox.Show("Please enter a valid ability name and select a base ability.");
+                        MessageBox.Show("Please enter a valid ability name.");
                         break;
                     case DotaType.Item:
-                        MessageBox.Show("Please enter a valid item name and select a base item.");
+                        MessageBox.Show("Please enter a valid item name.");
                         break;
                 }
             }
