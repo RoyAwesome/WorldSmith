@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KVLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -11,7 +12,7 @@ namespace WorldSmith.DataClasses
     {
         public delegate BaseAction CreateAction();
 
-        static Dictionary<string, CreateAction> FactoryDictionary = new Dictionary<string, CreateAction>();
+        static Dictionary<string, Type> FactoryDictionary = new Dictionary<string, Type>();
 
         public static IEnumerable<string> ActionNames
         {
@@ -23,20 +24,25 @@ namespace WorldSmith.DataClasses
             Assembly asm = Assembly.GetEntryAssembly();
             foreach(Type t in asm.GetTypes().Where(t => t.GetCustomAttribute<DotaActionAttribute>() != null))
             {
-                FactoryDictionary[t.Name] = () =>
-                    {
-                        BaseAction action = (BaseAction)t.GetConstructor(Type.EmptyTypes).Invoke(null);
-                        //action.ClassName = t.Name;
-                        return action;
-                    };
+                FactoryDictionary[t.Name] = t;
             }
 
         }
 
-        public static BaseAction CreateNewAction(string name)
+        public static BaseAction CreateNewAction(string name, KeyValue kv = null)
         {
             if (!FactoryDictionary.ContainsKey(name)) return null;
-            return FactoryDictionary[name]();
+
+            Type actionType = FactoryDictionary[name];
+
+            if(kv == null)
+            {
+                return actionType.GetConstructor(new Type[] { typeof(string) }).Invoke(new object[] { name }) as BaseAction;
+            }
+            else
+            {
+                return actionType.GetConstructor(new Type[] { typeof(KeyValue) }).Invoke(new object[] { kv }) as BaseAction;
+            }
         }
 
     }

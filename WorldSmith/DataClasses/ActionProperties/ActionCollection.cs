@@ -17,62 +17,92 @@ namespace WorldSmith.DataClasses
             set;
         }
 
+        public DotaAbility Ability
+        {
+            get;
+            set;
+        }
+
+        public KeyValue KeyValues
+        {
+            get;
+            set;
+        }
+
         public ActionCollection(string eventName)
         {
             EventName = eventName;
+            KeyValues = new KeyValue(EventName);
+        }
+
+        public ActionCollection(string eventName, KeyValue kvs)
+        {
+            EventName = eventName;
+            KeyValues = kvs;
+        }
+
+        public int Count()
+        {
+            return KeyValues.Children.Count();
         }
 
 
         public void Add(BaseAction f)
         {
-            if (f == null)
-            {
-                throw new Exception(EventName); //Dirty I know, but meh
-            }
-            this.List.Add(f);
+            if (f == null) throw new ArgumentException("Action cannot be null");
+            KeyValues.AddChild(f.KeyValue);
         }
         public void Remove(BaseAction f)
         {
-            this.List.Remove(f);
+            if (f == null) throw new ArgumentException("Action cannot be null");
+            KeyValues.RemoveChild(f.KeyValue);
         }
+
+        public BaseAction GetAtIndex(int index)
+        {
+            KeyValue actionKV = KeyValues.Children.ElementAtOrDefault(index);
+
+            if (actionKV == null) return null;
+
+            BaseAction action = DotaActionFactory.CreateNewAction(actionKV.Key, actionKV);
+            return action;            
+        }
+
+        public void AddIntoIndex(int index, BaseAction action)
+        {
+            if(index >= KeyValues.Children.Count())
+            {
+                throw new IndexOutOfRangeException("index is out of range");
+            }
+
+            //Get the action at the that index
+            KeyValue actionKV = KeyValues.Children.ElementAtOrDefault(index);
+
+            KeyValues.RemoveChild(actionKV);
+            KeyValues.AddChild(action.KeyValue);
+        }
+
         public BaseAction this[int index]
         {
             get
             {
-                return (BaseAction)this.List[index];
+                return GetAtIndex(index);
             }
-            set { this.List[index] = value; }
+            set { AddIntoIndex(index, value); }
         }
-
-
-        public KeyValue ToKV()
-        {
-            return ToKV(EventName);
-        }
-
-        public KeyValue ToKV(string Key)
-        {
-            KeyValue doc = new KeyValue(Key);
-            foreach(BaseAction action in this.List.Cast<BaseAction>())
-            {
-                KeyValue child = new KeyValue(action.ClassName);
-                doc += action.KeyValue;
-
-            }
-            return doc;
-        }
+               
 
         public override string ToString()
         {
-            return "Collection";
+            return KeyValues.ToString();
         }
 
         public new IEnumerator<BaseAction> GetEnumerator()
         {
-            foreach(BaseAction o in this.List)
+            for (int i = 0; i < Count(); i++ )
             {
-                yield return o;
-            }
+                yield return this[i];
+            }              
         }
     }
 
@@ -97,7 +127,7 @@ namespace WorldSmith.DataClasses
         public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
         {
             if (value == null) return "";
-            return (value as ActionCollection).ToKV().ToString();
+            return (value as ActionCollection).ToString();
         }
     }
 }

@@ -39,12 +39,15 @@ namespace WorldSmith.Dialogs
 
         private void SetupActions()
         {
-           
-            foreach(KeyValuePair<string, ActionCollection> kv in actions.Actions)
-            {
-                TreeNode n = treeView1.Nodes.Find(kv.Key, true)[0];
-                n.Nodes.Clear();
-                foreach(BaseAction action in kv.Value)
+           foreach(string actionType in AbilityActionCollection.AllActions)
+           {
+               TreeNode n = treeView1.Nodes.Find(actionType, true)[0];
+               n.Nodes.Clear();
+
+               ActionCollection ac = Actions[actionType];
+               if(ac == null) continue;
+
+                foreach(BaseAction action in ac)
                 {
                     n.Nodes.Add(new TreeNode()
                         {
@@ -54,7 +57,7 @@ namespace WorldSmith.Dialogs
                         });
                 }
 
-            }
+           }
 
             BuildVariableTree();
             BuildModifierTree();
@@ -148,6 +151,7 @@ namespace WorldSmith.Dialogs
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            /*
             if ((treeView1.SelectedNode.Tag as string) == "Root")
             {
 
@@ -168,7 +172,7 @@ namespace WorldSmith.Dialogs
                     });
                 treeView1.SelectedNode.Expand();
             }
-
+            */
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)

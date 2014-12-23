@@ -25,7 +25,7 @@ namespace WorldSmith.DataClasses
 
         public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
         {
-            return new AbilityActionCollection();
+            return new AbilityActionCollection(null);
         }
 
         public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
@@ -38,58 +38,103 @@ namespace WorldSmith.DataClasses
 
     [Editor(typeof(AbilityActionEditor), typeof(UITypeEditor))]
     [TypeConverter(typeof(ExpandableObjectConverter))]
-    public class AbilityActionCollection
+    public class AbilityActionCollection : IEnumerable<ActionCollection>
     {
-        public Dictionary<string, ActionCollection> Actions = new Dictionary<string, ActionCollection>()
+        public static List<string> AllActions = new List<string>()
         {
-            { "OnSpellStart",               new ActionCollection("OnSpellStart") },
-            { "OnChannelSucceeded",         new ActionCollection("OnChannelSucceeded") },
-            { "OnChannelInterrupted",       new ActionCollection("OnChannelInterrupted") },
-            { "OnChannelFinish",            new ActionCollection("OnChannelFinish") },
-            { "OnToggleOn",                 new ActionCollection("OnToggleOn") },
-            { "OnToggleOff",                new ActionCollection("OnToggleOff") },
-            { "OnAbilityPhaseStart",        new ActionCollection("OnAbilityPhaseStart") },
-            { "OnOwnerSpawned",             new ActionCollection("OnOwnerSpawned") },
-            { "OnUpgrade",                  new ActionCollection("OnUpgrade") },
-            { "OnProjectileHitUnit",        new ActionCollection("OnProjectileHitUnit") },
-            { "OnProjectileFinish",         new ActionCollection("OnProjectileFinish") },   
-            
-            //ITEMS
-            //{ "OnUnequip",                new ActionCollection() },
+            "OnSpellStart",
+            "OnChannelSucceeded",  
+            "OnChannelInterrupted",
+            "OnChannelFinish",     
+            "OnToggleOn",          
+            "OnToggleOff",         
+            "OnAbilityPhaseStart", 
+            "OnOwnerSpawned",      
+            "OnUpgrade",           
+            "OnProjectileHitUnit", 
+            "OnProjectileFinish",  
         };
+               
 
         public List<BaseActionVariable> Variables = new List<BaseActionVariable>();
 
 
         public AbilityModifierCollection Modifiers = new AbilityModifierCollection();
 
-        public AbilityActionCollection()
+        public DotaAbility Ability
         {
+            get;
+            private set;
+        }
+
+        
+        public AbilityActionCollection(DotaAbility ability)
+        {
+            Ability = ability;
+        }
+
+        public bool HasCollection(string key)
+        {
+            if (!AllActions.Contains(key))
+            {
+                return false;
+            }
+
+            KeyValue actionCollection = Ability.KeyValue[key];
+            return actionCollection != null;
+        }
+        
+        public ActionCollection GetActionCollection(string Key)
+        {
+            if (!AllActions.Contains(Key))
+            {
+                return null;
+            }
+
+            KeyValue actionCollection = Ability.KeyValue[Key];
+            if (actionCollection == null) return null; //No action collection at that key
+
+            return new ActionCollection(Key, actionCollection);
+        }
+
+        public void CreateActionCollection(string key)
+        {
+            if (HasCollection(key)) throw new ArgumentException("Already have a ActionCollection for key " + key);
+
+            KeyValue kv = new KeyValue(key);
+            Ability.KeyValue.AddChild(kv);
 
         }
 
-        public KeyValue ToKV()
+      
+        public ActionCollection this[string Key]
         {
-            KeyValue kv = new KeyValue("Actions");
-            foreach (KeyValuePair<string, ActionCollection> k in Actions)
+            get
             {
-                KeyValue child = k.Value.ToKV(k.Key);
-                kv += child;
+                return GetActionCollection(Key);                
             }
-
-            return kv;
         }
 
-        public override string ToString()
-        {
-            KeyValue doc = ToKV();
 
-            StringBuilder sb = new StringBuilder();
-            foreach (KeyValue kv in doc.Children)
+
+        public IEnumerator<ActionCollection> GetEnumerator()
+        {
+            foreach(string key in AllActions)
             {
-                sb.AppendLine(kv.ToString());
+                ActionCollection ac = GetActionCollection(key);
+                if (ac == null) continue;
+                yield return ac;
             }
-            return sb.ToString();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            foreach (string key in AllActions)
+            {
+                ActionCollection ac = GetActionCollection(key);
+                if (ac == null) continue;
+                yield return ac;
+            }
         }
     }
 }
