@@ -29,7 +29,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(NumberValue);
+				KeyValue kv = GetSubkey("PitchYawRoll");
+				return (kv == null ? new NumberValue("0 0 0") : kv.GetNumberValue());
 			}
 			set
 			{

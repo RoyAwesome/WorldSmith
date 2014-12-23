@@ -73,7 +73,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(NumberValue);
+				KeyValue kv = GetSubkey("VisionRadius");
+				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -116,7 +117,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(NumberValue);
+				KeyValue kv = GetSubkey("MoveSpeed");
+				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
 			}
 			set
 			{

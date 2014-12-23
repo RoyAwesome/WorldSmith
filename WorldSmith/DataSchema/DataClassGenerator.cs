@@ -321,6 +321,11 @@ namespace WorldSmith.DataSchema
                     csFile.AppendLine("KeyValue kv = GetSubkey(\"" + c.Key + "\");");
                     csFile.AppendLine("\t\t\t\treturn (kv == null ? " + c["DefaultValue"].GetFloat() +"f" + " : kv.GetFloat());");
                 }
+                else if(type == "NumberValue")
+                {
+                    csFile.AppendLine("KeyValue kv = GetSubkey(\"" + c.Key + "\");");
+                    csFile.AppendLine("\t\t\t\treturn (kv == null ? new NumberValue(" + c["DefaultValue"].GetLiteralString() + ") : kv.GetNumberValue());");
+                }
                 else if(type == "bool")
                 {
                     csFile.AppendLine("KeyValue kv = GetSubkey(\"" + c.Key + "\");");
@@ -329,7 +334,7 @@ namespace WorldSmith.DataSchema
                 else if(type == "string")
                 {
                     csFile.AppendLine("KeyValue kv = GetSubkey(\"" + c.Key + "\");");
-                    csFile.AppendLine("\t\t\t\treturn (kv == null ? \"" + c["DefaultValue"].GetString().Replace(@"\", @"\\") + "\" : kv.GetString());");
+                    csFile.AppendLine("\t\t\t\treturn (kv == null ? " + c["DefaultValue"].GetLiteralString().Replace(@"\", @"\\") + " : kv.GetString());");
                 }
                 else if(c["Type"].GetString() == "enum" || c["Type"].GetString() == "flags")
                 {

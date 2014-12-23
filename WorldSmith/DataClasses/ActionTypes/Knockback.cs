@@ -51,7 +51,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(NumberValue);
+				KeyValue kv = GetSubkey("Distance");
+				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -94,7 +95,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(NumberValue);
+				KeyValue kv = GetSubkey("Height");
+				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -115,7 +117,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(NumberValue);
+				KeyValue kv = GetSubkey("Duration");
+				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
 			}
 			set
 			{

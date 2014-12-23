@@ -27,7 +27,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(NumberValue);
+				KeyValue kv = GetSubkey("Duration");
+				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -241,7 +242,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(NumberValue);
+				KeyValue kv = GetSubkey("StatusEffectPriority");
+				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -306,7 +308,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(NumberValue);
+				KeyValue kv = GetSubkey("ThinkInterval");
+				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -383,7 +386,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(NumberValue);
+				KeyValue kv = GetSubkey("Aura_Radius");
+				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
 			}
 			set
 			{

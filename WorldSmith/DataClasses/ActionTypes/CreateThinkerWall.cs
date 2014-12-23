@@ -29,7 +29,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(NumberValue);
+				KeyValue kv = GetSubkey("Width");
+				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -50,7 +51,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(NumberValue);
+				KeyValue kv = GetSubkey("Length");
+				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -71,7 +73,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(NumberValue);
+				KeyValue kv = GetSubkey("Rotation");
+				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
 			}
 			set
 			{
