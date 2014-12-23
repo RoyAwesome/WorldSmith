@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KVLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using WorldSmith.Panels;
 
 namespace WorldSmith.Documents
 {
-    public class DotaObjectDocument : TextDocument
+    public class DotaObjectDocument : VirtualTextDocument
     {
         public readonly DotaDataObject DotaObject;
 
@@ -16,12 +17,10 @@ namespace WorldSmith.Documents
             : base()
         {
             DotaObject = RootObject;
+                       
+            Source = DotaObject.ObjectInfo.FromVPK ? DocumentSource.VPK : DocumentSource.File;
+            Path = DotaObject.ObjectInfo.OriginatingFile;
 
-            //TODO: Some discovery if this object came from the VPK or from the addon. 
-            //For now, source it from the addon.  We'll fix this stuff later.
-            Source = DocumentSource.File;
-            Path = ""; //Path here is empty.  Saving this document does 'nothing' as it will be serialized into the npc_units_custom.txt when the addon is 
-                        //put together
             Name = RootObject.ClassName;
         }
 
@@ -30,10 +29,18 @@ namespace WorldSmith.Documents
             return DotaObject.KeyValue.ToString();
         }
 
-        protected override void DoSave()
+        protected override void DoSave(IEditor source)
         {
-            //Commit these changes to the dota object.  
-            //TODO: If a text editor is open here, get the text and serialize it into the dota object
+            
+            if(source is TextEditor)
+            {
+                TextEditor textEd = source as TextEditor;
+                //Commit these changes to the dota object.  
+                KeyValue kv = KVParser.KV1.Parse(textEd.TextContent);
+
+                DotaObject.KeyValue = kv;
+            }
+            
         }
 
         public override void Reload()
@@ -51,7 +58,6 @@ namespace WorldSmith.Documents
         {
             OpenObjectEditor(); 
             //OpenTextEditor();
-
         }
 
         public override TextEditor OpenTextEditor()

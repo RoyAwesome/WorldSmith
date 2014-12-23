@@ -52,14 +52,7 @@ namespace WorldSmith.Dialogs
             }},
             { "npc_units_override.txt", () => {
                 DotaData.ReadCustom(DotaData.OverrideUnitsFile, DotaData.AllUnits, true);
-            }},
-            {"Cleaning HeroOverrideList", () => {
-                foreach(DotaHero hero in DotaData.OverridenHeroes)
-                {
-                    DotaHero baseHero = DotaData.DefaultHeroes.FirstOrDefault(h => h.ClassName == hero.override_hero);
-                    
-                }
-            } },           
+            }},              
         };
 
         public static Dictionary<string, Task> AddonSaveTasks = new Dictionary<string, Task>()

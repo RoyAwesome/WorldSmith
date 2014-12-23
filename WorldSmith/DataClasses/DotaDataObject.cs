@@ -51,7 +51,7 @@ namespace WorldSmith.DataClasses
         public KeyValue KeyValue
         {
             get;
-            private set;
+            set;
         }
 
         public DotaDataObject(KeyValue DataSource)

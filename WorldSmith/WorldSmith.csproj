@@ -213,6 +213,7 @@
     <Compile Include="Documents\DocumentRegistry.cs" />
     <Compile Include="Documents\DotaObjectDocument.cs" />
     <Compile Include="Documents\TextDocument.cs" />
+    <Compile Include="Documents\VirtualTextDocument.cs" />
     <Compile Include="KeyValueExt.cs" />
     <Compile Include="Localization\LocaleManager.cs">
       <SubType>Component</SubType>

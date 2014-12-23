@@ -108,9 +108,15 @@ namespace WorldSmith
             ActiveDocument.NotifyEditorClosed(this);
         }
 
-    
+        public string TextContent
+        {
+            get
+            {
+                return textEditorControl1.Document.TextContent;
+            }
+        }
 
-        public void OpenDocument(TextDocument document)
+        public void OpenDocument(VirtualTextDocument document)
         {
             Filename = document.Path;
             IsReadOnly = document.Source == DocumentSource.VPK;

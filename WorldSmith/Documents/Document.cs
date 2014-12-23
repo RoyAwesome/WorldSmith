@@ -71,13 +71,14 @@ namespace WorldSmith.Documents
         public event DocumentEventHandler OnDocumentSaved;
 
         
-        protected abstract void DoSave();
+        protected abstract void DoSave(IEditor source);
 
         public virtual void Save(IEditor source)
         {
             if (!IsEdited) return; //Don't bother saving if we haven't edited this document
             
-            DoSave();
+            DoSave(source);
+            IsEdited = false;
             if(OnDocumentSaved == null)
             {
                 Console.WriteLine("[Warning] Received Notification that" + Name + " was saved but we have no save handlers!");
@@ -85,6 +86,8 @@ namespace WorldSmith.Documents
             }
             OnDocumentSaved(source);
             Console.WriteLine("Saved " + Name + " to " + Path);
+
+            
         }
 
         public abstract void Reload();
