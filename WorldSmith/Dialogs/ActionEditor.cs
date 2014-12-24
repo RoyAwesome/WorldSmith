@@ -182,7 +182,7 @@ namespace WorldSmith.Dialogs
             prompt.Text = "Variable Name";
 
            
-            prompt.SelectedObject = new BaseActionVariable();
+          //  prompt.SelectedObject = new BaseActionVariable();
 
             prompt.ShowDialog();
 
@@ -190,7 +190,7 @@ namespace WorldSmith.Dialogs
             {
               
                                 
-                Actions.Variables.Add(prompt.SelectedObject as BaseActionVariable);
+               // Actions.Variables.Add(prompt.SelectedObject as BaseActionVariable);
                 BuildVariableTree();
             }
 

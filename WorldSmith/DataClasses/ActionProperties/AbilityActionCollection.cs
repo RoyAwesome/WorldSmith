@@ -49,17 +49,18 @@ namespace WorldSmith.DataClasses
             "OnToggleOn",          
             "OnToggleOff",         
             "OnAbilityPhaseStart", 
+            "OnOwnerDied",
             "OnOwnerSpawned",      
             "OnUpgrade",           
             "OnProjectileHitUnit", 
             "OnProjectileFinish",  
         };
-               
-
-        public List<BaseActionVariable> Variables = new List<BaseActionVariable>();
 
 
-        public AbilityModifierCollection Modifiers = new AbilityModifierCollection();
+        public DotaScriptCollection<BaseActionVariable> Variables;
+
+
+        public DotaScriptCollection<DotaModifier> Modifiers;
 
         public DotaAbility Ability
         {
@@ -71,6 +72,20 @@ namespace WorldSmith.DataClasses
         public AbilityActionCollection(DotaAbility ability)
         {
             Ability = ability;
+            KeyValue kv = ability.KeyValue["Modifiers"];
+            if(kv == null)
+            {
+                kv = new KeyValue("Modifiers");
+            }
+            Modifiers = new DotaScriptCollection<DotaModifier>(kv);
+
+            kv = ability.KeyValue["AbilitySpecial"];
+            if(kv == null)
+            {
+                kv = new KeyValue("AbilitySpecial");
+            }
+            Variables = new DotaScriptCollection<BaseActionVariable>(kv);
+
         }
 
         public bool HasCollection(string key)

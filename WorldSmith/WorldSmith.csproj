@@ -104,7 +104,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleStringWriter.cs" />
-    <Compile Include="DataClasses\ActionProperties\AbilityModifierCollection.cs" />
     <Compile Include="DataClasses\ActionProperties\BaseActionVariable.cs" />
     <Compile Include="DataClasses\ActionProperties\NumberValue.cs" />
     <Compile Include="DataClasses\ActionTypes\ActOnTargets.cs" />
@@ -149,6 +148,7 @@
     <Compile Include="DataClasses\DotaActionFactory.cs" />
     <Compile Include="DataClasses\ActionProperties\AbilityActionCollection.cs" />
     <Compile Include="DataClasses\ActionProperties\ActionCollection.cs" />
+    <Compile Include="DataClasses\DotaScriptCollection.cs" />
     <Compile Include="DataClasses\PropertyTypes\ControlPointList.cs" />
     <Compile Include="DataClasses\ActionProperties\DotaActionAttribute.cs" />
     <Compile Include="DataClasses\ActionProperties\EditorGrammerAttribute.cs" />

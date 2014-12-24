@@ -14,57 +14,66 @@ namespace WorldSmith.DataClasses
 
     }
     [EditorGrammar("Variable with name %Name and type %Type with value %DefaultValue")]
-    public class BaseActionVariable
+    public class BaseActionVariable : DotaDataObject
     {
         public string Name
         {
-            get;
-            set;
+            get
+            {
+                KeyValue kv = KeyValue.Children.FirstOrDefault(x => x.Key != "var_type");
+                return kv.Key;
+            }
+            set
+            {
+                KeyValue kv = KeyValue.Children.FirstOrDefault(x => x.Key != "var_type");
+                KeyValue.RemoveChild(kv);
+
+                KeyValue newkv = new KeyValue(value) + kv.GetString();
+                KeyValue.AddChild(newkv);
+            }
         }
 
 
         public FieldType Type
         {
-            get;
-            set;
+            get
+            {
+                KeyValue kv = GetSubkey("var_type");
+                return kv.GetEnum<FieldType>();
+            }
+            set
+            {
+                KeyValue kv = GetSubkey("var_type");
+                if (kv == null)
+                {
+                    kv = new KeyValue("var_type");
+                    KeyValue.AddChild(kv);
+                }
+                kv.Set(value);
+            }
         }
 
-        public string DefaultValue
+        public string Value
         {
-            get;
-            set;
+            get
+            {
+                KeyValue kv = KeyValue.Children.FirstOrDefault(x => x.Key != "var_type");
+                return kv.GetString();
+            }
+            set
+            {
+                KeyValue kv = KeyValue.Children.FirstOrDefault(x => x.Key != "var_type");
+                kv.Set(value);
+            }
         }
-
-
-
-
-        public KeyValue ToKV(string key)
+             
+     
+        public BaseActionVariable(KeyValue kv)
+            : base(kv)
         {
-            KeyValue parent = new KeyValue(key);
-            parent += new KeyValue("var_type") + Type.ToString();
-            parent += new KeyValue(Name) + DefaultValue;
 
-            return parent;
         }
 
-        public override string ToString()
-        {
-            return ToString("00");
-        }
-
-        public string ToString(string key)
-        {
-            return Name;
-            //return ToKV(key).ToString();
-        }
-
-        public void LoadFromKV(KeyValue kv)
-        {
-            Type = (FieldType)Enum.Parse(typeof(FieldType), kv["var_type"].GetString());
-            KeyValue v = kv.Children.First(x => x.Key != "var_type");
-            Name = v.Key;
-            DefaultValue = v.GetString();
-        }
 
     }
 }
