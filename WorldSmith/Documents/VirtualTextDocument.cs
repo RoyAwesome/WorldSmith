@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace WorldSmith.Documents
 {
@@ -40,7 +41,7 @@ namespace WorldSmith.Documents
                 editor.OpenDocument(this);
                 editor.TabText = Name;
 
-                editor.Show(MainForm.PrimaryDockingPanel, DigitalRune.Windows.Docking.DockState.Document);
+                editor.Show(MainForm.PrimaryDockingPanel, DockState.Document);
             }
 
             return editor;

@@ -381,7 +381,7 @@ namespace WorldSmith
             ProjectView.Show(dockPanel, DockState.DockLeft);
             ObjectBrowser.Show(dockPanel, DockState.DockLeft);
 
-            StartPageForm = new StartPageForm();
+            StartPageForm = new StartPageForm(ShowNewAddonWizard, LoadAddon);
             StartPageForm.Show(dockPanel, DockState.Document);
             UpdateStartPage();
 
