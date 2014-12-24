@@ -1,5 +1,4 @@
-﻿using DigitalRune.Windows.Docking;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +13,11 @@ using WorldSmith.Documents;
 using WorldSmith.Dialogs;
 using KVLib;
 using System.Reflection;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace WorldSmith.Panels
 {
-    public partial class DotaObjectBrowser : DockableForm
+    public partial class DotaObjectBrowser : DockContent
     {
         public DotaObjectBrowser()
         {

@@ -13,17 +13,17 @@ using WorldSmith.DataClasses;
 using WorldSmith.Dialogs;
 using WorldSmith.Panels;
 
-using DigitalRune.Windows.Docking;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace WorldSmith
 {
     public partial class MainForm : Form
     {
         private readonly ContextMenuStrip _contextMenu;
+        ConsoleStringWriter _consoleWriter;  
 
         #region DockableForms
         ConsoleForm ConsoleForm;
-        ConsoleStringWriter _consoleWriter;  
         ProjectView ProjectView;
         DotaObjectBrowser ObjectBrowser;
         StartPageForm StartPageForm;
@@ -45,8 +45,14 @@ namespace WorldSmith
             _contextMenu.Items.Add(menuItem1);
             _contextMenu.Items.Add(menuItem2);
             _contextMenu.Items.Add(menuItem3);
+ 
+            PrimaryDockingPanel = dockPanel; //Set a static accessor to our docking panel for all default controls to go to
 
-            //Create the console and lock it
+            //dockPanel.Theme = new VS2012LightTheme();
+        }
+     
+        private void InitTabs()
+        {
             ConsoleForm = new ConsoleForm();
             ConsoleForm.Show(dockPanel, DockState.DockBottom);
             _consoleWriter = new ConsoleStringWriter(ConsoleForm);
@@ -54,33 +60,6 @@ namespace WorldSmith
 
             //Create the start page
             ShowStartPage();
- 
-            PrimaryDockingPanel = dockPanel; //Set a static accessor to our docking panel for all default controls to go to.
-        }
-     
-        private void InitTabs()
-        {
-            IDockableForm[] documents = dockPanel.DocumentsToArray();
-            foreach (IDockableForm document in documents)
-            {
-                String type = document.GetType().ToString();
-                switch (type)
-                {
-                    case "WorldSmith.Panels.UnitEditor":
-                        Console.WriteLine("UNIT EDITOR!!!");
-                        //unitEditor.LoadFromData();
-                        break;
-                    case "WorldSmith.Panels.ItemEditor":
-                        Console.WriteLine("ITEM EDITOR!!!");
-                        //itemCategory.Init("Items", DotaData.DefaultItems, DotaData.CustomItems, DotaData.OverridenItems);
-                        break;
-                    case "WorldSmith.Panels.AbilityEditor":
-                        Console.WriteLine("ABILITY EDITOR!!!");
-                        //abilityCategory.Init("Ability", DotaData.DefaultAbilities, DotaData.CustomAbilities, DotaData.OverridenAbilities);
-                        break;
-                }
-            }
-
         }
 
         private void addonToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -147,8 +126,6 @@ namespace WorldSmith
 
             AssetLoadingDialog loader = new AssetLoadingDialog();
             loader.ShowDialog(AssetLoadingDialog.AddonLoadTasks);
-            
-            InitTabs();
 
             ProjectView = new ProjectView();
             ProjectView.Show(dockPanel, DockState.DockLeft);
@@ -341,89 +318,74 @@ namespace WorldSmith
         }
    
         #region EditorCreation
-        private IDockableForm FindDocument(string title)
+        private IDockContent FindDocument(string text)
         {
             if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
             {
                 foreach (Form form in MdiChildren)
-                    if (form.Text == title)
-                        return form as IDockableForm;
+                    if (form.Text == text)
+                        return form as IDockContent;
 
                 return null;
             }
+            else
+            {
+                foreach (IDockContent content in dockPanel.Documents)
+                    if (content.DockHandler.TabText == text)
+                        return content;
 
-            IDockableForm[] documents = dockPanel.DocumentsToArray();
-            foreach (IDockableForm document in documents)
-                if (document.DockingHandler.TabText == title)
-                    return document;
-            return null;
+                return null;
+            }
         }
         #endregion
 
-        private void blackThemeButton_Click(object sender, EventArgs e)
+        #region Theme
+        private void EnableVS2012Renderer(bool enable)
         {
-            ToolStripManager.VisualStylesEnabled = true;
-            ToolStripManager.Renderer = new ToolStripOffice2007Renderer(Office2007Theme.Black);
-            DockPanelManager.RenderMode = DockPanelRenderMode.Office2007Black;
-            BackColor = DockPanelManager.BackColor;   // To avoid artifacts when resizing the main window.
-            dockPanel.Refresh();
+            vS2012ToolStripExtender1.SetEnableVS2012Style(this.menuStrip1, enable);
         }
-
-        private void blueThemeButton_Click(object sender, EventArgs e)
+        private void SetSchema(object sender, System.EventArgs e)
         {
-            ToolStripManager.VisualStylesEnabled = true;
-            ToolStripManager.Renderer = new ToolStripOffice2007Renderer(Office2007Theme.Blue);
-            DockPanelManager.RenderMode = DockPanelRenderMode.Office2007Blue;
-            BackColor = DockPanelManager.BackColor;   // To avoid artifacts when resizing the main window.
-            dockPanel.Refresh();
+            //We need to close all the forms or else it goes boom
+            foreach (IDockContent document in dockPanel.DocumentsToArray())
+            {
+                document.DockHandler.Close();
+            }
+
+            //Lets nuke all the default stuff too while we are at it
+            ConsoleForm.DockPanel = null;
+            ProjectView.DockPanel = null;
+            ObjectBrowser.DockPanel = null;
+
+            if (sender == theme2005Button)
+            {
+                dockPanel.Theme = vS2005Theme1;
+                EnableVS2012Renderer(false);
+            }
+            else if (sender == theme2003Button)
+            {
+                dockPanel.Theme = vS2003Theme1;
+                EnableVS2012Renderer(false);
+            }
+            else if (sender == theme2012LightButton)
+            {
+                dockPanel.Theme = vS2012LightTheme1;
+                EnableVS2012Renderer(true);
+            }
+
+            theme2005Button.Checked = (sender == theme2005Button);
+            theme2003Button.Checked = (sender == theme2003Button);
+            theme2012LightButton.Checked = (sender == theme2012LightButton);
+
+            ConsoleForm.Show(dockPanel, DockState.DockBottom);
+            ProjectView.Show(dockPanel, DockState.DockLeft);
+            ObjectBrowser.Show(dockPanel, DockState.DockLeft);
+
+            StartPageForm = new StartPageForm();
+            StartPageForm.Show(dockPanel, DockState.Document);
+            UpdateStartPage();
+
         }
-
-        private void silverThemeButton_Click(object sender, EventArgs e)
-        {
-            ToolStripManager.VisualStylesEnabled = true;
-            ToolStripManager.Renderer = new ToolStripOffice2007Renderer(Office2007Theme.Silver);
-            DockPanelManager.RenderMode = DockPanelRenderMode.Office2007Silver;
-            BackColor = DockPanelManager.BackColor;   // To avoid artifacts when resizing the main window.
-            dockPanel.Refresh();
-        }
-
-        private void professionalThemeButton_Click(object sender, EventArgs e)
-        {
-            ToolStripManager.RenderMode = ToolStripManagerRenderMode.Professional;
-            ToolStripManager.VisualStylesEnabled = false;
-            DockPanelManager.RenderMode = DockPanelRenderMode.Professional;
-            BackColor = DockPanelManager.BackColor;   // To avoid artifacts when resizing the main window.
-            dockPanel.Refresh();
-        }
-
-        private void visualThemeButton_Click(object sender, EventArgs e)
-        {
-            ToolStripManager.RenderMode = ToolStripManagerRenderMode.System;
-            ToolStripManager.VisualStylesEnabled = true;
-            DockPanelManager.RenderMode = DockPanelRenderMode.VisualStyles;
-            BackColor = DockPanelManager.BackColor;   // To avoid artifacts when resizing the main window.
-            dockPanel.Refresh();
-        }
-
-        private void systemThemeButton_Click(object sender, EventArgs e)
-        {
-            ToolStripManager.RenderMode = ToolStripManagerRenderMode.System;
-            ToolStripManager.VisualStylesEnabled = false;
-            DockPanelManager.RenderMode = DockPanelRenderMode.System;
-            BackColor = DockPanelManager.BackColor;   // To avoid artifacts when resizing the main window.
-            dockPanel.Refresh();
-        }
-
-        private void themesToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
-        {
-            professionalThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.Professional;
-            systemThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.System;
-            visualThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.VisualStyles;
-            blackThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.Office2007Black;
-            blueThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.Office2007Blue;
-            silverThemeButton.Checked = DockPanelManager.RenderMode == DockPanelRenderMode.Office2007Silver;
-        }
-
-
+        #endregion
     }
 }

@@ -99,11 +99,6 @@
             this.Controls.Add(this.lblNewAddon);
             this.Controls.Add(this.lblStart);
             this.Controls.Add(this.lblRecentAddons);
-            this.DockAreas = ((DigitalRune.Windows.Docking.DockAreas)((((((DigitalRune.Windows.Docking.DockAreas.Float | DigitalRune.Windows.Docking.DockAreas.Left) 
-            | DigitalRune.Windows.Docking.DockAreas.Right) 
-            | DigitalRune.Windows.Docking.DockAreas.Top) 
-            | DigitalRune.Windows.Docking.DockAreas.Bottom) 
-            | DigitalRune.Windows.Docking.DockAreas.Document)));
             this.Name = "StartPageForm";
             this.TabText = "Start Page";
             this.Text = "Start Page";

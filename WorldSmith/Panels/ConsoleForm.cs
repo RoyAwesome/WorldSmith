@@ -1,5 +1,4 @@
-﻿using DigitalRune.Windows.Docking;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using WeifenLuo.WinFormsUI.Docking;
+
 namespace WorldSmith.Panels
 {
-    public partial class ConsoleForm : DockableForm
+    public partial class ConsoleForm : DockContent
     {
         public ConsoleForm()
         {

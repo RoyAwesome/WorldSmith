@@ -1,5 +1,4 @@
-﻿using DigitalRune.Windows.Docking;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
 using WorldSmith.DataClasses;
 
 namespace WorldSmith.Panels
 {
-    public partial class DotaObjectEditor : DockableForm, IEditor
+    public partial class DotaObjectEditor : DockContent, IEditor
     {
 
         private bool HideConfirmation = false;

@@ -1,9 +1,9 @@
-﻿using DigitalRune.Windows.Docking;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeifenLuo.WinFormsUI.Docking;
 using WorldSmith.Panels;
 
 namespace WorldSmith.Documents
@@ -118,7 +118,7 @@ namespace WorldSmith.Documents
             T Editor = (T)AttachedEditors.FirstOrDefault(x => x.GetType() == typeof(T));
             if(Editor != null)
             {
-                DockableForm form = Editor as DockableForm;
+                DockContent form = Editor as DockContent;
                 if(form != null)
                 {
                     //Bring this form to the forefront in the docking area it is already at. 

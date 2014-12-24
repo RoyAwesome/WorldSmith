@@ -16,16 +16,16 @@ using DigitalRune.Windows.TextEditor.Highlighting;
 using DigitalRune.Windows.TextEditor.Insight;
 using DigitalRune.Windows.TextEditor.Markers;
 using DigitalRune.Windows.TextEditor.Selection;
-using DigitalRune.Windows.Docking;
 using System.IO;
 using WorldSmith.DataClasses;
 using WorldSmith.Documents;
 using WorldSmith.Panels;
 using DigitalRune.Windows.TextEditor.Folding;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace WorldSmith
 {
-    public partial class TextEditor : DockableForm, IEditor
+    public partial class TextEditor : DockContent, IEditor
     {
         public enum TextEditorStyle
         {

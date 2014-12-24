@@ -1,5 +1,4 @@
-﻿using DigitalRune.Windows.Docking;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,10 +10,11 @@ using System.Windows.Forms;
 using System.IO;
 using WorldSmith.Documents;
 using System.Text.RegularExpressions;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace WorldSmith.Panels
 {
-    public partial class ProjectView : DockableForm
+    public partial class ProjectView : DockContent
     {
         public string currentCopyPath = null;
         public bool currentCut = false;
