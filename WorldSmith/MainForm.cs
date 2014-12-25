@@ -119,7 +119,11 @@ namespace WorldSmith
 
         public void LoadProject(string path)
         {
-
+            if(!Directory.Exists(path))
+            {
+                Console.WriteLine("Error: Directory does not exists. \"" + path + "\"");
+                return;
+            }
             Properties.Settings.Default.LoadedAddonDirectory = path;
             Properties.Settings.Default.Save();
             Console.WriteLine("Loading Project: " + path);
