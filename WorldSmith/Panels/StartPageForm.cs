@@ -19,16 +19,19 @@ namespace WorldSmith.Panels
         #region SharedFunctions
         public delegate void ShowNewAddonWizzardDelegate();
         public delegate void LoadAddonDelegate();
+        public delegate void LoadProjectDelegate(string path);
         private ShowNewAddonWizzardDelegate ShowNewAddonWizzard;
         private LoadAddonDelegate LoadAddon;
+        private LoadProjectDelegate LoadProject;
         #endregion
 
-        public StartPageForm(ShowNewAddonWizzardDelegate snawd, LoadAddonDelegate la)
+        public StartPageForm(ShowNewAddonWizzardDelegate snawd, LoadAddonDelegate la, LoadProjectDelegate lp)
         {
             InitializeComponent();
             ListRecentAddons();
             this.ShowNewAddonWizzard = snawd;
             this.LoadAddon = la;
+            this.LoadProject = lp;
         }
 
         public void ListRecentAddons()
@@ -45,8 +48,21 @@ namespace WorldSmith.Panels
                 lblAddon.Font = lblFont;
                 lblAddon.ForeColor = Color.CornflowerBlue;
                 lblAddon.Parent = recentAddonsFlowPanel;
-                lblAddon.Cursor = Cursors.Hand; 
+                lblAddon.Cursor = Cursors.Hand;
+                lblAddon.Tag = addon;
+                lblAddon.Click += loadRecentAddon_Click;
             }
+        }
+
+        private void loadRecentAddon_Click(object sender, EventArgs e)
+        {
+            if(LoadProject == null)
+            {
+                Console.WriteLine("Error: LoadProject is not set");
+            }
+            Label clicked = (Label)sender;
+            string project = Properties.Settings.Default.DotaDir + "\\dota_ugc\\game\\dota_addons\\" + (string)clicked.Tag + "\\"; 
+            LoadProject(project);
         }
 
         private void lblNewAddon_Click(object sender, EventArgs e)

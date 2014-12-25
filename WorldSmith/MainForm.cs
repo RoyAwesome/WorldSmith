@@ -193,7 +193,7 @@ namespace WorldSmith
 
         private void ShowStartPage()
         {
-            if (StartPageForm == null || StartPageForm.IsDisposed) { StartPageForm = new StartPageForm(ShowNewAddonWizard,LoadAddon); }
+            if (StartPageForm == null || StartPageForm.IsDisposed) { StartPageForm = new StartPageForm(ShowNewAddonWizard,LoadAddon, LoadProject); }
             if (StartPageForm.Visible) { return; }
             StartPageForm.Show(dockPanel, DockState.Document);
         }
@@ -381,7 +381,7 @@ namespace WorldSmith
             ProjectView.Show(dockPanel, DockState.DockLeft);
             ObjectBrowser.Show(dockPanel, DockState.DockLeft);
 
-            StartPageForm = new StartPageForm(ShowNewAddonWizard, LoadAddon);
+            StartPageForm = new StartPageForm(ShowNewAddonWizard, LoadAddon, LoadProject);
             StartPageForm.Show(dockPanel, DockState.Document);
             UpdateStartPage();
 
