@@ -13,7 +13,7 @@ namespace WorldSmith.DataClasses
         FIELD_FLOAT,
 
     }
-    [EditorGrammar("Variable with name %Name and type %Type with value %DefaultValue")]
+    [EditorGrammar("Variable with name %Name and type %Type with value %Value")]
     public class BaseActionVariable : DotaDataObject
     {
         public string Name
