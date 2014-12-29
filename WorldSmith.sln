@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldSmith", "WorldSmith\WorldSmith.csproj", "{49800B5F-52E5-4A15-81E8-C010B89791F0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldsmithUpdater", "WorldsmithUpdater\WorldsmithUpdater.csproj", "{D7A8CDCE-2FAD-4B30-8E2A-C28C7F27EE47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdaterLib", "UpdaterLib\UpdaterLib.csproj", "{62510635-8826-44A0-9EC2-3E37531157AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,12 @@ Global
 		{D7A8CDCE-2FAD-4B30-8E2A-C28C7F27EE47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7A8CDCE-2FAD-4B30-8E2A-C28C7F27EE47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7A8CDCE-2FAD-4B30-8E2A-C28C7F27EE47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62510635-8826-44A0-9EC2-3E37531157AD}.ClassGen|Any CPU.ActiveCfg = Release|Any CPU
+		{62510635-8826-44A0-9EC2-3E37531157AD}.ClassGen|Any CPU.Build.0 = Release|Any CPU
+		{62510635-8826-44A0-9EC2-3E37531157AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62510635-8826-44A0-9EC2-3E37531157AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62510635-8826-44A0-9EC2-3E37531157AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62510635-8826-44A0-9EC2-3E37531157AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
