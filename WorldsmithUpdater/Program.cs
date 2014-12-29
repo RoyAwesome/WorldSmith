@@ -146,6 +146,7 @@ namespace WorldsmithUpdater
                 var settings = new JsonSerializerSettings();
                 settings.Formatting = Formatting.Indented;
                 settings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
+                settings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
 
                 return settings;
             };
@@ -373,6 +374,9 @@ namespace WorldsmithUpdater
 
             builds.Add(b);
 
+          
+
+
             Console.WriteLine("Writing Build");
             //Copy the file to the output directory
             string outputDir = options.OutputPath + "/" + options.UpdateChannel.ToString() + "/";
@@ -380,6 +384,27 @@ namespace WorldsmithUpdater
             Directory.CreateDirectory(outputDir);
 
             File.Copy(options.BuildFile, outputDir + Path.GetFileName(options.BuildFile), true);
+
+            //Create the version file
+            UpdaterLib.Version version = new UpdaterLib.Version()
+            {
+                Name = b.Version,
+                Channel = options.UpdateChannel,
+                Origin = b.DownloadURL,
+                Notes = b.Notes,
+                Sha = b.Sha,
+            };
+
+            //And insert it into the output
+            Console.WriteLine("Inserting version.txt");
+            string zip = outputDir + Path.GetFileName(options.BuildFile);
+            using(ZipFile z = new ZipFile(zip))
+            {
+                z.AddEntry("version.txt", JsonConvert.SerializeObject(version));
+                z.Save();
+            }
+            
+
 
             Console.WriteLine("Writing Buildfile");
             //Write the builds file
