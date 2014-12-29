@@ -28,7 +28,6 @@ namespace WorldSmith
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-
             // Prompt the user to specify the Dota 2 path if it has not been set
             InitialSetup initial = new InitialSetup(true);
             if (!initial.IsDotaDirSet())
