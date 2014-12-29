@@ -41,7 +41,7 @@ namespace WorldsmithUpdater
             set;
         }
 
-        [ParserState()]
+        [ParserState]
         public IParserState ParserState
         {
             get;
@@ -61,6 +61,13 @@ namespace WorldsmithUpdater
 
         [Option('u', "url", DefaultValue = "http://rhoyne.cloudapp.net:8010/", Required = false)]
         public string URL
+        {
+            get;
+            set;
+        }
+
+        [ParserState]
+        public IParserState ParserState
         {
             get;
             set;
@@ -153,7 +160,8 @@ namespace WorldsmithUpdater
 
 
             var options = new CommandOptions();
-
+            
+            
 
 
             string verbName = "";
@@ -166,10 +174,18 @@ namespace WorldsmithUpdater
                 }))
             {
                 Console.WriteLine("Failed to parse console args");
-                HelpText text = new HelpText();
-                text.RenderParsingErrorsText(options, 1);
 
-                Console.WriteLine(text);
+                HelpText text = new HelpText();
+                
+                if(options.BuilderOptions != null)
+                {
+                    Console.WriteLine(text.RenderParsingErrorsText(options.BuilderOptions, 1));
+                }
+
+                if (options.UpdaterOptions != null)
+                {
+                    Console.WriteLine(text.RenderParsingErrorsText(options.UpdaterOptions, 1));
+                }
 
                 Environment.Exit(CommandLine.Parser.DefaultExitCodeFail);
             }
