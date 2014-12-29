@@ -15,13 +15,11 @@ namespace UpdaterLib
         Dev,
     }
 
-    static class Updater
+    public static class Updater
     {
 
-        public static Manifest GetChannelManifest(UpdateChannel channel)
+        public static Manifest GetChannelManifest(UpdateChannel channel, string url)
         {
-            string url = UpdaterLib.Properties.Settings.Default.ManifestLocation;
-
             Manifest[] Manifests = JsonConvert.DeserializeObject<Manifest[]>(QuickDownloadJson(url));
 
             Manifest chn = Manifests.FirstOrDefault(x => x.Channel == channel.ToString());
@@ -29,9 +27,9 @@ namespace UpdaterLib
             return chn;
         }
 
-        public static IEnumerable<Build> GetBuildsForChannel(UpdateChannel channel)
+        public static IEnumerable<Build> GetBuildsForChannel(UpdateChannel channel, string url)
         {
-            Manifest mn = GetChannelManifest(channel);
+            Manifest mn = GetChannelManifest(channel, url);
 
             Build[] Builds = JsonConvert.DeserializeObject<Build[]>(QuickDownloadJson(mn.BuildListURL));
 
@@ -39,9 +37,9 @@ namespace UpdaterLib
 
         }
 
-        public static bool CheckForUpdate(UpdateChannel channel, DateTime LastUpdate)
+        public static bool CheckForUpdate(UpdateChannel channel, DateTime LastUpdate, string url)
         {
-            Manifest mn = GetChannelManifest(channel);
+            Manifest mn = GetChannelManifest(channel, url);
 
             return mn.LastUpdate > LastUpdate;           
 
