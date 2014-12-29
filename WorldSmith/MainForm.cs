@@ -85,7 +85,7 @@ namespace WorldSmith
             doc += new KeyValue("addonURL0") + wizard.addonURLBox.Text;
             doc += new KeyValue("addonDescription") + wizard.addonDescriptionBox.Text;
 
-            string addonPath = Properties.Settings.Default.AddOnDir + Path.DirectorySeparatorChar + wizard.addonNameBox.Text + Path.DirectorySeparatorChar;
+            string addonPath = Properties.Settings.Default.AddOnPath + Path.DirectorySeparatorChar + wizard.addonNameBox.Text + Path.DirectorySeparatorChar;
 
             Directory.CreateDirectory(addonPath);
             Directory.CreateDirectory(addonPath + "scripts");
