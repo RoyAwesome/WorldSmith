@@ -14,6 +14,7 @@ using System.Net;
 using System.Threading;
 using Ionic.Zip;
 using System.Diagnostics;
+using System.Reflection;
 
 
 namespace WorldsmithUpdater
@@ -389,9 +390,7 @@ namespace WorldsmithUpdater
             };
 
             builds.Add(b);
-
-          
-
+                    
 
             Console.WriteLine("Writing Build");
             //Copy the file to the output directory
@@ -417,6 +416,8 @@ namespace WorldsmithUpdater
             using(ZipFile z = new ZipFile(zip))
             {
                 z.AddEntry("version.txt", JsonConvert.SerializeObject(version));
+                string updaterexe = Assembly.GetExecutingAssembly().Location;
+                z.AddFile(updaterexe, "");
                 z.Save();
             }
             
@@ -424,6 +425,7 @@ namespace WorldsmithUpdater
 
             Console.WriteLine("Writing Buildfile");
             //Write the builds file
+            File.WriteAllText(buildListFilename, JsonConvert.SerializeObject(builds));
             File.WriteAllText(options.OutputPath + "/" + buildListFilename, JsonConvert.SerializeObject(builds));
 
             //Update the manifest
@@ -432,6 +434,7 @@ namespace WorldsmithUpdater
 
             Console.WriteLine("Writing Manifest");
             //Write the manifests
+            File.WriteAllText(options.Manifest, JsonConvert.SerializeObject(Manifests));
             File.WriteAllText(options.OutputPath + "/" + options.Manifest, JsonConvert.SerializeObject(Manifests));
 
 
