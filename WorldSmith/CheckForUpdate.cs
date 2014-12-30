@@ -46,7 +46,7 @@ namespace WorldSmith
                 //Launch the updater
                 ProcessStartInfo p = new ProcessStartInfo();
                 p.FileName = "WorldsmithUpdater.exe";
-                p.Arguments = "update -c " + v.Channel.ToString() + " -url " + UpdateURL + " -l";
+                p.Arguments = "update -c " + v.Channel.ToString() + " -u " + UpdateURL + " -l";
                 p.UseShellExecute = true;
                 Process.Start(p);
 

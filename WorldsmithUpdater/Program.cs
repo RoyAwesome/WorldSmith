@@ -231,7 +231,7 @@ namespace WorldsmithUpdater
              }
 
             //Get the latest build
-            Build b = builds.OrderBy(x => x.Date).FirstOrDefault();
+            Build b = builds.OrderByDescending(x => x.Date).FirstOrDefault();
 
             if (b == null)
             {
@@ -365,6 +365,47 @@ namespace WorldsmithUpdater
 
             List<Build> builds = JsonConvert.DeserializeObject<List<Build>>(File.ReadAllText(buildListFilename));
 
+          
+
+            Console.WriteLine("Creating build information");
+            //Create the build             
+            Build b = new Build()
+            {
+                FileName = Path.GetFileName(options.BuildFile),
+                DownloadURL = options.URL + options.UpdateChannel.ToString() + "/",
+                Notes = options.UpdateNotes,
+                DetailURL = options.DetailedNotesURL,
+                Version = options.Version,
+                Date = DateTime.Now,
+            };
+
+          
+            Console.WriteLine("Writing Build");
+            //Copy the file to the output directory
+            string outputDir = options.OutputPath + "/" + options.UpdateChannel.ToString() + "/";
+            Directory.CreateDirectory(options.OutputPath);
+            Directory.CreateDirectory(outputDir);
+
+            //Create the version file
+            UpdaterLib.Version version = new UpdaterLib.Version()
+            {
+                Name = b.Version,
+                Channel = options.UpdateChannel,
+                Origin = b.DownloadURL,
+                Notes = b.Notes,                
+                BuildDate = b.Date,
+            };
+
+            //And insert it into the output
+            Console.WriteLine("Inserting version.txt");
+            using (ZipFile z = new ZipFile(options.BuildFile))
+            {
+                z.AddEntry("version.txt", JsonConvert.SerializeObject(version));
+                string updaterexe = Assembly.GetExecutingAssembly().Location;
+                z.AddFile(updaterexe, "");
+                z.Save();
+            }
+
             Console.WriteLine("Computing Sha Hash of the build");
             //Create the sha hash
             string hash = "";
@@ -376,53 +417,11 @@ namespace WorldsmithUpdater
                 hash = BitConverter.ToString(h).Replace("-", String.Empty);
             }
 
-            Console.WriteLine("Creating build information");
-            //Create the build             
-            Build b = new Build()
-            {
-                FileName = Path.GetFileName(options.BuildFile),
-                DownloadURL = options.URL + options.UpdateChannel.ToString() + "/",
-                Sha = hash,
-                Notes = options.UpdateNotes,
-                DetailURL = options.DetailedNotesURL,
-                Version = options.Version,
-                Date = DateTime.Now,
-            };
-
+            b.Sha = hash;
             builds.Add(b);
-                    
 
-            Console.WriteLine("Writing Build");
-            //Copy the file to the output directory
-            string outputDir = options.OutputPath + "/" + options.UpdateChannel.ToString() + "/";
-            Directory.CreateDirectory(options.OutputPath);
-            Directory.CreateDirectory(outputDir);
-
+            Console.WriteLine("Deploying Build");
             File.Copy(options.BuildFile, outputDir + Path.GetFileName(options.BuildFile), true);
-
-            //Create the version file
-            UpdaterLib.Version version = new UpdaterLib.Version()
-            {
-                Name = b.Version,
-                Channel = options.UpdateChannel,
-                Origin = b.DownloadURL,
-                Notes = b.Notes,
-                Sha = b.Sha,
-                BuildDate = b.Date,
-            };
-
-            //And insert it into the output
-            Console.WriteLine("Inserting version.txt");
-            string zip = outputDir + Path.GetFileName(options.BuildFile);
-            using(ZipFile z = new ZipFile(zip))
-            {
-                z.AddEntry("version.txt", JsonConvert.SerializeObject(version));
-                string updaterexe = Assembly.GetExecutingAssembly().Location;
-                z.AddFile(updaterexe, "");
-                z.Save();
-            }
-            
-
 
             Console.WriteLine("Writing Buildfile");
             //Write the builds file
