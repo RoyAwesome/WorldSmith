@@ -301,9 +301,6 @@ namespace WorldsmithUpdater
             }
 
             Console.WriteLine("Extracted");
-
-
-            File.WriteAllText("Version.txt", JsonConvert.SerializeObject(b));
             
             //Clean up the archive unless we don't want to
             if(!options.DontClean)
