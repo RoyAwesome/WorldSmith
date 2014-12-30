@@ -56,7 +56,7 @@ namespace WorldSmith
             else
             {
                 var builds = UpdaterLib.Updater.GetBuildsForChannel(v.Channel, UpdateURL);
-                var b = builds.OrderBy(x => x.Date).FirstOrDefault();
+                var b = builds.OrderByDescending(x => x.Date).FirstOrDefault();
                 Console.WriteLine("[UpdateChecker] There is an update to worldsmith!  ");
                 Console.WriteLine("[UpdateChecker] " + b.Version + " released on " + b.Date.ToShortDateString() + ".  Build notes: " + b.Notes);
             }
