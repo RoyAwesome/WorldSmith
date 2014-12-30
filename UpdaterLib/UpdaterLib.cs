@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace UpdaterLib
 {
@@ -54,6 +55,14 @@ namespace UpdaterLib
             return str;
         }
 
+        public static Version GetCurrentVersion()
+        {
+            if(!File.Exists("version.txt"))
+            {
+                return null;
+            }
+            return JsonConvert.DeserializeObject<Version>(File.ReadAllText("version.txt"));
+        }
 
        
     }

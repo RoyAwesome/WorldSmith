@@ -20,6 +20,12 @@ namespace UpdaterLib
             set;
         }
 
+        public DateTime BuildDate
+        {
+            get;
+            set;
+        }
+
         public string Sha
         {
             get;

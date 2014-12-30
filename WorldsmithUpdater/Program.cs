@@ -408,6 +408,7 @@ namespace WorldsmithUpdater
                 Origin = b.DownloadURL,
                 Notes = b.Notes,
                 Sha = b.Sha,
+                BuildDate = b.Date,
             };
 
             //And insert it into the output
