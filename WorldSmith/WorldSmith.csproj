@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -103,6 +104,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckForUpdate.cs" />
     <Compile Include="ConsoleStringWriter.cs" />
     <Compile Include="DataClasses\ActionProperties\BaseActionVariable.cs" />
     <Compile Include="DataClasses\ActionProperties\NumberValue.cs" />
@@ -534,6 +536,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataClasses\UI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UpdaterLib\UpdaterLib.csproj">
+      <Project>{62510635-8826-44a0-9ec2-3e37531157ad}</Project>
+      <Name>UpdaterLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

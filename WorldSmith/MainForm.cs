@@ -14,6 +14,7 @@ using WorldSmith.Dialogs;
 using WorldSmith.Panels;
 
 using WeifenLuo.WinFormsUI.Docking;
+using System.Diagnostics;
 
 namespace WorldSmith
 {
@@ -391,5 +392,20 @@ namespace WorldSmith
 
         }
         #endregion
+
+        private void reportABugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/royawesome/Worldsmith/issues");
+        }
+
+        private void sourceCodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/royawesome/Worldsmith");
+        }
+
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckForUpdate.Check();
+        }
     }
 }
