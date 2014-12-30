@@ -289,6 +289,7 @@ namespace WorldsmithUpdater
             {
                 foreach(ZipEntry e in zip)
                 {
+                    if (e.FileName == "WorldsmithUpdater.exe") continue;
                     try
                     {
                         e.Extract(ExtractExistingFileAction.OverwriteSilently);
