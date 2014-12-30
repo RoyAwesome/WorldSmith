@@ -287,7 +287,17 @@ namespace WorldsmithUpdater
 
             using (ZipFile zip = ZipFile.Read(b.FileName))
             {
-                zip.ExtractAll(Environment.CurrentDirectory, ExtractExistingFileAction.OverwriteSilently);
+                foreach(ZipEntry e in zip)
+                {
+                    try
+                    {
+                        e.Extract(ExtractExistingFileAction.OverwriteSilently);
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine("Error extracting: " + e.FileName + " message was: " + ex.Message);
+                    }
+                }                
             }
 
             Console.WriteLine("Extracted");
