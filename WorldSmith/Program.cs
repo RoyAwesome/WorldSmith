@@ -53,14 +53,16 @@ namespace WorldSmith
             AssetLoadingDialog assets = new AssetLoadingDialog();
             assets.ShowDialog(AssetLoadingDialog.InitialLoad);
 
+          
+
             //Construct the main form and load the default project (if any).
             MainForm mainForm = new MainForm();
             if (IsLoaddedAddonDirectoryValid())
             {
                 mainForm.LoadProject(Properties.Settings.Default.LoadedAddonDirectory);
             }
-            
-       
+
+            CheckForUpdate.Check(true);
             
             Application.Run(mainForm);
 

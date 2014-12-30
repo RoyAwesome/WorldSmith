@@ -12,7 +12,7 @@ namespace WorldSmith
     public static class CheckForUpdate
     {
         const string UpdateURL = "http://rhoyne.cloudapp.net:8010/UpdateManifest.txt";
-        public static void Check()
+        public static void Check(bool Silently = false)
         {
             //Check for a version file.  
             if(!File.Exists("version.txt"))
@@ -27,6 +27,8 @@ namespace WorldSmith
             //Get the version file
             UpdaterLib.Version v = UpdaterLib.Updater.GetCurrentVersion();
 
+            Console.WriteLine("[UpdateChecker] You are running Worldsmith " + v.Channel.ToString() + " - " + v.Name);
+
             //Check for an update with our version
             bool update = UpdaterLib.Updater.CheckForUpdate(v.Channel, v.BuildDate, UpdateURL);
 
@@ -36,7 +38,8 @@ namespace WorldSmith
                 return;
             }
 
-            if(MessageBox.Show("There is an update to Worldsmith!  Would you like to download it?", "Update Available", MessageBoxButtons.YesNo) == DialogResult.Yes)
+          
+            if(!Silently && MessageBox.Show("There is an update to Worldsmith!  Would you like to download it?", "Update Available", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 //Close worldsmith
                 
