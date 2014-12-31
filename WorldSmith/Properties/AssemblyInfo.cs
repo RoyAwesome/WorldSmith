@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WorldSmith")]
-[assembly: AssemblyDescription("Opensource Dota2 Editor by RoyAwesome")]
+[assembly: AssemblyTitle("Worldsmith")]
+[assembly: AssemblyDescription("Opensource Dota2 Editor by RoyAwesome\n\nWebsite: https://github.com/royawesome/Worldsmith \n\nSpecial thanks to all of our contributors")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Worldsmith")]
-[assembly: AssemblyProduct("WorldSmith")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Worldsmith")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

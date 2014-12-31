@@ -171,6 +171,12 @@
     <Compile Include="DataClasses\ScriptTypes\DotaUnit.cs" />
     <Compile Include="DataClasses\PropertyTypes\AbilitySpecial.cs" />
     <Compile Include="DataClasses\PropertyTypes\PerLevel.cs" />
+    <Compile Include="Dialogs\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\Actions\ActionListEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -346,6 +352,9 @@
     </Compile>
     <Compile Include="Themes\VS2012ToolStripExtender.Designer.cs" />
     <Compile Include="Themes\VS2012ToolStripRenderer.cs" />
+    <EmbeddedResource Include="Dialogs\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ActionEditor.resx">
       <DependentUpon>ActionEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -447,6 +456,7 @@
     <Content Include="Resources\LuaSyntax.xshd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Resources\WorldsmithAbout.rtf" />
     <None Include="WorldSmith_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

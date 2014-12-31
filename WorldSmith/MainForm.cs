@@ -407,5 +407,11 @@ namespace WorldSmith
         {
             CheckForUpdate.Check();
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox ab = new AboutBox();
+            ab.ShowDialog();
+        }
     }
 }

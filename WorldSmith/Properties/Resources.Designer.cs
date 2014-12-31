@@ -111,6 +111,20 @@ namespace WorldSmith.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+        ///{\colortbl ;\red0\green0\blue255;}
+        ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\lang9\f0\fs22 Worldsmith is an open source project licensed under MIT.  \par
+        ///Source Code: {\field{\*\fldinst{HYPERLINK &quot;https://github.com/RoyAwesome/WorldSmith&quot;}}{\fldrslt{\ul\cf1 https://github.com/RoyAwesome/WorldSmith}}}\f0\fs22\par
+        ///Project created by RoyAwesome.  Special thanks to the many contributors.\par
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WorldsmithAbout {
+            get {
+                return ResourceManager.GetString("WorldsmithAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap WSIcon32 {
