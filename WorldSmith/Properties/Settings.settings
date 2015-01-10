@@ -20,5 +20,8 @@
     <Setting Name="RecentAddons" Type="System.String[]" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="BaseAddonDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dota_ugc\game\dota_addons\</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

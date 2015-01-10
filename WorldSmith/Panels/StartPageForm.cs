@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -61,7 +62,7 @@ namespace WorldSmith.Panels
                 Console.WriteLine("Error: LoadProject is not set");
             }
             Label clicked = (Label)sender;
-            string project = Properties.Settings.Default.DotaDir + "\\dota_ugc\\game\\dota_addons\\" + (string)clicked.Tag + "\\"; 
+            string project = Properties.Settings.Default.DotaDir + Path.DirectorySeparatorChar + Properties.Settings.Default.BaseAddonDir + (string)clicked.Tag + "\\"; 
             LoadProject(project);
         }
 

@@ -105,7 +105,7 @@ namespace WorldSmith
         public void LoadAddon()
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
-            dialog.SelectedPath = Properties.Settings.Default.DotaDir + "\\dota_ugc\\game\\dota_addons\\";
+            dialog.SelectedPath = Properties.Settings.Default.DotaDir + Path.DirectorySeparatorChar + Properties.Settings.Default.BaseAddonDir;
             if (dialog.ShowDialog() != DialogResult.OK) return;
             string folder = dialog.SelectedPath + Path.DirectorySeparatorChar;
 
