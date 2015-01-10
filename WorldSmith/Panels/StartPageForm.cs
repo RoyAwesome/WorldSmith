@@ -62,7 +62,7 @@ namespace WorldSmith.Panels
                 Console.WriteLine("Error: LoadProject is not set");
             }
             Label clicked = (Label)sender;
-            string project = Properties.Settings.Default.DotaDir + Path.DirectorySeparatorChar + Properties.Settings.Default.BaseAddonDir + (string)clicked.Tag + "\\"; 
+            string project = Properties.Settings.Default.DotaDir + Path.DirectorySeparatorChar + Properties.Settings.Default.BaseAddonDir + (string)clicked.Tag + Path.DirectorySeparatorChar; 
             LoadProject(project);
         }
 
