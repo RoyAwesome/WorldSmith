@@ -454,10 +454,10 @@
     <Content Include="Resources\KVSyntax.xshd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\LuaSyntax.xshd">
+    <Content Include="Resources\LuaSyntax.xshd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
-    </None>
+    </Content>
     <EmbeddedResource Include="Resources\WorldsmithAbout.rtf" />
     <None Include="WorldSmith_TemporaryKey.pfx" />
   </ItemGroup>
