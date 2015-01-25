@@ -37,10 +37,9 @@ namespace WorldSmith.Documents
             TextEditor editor = OpenEditor<TextEditor>();
             if (!EditorAlreadyOpen)
             {
-                editor.EditorStyle = TextEditor.TextEditorStyle.KeyValues;
                 editor.OpenDocument(this);
+                editor.UpdateEditorStyle();
                 editor.TabText = Name;
-
                 editor.Show(MainForm.PrimaryDockingPanel, DockState.Document);
             }
 

@@ -27,10 +27,29 @@ namespace WorldSmith
 {
     public partial class TextEditor : DockContent, IEditor
     {
-        public enum TextEditorStyle
+        public class TextEditorStyle
         {
-            KeyValues,
-            Lua,
+            public static TextEditorStyle KeyValues = new TextEditorStyle("KeyValues");
+            public static TextEditorStyle Lua = new TextEditorStyle("Lua");
+
+            private string _style;
+            private string _strategy;
+
+            private TextEditorStyle(string style, string strategy = null)
+            {
+                _style = style;
+                _strategy = strategy;
+            }
+
+            public IHighlightingStrategy GetHighlightingStrategy()
+            {
+                return HighlightingManager.Manager.FindHighlighter(_strategy ?? _style);
+            }
+
+            public override string ToString()
+            {
+                return _style;
+            }
         }
 
         public TextEditorStyle EditorStyle
@@ -39,17 +58,17 @@ namespace WorldSmith
             set
             {
                 Console.WriteLine("EDITOR STYLE: " + value.ToString());
-                if (value == TextEditorStyle.KeyValues)
+
+                var highlighter = value.GetHighlightingStrategy();
+
+                if (highlighter.Name == "Default")
                 {
-                    Console.WriteLine("KEYVALUES TIME BITCHEZ");
-                    var test = HighlightingManager.Manager.FindHighlighter("KeyValues");
-                    Console.WriteLine(test.Name);
-                    textEditorControl1.Document.HighlightingStrategy = HighlightingManager.Manager.FindHighlighter("KeyValues");
-                    textEditorControl1.EnableFolding = true;
-                    textEditorControl1.Document.FoldingManager.FoldingStrategy = new CodeFoldingStrategy();
+                    Console.WriteLine("ERROR: using default style for file type: " + value.ToString() + " not handled.");
                 }
-                else
-                    textEditorControl1.Document.HighlightingStrategy = HighlightingManager.Manager.FindHighlighter("Lua");
+
+                textEditorControl1.EnableFolding = true;
+                textEditorControl1.Document.FoldingManager.FoldingStrategy = new CodeFoldingStrategy();
+                textEditorControl1.Document.HighlightingStrategy = highlighter;
             }
         }
 
@@ -71,7 +90,7 @@ namespace WorldSmith
         public string Filename;
 
         private bool HideConfirmation = false;
-        
+
 
         public TextEditor()
         {
@@ -79,30 +98,30 @@ namespace WorldSmith
             Filename = String.Empty;
 
             textEditorControl1.DocumentChanged += textEditorControl1_DocumentChanged;
-          
+
             this.FormClosed += TextEditor_FormClosed;
         }
 
         void textEditorControl1_DocumentChanged(object sender, DocumentEventArgs e)
         {
-            if(e.Length != 0) 
+            if (e.Length != 0)
                 ActiveDocument.DocumentEdited(this);
         }
 
         void TextEditor_FormClosed(object sender, FormClosedEventArgs e)
         {
             //TODO: Check for changes and ask to save if we are closing.
-            if(ActiveDocument.IsEdited)
+            if (ActiveDocument.IsEdited)
             {
-                if(!HideConfirmation)
+                if (!HideConfirmation)
                 {
                     if (MessageBox.Show("This editor contains unsaved changes! Do you want to save now?", "Are you sure?", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                     {
                         ActiveDocument.Save(this);
                     }
                 }
-              
-              
+
+
             }
 
             ActiveDocument.NotifyEditorClosed(this);
@@ -122,7 +141,19 @@ namespace WorldSmith
             IsReadOnly = document.Source == DocumentSource.VPK;
             textEditorControl1.Document.TextContent = document.Text;
         }
-     
+
+        public void UpdateEditorStyle()
+        {
+            if (Filename.EndsWith(".lua"))
+            {
+                EditorStyle = TextEditor.TextEditorStyle.Lua;
+            }
+            else
+            {
+                EditorStyle = TextEditor.TextEditorStyle.KeyValues;
+            }
+        }
+
         public string GetEditorText()
         {
             return textEditorControl1.Text;
@@ -153,7 +184,7 @@ namespace WorldSmith
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if(ActiveDocument.IsEdited)
+            if (ActiveDocument.IsEdited)
             {
                 ActiveDocument.Save(this);
             }
@@ -180,7 +211,7 @@ namespace WorldSmith
 
         public void NotifyDocumentModified(IEditor source)
         {
-            
+
         }
 
         public void NotifyDocumentSaved(IEditor source)
