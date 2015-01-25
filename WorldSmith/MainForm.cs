@@ -358,9 +358,9 @@ namespace WorldSmith
             }
 
             //Lets nuke all the default stuff too while we are at it
-            ConsoleForm.DockPanel = null;
-            ProjectView.DockPanel = null;
-            ObjectBrowser.DockPanel = null;
+            if (ConsoleForm != null) { ConsoleForm.DockPanel = null; }
+            if (ProjectView != null) { ProjectView.DockPanel = null; }
+            if (ObjectBrowser != null) { ObjectBrowser.DockPanel = null; }
 
             if (sender == theme2005Button)
             {
@@ -382,9 +382,9 @@ namespace WorldSmith
             theme2003Button.Checked = (sender == theme2003Button);
             theme2012LightButton.Checked = (sender == theme2012LightButton);
 
-            ConsoleForm.Show(dockPanel, DockState.DockBottom);
-            ProjectView.Show(dockPanel, DockState.DockLeft);
-            ObjectBrowser.Show(dockPanel, DockState.DockLeft);
+            if (ConsoleForm != null) { ConsoleForm.Show(dockPanel, DockState.DockBottom); }
+            if (ProjectView != null) { ProjectView.Show(dockPanel, DockState.DockLeft); }
+            if (ObjectBrowser != null) { ObjectBrowser.Show(dockPanel, DockState.DockLeft); }
 
             StartPageForm = new StartPageForm(ShowNewAddonWizard, LoadAddon, LoadProject);
             StartPageForm.Show(dockPanel, DockState.Document);
