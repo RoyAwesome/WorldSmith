@@ -352,6 +352,7 @@
     </Compile>
     <Compile Include="Themes\VS2012ToolStripExtender.Designer.cs" />
     <Compile Include="Themes\VS2012ToolStripRenderer.cs" />
+    <Compile Include="Utils\Stopwatches.cs" />
     <EmbeddedResource Include="Dialogs\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -455,12 +456,15 @@
     </Content>
     <Content Include="Resources\LuaSyntax.xshd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <EmbeddedResource Include="Resources\WorldsmithAbout.rtf" />
     <None Include="WorldSmith_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\WSIcon32.png" />
@@ -526,6 +530,7 @@
     <None Include="Resources\dotaicon16x16.png" />
     <Content Include="Resources\SyntaxMode.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <EmbeddedResource Include="Scripts\ObjectBrowserFolderOverride.txt" />
     <Content Include="WSIconic.ico" />

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeifenLuo.WinFormsUI.Docking;
+using WorldSmith.Utils;
 
 namespace WorldSmith.Documents
 {
@@ -33,17 +34,19 @@ namespace WorldSmith.Documents
 
         public virtual TextEditor OpenTextEditor()
         {
+            Stopwatches.Watches["OpenTextEditor"].Start();
             bool EditorAlreadyOpen = ContainsEditor<TextEditor>();
             TextEditor editor = OpenEditor<TextEditor>();
             if (!EditorAlreadyOpen)
             {
-                editor.EditorStyle = TextEditor.TextEditorStyle.KeyValues;
                 editor.OpenDocument(this);
+                editor.UpdateEditorStyle();
                 editor.TabText = Name;
-
                 editor.Show(MainForm.PrimaryDockingPanel, DockState.Document);
             }
-
+            Stopwatches.Watches["OpenTextEditor"].Stop();
+            Console.WriteLine("Opened editor, taking {0} ms", Stopwatches.Watches["OpenTextEditor"].ElapsedMilliseconds);
+            Stopwatches.Watches["OpenTextEditor"].Reset();
             return editor;
         }
 
