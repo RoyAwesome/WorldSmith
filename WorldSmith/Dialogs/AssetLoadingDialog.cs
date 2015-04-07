@@ -24,6 +24,7 @@ namespace WorldSmith.Dialogs
             {"npc_heroes.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultHeroesFile, DotaData.AllHeroes); } },
             {"npc_abilities.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultAbilitiesFile, DotaData.AllAbilities); } },
             {"items.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultItemsFile, DotaData.AllItems); } },
+            {"Init Lua", () => { LuaHelper.Init();  } }
         };
 
         public static Dictionary<string, Task> AddonLoadTasks = new Dictionary<string, Task>()

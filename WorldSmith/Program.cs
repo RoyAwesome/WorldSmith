@@ -14,6 +14,9 @@ namespace WorldSmith
 {
     static class Program
     {
+        public static ConsoleStringWriter ConsoleRedirect;
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -24,6 +27,9 @@ namespace WorldSmith
 #if GENERATECLASSES         
             GenerateClasses();
 #else
+            ConsoleRedirect = new ConsoleStringWriter();
+            Console.SetOut(ConsoleRedirect);
+
             //Set up the crash handler          
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 

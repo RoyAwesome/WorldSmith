@@ -56,9 +56,8 @@ namespace WorldSmith
         {
             ConsoleForm = new ConsoleForm();
             ConsoleForm.Show(dockPanel, DockState.DockBottom);
-            _consoleWriter = new ConsoleStringWriter(ConsoleForm);
-            Console.SetOut(_consoleWriter);
-
+            Program.ConsoleRedirect.Output = ConsoleForm;
+           
             //Create the start page
             ShowStartPage();
         }
