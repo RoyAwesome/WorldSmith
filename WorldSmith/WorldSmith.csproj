@@ -78,15 +78,16 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="KeraLua">
-      <HintPath>..\packages\NLua.1.3.2.1\lib\net45\KeraLua.dll</HintPath>
+    <Reference Include="KopiLua">
+      <HintPath>..\Libs\KopiLua.dll</HintPath>
     </Reference>
     <Reference Include="KVLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libs\KVLib.dll</HintPath>
     </Reference>
-    <Reference Include="NLua">
-      <HintPath>..\packages\NLua.1.3.2.1\lib\net45\NLua.dll</HintPath>
+    <Reference Include="NLua, Version=1.3.2.0, Culture=neutral, PublicKeyToken=8df2ab518030ea95, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\NLua.dll</HintPath>
     </Reference>
     <Reference Include="ScintillaNET">
       <HintPath>..\Libs\ScintillaNET.dll</HintPath>
