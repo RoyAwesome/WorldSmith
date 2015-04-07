@@ -23,6 +23,7 @@ namespace WorldSmith.LuaUtils
             LuaOutput = new ConsoleStringWriter();
 
             scintilla1.Margins[0].Width = 20;
+            LuaOutput.Output = this;
 
             
         }
