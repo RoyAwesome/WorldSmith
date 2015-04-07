@@ -78,9 +78,6 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DigitalRune.Windows.TextEditor">
-      <HintPath>..\Libs\DigitalRune.Windows.TextEditor.dll</HintPath>
-    </Reference>
     <Reference Include="KeraLua">
       <HintPath>..\packages\NLua.1.3.2.1\lib\net45\KeraLua.dll</HintPath>
     </Reference>
@@ -90,6 +87,9 @@
     </Reference>
     <Reference Include="NLua">
       <HintPath>..\packages\NLua.1.3.2.1\lib\net45\NLua.dll</HintPath>
+    </Reference>
+    <Reference Include="ScintillaNET">
+      <HintPath>..\Libs\ScintillaNET.dll</HintPath>
     </Reference>
     <Reference Include="Sprache, Version=1.10.0.35, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -112,7 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckForUpdate.cs" />
-    <Compile Include="ConsoleStringWriter.cs" />
+    <Compile Include="Utils\ConsoleStringWriter.cs" />
     <Compile Include="DataClasses\ActionProperties\BaseActionVariable.cs" />
     <Compile Include="DataClasses\ActionProperties\NumberValue.cs" />
     <Compile Include="DataClasses\ActionTypes\ActOnTargets.cs" />
@@ -249,7 +249,13 @@
     <Compile Include="Dialogs\Actions\VariableEditor.Designer.cs">
       <DependentUpon>VariableEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lua\LuaHelper.cs" />
+    <Compile Include="LuaUtils\LuaHelper.cs" />
+    <Compile Include="LuaUtils\ScratchPad.cs">
+      <SubType>form</SubType>
+    </Compile>
+    <Compile Include="LuaUtils\ScratchPad.Designer.cs">
+      <DependentUpon>ScratchPad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Panels\StartPageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -346,7 +352,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WinFormStrings.resx</DependentUpon>
     </Compile>
-    <Compile Include="TextEditor\CodeFoldingStrategy.cs" />
     <Compile Include="TextEditor\TextEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +364,7 @@
     </Compile>
     <Compile Include="Themes\VS2012ToolStripExtender.Designer.cs" />
     <Compile Include="Themes\VS2012ToolStripRenderer.cs" />
+    <Compile Include="Utils\IConsoleNotify.cs" />
     <Compile Include="Utils\Stopwatches.cs" />
     <EmbeddedResource Include="Dialogs\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -405,6 +411,9 @@
     <EmbeddedResource Include="Dialogs\TextPrompt.resx">
       <DependentUpon>TextPrompt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LuaUtils\ScratchPad.resx">
+      <DependentUpon>ScratchPad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Panels\StartPageForm.resx">
       <DependentUpon>StartPageForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -445,6 +454,7 @@
     <EmbeddedResource Include="TextEditor\TextEditor.resx">
       <DependentUpon>TextEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\WorldSmith.DataClasses.DotaData.datasource" />
     <None Include="Properties\DataSources\WorldSmith.Panels.CategoryEditor.datasource" />
@@ -535,6 +545,8 @@
     <None Include="Resources\CopyHS.png" />
     <None Include="Resources\PasteHS.png" />
     <None Include="Resources\dotaicon16x16.png" />
+    <None Include="Resources\startwithoutdebugging_6556.png" />
+    <None Include="Resources\Open_6529.png" />
     <Content Include="Resources\SyntaxMode.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

@@ -1,5 +1,4 @@
-﻿using DigitalRune.Windows.TextEditor.Highlighting;
-using KVLib;
+﻿using KVLib;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -56,8 +55,7 @@ namespace WorldSmith
             System.Threading.Thread.CurrentThread.CurrentUICulture =
            System.Globalization.CultureInfo.CreateSpecificCulture(Properties.Settings.Default.Language);
 
-            HighlightingManager.Manager.AddSyntaxModeFileProvider(new FileSyntaxModeProvider(Path.GetDirectoryName(Application.ExecutablePath) + Path.DirectorySeparatorChar + "Resources"));
-
+       
             // Extract the Dota 2 pack01_dir VPK file and load all of the data
             AssetLoadingDialog assets = new AssetLoadingDialog();
             assets.ShowDialog(AssetLoadingDialog.InitialLoad);

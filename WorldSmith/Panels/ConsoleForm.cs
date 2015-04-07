@@ -9,21 +9,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using WeifenLuo.WinFormsUI.Docking;
+using WorldSmith.Utils;
 
 namespace WorldSmith.Panels
 {
-    public partial class ConsoleForm : DockContent
+    public partial class ConsoleForm : DockContent, IConsoleNotify
     {
         public ConsoleForm()
         {
             InitializeComponent();
         }
-        private delegate void UpdateConsole_(String text);
+        
         public void UpdateConsole(String text)
         {
             if (this.InvokeRequired)
             {
-                this.Invoke(new UpdateConsole_(UpdateConsole), text);
+                this.Invoke(new UpdateConsoleDelegate(UpdateConsole), text);
             }
             else
             {
@@ -42,7 +43,7 @@ namespace WorldSmith.Panels
 
                 Console.WriteLine(">> " + text);
 
-                string r = LuaHelper.DoEditorString(text);
+                string r = LuaHelper.DoEditorToolbarString(text);
                 if(r != null) Console.WriteLine(r);
 
                 e.Handled = true;

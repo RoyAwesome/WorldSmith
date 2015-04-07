@@ -82,6 +82,8 @@
             this.vS2012LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2012LightTheme();
             this.localeManager1 = new WorldSmith.LocaleManager(this.components);
             this.vS2012ToolStripExtender1 = new DockSample.VS2012ToolStripExtender(this.components);
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.luaScratchpadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -202,7 +204,9 @@
             // 
             this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.projectExplorerToolStripMenuItem,
-            this.objectBrowserToolStripMenuItem});
+            this.objectBrowserToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.luaScratchpadToolStripMenuItem});
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
             resources.ApplyResources(this.windowToolStripMenuItem, "windowToolStripMenuItem");
             // 
@@ -355,6 +359,17 @@
             this.vS2012ToolStripExtender1.DefaultRenderer = null;
             this.vS2012ToolStripExtender1.VS2012Renderer = null;
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
+            // 
+            // luaScratchpadToolStripMenuItem
+            // 
+            this.luaScratchpadToolStripMenuItem.Name = "luaScratchpadToolStripMenuItem";
+            resources.ApplyResources(this.luaScratchpadToolStripMenuItem, "luaScratchpadToolStripMenuItem");
+            this.luaScratchpadToolStripMenuItem.Click += new System.EventHandler(this.luaScratchpadToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -408,6 +423,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem sourceCodeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem luaScratchpadToolStripMenuItem;
     }
 }
 

@@ -19,13 +19,17 @@ namespace WorldSmith
         /// <summary>
         /// This is the lua state for any dota 2 related lua code.  This is used for testing if code will work.
         /// </summary>
-        static Lua GameState; 
+       // static Lua GameState;
+
+        static Lua ScratchpadState;
 
         static LuaHelper()
         {
             EditorState = new Lua();
            
-            GameState = new Lua();
+            //GameState = new Lua();
+
+            ScratchpadState = new Lua();
         }
 
         public static void Init()
@@ -33,16 +37,19 @@ namespace WorldSmith
             var methodinfo = typeof(LuaHelper).GetMethod("Print", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
             EditorState.RegisterFunction("print", methodinfo);
 
+            methodinfo = typeof(LuaHelper).GetMethod("PrintScratchpad", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
+            ScratchpadState.RegisterFunction("print", methodinfo);
+
             Console.WriteLine("[Lua] Lua Initialized");
         }
+        #region Toolbar State
         private static void Print(params object[] message)
         {
             if (message == null) Console.WriteLine();
             else Console.WriteLine(String.Join("\t", message));
         }
 
-
-        public static string DoEditorString(string lua)
+        public static string DoEditorToolbarString(string lua)
         {
             try
             {
@@ -55,8 +62,36 @@ namespace WorldSmith
             {
                 return e.ToString();
             }
-            
+
         }
+        #endregion
+
+
+        private static ConsoleStringWriter StringWriter;
+        private static void PrintScratchpad(params object[] message)
+        {
+            if (message == null) StringWriter.WriteLine();
+            else StringWriter.WriteLine(String.Join("\t", message));
+        }
+
+
+        public static string DoScratchpadString(string text, ConsoleStringWriter sw)
+        {
+            StringWriter = sw;
+            try
+            {
+                var ret = ScratchpadState.DoString(text);
+
+                if (ret == null) return null;
+                return String.Join(",", ret);
+            }
+            catch (LuaException e)
+            {
+                return e.ToString();
+            }
+        }
+
+       
 
 
     }

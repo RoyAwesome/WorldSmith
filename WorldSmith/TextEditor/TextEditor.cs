@@ -7,70 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DigitalRune.Windows.TextEditor;
-using DigitalRune.Windows.TextEditor.Actions;
-using DigitalRune.Windows.TextEditor.Completion;
-using DigitalRune.Windows.TextEditor.Document;
-using DigitalRune.Windows.TextEditor.Formatting;
-using DigitalRune.Windows.TextEditor.Highlighting;
-using DigitalRune.Windows.TextEditor.Insight;
-using DigitalRune.Windows.TextEditor.Markers;
-using DigitalRune.Windows.TextEditor.Selection;
 using System.IO;
 using WorldSmith.DataClasses;
 using WorldSmith.Documents;
 using WorldSmith.Panels;
-using DigitalRune.Windows.TextEditor.Folding;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace WorldSmith
 {
     public partial class TextEditor : DockContent, IEditor
     {
-        public class TextEditorStyle
-        {
-            public static TextEditorStyle KeyValues = new TextEditorStyle("KeyValues");
-            public static TextEditorStyle Lua = new TextEditorStyle("Lua");
-
-            private string _style;
-            private string _strategy;
-
-            private TextEditorStyle(string style, string strategy = null)
-            {
-                _style = style;
-                _strategy = strategy;
-            }
-
-            public IHighlightingStrategy GetHighlightingStrategy()
-            {
-                return HighlightingManager.Manager.FindHighlighter(_strategy ?? _style);
-            }
-
-            public override string ToString()
-            {
-                return _style;
-            }
-        }
-
-        public TextEditorStyle EditorStyle
-        {
-            get { return EditorStyle; }
-            set
-            {
-                Console.WriteLine("EDITOR STYLE: " + value.ToString());
-
-                var highlighter = value.GetHighlightingStrategy();
-
-                if (highlighter.Name == "Default")
-                {
-                    Console.WriteLine("ERROR: using default style for file type: " + value.ToString() + " not handled.");
-                }
-
-                textEditorControl1.EnableFolding = true;
-                textEditorControl1.Document.FoldingManager.FoldingStrategy = new CodeFoldingStrategy();
-                textEditorControl1.Document.HighlightingStrategy = highlighter;
-            }
-        }
 
 
         private bool isReadOnly;
@@ -97,17 +43,19 @@ namespace WorldSmith
             InitializeComponent();
             Filename = String.Empty;
 
-            textEditorControl1.DocumentChanged += textEditorControl1_DocumentChanged;
+            scintilla1.TextChanged += Scintilla1_TextChanged;
+           
 
             this.FormClosed += TextEditor_FormClosed;
+
+            scintilla1.Margins[0].Width = 20;
         }
 
-        void textEditorControl1_DocumentChanged(object sender, DocumentEventArgs e)
+        private void Scintilla1_TextChanged(object sender, EventArgs e)
         {
-            if (e.Length != 0)
-                ActiveDocument.DocumentEdited(this);
+            ActiveDocument.DocumentEdited(this);
         }
-
+             
         void TextEditor_FormClosed(object sender, FormClosedEventArgs e)
         {
             //TODO: Check for changes and ask to save if we are closing.
@@ -131,7 +79,7 @@ namespace WorldSmith
         {
             get
             {
-                return textEditorControl1.Document.TextContent;
+                return scintilla1.Text;
             }
         }
 
@@ -139,24 +87,27 @@ namespace WorldSmith
         {
             Filename = document.Path;
             IsReadOnly = document.Source == DocumentSource.VPK;
-            textEditorControl1.Document.TextContent = document.Text;
+            
+            scintilla1.Text = document.Text;
         }
 
         public void UpdateEditorStyle()
         {
             if (Filename.EndsWith(".lua"))
             {
-                EditorStyle = TextEditor.TextEditorStyle.Lua;
+                scintilla1.ConfigurationManager.Language = "lua";               
             }
             else
             {
-                EditorStyle = TextEditor.TextEditorStyle.KeyValues;
+                scintilla1.ConfigurationManager.Language = "null";
             }
+            scintilla1.ConfigurationManager.Configure();
+            scintilla1.Invalidate();
         }
 
         public string GetEditorText()
         {
-            return textEditorControl1.Text;
+            return scintilla1.Text;
         }
 
         protected void ReadOnlyChanged(bool value)
@@ -164,13 +115,13 @@ namespace WorldSmith
             if (value)
             {
                 saveButton.Enabled = false;
-                textEditorControl1.IsReadOnly = true;
+                scintilla1.IsReadOnly = true;
                 saveButton.ToolTipText = "Cannot Save, File is read only";
             }
             else
             {
                 saveButton.Enabled = true;
-                textEditorControl1.IsReadOnly = false;
+                scintilla1.IsReadOnly = false;
                 saveButton.ToolTipText = "Save";
             }
         }
@@ -178,8 +129,7 @@ namespace WorldSmith
 
         private void cutButton_Click(object sender, EventArgs e)
         {
-            Cut cut = new Cut();
-            cut.Execute(textEditorControl1);
+            scintilla1.Clipboard.Cut();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -192,14 +142,12 @@ namespace WorldSmith
 
         private void copyButton_Click(object sender, EventArgs e)
         {
-            Copy copy = new Copy();
-            copy.Execute(textEditorControl1);
+            scintilla1.Clipboard.Copy();
         }
 
         private void pasteButton_Click(object sender, EventArgs e)
         {
-            Paste paste = new Paste();
-            paste.Execute(textEditorControl1);
+            scintilla1.Clipboard.Paste();
         }
 
         public Document ActiveDocument
@@ -220,7 +168,7 @@ namespace WorldSmith
             if (source != this)
             {
                 TextDocument document = ActiveDocument as TextDocument;
-                textEditorControl1.Text = document.Text;
+                scintilla1.Text = document.Text;
             }
         }
 
@@ -233,7 +181,7 @@ namespace WorldSmith
 
         private void foldTimer_Tick(object sender, EventArgs e)
         {
-            textEditorControl1.Document.FoldingManager.UpdateFolds();
+            //TODO: Fix this
         }
     }
 }

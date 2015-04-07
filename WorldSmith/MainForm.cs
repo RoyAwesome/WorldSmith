@@ -15,19 +15,20 @@ using WorldSmith.Panels;
 
 using WeifenLuo.WinFormsUI.Docking;
 using System.Diagnostics;
+using WorldSmith.LuaUtils;
 
 namespace WorldSmith
 {
     public partial class MainForm : Form
     {
         private readonly ContextMenuStrip _contextMenu;
-        ConsoleStringWriter _consoleWriter;  
-
+    
         #region DockableForms
         ConsoleForm ConsoleForm;
         ProjectView ProjectView;
         DotaObjectBrowser ObjectBrowser;
         StartPageForm StartPageForm;
+        ScratchPad ScratchPad;
         #endregion
 
         public static DockPanel PrimaryDockingPanel;
@@ -411,6 +412,12 @@ namespace WorldSmith
         {
             AboutBox ab = new AboutBox();
             ab.ShowDialog();
+        }
+
+        private void luaScratchpadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ScratchPad == null) ScratchPad = new ScratchPad();
+            ScratchPad.Show(dockPanel, DockState.Document);
         }
     }
 }

@@ -2,13 +2,14 @@
 using System.Text;
 using WorldSmith.Panels;
 using System.Collections.Generic;
+using WorldSmith.Utils;
 
 namespace WorldSmith
 {
     class ConsoleStringWriter : TextWriter
     {
-        ConsoleForm _output;
-        public ConsoleForm Output
+        IConsoleNotify _output;
+        public IConsoleNotify Output
         {
             get
             {

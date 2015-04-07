@@ -41,7 +41,7 @@ namespace WorldSmith.DataClasses
             KeyValues = kvs;
         }
 
-        public int Count()
+        public new int Count()
         {
             return KeyValues.Children.Count();
         }
