@@ -65,14 +65,18 @@ namespace WorldSmith
                 state.DoString(data, resName);               
             }
 
-            state["Units"] = DotaData.AllUnits;
-          
-            state["Heroes"] = DotaData.AllHeroes;
-          
-            state["Abilities"] = DotaData.AllAbilities;
-           
+            state["Units"] = DotaData.AllUnits;          
+            state["Heroes"] = DotaData.AllHeroes;          
+            state["Abilities"] = DotaData.AllAbilities;           
             state["Items"] = DotaData.DefaultItems;
-           
+
+            //Bind the DataClass enum
+            state.DoString("DataClass = {}");
+            state["DataClass.Default"] = DotaDataObject.DataObjectInfo.ObjectDataClass.Default;
+            state["DataClass.Override"] = DotaDataObject.DataObjectInfo.ObjectDataClass.Override;
+            state["DataClass.Custom"] = DotaDataObject.DataObjectInfo.ObjectDataClass.Custom;
+
+
         }
 
         #region Toolbar State

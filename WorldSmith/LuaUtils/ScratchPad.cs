@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,6 +60,30 @@ namespace WorldSmith.LuaUtils
             else
             {
                 textBox1.AppendText(text);
+            }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog diag = new SaveFileDialog();
+            diag.Filter = "Lua File (.lua)|*.lua";
+            if (diag.ShowDialog() == DialogResult.OK)
+            {
+                string filename = diag.FileName;
+                File.WriteAllText(filename, scintilla1.Text);
+            }
+
+        }
+
+        private void openButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog diag = new OpenFileDialog();
+            diag.Filter = "Lua File (.lua)|*.lua";
+            if(diag.ShowDialog() == DialogResult.OK)
+            {
+                string filename = diag.FileName;
+                string text = File.ReadAllText(filename);
+                scintilla1.Text = text;
             }
         }
     }
