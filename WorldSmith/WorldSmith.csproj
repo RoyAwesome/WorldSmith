@@ -576,6 +576,10 @@
     <Folder Include="DataClasses\UI\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NodeGraph\Graph\Graph.csproj">
+      <Project>{e4cc63d8-127d-4bc9-80e0-ccb3e9da06dc}</Project>
+      <Name>Graph</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UpdaterLib\UpdaterLib.csproj">
       <Project>{62510635-8826-44a0-9ec2-3e37531157ad}</Project>
       <Name>UpdaterLib</Name>

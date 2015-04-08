@@ -1,0 +1,4 @@
+[submodule "NodeGraph"]
+	path = NodeGraph
+	url = git://github.com/RoyAwesome/Graph
+	branch = master
