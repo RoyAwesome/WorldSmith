@@ -35,8 +35,8 @@ namespace WorldSmith.NodeGraph
             {
                 //Skip DotaDataObject's properties as they don't go into the node
                 if (prop.Name == "ClassName") continue;
-                if (prop.Name == "BaseAction.KeyValue") continue;
-                if (prop.Name == "BaseAction.ObjectInfo") continue;
+                if (prop.Name == "KeyValue") continue;
+                if (prop.Name == "ObjectInfo") continue;
 
                 NodeItem item = null;
                 if (prop.PropertyType == typeof(NumberValue))
