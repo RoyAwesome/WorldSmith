@@ -113,6 +113,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckForUpdate.cs" />
+    <Compile Include="DataClasses\Nodes\ActionNodeCollection.cs" />
+    <Compile Include="Panels\ActionNodeEditor.cs">
+      <SubType>form</SubType>
+    </Compile>
+    <Compile Include="Panels\ActionNodeEditor.Designer.cs">
+      <DependentUpon>ActionNodeEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\ConsoleStringWriter.cs" />
     <Compile Include="DataClasses\ActionProperties\BaseActionVariable.cs" />
     <Compile Include="DataClasses\ActionProperties\NumberValue.cs" />
@@ -414,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LuaUtils\ScratchPad.resx">
       <DependentUpon>ScratchPad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ActionNodeEditor.resx">
+      <DependentUpon>ActionNodeEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\StartPageForm.resx">
       <DependentUpon>StartPageForm.cs</DependentUpon>

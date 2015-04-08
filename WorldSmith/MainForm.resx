@@ -233,6 +233,12 @@
   <data name="luaScratchpadToolStripMenuItem.Text" xml:space="preserve">
     <value>Lua Scratchpad</value>
   </data>
+  <data name="graphEditorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 22</value>
+  </data>
+  <data name="graphEditorToolStripMenuItem.Text" xml:space="preserve">
+    <value>Graph Editor</value>
+  </data>
   <data name="windowToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 20</value>
   </data>
@@ -356,9 +362,6 @@
   </metadata>
   <metadata name="vS2012LightTheme1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>535, 19</value>
-  </metadata>
-  <metadata name="localeManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>128, 19</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -595,6 +598,18 @@
   <data name="&gt;&gt;objectBrowserToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
+    <value>toolStripSeparator3</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;luaScratchpadToolStripMenuItem.Name" xml:space="preserve">
+    <value>luaScratchpadToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;luaScratchpadToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;themesToolStripMenuItem.Name" xml:space="preserve">
     <value>themesToolStripMenuItem</value>
   </data>
@@ -673,28 +688,10 @@
   <data name="&gt;&gt;vS2012LightTheme1.Type" xml:space="preserve">
     <value>WeifenLuo.WinFormsUI.Docking.VS2012LightTheme, WeifenLuo.WinFormsUI.Docking, Version=2.9.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481</value>
   </data>
-  <data name="&gt;&gt;localeManager1.Name" xml:space="preserve">
-    <value>localeManager1</value>
+  <data name="&gt;&gt;graphEditorToolStripMenuItem.Name" xml:space="preserve">
+    <value>graphEditorToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;localeManager1.Type" xml:space="preserve">
-    <value>WorldSmith.LocaleManager, WorldSmith, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;vS2012ToolStripExtender1.Name" xml:space="preserve">
-    <value>vS2012ToolStripExtender1</value>
-  </data>
-  <data name="&gt;&gt;vS2012ToolStripExtender1.Type" xml:space="preserve">
-    <value>DockSample.VS2012ToolStripExtender, WorldSmith, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
-    <value>toolStripSeparator3</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;luaScratchpadToolStripMenuItem.Name" xml:space="preserve">
-    <value>luaScratchpadToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;luaScratchpadToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;graphEditorToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
@@ -703,7 +700,4 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="vS2012ToolStripExtender1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>697, 19</value>
-  </metadata>
 </root>

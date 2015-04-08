@@ -30,7 +30,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
             WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin1 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
@@ -66,6 +65,8 @@
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.objectBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.luaScratchpadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.themesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.theme2003Button = new System.Windows.Forms.ToolStripMenuItem();
             this.theme2005Button = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,10 +81,7 @@
             this.vS2003Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2003Theme();
             this.vS2005Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2005Theme();
             this.vS2012LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2012LightTheme();
-            this.localeManager1 = new WorldSmith.LocaleManager(this.components);
-            this.vS2012ToolStripExtender1 = new DockSample.VS2012ToolStripExtender(this.components);
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.luaScratchpadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.graphEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -206,7 +204,8 @@
             this.projectExplorerToolStripMenuItem,
             this.objectBrowserToolStripMenuItem,
             this.toolStripSeparator3,
-            this.luaScratchpadToolStripMenuItem});
+            this.luaScratchpadToolStripMenuItem,
+            this.graphEditorToolStripMenuItem});
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
             resources.ApplyResources(this.windowToolStripMenuItem, "windowToolStripMenuItem");
             // 
@@ -222,6 +221,17 @@
             this.objectBrowserToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.objectBrowserToolStripMenuItem.Name = "objectBrowserToolStripMenuItem";
             resources.ApplyResources(this.objectBrowserToolStripMenuItem, "objectBrowserToolStripMenuItem");
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
+            // 
+            // luaScratchpadToolStripMenuItem
+            // 
+            this.luaScratchpadToolStripMenuItem.Name = "luaScratchpadToolStripMenuItem";
+            resources.ApplyResources(this.luaScratchpadToolStripMenuItem, "luaScratchpadToolStripMenuItem");
+            this.luaScratchpadToolStripMenuItem.Click += new System.EventHandler(this.luaScratchpadToolStripMenuItem_Click);
             // 
             // themesToolStripMenuItem
             // 
@@ -350,25 +360,11 @@
             dockPanelSkin1.DockPaneStripSkin = dockPaneStripSkin1;
             this.dockPanel.Skin = dockPanelSkin1;
             // 
-            // localeManager1
+            // graphEditorToolStripMenuItem
             // 
-            this.localeManager1.ParentControl = this;
-            // 
-            // vS2012ToolStripExtender1
-            // 
-            this.vS2012ToolStripExtender1.DefaultRenderer = null;
-            this.vS2012ToolStripExtender1.VS2012Renderer = null;
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
-            // 
-            // luaScratchpadToolStripMenuItem
-            // 
-            this.luaScratchpadToolStripMenuItem.Name = "luaScratchpadToolStripMenuItem";
-            resources.ApplyResources(this.luaScratchpadToolStripMenuItem, "luaScratchpadToolStripMenuItem");
-            this.luaScratchpadToolStripMenuItem.Click += new System.EventHandler(this.luaScratchpadToolStripMenuItem_Click);
+            this.graphEditorToolStripMenuItem.Name = "graphEditorToolStripMenuItem";
+            resources.ApplyResources(this.graphEditorToolStripMenuItem, "graphEditorToolStripMenuItem");
+            this.graphEditorToolStripMenuItem.Click += new System.EventHandler(this.graphEditorToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -425,6 +421,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem luaScratchpadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem graphEditorToolStripMenuItem;
     }
 }
 
