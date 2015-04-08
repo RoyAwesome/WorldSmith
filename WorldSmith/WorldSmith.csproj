@@ -455,6 +455,7 @@
     <EmbeddedResource Include="TextEditor\TextEditor.resx">
       <DependentUpon>TextEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Scripts\WorldsmithImports.lua" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\WorldSmith.DataClasses.DotaData.datasource" />
     <None Include="Properties\DataSources\WorldSmith.Panels.CategoryEditor.datasource" />

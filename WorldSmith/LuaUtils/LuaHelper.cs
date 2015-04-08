@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using NLua;
 using NLua.Exceptions;
+using System.Reflection;
+using WorldSmith.DataClasses;
 
 namespace WorldSmith
 {
@@ -36,12 +38,43 @@ namespace WorldSmith
         {
             var methodinfo = typeof(LuaHelper).GetMethod("Print", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
             EditorState.RegisterFunction("print", methodinfo);
+           
 
             methodinfo = typeof(LuaHelper).GetMethod("PrintScratchpad", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
             ScratchpadState.RegisterFunction("print", methodinfo);
 
+            InitEditorState(EditorState);
+            InitEditorState(ScratchpadState);
+           
+
             Console.WriteLine("[Lua] Lua Initialized");
         }
+
+        private static void InitEditorState(Lua state)
+        {
+            state.LoadCLRPackage();
+
+            string resName = "WorldSmith.Scripts.WorldsmithImports.lua";
+
+            Assembly asm = Assembly.GetExecutingAssembly();
+            using (System.IO.Stream s = asm.GetManifestResourceStream(resName))
+            using (System.IO.StreamReader reader = new System.IO.StreamReader(s))
+            {
+                string data = reader.ReadToEnd();
+
+                state.DoString(data, resName);               
+            }
+
+            state["Units"] = DotaData.AllUnits;
+          
+            state["Heroes"] = DotaData.AllHeroes;
+          
+            state["Abilities"] = DotaData.AllAbilities;
+           
+            state["Items"] = DotaData.DefaultItems;
+           
+        }
+
         #region Toolbar State
         private static void Print(params object[] message)
         {

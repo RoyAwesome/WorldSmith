@@ -1,0 +1,5 @@
+﻿import("WorldSmith.exe", "WorldSmith")
+import("WorldSmith.exe", "WorldSmith.DataClasses")
+import("System.Linq")
+import("System.Collections.Generic")
+import("System")
