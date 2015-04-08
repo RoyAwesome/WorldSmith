@@ -30,8 +30,8 @@
         {
             Graph.Compatibility.AlwaysCompatible alwaysCompatible1 = new Graph.Compatibility.AlwaysCompatible();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.graphControl1 = new Graph.GraphControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -58,20 +58,6 @@
             this.splitContainer1.SplitterDistance = 136;
             this.splitContainer1.TabIndex = 0;
             // 
-            // toolStripContainer1
-            // 
-            // 
-            // toolStripContainer1.ContentPanel
-            // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.graphControl1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(823, 433);
-            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(823, 433);
-            this.toolStripContainer1.TabIndex = 0;
-            this.toolStripContainer1.Text = "toolStripContainer1";
-            // 
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -79,20 +65,37 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(136, 433);
             this.treeView1.TabIndex = 0;
+            this.treeView1.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.treeView1_ItemDrag);
+            // 
+            // toolStripContainer1
+            // 
+            // 
+            // toolStripContainer1.ContentPanel
+            // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.graphControl1);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(823, 408);
+            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
+            this.toolStripContainer1.Name = "toolStripContainer1";
+            this.toolStripContainer1.Size = new System.Drawing.Size(823, 433);
+            this.toolStripContainer1.TabIndex = 0;
+            this.toolStripContainer1.Text = "toolStripContainer1";
             // 
             // graphControl1
             // 
+            this.graphControl1.AllowDrop = true;
             this.graphControl1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.graphControl1.CompatibilityStrategy = alwaysCompatible1;
             this.graphControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.graphControl1.FocusElement = null;
-            this.graphControl1.HighlightCompatible = false;
+            this.graphControl1.HighlightCompatible = true;
             this.graphControl1.LargeGridStep = 128F;
             this.graphControl1.LargeStepGridColor = System.Drawing.Color.Black;
             this.graphControl1.Location = new System.Drawing.Point(0, 0);
             this.graphControl1.Name = "graphControl1";
-            this.graphControl1.ShowLabels = false;
-            this.graphControl1.Size = new System.Drawing.Size(823, 433);
+            this.graphControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.graphControl1.ShowLabels = true;
+            this.graphControl1.Size = new System.Drawing.Size(823, 408);
             this.graphControl1.SmallGridStep = 16F;
             this.graphControl1.SmallStepGridColor = System.Drawing.Color.DimGray;
             this.graphControl1.TabIndex = 1;
@@ -104,6 +107,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(963, 433);
             this.Controls.Add(this.splitContainer1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ActionNodeEditor";
             this.Text = "ActionNodeEditor";
             this.splitContainer1.Panel1.ResumeLayout(false);

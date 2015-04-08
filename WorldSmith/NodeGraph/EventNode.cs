@@ -5,20 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using Graph;
 using Graph.Items;
+using WorldSmith.NodeGraph.Items;
 
-namespace WorldSmith.DataClasses
+namespace WorldSmith.NodeGraph
 {
-    class ActionNodeCollection : Node
+    class EventNode : Node
     {
         NodeLabelItem AddPin;
 
-        public ActionNodeCollection(string Actions)
+        public EventNode(string Actions)
             : base(Actions)
         {
            
 
 
-            NodeLabelItem OutputNode1 = new NodeLabelItem("1", false, true);
+            var OutputNode1 = new ExecuteNodeItem("1", false, true);
 
             this.AddItem(OutputNode1);
 
@@ -33,11 +34,12 @@ namespace WorldSmith.DataClasses
         {
             this.RemoveItem(AddPin); //Remove the addpin node, we'll add it again so it's always on bottom
 
-            NodeLabelItem OutputNode = new NodeLabelItem((this.Items.Count() + 1).ToString(), false, true);            
+            var OutputNode = new ExecuteNodeItem((this.Items.Count() + 1).ToString(), false, true);            
             this.AddItem(OutputNode);
 
             this.AddItem(AddPin); //Add AddPin back so it's at the bottom
 
         }
+       
     }
 }
