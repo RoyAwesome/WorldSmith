@@ -20,6 +20,8 @@ namespace WorldSmith.NodeGraph
         {
             DotaAction = action;
             AddNodeElements();
+
+            this.HeaderColor = System.Drawing.Brushes.SteelBlue;
         }
 
         private void AddNodeElements()

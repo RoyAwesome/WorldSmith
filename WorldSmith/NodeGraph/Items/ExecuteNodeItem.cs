@@ -35,21 +35,22 @@ namespace WorldSmith.NodeGraph.Items
         }
 
         public override void RenderContent(Graphics graphics)
-        {
-           
-
-            if (this.Input != null)
+        {      
+            if (this.ItemType == NodeItemType.Input)
             {
-                graphics.DrawString(this.Text, SystemFonts.MenuFont, Brushes.Black, ContentBounds, GraphConstants.LeftTextStringFormat);
+                graphics.DrawString(this.Text, SystemFonts.MenuFont, Node.TextColor, ContentBounds, GraphConstants.LeftTextStringFormat);
             }
             else
             {
-                graphics.DrawString(this.Text, SystemFonts.MenuFont, Brushes.Black, ContentBounds, GraphConstants.RightTextStringFormat);
-            }
-                       
-               
+                graphics.DrawString(this.Text, SystemFonts.MenuFont, Node.TextColor, ContentBounds, GraphConstants.RightTextStringFormat);
+            } 
         }
 
-      
+        public override void RenderPin(Graphics graphics)
+        {
+            base.RenderPin(graphics);
+        }
+
+
     }
 }

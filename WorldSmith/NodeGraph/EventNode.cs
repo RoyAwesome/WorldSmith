@@ -27,6 +27,8 @@ namespace WorldSmith.NodeGraph
             AddPin = new NodeLabelItem("Add Pin +", NodeItemType.Input);
             AddPin.Clicked += AddPin_Clicked;
             this.AddItem(AddPin);
+
+            this.HeaderColor = System.Drawing.Brushes.Brown;
             
         }
 
