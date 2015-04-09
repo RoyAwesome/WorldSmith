@@ -45,6 +45,10 @@ namespace WorldSmith.NodeGraph
                 {
                     item = new NodeNumericSliderItem(prop.Name, 20, 20, 0, 100, 0, NodeItemType.Input);
                 }
+                if(prop.PropertyType == typeof(TargetKey))
+                {
+                    item = new TargetNodeItem(prop.Name, NodeItemType.Input);
+                }
 
                 if(item == null) item = new NodeLabelItem(prop.Name, NodeItemType.Input);
                 this.AddItem(item);

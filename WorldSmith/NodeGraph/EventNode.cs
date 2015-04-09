@@ -13,34 +13,39 @@ namespace WorldSmith.NodeGraph
     {
         NodeLabelItem AddPin;
 
+        int ExecPins = 0;
+
         public EventNode(string Actions)
             : base(Actions)
-        {
-           
-
-
-            var OutputNode1 = new ExecuteNodeItem("1", NodeItemType.Output);
-
-            this.AddItem(OutputNode1);
-
-
+        {           
             AddPin = new NodeLabelItem("Add Pin +", NodeItemType.Input);
             AddPin.Clicked += AddPin_Clicked;
             this.AddItem(AddPin);
 
             this.HeaderColor = System.Drawing.Brushes.Brown;
+
+
+            AddTargetNodes();
+            AddExecPin(); //Add the first Exec pin
             
         }
 
+        private void AddTargetNodes()
+        {
+            var TargetPin = new TargetNodeItem("Caster", NodeItemType.Output);
+            AddItem(TargetPin);
+        }
+
+        public void AddExecPin()
+        {        
+            var OutputNode = new ExecuteNodeItem((++ExecPins).ToString(), NodeItemType.Output);
+            this.AddItem(OutputNode);          
+        }
+
+
         private void AddPin_Clicked(object sender, NodeItemEventArgs e)
         {
-            this.RemoveItem(AddPin); //Remove the addpin node, we'll add it again so it's always on bottom
-
-            var OutputNode = new ExecuteNodeItem((this.Items.Count() + 1).ToString(), NodeItemType.Output);            
-            this.AddItem(OutputNode);
-
-            this.AddItem(AddPin); //Add AddPin back so it's at the bottom
-
+            AddExecPin();
         }
        
     }

@@ -120,6 +120,7 @@
     <Compile Include="NodeGraph\ActionNode.cs" />
     <Compile Include="NodeGraph\EventNode.cs" />
     <Compile Include="NodeGraph\Items\ExecuteNodeItem.cs" />
+    <Compile Include="NodeGraph\Items\TargetNodeItem.cs" />
     <Compile Include="Panels\ActionNodeEditor.cs">
       <SubType>form</SubType>
     </Compile>
