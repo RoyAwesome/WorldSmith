@@ -12,9 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "NodeGraph\Graph\Graph.csproj", "{E4CC63D8-127D-4BC9-80E0-CCB3E9DA06DC}"
 EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		ClassGen|Any CPU = ClassGen|Any CPU
 		Debug|Any CPU = Debug|Any CPU
