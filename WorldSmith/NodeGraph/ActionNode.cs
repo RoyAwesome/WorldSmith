@@ -26,7 +26,7 @@ namespace WorldSmith.NodeGraph
         {
             Type t = DotaAction.GetType();
 
-            var Ex = new ExecuteNodeItem("Execute", true, false);
+            var Ex = new ExecuteNodeItem("Execute", NodeItemType.Input);
             this.AddItem(Ex);
 
             //Loop through all of this action's properties and add node elements for each property type
@@ -41,10 +41,10 @@ namespace WorldSmith.NodeGraph
                 NodeItem item = null;
                 if (prop.PropertyType == typeof(NumberValue))
                 {
-                    item = new NodeNumericSliderItem(prop.Name, 20, 20, 0, 100, 0, true, false);
+                    item = new NodeNumericSliderItem(prop.Name, 20, 20, 0, 100, 0, NodeItemType.Input);
                 }
 
-                if(item == null) item = new NodeLabelItem(prop.Name, true, false);
+                if(item == null) item = new NodeLabelItem(prop.Name, NodeItemType.Input);
                 this.AddItem(item);
 
             }

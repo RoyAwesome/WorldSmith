@@ -19,12 +19,12 @@ namespace WorldSmith.NodeGraph
            
 
 
-            var OutputNode1 = new ExecuteNodeItem("1", false, true);
+            var OutputNode1 = new ExecuteNodeItem("1", NodeItemType.Output);
 
             this.AddItem(OutputNode1);
 
 
-            AddPin = new NodeLabelItem("Add Pin +", false, false);
+            AddPin = new NodeLabelItem("Add Pin +", NodeItemType.Input);
             AddPin.Clicked += AddPin_Clicked;
             this.AddItem(AddPin);
             
@@ -34,7 +34,7 @@ namespace WorldSmith.NodeGraph
         {
             this.RemoveItem(AddPin); //Remove the addpin node, we'll add it again so it's always on bottom
 
-            var OutputNode = new ExecuteNodeItem((this.Items.Count() + 1).ToString(), false, true);            
+            var OutputNode = new ExecuteNodeItem((this.Items.Count() + 1).ToString(), NodeItemType.Output);            
             this.AddItem(OutputNode);
 
             this.AddItem(AddPin); //Add AddPin back so it's at the bottom

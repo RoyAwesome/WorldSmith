@@ -21,35 +21,35 @@ namespace WorldSmith.NodeGraph.Items
             Text = name;
         }
 
-        public ExecuteNodeItem(string Name, bool input, bool output)
-            : base(input, output)
+        public ExecuteNodeItem(string Name, NodeItemType type)
+            : base(type)
         {
             Text = Name;
         }
 
 
 
-        public override SizeF Measure(Graphics context)
+        public override SizeF MeasureContent(Graphics context)
         {
             return new SizeF(GraphConstants.MinimumItemWidth, GraphConstants.MinimumItemHeight);
         }
 
-        public override void Render(Graphics graphics, SizeF minimumSize, PointF position)
+        public override void RenderContent(Graphics graphics)
         {
-            var size = Measure(graphics);
-            size.Width = Math.Max(minimumSize.Width, size.Width);
-            size.Height = Math.Max(minimumSize.Height, size.Height);
+           
 
-            if (this.Input.Enabled != this.Output.Enabled)
+            if (this.Input != null)
             {
-                graphics.DrawString(this.Text, SystemFonts.MenuFont, Brushes.Black, new RectangleF(position, size), GraphConstants.RightTextStringFormat);
+                graphics.DrawString(this.Text, SystemFonts.MenuFont, Brushes.Black, ContentBounds, GraphConstants.LeftTextStringFormat);
             }
             else
             {
-                graphics.DrawString(this.Text, SystemFonts.MenuFont, Brushes.Black, new RectangleF(position, size), GraphConstants.CenterTextStringFormat);
+                graphics.DrawString(this.Text, SystemFonts.MenuFont, Brushes.Black, ContentBounds, GraphConstants.RightTextStringFormat);
             }
-
+                       
                
         }
+
+      
     }
 }
