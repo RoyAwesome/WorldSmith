@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Graph;
+using System.Drawing.Drawing2D;
 
 namespace WorldSmith.NodeGraph.Items
 {
@@ -46,11 +47,25 @@ namespace WorldSmith.NodeGraph.Items
             } 
         }
 
+        
+
         public override void RenderPin(Graphics graphics)
         {
-            base.RenderPin(graphics);
-        }
+            using (var path = new GraphicsPath(FillMode.Winding))
+            {
+                path.AddLine(PinBounds.Left, PinBounds.Top, PinBounds.X + PinBounds.Width / 2, PinBounds.Top);
+                path.AddLine(PinBounds.X + PinBounds.Width / 2, PinBounds.Top, PinBounds.Right, PinBounds.Top + PinBounds.Height / 2);
+                path.AddLine(PinBounds.Right, PinBounds.Top + PinBounds.Height / 2, PinBounds.X + PinBounds.Width / 2, PinBounds.Bottom);
+                path.AddLine(PinBounds.X + PinBounds.Width / 2, PinBounds.Bottom, PinBounds.Left, PinBounds.Bottom);
+                path.AddLine(PinBounds.Left, PinBounds.Bottom, PinBounds.Left, PinBounds.Top);
 
+                path.CloseFigure();
+
+                graphics.DrawPath(Pens.White, path);
+                if (Connector.HasConnection) graphics.FillPath(Brushes.White, path);
+
+            }               
+        }
 
     }
 }
