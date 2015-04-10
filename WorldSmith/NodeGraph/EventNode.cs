@@ -13,7 +13,11 @@ namespace WorldSmith.NodeGraph
     {
         NodeLabelItem AddPin;
 
-        int ExecPins = 0;
+        public ExecuteNodeItem OutputExecute
+        {
+            get;
+            set;
+        }
 
         public EventNode(string Actions)
             : base(Actions)
@@ -35,9 +39,9 @@ namespace WorldSmith.NodeGraph
         }
 
         public void AddExecPin()
-        {        
-            var OutputNode = new ExecuteNodeItem("Event", NodeItemType.Output);
-            this.AddItem(OutputNode);          
+        {
+            OutputExecute = new ExecuteNodeItem("Event", NodeItemType.Output);
+            this.AddItem(OutputExecute);          
         }
               
        

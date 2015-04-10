@@ -15,6 +15,19 @@ namespace WorldSmith.NodeGraph
     {
         BaseAction DotaAction;
 
+        public ExecuteNodeItem OutputExecute
+        {
+            get;
+            private set;
+        }
+
+        public ExecuteNodeItem InputExecute
+        {
+            get;
+            private set;
+        }
+
+
         public ActionNode(BaseAction action)
             : base(action.ClassName)
         {
@@ -28,11 +41,11 @@ namespace WorldSmith.NodeGraph
         {
             Type t = DotaAction.GetType();
 
-            var Ex = new ExecuteNodeItem("Execute", NodeItemType.Input);
-            this.AddItem(Ex);
+            InputExecute = new ExecuteNodeItem("Execute", NodeItemType.Input);
+            this.AddItem(InputExecute);
 
-            Ex = new ExecuteNodeItem("Execute", NodeItemType.Output);
-            this.AddItem(Ex);
+            OutputExecute = new ExecuteNodeItem("Execute", NodeItemType.Output);
+            this.AddItem(OutputExecute);
 
             //Loop through all of this action's properties and add node elements for each property type
             PropertyInfo[] properties = t.GetProperties();

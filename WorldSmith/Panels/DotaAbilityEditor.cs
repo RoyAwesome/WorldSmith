@@ -13,6 +13,7 @@ using WorldSmith.Documents;
 using WorldSmith.NodeGraph;
 using Graph;
 using Graph.Compatibility;
+using WorldSmith.NodeGraph.Items;
 
 namespace WorldSmith.Panels
 {
@@ -109,7 +110,11 @@ namespace WorldSmith.Panels
         private void AbilityChanged()
         {
             propertyGrid1.SelectedObject = Ability;
-            
+
+            graphControl1.RemoveNodes(graphControl1.Nodes);
+
+
+            PlaceEvents();
         }
 
 
@@ -135,5 +140,68 @@ namespace WorldSmith.Panels
         {
             
         }
+
+
+
+
+        #region Layouting
+        const int EventColumn = 200;
+        const int EventSpacing = 150;
+        const int ColumnSpacing = 50;
+
+
+        private void PlaceEvents()
+        {
+            PointF Position = new PointF(EventColumn, 0);
+            Graphics g = graphControl1.GetLayoutGraphics();
+
+
+            foreach (ActionCollection kvEvents in Ability.ActionList)
+            {
+                var ev = new EventNode(kvEvents.EventName);
+                ev.Location = Position;
+
+               
+
+                ev.PerformLayout(g);
+
+                graphControl1.AddNode(ev);
+
+                PointF col = Position;
+                col.X = ev.Bounds.Right + ColumnSpacing; //Move this node to the left of the event node + spacing
+
+                ExecuteNodeItem ExNode = ev.OutputExecute;
+
+                float columnHeight = ev.Bounds.Height;
+                foreach(var kvAction in kvEvents)
+                {
+                    if (kvAction == null) continue;
+                       
+                    var ActionNode = new ActionNode(kvAction);
+                    ActionNode.Location = col;
+                    
+                    graphControl1.AddNode(ActionNode);
+                    ActionNode.PerformLayout(g);
+
+                    //Connect the execute nodes
+                    var inputNode = ActionNode.InputExecute;
+                    graphControl1.Connect(ExNode, inputNode);
+                    ExNode = ActionNode.OutputExecute;
+
+                    //Move the pen right to place the next action node
+                    col.X = ActionNode.Bounds.Right + ColumnSpacing;
+                    columnHeight = Math.Max(ActionNode.Bounds.Height, columnHeight);
+                }
+
+
+                Position.Y += columnHeight + EventSpacing;
+
+            }
+
+        }
+
+
+
+        #endregion
     }
 }
