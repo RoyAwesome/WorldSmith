@@ -67,6 +67,11 @@ namespace WorldSmith.NodeGraph
             }
         }
 
+        public TargetNodeItem GetTargetNodeFor(string Preset)
+        {
+            return Items.Where(x => x is TargetNodeItem).Cast<TargetNodeItem>().FirstOrDefault(x => x.Text.Equals(Preset.ToString(), StringComparison.OrdinalIgnoreCase));
+        }
+
         public void AddExecPin()
         {
             OutputExecute = new ExecuteNodeItem("Event", NodeItemType.Output);

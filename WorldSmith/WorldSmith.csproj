@@ -116,7 +116,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckForUpdate.cs" />
+    <Compile Include="Utils\CheckForUpdate.cs" />
     <Compile Include="DataClasses\Actions\DotaActionCollection.cs" />
     <Compile Include="DataClasses\ScriptTypes\DotaEvent.cs" />
     <Compile Include="NodeGraph\ActionNode.cs" />
@@ -211,7 +211,7 @@
     <Compile Include="Documents\DotaObjectDocument.cs" />
     <Compile Include="Documents\TextDocument.cs" />
     <Compile Include="Documents\VirtualTextDocument.cs" />
-    <Compile Include="KeyValueExt.cs" />
+    <Compile Include="Utils\KeyValueExt.cs" />
     <Compile Include="Localization\LocaleManager.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -323,6 +323,7 @@
     <Compile Include="Themes\VS2012ToolStripRenderer.cs" />
     <Compile Include="Utils\IConsoleNotify.cs" />
     <Compile Include="Utils\Stopwatches.cs" />
+    <Compile Include="Utils\Utils.cs" />
     <EmbeddedResource Include="Dialogs\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -407,7 +408,6 @@
       <SubType>Designer</SubType>
     </Content>
     <EmbeddedResource Include="Resources\WorldsmithAbout.rtf" />
-    <None Include="WorldSmith_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -503,9 +503,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataClasses\UI\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\NodeGraph\Graph\Graph.csproj">
       <Project>{e4cc63d8-127d-4bc9-80e0-ccb3e9da06dc}</Project>

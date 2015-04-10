@@ -7,23 +7,25 @@ using System.Threading.Tasks;
 
 namespace WorldSmith.DataClasses
 {
-    public class TargetKey
+    public class TargetKey : DotaDataObject
     {
-        public enum PresetType
+        public static TargetKey DefaultTarget
+            {
+                get { return new TargetKey(); }
+            }
+      
+        public string Preset
         {
-            NONE,
-            CASTER,
-            TARGET,
-            POINT,
-            UNIT,
-            PROJECTILE,
-            ATTACKER,
-        }
-
-        public PresetType Preset
-        {
-            get;
-            set;
+            get
+            {
+                if (KeyValue.HasChildren) return null;
+                return KeyValue.GetString();
+            }
+            set
+            {
+                if (KeyValue.HasChildren) KeyValue.ClearChildren();
+                KeyValue.Set(value);
+            }
         }
 
         public enum ShapeE
@@ -34,32 +36,97 @@ namespace WorldSmith.DataClasses
 
         public ShapeE Shape
         {
-            get;
-            set;
+            get
+            {
+                KeyValue kv = GetSubkey("Shape");
+                return (kv == null ? ShapeE.LINE : kv.GetEnum<ShapeE>());
+            }
+            set
+            {
+                KeyValue kv = GetSubkey("Shape");
+                if (kv == null)
+                {
+                    kv = new KeyValue("Shape");
+                    KeyValue.AddChild(kv);
+                }
+                kv.Set(value);
+            }
         }
 
-        public PresetType Center
+        public string Center
         {
-            get;
-            set;
+            get
+            {
+                KeyValue kv = GetSubkey("Center");
+                return (kv == null ? "" : kv.GetString());
+            }
+            set
+            {
+                KeyValue kv = GetSubkey("Center");
+                if (kv == null)
+                {
+                    kv = new KeyValue("Center");
+                    KeyValue.AddChild(kv);
+                }
+                kv.Set(value);
+            }
         }
 
         public NumberValue Radius
         {
-            get;
-            set;
+            get
+            {
+                KeyValue kv = GetSubkey("Radius");
+                return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+            }
+            set
+            {
+                KeyValue kv = GetSubkey("Radius");
+                if (kv == null)
+                {
+                    kv = new KeyValue("Radius");
+                    KeyValue.AddChild(kv);
+                }
+                kv.Set(value);
+            }
         }
 
         public NumberValue Length
         {
-            get;
-            set;
+            get
+            {
+                KeyValue kv = GetSubkey("Length");
+                return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+            }
+            set
+            {
+                KeyValue kv = GetSubkey("Length");
+                if (kv == null)
+                {
+                    kv = new KeyValue("Length");
+                    KeyValue.AddChild(kv);
+                }
+                kv.Set(value);
+            }
         }
 
         public NumberValue Thickness
         {
-            get;
-            set;
+            get
+            {
+                KeyValue kv = GetSubkey("Thickness");
+                return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+            }
+            set
+            {
+                KeyValue kv = GetSubkey("Thickness");
+                if (kv == null)
+                {
+                    kv = new KeyValue("Thickness");
+                    KeyValue.AddChild(kv);
+                }
+                kv.Set(value);
+            }
         }
 
         [Flags]
@@ -74,8 +141,21 @@ namespace WorldSmith.DataClasses
 
         public AbilityUnitTargetTeamFlags Teams
         {
-            get;
-            set;
+            get
+            {
+                KeyValue kv = GetSubkey("Teams");
+                return (kv == null ? AbilityUnitTargetTeamFlags.DOTA_UNIT_TARGET_TEAM_NONE : kv.GetEnum<AbilityUnitTargetTeamFlags>());
+            }
+            set
+            {
+                KeyValue kv = GetSubkey("Teams");
+                if (kv == null)
+                {
+                    kv = new KeyValue("Teams");
+                    KeyValue.AddChild(kv);
+                }
+                kv.Set(value);
+            }
         }
 
         [Flags]
@@ -95,8 +175,21 @@ namespace WorldSmith.DataClasses
 
         public AbilityUnitTargetTypeFlags UnitTypes
         {
-            get;
-            set;
+            get
+            {
+                KeyValue kv = GetSubkey("UnitTypes");
+                return (kv == null ? AbilityUnitTargetTypeFlags.DOTA_UNIT_TARGET_NONE : kv.GetEnum<AbilityUnitTargetTypeFlags>());
+            }
+            set
+            {
+                KeyValue kv = GetSubkey("UnitTypes");
+                if (kv == null)
+                {
+                    kv = new KeyValue("UnitTypes");
+                    KeyValue.AddChild(kv);
+                }
+                kv.Set(value);
+            }
         }
 
         [Flags]
@@ -126,88 +219,74 @@ namespace WorldSmith.DataClasses
 
         public AbilityUnitTargetFlags Flags
         {
-            get;
-            set;
+            get
+            {
+                KeyValue kv = GetSubkey("Flags");
+                return (kv == null ? AbilityUnitTargetFlags.DOTA_UNIT_TARGET_FLAG_NONE : kv.GetEnum<AbilityUnitTargetFlags>());
+            }
+            set
+            {
+                KeyValue kv = GetSubkey("Flags");
+                if (kv == null)
+                {
+                    kv = new KeyValue("Flags");
+                    KeyValue.AddChild(kv);
+                }
+                kv.Set(value);
+            }
         }
 
         public NumberValue MaxTargets
         {
-            get;
-            set;
+            get
+            {
+                KeyValue kv = GetSubkey("MaxTargets");
+                return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+            }
+            set
+            {
+                KeyValue kv = GetSubkey("MaxTargets");
+                if (kv == null)
+                {
+                    kv = new KeyValue("MaxTargets");
+                    KeyValue.AddChild(kv);
+                }
+                kv.Set(value);
+            }
         }
 
         public NumberValue Random
         {
-            get;
-            set;
+            get
+            {
+                KeyValue kv = GetSubkey("Random");
+                return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+            }
+            set
+            {
+                KeyValue kv = GetSubkey("Random");
+                if (kv == null)
+                {
+                    kv = new KeyValue("Random");
+                    KeyValue.AddChild(kv);
+                }
+                kv.Set(value);
+            }
+        }
+
+    
+        public TargetKey(KeyValue kv)
+            : base(kv)
+        {
+
         }
 
         public TargetKey()
+            : base(new KeyValue("Target") + "Caster")
         {
-            Preset = PresetType.TARGET;
-            Center = PresetType.TARGET;
-            Radius = new NumberValue("");
-            Length = new NumberValue("");
-            Thickness = new NumberValue("");
-            Teams = AbilityUnitTargetTeamFlags.DOTA_UNIT_TARGET_TEAM_ENEMY;
-            UnitTypes = AbilityUnitTargetTypeFlags.DOTA_UNIT_TARGET_NONE;
-            Flags = AbilityUnitTargetFlags.DOTA_UNIT_TARGET_FLAG_NONE;
-            MaxTargets = new NumberValue("-1");
-            Random = new NumberValue("");
-            
+
         }
-
-        public KeyValue ToKV(string key)
-        {
-            KeyValue kv = new KeyValue(key);
-            if (Preset != PresetType.NONE)
-            {
-                kv += Preset.ToString();
-                return kv;
-            }
-            kv += new KeyValue("Center") + Center.ToString();
-            if(this.Shape == ShapeE.CIRCLE)
-            {
-                kv += new KeyValue("Radius") + Radius.ToString();
-            }
-            if(this.Shape == ShapeE.LINE)
-            {
-                KeyValue linechild = new KeyValue("Line");
-                linechild += new KeyValue("Length") + Length.ToString();
-                linechild += new KeyValue("Thickness") + Thickness.ToString();
-                kv += linechild;
-            }
-            
-            kv += new KeyValue("Teams") + Teams.ToString().Replace(",", " |");
-            kv += new KeyValue("Types") + UnitTypes.ToString().Replace(",", " |");
-            kv += new KeyValue("Flags") + Flags.ToString().Replace(",", " |");
-
-            if(MaxTargets.Value != "-1")
-            {
-                kv += new KeyValue("MaxTargets") + MaxTargets.ToString();
-                kv += new KeyValue("Random") + Random.ToString();
-            }
-                       
-
-            return kv;
-        }
-
-        public KeyValue ToKV()
-        {
-            return ToKV("Target");
-        }
-
-        public override string ToString()
-        {
-            if(Preset == PresetType.NONE)
-            {
-                return "CUSTOM TARGET";
-            }
-            else
-            {
-                return Preset.ToString();
-            }
-        }
+        
         
     }
 }

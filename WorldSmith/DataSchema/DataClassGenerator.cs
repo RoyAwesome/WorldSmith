@@ -341,7 +341,13 @@ namespace WorldSmith.DataSchema
                     csFile.AppendLine("KeyValue kv = GetSubkey(\"" + c.Key + "\");");
                     csFile.AppendLine("\t\t\t\treturn (kv == null ? " + type +"."+ c["DefaultValue"].GetString() + " : kv.GetEnum<" + type + ">());");                   
                 }
-                    //TODO: Add other getters here.  Probably need to do some extensions to KeyValue
+                else if (type == "TargetKey")
+                {
+                    csFile.AppendLine("KeyValue kv = GetSubkey(\"" + c.Key + "\");");
+                    csFile.AppendLine("\t\t\t\treturn (kv == null ? new TargetKey() : kv.GetTargetKey());");
+                }
+                //TODO: Add other getters here.  Probably need to do some extensions to KeyValue
+
                 else
                 {
 

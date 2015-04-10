@@ -13,7 +13,11 @@ namespace WorldSmith.NodeGraph
 {
     class ActionNode : Node
     {
-        BaseAction DotaAction;
+        public BaseAction DotaAction
+        {
+            get;
+            private set;
+        }
 
         public ExecuteNodeItem OutputExecute
         {
@@ -25,6 +29,12 @@ namespace WorldSmith.NodeGraph
         {
             get;
             private set;
+        }
+
+        public TargetNodeItem TargetPin
+        {
+            get;
+            set;
         }
 
 
@@ -54,8 +64,8 @@ namespace WorldSmith.NodeGraph
             var target = properties.FirstOrDefault(x => x.Name == "Target");
             if (target != null)
             {
-                var item = new TargetNodeItem(target.Name, NodeItemType.Input);
-                this.AddItem(item);
+                TargetPin = new TargetNodeItem(target.Name, NodeItemType.Input);
+                this.AddItem(TargetPin);
             }
 
 

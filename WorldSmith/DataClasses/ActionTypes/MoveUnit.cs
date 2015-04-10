@@ -29,7 +29,8 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(TargetKey);
+				KeyValue kv = GetSubkey("MoveToTarget");
+				return (kv == null ? new TargetKey() : kv.GetTargetKey());
 			}
 			set
 			{

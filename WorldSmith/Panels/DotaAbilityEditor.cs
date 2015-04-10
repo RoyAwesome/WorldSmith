@@ -172,19 +172,19 @@ namespace WorldSmith.Panels
             foreach (DotaActionCollection kvEvents in Ability.ActionList)
             {
                 var Event = DotaData.Events.FirstOrDefault(x => x.ClassName == kvEvents.ClassName);
-                var ev = new EventNode(Event);
-                ev.Location = Position;
+                var EventNode = new EventNode(Event);
+                EventNode.Location = Position;
 
-                ev.PerformLayout(g);
+                EventNode.PerformLayout(g);
 
-                graphControl1.AddNode(ev);
+                graphControl1.AddNode(EventNode);
 
                 PointF col = Position;
-                col.X = ev.Bounds.Right + ColumnSpacing; //Move this node to the left of the event node + spacing
+                col.X = EventNode.Bounds.Right + ColumnSpacing; //Move this node to the left of the event node + spacing
 
-                ExecuteNodeItem ExNode = ev.OutputExecute;
+                ExecuteNodeItem ExNode = EventNode.OutputExecute;
 
-                float columnHeight = ev.Bounds.Height;
+                float columnHeight = EventNode.Bounds.Height;
                 foreach(var kvAction in kvEvents)
                 {
                     if (kvAction == null) continue;
@@ -200,6 +200,8 @@ namespace WorldSmith.Panels
                     graphControl1.Connect(ExNode, inputNode);
                     ExNode = ActionNode.OutputExecute;
 
+                    ConnectTargets(EventNode, ActionNode);
+
                     //Move the pen right to place the next action node
                     col.X = ActionNode.Bounds.Right + ColumnSpacing;
                     columnHeight = Math.Max(ActionNode.Bounds.Height, columnHeight);
@@ -210,6 +212,23 @@ namespace WorldSmith.Panels
 
             }
 
+        }
+
+        private void ConnectTargets(EventNode Event, ActionNode Action)
+        {
+            if (!(Action.DotaAction is TargetedAction)) return; //An action without targets doesn't need it's nodes resolved
+            TargetedAction ta = Action.DotaAction as TargetedAction;
+
+
+            if (ta.Target.Preset == null) return; //Not a preset.  TODO: Generated a Make Target node with the details of this target key
+
+            var outputItem = Event.GetTargetNodeFor(ta.Target.Preset);
+
+            if (outputItem == null) return;
+
+            graphControl1.Connect(outputItem, Action.TargetPin);
+            
+            
         }
 
 

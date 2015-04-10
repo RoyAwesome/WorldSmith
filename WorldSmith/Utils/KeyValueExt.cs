@@ -58,5 +58,10 @@ namespace WorldSmith
             return new NumberValue(kv.GetString());
         }
         
+        public static TargetKey GetTargetKey(this KeyValue kv)
+        {
+            TargetKey tk = new TargetKey(kv);
+            return tk;
+        }
     }
 }
