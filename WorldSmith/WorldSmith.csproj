@@ -121,6 +121,7 @@
     <Compile Include="NodeGraph\EventNode.cs" />
     <Compile Include="NodeGraph\Items\ExecuteNodeItem.cs" />
     <Compile Include="NodeGraph\Items\TargetNodeItem.cs" />
+    <Compile Include="NodeGraph\VariableNode.cs" />
     <Compile Include="Panels\DotaAbilityEditor.cs">
       <SubType>form</SubType>
     </Compile>

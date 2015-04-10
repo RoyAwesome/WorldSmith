@@ -27,6 +27,7 @@ namespace WorldSmith.Panels
 
             AddEvents();
             AddActions();
+           
 
         }
 
@@ -82,6 +83,25 @@ namespace WorldSmith.Panels
 
         }
 
+        private void AddVariables()
+        {           
+            TreeNode n = treeView1.Nodes["Variables"];
+            if (n == null)
+            {
+                n = treeView1.Nodes.Add("Variables");
+                n.Tag = "Folder";
+            }
+
+            n.Nodes.Clear();
+
+            foreach (var Variable in Ability.ActionList.Variables)
+            {
+                var v = n.Nodes.Add(Variable.Name);
+                v.Tag = "Variable";
+            }
+
+        }
+
         private void treeView1_ItemDrag(object sender, ItemDragEventArgs e)
         {
             if (e.Button != MouseButtons.Left) return;
@@ -100,7 +120,12 @@ namespace WorldSmith.Panels
             {
                 Node = new EventNode((string)SelectedNode.Text);
             }
+            if ((string)SelectedNode.Tag == "Variable")
+            {
+                var Var = Ability.ActionList.Variables.First(x => x.Name == (string)SelectedNode.Text);
+                Node = new VariableNode(Var);
 
+            }
 
             Node.Location = new PointF(0, 0);
             this.DoDragDrop(Node, DragDropEffects.Copy);
@@ -113,6 +138,7 @@ namespace WorldSmith.Panels
 
             graphControl1.RemoveNodes(graphControl1.Nodes);
 
+            AddVariables();
 
             PlaceEvents();
         }
@@ -160,8 +186,6 @@ namespace WorldSmith.Panels
             {
                 var ev = new EventNode(kvEvents.EventName);
                 ev.Location = Position;
-
-               
 
                 ev.PerformLayout(g);
 
