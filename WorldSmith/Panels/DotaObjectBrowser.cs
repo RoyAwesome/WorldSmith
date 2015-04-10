@@ -128,20 +128,7 @@ namespace WorldSmith.Panels
            
         }
 
-        private void OpenObjectEditor(DotaDataObject ddo)
-        {                        
-            Document doc = DocumentRegistry.GetDocumentFor(ddo);
-            if (doc == null)
-            {
-                //If we don't have this document open, create it and add it to the registry
-                doc = new DotaObjectDocument(ddo);
-                DocumentRegistry.OpenDocument(ddo, doc);
-            }
-
-            doc.OpenDefaultEditor();
-        }
-
-        private void OpenTextEditor(DotaDataObject ddo)
+        private Document OpenDocument(DotaDataObject ddo)
         {
             Document doc = DocumentRegistry.GetDocumentFor(ddo);
             if (doc == null)
@@ -151,6 +138,18 @@ namespace WorldSmith.Panels
                 DocumentRegistry.OpenDocument(ddo, doc);
             }
 
+            return doc;
+        }
+
+        private void OpenObjectEditor(DotaDataObject ddo)
+        {
+            var doc = OpenDocument(ddo);
+            doc.OpenDefaultEditor();
+        }
+              
+        private void OpenTextEditor(DotaDataObject ddo)
+        {
+            var doc = OpenDocument(ddo);
             (doc as DotaObjectDocument).OpenTextEditor();
         }
 

@@ -121,11 +121,11 @@
     <Compile Include="NodeGraph\EventNode.cs" />
     <Compile Include="NodeGraph\Items\ExecuteNodeItem.cs" />
     <Compile Include="NodeGraph\Items\TargetNodeItem.cs" />
-    <Compile Include="Panels\ActionNodeEditor.cs">
+    <Compile Include="Panels\DotaAbilityEditor.cs">
       <SubType>form</SubType>
     </Compile>
-    <Compile Include="Panels\ActionNodeEditor.Designer.cs">
-      <DependentUpon>ActionNodeEditor.cs</DependentUpon>
+    <Compile Include="Panels\DotaAbilityEditor.Designer.cs">
+      <DependentUpon>DotaAbilityEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\ConsoleStringWriter.cs" />
     <Compile Include="DataClasses\ActionProperties\BaseActionVariable.cs" />
@@ -429,8 +429,8 @@
     <EmbeddedResource Include="LuaUtils\ScratchPad.resx">
       <DependentUpon>ScratchPad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\ActionNodeEditor.resx">
-      <DependentUpon>ActionNodeEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Panels\DotaAbilityEditor.resx">
+      <DependentUpon>DotaAbilityEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\StartPageForm.resx">
       <DependentUpon>StartPageForm.cs</DependentUpon>

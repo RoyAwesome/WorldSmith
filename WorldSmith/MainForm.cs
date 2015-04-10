@@ -419,11 +419,6 @@ namespace WorldSmith
             if (ScratchPad == null) ScratchPad = new ScratchPad();
             ScratchPad.Show(dockPanel, DockState.Document);
         }
-
-        private void graphEditorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ActionNodeEditor ed = new ActionNodeEditor();
-            ed.Show(dockPanel, DockState.Float);
-        }
+             
     }
 }

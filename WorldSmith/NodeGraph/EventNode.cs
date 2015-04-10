@@ -18,15 +18,13 @@ namespace WorldSmith.NodeGraph
         public EventNode(string Actions)
             : base(Actions)
         {           
-            AddPin = new NodeLabelItem("Add Pin +", NodeItemType.Input);
-            AddPin.Clicked += AddPin_Clicked;
-            this.AddItem(AddPin);
+           
 
             this.HeaderColor = System.Drawing.Brushes.Brown;
 
-
+            AddExecPin();
             AddTargetNodes();
-            AddExecPin(); //Add the first Exec pin
+            
             
         }
 
@@ -38,15 +36,10 @@ namespace WorldSmith.NodeGraph
 
         public void AddExecPin()
         {        
-            var OutputNode = new ExecuteNodeItem((++ExecPins).ToString(), NodeItemType.Output);
+            var OutputNode = new ExecuteNodeItem("Event", NodeItemType.Output);
             this.AddItem(OutputNode);          
         }
-
-
-        private void AddPin_Clicked(object sender, NodeItemEventArgs e)
-        {
-            AddExecPin();
-        }
+              
        
     }
 }

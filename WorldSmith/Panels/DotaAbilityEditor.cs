@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using WorldSmith.DataClasses;
+using WorldSmith.Documents;
 using WorldSmith.NodeGraph;
-using Graph.Compatibility;
 using Graph;
+using Graph.Compatibility;
 
 namespace WorldSmith.Panels
 {
-    public partial class ActionNodeEditor : DockContent
+    public partial class DotaAbilityEditor : DockContent, IEditor
     {
-       
-        public ActionNodeEditor()
+        public DotaAbilityEditor()
         {
             InitializeComponent();
 
@@ -27,12 +27,17 @@ namespace WorldSmith.Panels
             AddEvents();
             AddActions();
 
-            EventNode ac = new EventNode("OnSpellStart");
-            ac.Location = new PointF(200, 50);
+        }
 
-
-            graphControl1.AddNode(ac);           
-
+        DotaAbility ability;
+        public DotaAbility Ability
+        {
+            get { return ability; }
+            set
+            {
+                ability = value;
+                AbilityChanged();
+            }
         }
 
         private void AddActions()
@@ -68,7 +73,7 @@ namespace WorldSmith.Panels
                 "OnProjectileFinish",
             };
 
-            foreach(string Action in AllActions)
+            foreach (string Action in AllActions)
             {
                 TreeNode n = root.Nodes.Add(Action);
                 n.Tag = "Event";
@@ -88,7 +93,7 @@ namespace WorldSmith.Panels
             {
                 var Action = DotaActionFactory.CreateNewAction(SelectedNode.Text);
                 Node = new ActionNode(Action);
-              
+
             }
             if ((string)SelectedNode.Tag == "Event")
             {
@@ -101,6 +106,34 @@ namespace WorldSmith.Panels
 
         }
 
-    
+        private void AbilityChanged()
+        {
+            propertyGrid1.SelectedObject = Ability;
+            
+        }
+
+
+
+
+        public Document ActiveDocument
+        {
+            get;
+            set;
+        }
+
+        public void CloseDocument(bool ConfirmChanges)
+        {
+            
+        }
+
+        public void NotifyDocumentModified(IEditor source)
+        {
+            
+        }
+
+        public void NotifyDocumentSaved(IEditor source)
+        {
+            
+        }
     }
 }

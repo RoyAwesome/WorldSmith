@@ -18,7 +18,7 @@ namespace WorldSmith.Documents
             : base()
         {
             DotaObject = RootObject;
-                       
+
             Source = DotaObject.ObjectInfo.FromVPK ? DocumentSource.VPK : DocumentSource.File;
             Path = DotaObject.ObjectInfo.OriginatingFile;
 
@@ -32,8 +32,8 @@ namespace WorldSmith.Documents
 
         protected override void DoSave(IEditor source)
         {
-            
-            if(source is TextEditor)
+
+            if (source is TextEditor)
             {
                 TextEditor textEd = source as TextEditor;
                 //Commit these changes to the dota object.  
@@ -41,7 +41,7 @@ namespace WorldSmith.Documents
 
                 DotaObject.KeyValue = kv;
             }
-            
+
         }
 
         public override void Reload()
@@ -51,13 +51,15 @@ namespace WorldSmith.Documents
 
         public override bool CanEditorOpen(Type EditorType)
         {
+            if (DotaObject is DotaAbility && EditorType == typeof(DotaAbilityEditor)) return true;
             if (EditorType == typeof(TextEditor) || EditorType == typeof(DotaObjectEditor)) return true;
             return false;
         }
 
         public override void OpenDefaultEditor()
         {
-            OpenObjectEditor(); 
+            if (DotaObject is DotaAbility) OpenAbilityEditor(); //If we are an Ability, open the Ability Editor
+            else OpenObjectEditor();
             //OpenTextEditor();
         }
 
@@ -72,12 +74,25 @@ namespace WorldSmith.Documents
         {
             bool EditorWasOpen = ContainsEditor<DotaObjectEditor>();
             DotaObjectEditor Editor = OpenEditor<DotaObjectEditor>();
-            if(!EditorWasOpen)
+            if (!EditorWasOpen)
             {
                 Editor.EditingObject = DotaObject;
                 Editor.TabText = DotaObject.ClassName;
                 Editor.Show(MainForm.PrimaryDockingPanel, DockState.Document);
-            }         
+            }
+            return Editor;
+        }
+
+        public DotaAbilityEditor OpenAbilityEditor()
+        {
+            bool EditorWasOpen = ContainsEditor<DotaAbilityEditor>();
+            DotaAbilityEditor Editor = OpenEditor<DotaAbilityEditor>();
+            if (!EditorWasOpen)
+            {
+                Editor.Ability = DotaObject as DotaAbility;
+                Editor.TabText = DotaObject.ClassName;
+                Editor.Show(MainForm.PrimaryDockingPanel, DockState.Document);
+            }
             return Editor;
         }
     }

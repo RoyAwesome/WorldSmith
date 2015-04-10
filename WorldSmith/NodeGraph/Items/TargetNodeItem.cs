@@ -33,11 +33,14 @@ namespace WorldSmith.NodeGraph.Items
             {
                 graphics.DrawString(this.Text, SystemFonts.MenuFont, Node.TextColor, ContentBounds, GraphConstants.RightTextStringFormat);
             }
+
+            
         }
 
         public override SizeF MeasureContent(Graphics context)
         {
-            var stringSize = context.MeasureString(this.Text, SystemFonts.MenuFont, GraphConstants.MinimumItemWidth);
+            StringFormat format = this.ItemType == NodeItemType.Input ? GraphConstants.LeftTextStringFormat : GraphConstants.RightTextStringFormat;
+            var stringSize = context.MeasureString(this.Text, SystemFonts.MenuFont, new SizeF(GraphConstants.MinimumItemWidth, GraphConstants.MinimumItemHeight), format);
 
             return stringSize;
         }

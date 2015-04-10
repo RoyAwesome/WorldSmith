@@ -233,12 +233,6 @@
   <data name="luaScratchpadToolStripMenuItem.Text" xml:space="preserve">
     <value>Lua Scratchpad</value>
   </data>
-  <data name="graphEditorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 22</value>
-  </data>
-  <data name="graphEditorToolStripMenuItem.Text" xml:space="preserve">
-    <value>Graph Editor</value>
-  </data>
   <data name="windowToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 20</value>
   </data>
@@ -687,12 +681,6 @@
   </data>
   <data name="&gt;&gt;vS2012LightTheme1.Type" xml:space="preserve">
     <value>WeifenLuo.WinFormsUI.Docking.VS2012LightTheme, WeifenLuo.WinFormsUI.Docking, Version=2.9.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481</value>
-  </data>
-  <data name="&gt;&gt;graphEditorToolStripMenuItem.Name" xml:space="preserve">
-    <value>graphEditorToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;graphEditorToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

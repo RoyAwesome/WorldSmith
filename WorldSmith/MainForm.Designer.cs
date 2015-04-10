@@ -81,7 +81,6 @@
             this.vS2003Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2003Theme();
             this.vS2005Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2005Theme();
             this.vS2012LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2012LightTheme();
-            this.graphEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -204,8 +203,7 @@
             this.projectExplorerToolStripMenuItem,
             this.objectBrowserToolStripMenuItem,
             this.toolStripSeparator3,
-            this.luaScratchpadToolStripMenuItem,
-            this.graphEditorToolStripMenuItem});
+            this.luaScratchpadToolStripMenuItem});
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
             resources.ApplyResources(this.windowToolStripMenuItem, "windowToolStripMenuItem");
             // 
@@ -360,12 +358,6 @@
             dockPanelSkin1.DockPaneStripSkin = dockPaneStripSkin1;
             this.dockPanel.Skin = dockPanelSkin1;
             // 
-            // graphEditorToolStripMenuItem
-            // 
-            this.graphEditorToolStripMenuItem.Name = "graphEditorToolStripMenuItem";
-            resources.ApplyResources(this.graphEditorToolStripMenuItem, "graphEditorToolStripMenuItem");
-            this.graphEditorToolStripMenuItem.Click += new System.EventHandler(this.graphEditorToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -421,7 +413,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem luaScratchpadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem graphEditorToolStripMenuItem;
     }
 }
 

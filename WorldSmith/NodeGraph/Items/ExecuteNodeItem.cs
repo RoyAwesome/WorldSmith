@@ -32,7 +32,8 @@ namespace WorldSmith.NodeGraph.Items
 
         public override SizeF MeasureContent(Graphics context)
         {
-            var stringSize = context.MeasureString(this.Text, SystemFonts.MenuFont);
+            StringFormat format = this.ItemType == NodeItemType.Input ? GraphConstants.LeftTextStringFormat : GraphConstants.RightTextStringFormat;
+            var stringSize = context.MeasureString(this.Text, SystemFonts.MenuFont, new SizeF(GraphConstants.MinimumItemWidth, GraphConstants.MinimumItemHeight), format);
 
             return stringSize;
         }
