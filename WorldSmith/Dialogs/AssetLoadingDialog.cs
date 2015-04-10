@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,14 +19,27 @@ namespace WorldSmith.Dialogs
 
         public static Dictionary<string, Task> InitialLoad = new Dictionary<string, Task>()
         {
-            {"Building Action Factory", () => { DotaActionFactory.BuildFactory(); } }, 
+            {"Building Action Factory", () => { DotaActionFactory.BuildFactory(); } },
             {"Opening pak01_dir.vpk",  () => { DotaData.LoadFromVPK(Properties.Settings.Default.DotaDir); } },
             {"npc_units.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultUnitsFile, DotaData.AllUnits); } },
             {"npc_heroes.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultHeroesFile, DotaData.AllHeroes); } },
             {"npc_abilities.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultAbilitiesFile, DotaData.AllAbilities); } },
             {"items.txt", () => { DotaData.ReadScriptFromVPK(DotaData.DefaultItemsFile, DotaData.AllItems); } },
+            {"Parsing Events", () => {
+                    string resName = "WorldSmith.Scripts.DotaEvents.txt";
+
+                    Assembly asm = Assembly.GetExecutingAssembly();
+                    using (System.IO.Stream s = asm.GetManifestResourceStream(resName))
+                    using (System.IO.StreamReader reader = new System.IO.StreamReader(s))
+                    {
+                        string data = reader.ReadToEnd();
+                        DotaData.ReadKeyValues(data, resName, DotaData.Events, false);
+                    }
+            } },
             {"Init Lua", () => { LuaHelper.Init();  } }
         };
+
+      
 
         public static Dictionary<string, Task> AddonLoadTasks = new Dictionary<string, Task>()
         {

@@ -67,10 +67,10 @@ namespace WorldSmith.DataClasses
 
         public static IEnumerable<DotaItem> CustomItems = AllItems.Where(x=> x.ObjectInfo.ObjectClass == DotaDataObject.DataObjectInfo.ObjectDataClass.Custom);
 
-        
+
         #endregion
 
-
+        public static List<DotaEvent> Events = new List<DotaEvent>();
 
         public static IEnumerable<DotaDataObject> AllClasses = AllUnits.Cast<DotaDataObject>()
             .Union(AllAbilities.Cast<DotaDataObject>())
@@ -224,25 +224,23 @@ namespace WorldSmith.DataClasses
         }
 
 
-        public static void ReadCustom<T>(string file, List<T> ListToLoadInto, bool Override = false) where T : DotaDataObject
+        public static void ReadKeyValues<T>(string keyvalues, string file, List<T> ListToLoadInto, bool Override = false) where T : DotaDataObject
         {
-            if (!File.Exists(Properties.Settings.Default.LoadedAddonDirectory + file)) return;
-
             try
             {
-                KeyValue doc = KVParser.KV1.Parse(File.ReadAllText(Properties.Settings.Default.LoadedAddonDirectory + file));
+                KeyValue doc = KVParser.KV1.Parse(keyvalues);
                 foreach (KeyValue kv in doc.Children)
                 {
                     try
                     {
                         if (!kv.HasChildren) continue;
                         T unit = typeof(T).GetConstructor(new Type[] { typeof(KeyValue) }).Invoke(new object[] { kv }) as T;
-                      
+
                         unit.ObjectInfo.FromVPK = false;
                         unit.ObjectInfo.OriginatingFile = file;
                         //TODO: Determine if it's an override
                         unit.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Custom;
-                        if(Override)
+                        if (Override)
                         {
                             unit.ObjectInfo.ObjectClass = DotaDataObject.DataObjectInfo.ObjectDataClass.Override;
                         }
@@ -271,6 +269,15 @@ namespace WorldSmith.DataClasses
                 Console.WriteLine("");
                 Console.WriteLine("");
             }
+
+        }
+
+
+        public static void ReadCustom<T>(string file, List<T> ListToLoadInto, bool Override = false) where T : DotaDataObject
+        {
+            if (!File.Exists(Properties.Settings.Default.LoadedAddonDirectory + file)) return;
+            ReadKeyValues(File.ReadAllText(Properties.Settings.Default.LoadedAddonDirectory + file), file, ListToLoadInto, Override);
+          
         }
         #endregion
 

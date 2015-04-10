@@ -126,6 +126,7 @@ namespace WorldSmith
             DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "AbilitySchema.txt", unitDir);
             DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "ItemSchema.txt", unitDir);
             DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "ModifierSchema.txt", unitDir);
+            DataSchema.DataClassGenerator.GenerateClassForSchema(inputDir + "AbilityEventSchema.txt", unitDir);
 
             string actionInputDir = inputDir + "ActionSchemas/";
             string actionOutputDir = outputDir + "ActionTypes/";

@@ -1,0 +1,241 @@
+﻿"DOTAEvents"
+{
+	"OnAbilityEndChannel"
+	{
+	  "Targets"  "CASTER | TARGET | UNIT"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	}
+	"OnAbilityPhaseStart"
+	{
+	  "Targets"  "CASTER | UNIT | ATTACKER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	  "RespectsTargetFlag" "1"
+	}
+	"OnAbilityStart"
+	{
+	  "Targets"  "CASTER | UNIT | ATTACKER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	  "RespectsTargetFlag" "1"
+	}
+	"OnAttack"
+	{
+	  "Targets"  "CASTER | TARGET | ATTACKER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	  "ProvidesAttackDamage" "1"
+	}
+	"OnAttackAllied"
+	{
+	  "Targets"  "CASTER | TARGET | ATTACKER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	  "ProvidesAttackDamage" "1"
+	}
+	"OnAttackFailed"
+	{
+	  "Targets"  "CASTER | TARGET | ATTACKER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	  "ProvidesAttackDamage" "1"
+	}
+	"OnChannelFinish"
+	{
+	  "Targets"  "CASTER | TARGET | UNIT | ATTACKER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	  "RequiresChannelTime" "1"
+	}
+	"OnChannelInterrupted"
+	{
+	  "Targets"  "CASTER | TARGET | UNIT | ATTACKER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	  "RequiresChannelTime" "1"
+	}
+	"OnChannelSucceeded"
+	{
+	  "Targets"  "CASTER | TARGET | UNIT | ATTACKER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	  "RequiresChannelTime" "1"
+	}
+	"OnCreated"
+	{
+	  "Targets"  "CASTER | TARGET"
+	  "EventAppliesTo"  "ABILITY | ITEM | MODIFIER"
+	}
+	"OnEquip"
+	{
+	  "Targets"  "CASTER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	}
+	"OnHealReceived"
+	{
+	  "Targets"  "CASTER | UNIT"
+	  "EventAppliesTo"  "ABILITY | ITEM | MODIFIER"
+	}
+	"OnHealthGained"
+	{
+	  "Targets"  "CASTER | UNIT"
+	  "EventAppliesTo"  "ABILITY | ITEM | MODIFIER"
+	}
+	"OnHeroKilled"
+	{
+	  "Targets"  "CASTER | TARGET | ATTACKER"
+	  "EventAppliesTo"  "ABILITY | ITEM | MODIFIER"
+	}
+	"OnManaGained"
+	{
+	  "Targets"  "CASTER | UNIT"
+	  "EventAppliesTo"  "ABILITY | ITEM | MODIFIER"
+	}
+	"OnOrder"
+	{
+	  "Targets"  "CASTER | UNIT"
+	  "EventAppliesTo"  "ABILITY | ITEM | MODIFIER"
+	}
+	"OnOwnerDied"
+	{
+	  "Targets"  "CASTER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	}
+	"OnOwnerSpawned"
+	{
+	  "Targets"  "CASTER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	}
+	"OnProjectileDodge"
+	{
+	  "Targets"  "CASTER | TARGET"
+	  "EventAppliesTo"  "ABILITY | ITEM | MODIFIER"
+	}
+	"OnProjectileFinish"
+	{
+	  "Targets"  "CASTER | TARGET | PROJECTILE"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	}
+	"OnProjectileHitUnit"
+	{
+	  "Targets"  "CASTER | TARGET | PROJECTILE"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	}
+	"OnRespawn"
+	{
+	  "Targets"  "CASTER | UNIT"
+	  "EventAppliesTo"  "ABILITY | ITEM | MODIFIER"
+	}
+	"OnSpellStart"
+	{
+	  "Targets"  "CASTER | UNIT | ATTACKER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	  "RespectsTargetFlag" "1"
+	}
+	"OnSpentMana"
+	{
+	  "Targets"  "CASTER | UNIT"
+	  "EventAppliesTo"  "ABILITY | ITEM | MODIFIER"
+	}
+	"OnStateChanged"
+	{
+	  "Targets"  "CASTER | UNIT"
+	  "EventAppliesTo"  "ABILITY | ITEM | MODIFIER"
+	}
+	"OnTeleported"
+	{
+	  "Targets"  "CASTER | UNIT"
+	  "EventAppliesTo"  "ABILITY | ITEM | MODIFIER"
+	}
+	"OnTeleporting"
+	{
+	  "Targets"  "CASTER | UNIT"
+	  "EventAppliesTo"  "ABILITY | ITEM | MODIFIER"
+	}
+	"OnToggleOff"
+	{
+	  "Targets"  "CASTER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	}
+	"OnToggleOn"
+	{
+	  "Targets"  "CASTER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	}
+	"OnUnitMoved"
+	{
+	  "Targets"  "CASTER| UNIT"
+	  "EventAppliesTo"  "ABILITY | ITEM | MODIFIER"
+	}
+	"OnUpgrade"
+	{
+	  "Targets"  "CASTER"
+	  "EventAppliesTo"  "ABILITY | ITEM"
+	}
+	///MODIFIER SPECIFIC EVENTS
+
+	"OnAbilityExecuted"
+	{
+	  "Targets"  "CASTER | UNIT"
+	  "EventAppliesTo"  "MODIFIER"
+	}
+	"OnAttacked"
+	{
+	  "Targets"  "CASTER | TARGET | ATTACKER"
+	  "EventAppliesTo"  "MODIFIER"
+	  "ProvidesAttackDamage" "1"
+	}
+	"OnAttackLanded"
+	{
+	  "Targets"  "CASTER | TARGET | ATTACKER"
+	  "EventAppliesTo"  "MODIFIER"
+	  "ProvidesAttackDamage" "1"
+	}
+	"OnAttackStart"
+	{
+	  "Targets"  "CASTER | TARGET | ATTACKER"
+	  "EventAppliesTo"  "MODIFIER"
+	  "ProvidesAttackDamage" "1"
+	}	
+	"OnDealDamage"
+	{
+	  "Targets"  "CASTER | UNIT | ATTACKER"
+	  "EventAppliesTo"  "MODIFIER"
+	  "ProvidesAttackDamage" "1"
+	}
+	"OnDeath"
+	{
+	  "Targets"  "CASTER | UNIT | ATTACKER"
+	  "EventAppliesTo"  "MODIFIER"
+	}
+	"OnDestroy"
+	{
+	  "Targets"  "CASTER | TARGET"
+	  "EventAppliesTo"  "MODIFIER"
+	}
+	"OnIntervalThink"
+	{
+	  "Targets"  "CASTER | TARGET"
+	  "EventAppliesTo"  "MODIFIER"
+	}
+	"OnKill"
+	{
+	  "Targets"  "CASTER | UNIT | ATTACKER"
+	  "EventAppliesTo"  "MODIFIER"
+	}
+	"OnTakeDamage"
+	{
+	  "Targets"  "CASTER | UNIT | ATTACKER"
+	  "EventAppliesTo"  "MODIFIER"
+	  "ProvidesAttackDamage" "1"
+	}
+
+	//I dont know what these do
+	"OnOrbFire"
+	{
+	  "Targets"  "CASTER | UNIT | ATTACKER"
+	  "EventAppliesTo"  "MODIFIER"
+	}
+	"OnOrbImpact"
+	{
+	  "Targets"  "CASTER | UNIT | ATTACKER"
+	  "EventAppliesTo"  "MODIFIER"
+	}	
+	"Orb"
+	{
+	  "Targets"  "CASTER | UNIT | ATTACKER"
+	  "EventAppliesTo"  "MODIFIER"
+	}
+}

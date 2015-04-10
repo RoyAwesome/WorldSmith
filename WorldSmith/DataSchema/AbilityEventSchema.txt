@@ -1,0 +1,60 @@
+﻿"Schema"
+{
+	"ClassName" "DotaEvent"
+	"BaseClass" "DotaDataObject"
+
+	
+	"Targets"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"flags"
+		"DefaultValue"	"CASTER"
+		"PossibleValues"
+		{		
+				"CASTER"		"1<<0"
+				"TARGET"		"1<<1"
+				"UNIT"			"1<<2"
+				"ATTACKER"		"1<<3"
+				"PROJECTILE"	"1<<4"
+		}	
+	}	
+
+	"EventAppliesTo"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"flags"
+		"DefaultValue"	"ABILITY"
+		"PossibleValues"
+		{		
+				"ABILITY"		"1<<0"
+				"ITEM"			"1<<1"
+				"MODIFIER"		"1<<2"				
+		}	
+	}
+
+	"RespectsTargetFlag"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"false"
+	}
+
+	"ProvidesAttackDamage"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"false"
+	}
+
+	"RequiresChannelTime"
+	{
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"bool"
+		"DefaultValue"	"false"
+	}
+}

@@ -69,6 +69,7 @@ namespace WorldSmith
             state["Heroes"] = DotaData.AllHeroes;          
             state["Abilities"] = DotaData.AllAbilities;           
             state["Items"] = DotaData.DefaultItems;
+            state["Events"] = DotaData.Events;
 
             //Bind the DataClass enum
             state.DoString("DataClass = {}");

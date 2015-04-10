@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckForUpdate.cs" />
+    <Compile Include="DataClasses\ScriptTypes\DotaEvent.cs" />
     <Compile Include="NodeGraph\ActionNode.cs" />
     <Compile Include="NodeGraph\EventNode.cs" />
     <Compile Include="NodeGraph\Items\ExecuteNodeItem.cs" />
@@ -129,7 +130,7 @@
       <DependentUpon>DotaAbilityEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\ConsoleStringWriter.cs" />
-    <Compile Include="DataClasses\ActionProperties\BaseActionVariable.cs" />
+    <Compile Include="DataClasses\ScriptTypes\BaseActionVariable.cs" />
     <Compile Include="DataClasses\ActionProperties\NumberValue.cs" />
     <Compile Include="DataClasses\ActionTypes\ActOnTargets.cs" />
     <Compile Include="DataClasses\ActionTypes\AddAbility.cs" />
@@ -396,6 +397,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="DataSchema\AbilityEventSchema.txt" />
     <Content Include="FodyWeavers.xml" />
     <Content Include="Resources\KVSyntax.xshd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -481,6 +483,7 @@
       <SubType>Designer</SubType>
     </Content>
     <EmbeddedResource Include="Scripts\ObjectBrowserFolderOverride.txt" />
+    <EmbeddedResource Include="Scripts\DotaEvents.txt" />
     <Content Include="WSIconic.ico" />
   </ItemGroup>
   <ItemGroup>
