@@ -242,7 +242,7 @@ namespace WorldSmith.DataSchema
                     csFile.AppendLine("\t\t[ReadOnly(true)]");
 
 
-                if (type != "AbilityActionCollection"
+                if (type != "DotaActionCollection"
                     || type != "TargetKey"
                     || type != "ActionCollection"
                     || type != "ControlPointList")
@@ -276,7 +276,7 @@ namespace WorldSmith.DataSchema
                     {
                         csFile.Append("typeof(PerLevel), \"" + c["DefaultValue"].GetString() + "\"");
                     }
-                    if (type == "AbilityActionCollection")
+                    if (type == "DotaActionCollection")
                     {
                         csFile.Append("null");
                         //csFile.Append("typeof(AbilityActionCollection), \"\"");

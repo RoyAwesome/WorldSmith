@@ -76,7 +76,7 @@ namespace WorldSmith.NodeGraph
                 {
                     item = new TargetNodeItem(prop.Name, NodeItemType.Input);
                 }
-                if(prop.PropertyType == typeof(ActionCollection))
+                if(prop.PropertyType == typeof(DotaActionCollection))
                 {
                     item = new ExecuteNodeItem(prop.Name, NodeItemType.Output);
                 }

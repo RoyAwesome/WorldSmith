@@ -24,12 +24,12 @@ namespace WorldSmith.DataClasses
 		}
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(typeof(ActionCollection), "Default")]
-		public ActionCollection OnSuccess
+		[DefaultValue(null)]
+		public DotaActionCollection OnSuccess
 		{
 			get
 			{
-				return default(ActionCollection);
+				return default(DotaActionCollection);
 			}
 			set
 			{
@@ -45,12 +45,12 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(typeof(ActionCollection), "Default")]
-		public ActionCollection OnFailure
+		[DefaultValue(null)]
+		public DotaActionCollection OnFailure
 		{
 			get
 			{
-				return default(ActionCollection);
+				return default(DotaActionCollection);
 			}
 			set
 			{

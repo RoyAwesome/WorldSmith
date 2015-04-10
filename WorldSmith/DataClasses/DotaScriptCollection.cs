@@ -10,6 +10,14 @@ namespace WorldSmith.DataClasses
     public class DotaScriptCollection <T> : IEnumerable<T> where T : DotaDataObject
     {
 
+        public string ClassName
+        {
+            get
+            {
+                return KeyValues.Key;
+            }
+        }
+
         public KeyValue KeyValues
         {
             get;
@@ -21,7 +29,7 @@ namespace WorldSmith.DataClasses
             KeyValues = kv;
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public virtual IEnumerator<T> GetEnumerator()
         {
             foreach(KeyValue kv in KeyValues.Children)
             {

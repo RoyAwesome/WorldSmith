@@ -24,12 +24,12 @@ namespace WorldSmith.DataClasses
 		}
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(typeof(ActionCollection), "Default")]
-		public ActionCollection Action
+		[DefaultValue(null)]
+		public DotaActionCollection Action
 		{
 			get
 			{
-				return default(ActionCollection);
+				return default(DotaActionCollection);
 			}
 			set
 			{

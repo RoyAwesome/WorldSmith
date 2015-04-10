@@ -43,7 +43,7 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"Name"
-		"Type"	"ActionCollection"
+		"Type"	"DotaActionCollection"
 		"DefaultValue"	"OnSpawn"
 	}
 

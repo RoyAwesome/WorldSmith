@@ -10,7 +10,7 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"ActionCollection"
+		"Type"	"DotaActionCollection"
 		"DefaultValue"	"Default"
 	}
 
@@ -19,7 +19,7 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"ActionCollection"
+		"Type"	"DotaActionCollection"
 		"DefaultValue"	"Default"
 	}
 

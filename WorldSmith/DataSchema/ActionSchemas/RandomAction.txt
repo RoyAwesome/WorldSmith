@@ -56,14 +56,14 @@
 	{	
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"ActionCollection"
+		"Type"	"DotaActionCollection"
 		"DefaultValue"	"Default"
 	}
 	"OnFailure"
 	{	
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"ActionCollection"
+		"Type"	"DotaActionCollection"
 		"DefaultValue"	"Default"
 	}
 

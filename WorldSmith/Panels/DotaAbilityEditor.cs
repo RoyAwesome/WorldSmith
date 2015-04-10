@@ -59,25 +59,11 @@ namespace WorldSmith.Panels
             TreeNode root = treeView1.Nodes.Add("Events");
             root.Tag = "Folder";
 
-            List<string> AllActions = new List<string>() //TODO: Move this to a script
-            {
-                "OnSpellStart",
-                "OnChannelSucceeded",
-                "OnChannelInterrupted",
-                "OnChannelFinish",
-                "OnToggleOn",
-                "OnToggleOff",
-                "OnAbilityPhaseStart",
-                "OnOwnerDied",
-                "OnOwnerSpawned",
-                "OnUpgrade",
-                "OnProjectileHitUnit",
-                "OnProjectileFinish",
-            };
 
-            foreach (string Action in AllActions)
+
+            foreach (var action in DotaData.Events.Where(x => x.EventAppliesTo.HasFlag(DotaEvent.EventAppliesToFlags.ABILITY))) 
             {
-                TreeNode n = root.Nodes.Add(Action);
+                TreeNode n = root.Nodes.Add(action.ClassName);
                 n.Tag = "Event";
             }
 
@@ -118,7 +104,8 @@ namespace WorldSmith.Panels
             }
             if ((string)SelectedNode.Tag == "Event")
             {
-                Node = new EventNode((string)SelectedNode.Text);
+                var Event = DotaData.Events.FirstOrDefault(x => x.ClassName == SelectedNode.Text);
+                Node = new EventNode(Event);
             }
             if ((string)SelectedNode.Tag == "Variable")
             {
@@ -182,9 +169,10 @@ namespace WorldSmith.Panels
             Graphics g = graphControl1.GetLayoutGraphics();
 
 
-            foreach (ActionCollection kvEvents in Ability.ActionList)
+            foreach (DotaActionCollection kvEvents in Ability.ActionList)
             {
-                var ev = new EventNode(kvEvents.EventName);
+                var Event = DotaData.Events.FirstOrDefault(x => x.ClassName == kvEvents.ClassName);
+                var ev = new EventNode(Event);
                 ev.Location = Position;
 
                 ev.PerformLayout(g);

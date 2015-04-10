@@ -112,12 +112,12 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("Name")]
-		[DefaultValue(typeof(ActionCollection), "OnSpawn")]
-		public ActionCollection OnSpawn
+		[DefaultValue(null)]
+		public DotaActionCollection OnSpawn
 		{
 			get
 			{
-				return default(ActionCollection);
+				return default(DotaActionCollection);
 			}
 			set
 			{
