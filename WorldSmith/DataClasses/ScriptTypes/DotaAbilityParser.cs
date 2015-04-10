@@ -12,10 +12,10 @@ namespace WorldSmith.DataClasses
 {
     public partial class DotaAbility
     {
-        [Editor(typeof(AbilityActionEditor), typeof(System.Drawing.Design.UITypeEditor))]
         [Category("Misc")]
         [Description("No Description Set")]
         [DefaultValue(typeof(AbilityActionCollection), "")]
+        [Browsable(false)]
         public AbilityActionCollection ActionList
         {
             get

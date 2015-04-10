@@ -35,9 +35,8 @@ namespace WorldSmith.DataClasses
         }
     }
 
+  
 
-    [Editor(typeof(AbilityActionEditor), typeof(UITypeEditor))]
-    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AbilityActionCollection : IEnumerable<ActionCollection>
     {
         public static List<string> AllActions = new List<string>()

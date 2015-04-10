@@ -198,47 +198,11 @@
     <Compile Include="Dialogs\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\Actions\ActionListEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\Actions\ActionListEditor.Designer.cs">
-      <DependentUpon>ActionListEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\Actions\BoolEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\Actions\BoolEditor.Designer.cs">
-      <DependentUpon>BoolEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\Actions\EnumEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\Actions\EnumEditor.Designer.cs">
-      <DependentUpon>EnumEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\Actions\FlagCheckBoxEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\Actions\FlagCheckBoxEditor.Designer.cs">
-      <DependentUpon>FlagCheckBoxEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\Actions\NewActionDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\Actions\NewActionDialog.Designer.cs">
-      <DependentUpon>NewActionDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Dialogs\CreateObjectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\CreateObjectDialog.Designer.cs">
       <DependentUpon>CreateObjectDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\GenericGrammarPrompt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\GenericGrammarPrompt.Designer.cs">
-      <DependentUpon>GenericGrammarPrompt.cs</DependentUpon>
     </Compile>
     <Compile Include="Documents\Document.cs" />
     <Compile Include="Documents\DocumentRegistry.cs" />
@@ -251,18 +215,6 @@
     </Compile>
     <Compile Include="Localization\LocaleManager.Designer.cs">
       <DependentUpon>LocaleManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\Actions\TargetKeyEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\Actions\TargetKeyEditor.Designer.cs">
-      <DependentUpon>TargetKeyEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\Actions\VariableEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\Actions\VariableEditor.Designer.cs">
-      <DependentUpon>VariableEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="LuaUtils\LuaHelper.cs" />
     <Compile Include="LuaUtils\ScratchPad.cs">
@@ -302,22 +254,10 @@
     <Compile Include="Panels\ProjectView.Designer.cs">
       <DependentUpon>ProjectView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panels\ObjectLinkEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Panels\ObjectLinkEdit.Designer.cs">
-      <DependentUpon>ObjectLinkEdit.cs</DependentUpon>
-    </Compile>
     <Compile Include="Panels\FlagCheckListBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataSchema\DataClassGenerator.cs" />
-    <Compile Include="Dialogs\ActionEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ActionEditor.Designer.cs">
-      <DependentUpon>ActionEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Dialogs\AssetLoadingDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -384,38 +324,11 @@
     <EmbeddedResource Include="Dialogs\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ActionEditor.resx">
-      <DependentUpon>ActionEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\Actions\ActionListEditor.resx">
-      <DependentUpon>ActionListEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\Actions\BoolEditor.resx">
-      <DependentUpon>BoolEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\Actions\EnumEditor.resx">
-      <DependentUpon>EnumEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\Actions\FlagCheckBoxEditor.resx">
-      <DependentUpon>FlagCheckBoxEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\Actions\NewActionDialog.resx">
-      <DependentUpon>NewActionDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\Actions\TargetKeyEditor.resx">
-      <DependentUpon>TargetKeyEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\Actions\VariableEditor.resx">
-      <DependentUpon>VariableEditor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AssetLoadingDialog.resx">
       <DependentUpon>AssetLoadingDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\CreateObjectDialog.resx">
       <DependentUpon>CreateObjectDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\GenericGrammarPrompt.resx">
-      <DependentUpon>GenericGrammarPrompt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\InitialSetup.resx">
       <DependentUpon>InitialSetup.cs</DependentUpon>
@@ -453,9 +366,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.sv.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Panels\ObjectLinkEdit.resx">
-      <DependentUpon>ObjectLinkEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\FlagChecklistDialog.resx">
       <DependentUpon>FlagChecklistDialog.cs</DependentUpon>
