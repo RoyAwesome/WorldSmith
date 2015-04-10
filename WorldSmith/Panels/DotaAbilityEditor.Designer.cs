@@ -40,8 +40,8 @@
             this.eventsPage = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.graphControl1 = new Graph.GraphControl();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.graphControl1 = new Graph.GraphControl();
             this.tabControl1.SuspendLayout();
             this.propertiesPage.SuspendLayout();
             this.eventsPage.SuspendLayout();
@@ -145,7 +145,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.graphControl1);
             this.splitContainer1.Size = new System.Drawing.Size(731, 366);
-            this.splitContainer1.SplitterDistance = 243;
+            this.splitContainer1.SplitterDistance = 242;
             this.splitContainer1.TabIndex = 0;
             // 
             // toolStripContainer1
@@ -154,13 +154,22 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.treeView1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(243, 341);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(242, 341);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(243, 366);
+            this.toolStripContainer1.Size = new System.Drawing.Size(242, 366);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Location = new System.Drawing.Point(0, 0);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(242, 341);
+            this.treeView1.TabIndex = 0;
+            this.treeView1.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.treeView1_ItemDrag);
             // 
             // graphControl1
             // 
@@ -169,35 +178,26 @@
             this.graphControl1.CompatibilityStrategy = alwaysCompatible1;
             this.graphControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.graphControl1.FocusElement = null;
-            this.graphControl1.HighlightCompatible = false;
+            this.graphControl1.HighlightCompatible = true;
             this.graphControl1.LargeGridStep = 128F;
             this.graphControl1.LargeStepGridColor = System.Drawing.Color.Black;
             this.graphControl1.Location = new System.Drawing.Point(0, 0);
             this.graphControl1.Name = "graphControl1";
             this.graphControl1.ShowLabels = false;
-            this.graphControl1.Size = new System.Drawing.Size(484, 366);
+            this.graphControl1.Size = new System.Drawing.Size(485, 366);
             this.graphControl1.SmallGridStep = 16F;
             this.graphControl1.SmallStepGridColor = System.Drawing.Color.DimGray;
             this.graphControl1.TabIndex = 0;
             this.graphControl1.Text = "graphControl1";
             // 
-            // treeView1
-            // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(243, 341);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.treeView1_ItemDrag);
-            // 
-            // ActionEditor
+            // DotaAbilityEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 398);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "ActionEditor";
+            this.Name = "DotaAbilityEditor";
             this.Text = "ActionEditor";
             this.tabControl1.ResumeLayout(false);
             this.propertiesPage.ResumeLayout(false);
