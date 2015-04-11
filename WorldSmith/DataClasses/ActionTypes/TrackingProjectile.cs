@@ -12,7 +12,7 @@ namespace WorldSmith.DataClasses
 {
 	[DotaAction]
 	[EditorGrammar("Fire a Tracking projectile at the target that is dodgable %Dodgeable with the effect %EffectName and moves at %MoveSpeed units per second.  It provides vision %ProvidesVision of %VisionRadius units")]
-	public partial class TrackingProjectile : BaseAction
+	public partial class TrackingProjectile : TargetedAction
 	{
 		public TrackingProjectile(KeyValue kv)
 			: base(kv)

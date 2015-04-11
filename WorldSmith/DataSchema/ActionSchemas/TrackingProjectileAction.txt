@@ -1,7 +1,7 @@
 ﻿"Schema"
 {
 	"ClassName"	"TrackingProjectile"
-	"BaseClass" "BaseAction"
+	"BaseClass" "TargetedAction"
 	"ActionAttribute"	"1"
 
 	"EditorGrammar"		"Fire a Tracking projectile at the target that is dodgable %Dodgeable with the effect %EffectName and moves at %MoveSpeed units per second.  It provides vision %ProvidesVision of %VisionRadius units"
