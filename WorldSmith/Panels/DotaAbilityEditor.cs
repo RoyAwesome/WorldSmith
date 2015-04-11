@@ -172,8 +172,17 @@ namespace WorldSmith.Panels
             foreach (DotaActionCollection kvEvents in Ability.ActionList)
             {
                 var Event = DotaData.Events.FirstOrDefault(x => x.ClassName == kvEvents.ClassName);
+
+                if (Event.RespectsTargetFlag && Ability.AbilityBehavior.HasFlag(DotaAbility.AbilityBehaviorFlags.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET))
+                {
+                    //Add the target pin
+                    Event.Targets = Event.Targets | DotaEvent.TargetsFlags.TARGET;
+                }
+
                 var EventNode = new EventNode(Event);
                 EventNode.Location = Position;
+
+               
 
                 EventNode.PerformLayout(g);
 

@@ -34,8 +34,9 @@ namespace WorldSmith.NodeGraph
 
             AddExecPin();
             AddTargetNodes();
-            
-            
+            AddSpecialPins();
+
+
         }
 
         private void AddTargetNodes()
@@ -66,6 +67,16 @@ namespace WorldSmith.NodeGraph
                 AddItem(TargetPin);
             }
         }
+        
+        private void AddSpecialPins()
+        {
+            if(Event.ProvidesAttackDamage)
+            {
+                var AttackDamagePin = new NodeLabelItem("Attack Damage", NodeItemType.Output);
+                AddItem(AttackDamagePin);
+
+            }
+        }   
 
         public TargetNodeItem GetTargetNodeFor(string Preset)
         {
