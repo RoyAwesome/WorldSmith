@@ -16,6 +16,13 @@ namespace WorldSmith.NodeGraph.Items
             get;
             set;
         }
+        public override Color MainColor
+        {
+            get
+            {
+                return Color.White;
+            }
+        }
         public ExecuteNodeItem(string name)
             : base()
         {

@@ -16,7 +16,13 @@ namespace WorldSmith.NodeGraph.Items
             get;
             set;
         }
-
+        public override Color MainColor
+        {
+            get
+            {
+                return Color.Indigo;
+            }
+        }
         public TargetNodeItem(string text, NodeItemType type)
             : base(type)
         {
