@@ -36,7 +36,7 @@ namespace WorldSmith.DataClasses
 
         public bool IsVariable
         {
-            get { return KV.GetString().StartsWith("%"); }
+            get { return KV.GetString() != null && KV.GetString().StartsWith("%"); }
         }
 
         public float this[int level]

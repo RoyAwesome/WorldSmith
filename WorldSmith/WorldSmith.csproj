@@ -116,6 +116,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClasses\ActionTypes\BaseActionExt.cs" />
     <Compile Include="Utils\CheckForUpdate.cs" />
     <Compile Include="DataClasses\Actions\DotaActionCollection.cs" />
     <Compile Include="DataClasses\ScriptTypes\DotaEvent.cs" />
@@ -192,7 +193,6 @@
     <Compile Include="DataClasses\ScriptTypes\DotaModifier.cs" />
     <Compile Include="DataClasses\ScriptTypes\DotaModifierParser.cs" />
     <Compile Include="DataClasses\ScriptTypes\DotaUnit.cs" />
-    <Compile Include="DataClasses\PropertyTypes\AbilitySpecial.cs" />
     <Compile Include="Dialogs\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>

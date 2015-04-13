@@ -44,5 +44,27 @@ namespace WorldSmith.DataClasses
 			}
 		}
 
+		[Category("Misc")]
+		[Description("No Description Set")]
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue Duration
+		{
+			get
+			{
+				KeyValue kv = GetSubkey("Duration");
+				return (kv == null ? new NumberValue("Duration") : kv.GetNumberValue());
+			}
+			set
+			{
+				KeyValue kv = GetSubkey("Duration");
+				if(kv == null)
+				{
+					kv = new KeyValue("Duration");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value);
+			}
+		}
+
 	}
 }

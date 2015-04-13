@@ -14,4 +14,12 @@
 		"DefaultValue"	""
 	}
 
+	"Duration"
+	{	
+		"Category"	"Misc"
+		"Description"	"No Description Set"
+		"Type"	"NumberValue"
+		"DefaultValue"	""
+	}
+
 }

@@ -27,8 +27,13 @@ namespace WorldSmith.Panels
 
             AddEvents();
             AddActions();
-           
 
+            this.FormClosing += DotaAbilityEditor_FormClosing;
+        }
+
+        private void DotaAbilityEditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ActiveDocument.NotifyEditorClosed(this);
         }
 
         DotaAbility ability;
@@ -141,7 +146,7 @@ namespace WorldSmith.Panels
 
         public void CloseDocument(bool ConfirmChanges)
         {
-            
+            this.Close();
         }
 
         public void NotifyDocumentModified(IEditor source)
@@ -161,6 +166,7 @@ namespace WorldSmith.Panels
         const int EventColumn = 200;
         const int EventSpacing = 150;
         const int ColumnSpacing = 50;
+        const int VariableSpacing = 20;
 
 
         private void PlaceEvents()
@@ -190,6 +196,7 @@ namespace WorldSmith.Panels
 
                 PointF col = Position;
                 col.X = EventNode.Bounds.Right + ColumnSpacing; //Move this node to the left of the event node + spacing
+                PointF previousCol = col;
 
                 ExecuteNodeItem ExNode = EventNode.OutputExecute;
 
@@ -211,7 +218,24 @@ namespace WorldSmith.Panels
 
                     ConnectTargets(EventNode, ActionNode);
 
+                    var Vars = ActionVariables(kvAction, Ability);
+                    foreach(var actionVariable in Vars)
+                    {
+                        
+                        var pos = previousCol;
+                        pos.Y += columnHeight;
+
+                        var varNode = new VariableNode(actionVariable);
+                        varNode.Location = pos;
+                        varNode.PerformLayout(g);
+                        graphControl1.AddNode(varNode);
+
+
+                        columnHeight += varNode.Bounds.Height + VariableSpacing;
+                    }
+
                     //Move the pen right to place the next action node
+                    previousCol = col;
                     col.X = ActionNode.Bounds.Right + ColumnSpacing;
                     columnHeight = Math.Max(ActionNode.Bounds.Height, columnHeight);
                 }
@@ -238,6 +262,17 @@ namespace WorldSmith.Panels
             graphControl1.Connect(outputItem, Action.TargetPin);
             
             
+        }
+
+        private IEnumerable<BaseActionVariable> ActionVariables(BaseAction action, DotaAbility ability)
+        {
+            foreach (var VariableRef in action.VariableReferences())
+            {
+                var v = ability.ActionList.Variables.FirstOrDefault(x => x.Name == VariableRef.Replace("%", ""));
+                if (v == null) continue;
+                yield return v;
+            }
+
         }
 
 
