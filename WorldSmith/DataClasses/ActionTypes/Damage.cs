@@ -61,7 +61,7 @@ namespace WorldSmith.DataClasses
 			get
 			{
 				KeyValue kv = GetSubkey("DamageAmount");
-				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+				return (kv == null ? new NumberValue("DamageAmount") : kv.GetNumberValue());
 			}
 			set
 			{

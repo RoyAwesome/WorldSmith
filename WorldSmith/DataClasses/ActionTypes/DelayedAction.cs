@@ -51,7 +51,7 @@ namespace WorldSmith.DataClasses
 			get
 			{
 				KeyValue kv = GetSubkey("Delay");
-				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+				return (kv == null ? new NumberValue("Delay") : kv.GetNumberValue());
 			}
 			set
 			{

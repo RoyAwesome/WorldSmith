@@ -1,9 +1,11 @@
-﻿using System;
+﻿using KVLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace WorldSmith.DataClasses
 {
@@ -12,27 +14,110 @@ namespace WorldSmith.DataClasses
     /// </summary>
     /// 
     [TypeConverter(typeof(NumberValueConverter))]
-    public class NumberValue
+    public class NumberValue : IEnumerable<float>
     {
-        public NumberValue(string value)
-        {
-            this.Value = value;
-        }
-
-        public NumberValue()
-        {
-            Value = "";
-        }
-
-        public string Value
+        KeyValue KV
         {
             get;
             set;
         }
 
+        public string Value
+        {
+            get
+            {
+                return KV.GetString();
+            }
+            set
+            {
+                KV.Set(value);
+            }
+        }
+
+        public bool IsVariable
+        {
+            get { return KV.GetString().StartsWith("%"); }
+        }
+
+        public float this[int level]
+        {
+            get
+            {
+                if (IsVariable) return 0; //We can't index a variable.  
+                string[] levels = KV.GetString().Split(' ');
+                if (level >= levels.Length) return 0; //We don't have enough levels.
+
+                return float.Parse(levels[level]);
+            }
+            set
+            {
+                if (IsVariable) return; //Can't set a variable
+                string[] levels = KV.GetString().Split(' ');
+                if (level >= levels.Length) //We don't have enough levels, expand to that point
+                {
+                    List<string> newLevels = new List<string>();
+                    newLevels.AddRange(levels);
+                    //Fill the array with the last value
+                    for(int i = levels.Length; i < level - 1; i++)
+                    {
+                        newLevels.Add(levels[levels.Length - 1]);
+                    }
+                    newLevels.Add(value.ToString());
+                    levels = newLevels.ToArray();
+                }
+                else
+                {
+                    levels[level] = value.ToString();
+                }
+
+                KV.Set(String.Join(" ", levels));
+            }
+        }
+
+        public NumberValue(KeyValue kv)
+        {
+            KV = kv;
+        }
+
+        public NumberValue(string value)
+        {
+            this.KV = new KeyValue(value);
+        }
+
+        public NumberValue()
+        {
+            KV = new KeyValue("ErrNoKey");
+        }
+              
+
         public override string ToString()
         {
-            return Value;
+            return KV.GetString();
+        }
+
+        public IEnumerator<float> GetEnumerator()
+        {
+            if (IsVariable) yield return 0;
+
+            string[] levels = KV.GetString().Split(' ');
+
+            foreach(string s in levels)
+            {
+                yield return float.Parse(s);
+            }
+
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            if (IsVariable) yield return 0;
+
+            string[] levels = KV.GetString().Split(' ');
+
+            foreach (string s in levels)
+            {
+                yield return float.Parse(s);
+            }
         }
     }
 

@@ -220,32 +220,32 @@
 	{
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"PerLevel"
-		"DefaultValue"	"0.0 0.0 0.0 0.0"
+		"Type"	"NumberValue"
+		"DefaultValue"	"AbilityCastPoint"
 	}
 
 	"AbilityChannelTime"
 	{
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"PerLevel"
-		"DefaultValue"	"0.0 0.0 0.0 0.0"
+		"Type"	"NumberValue"
+		"DefaultValue"	"AbilityChannelTime"
 	}
 
 	"AbilityCooldown"
 	{
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"PerLevel"
-		"DefaultValue"	"0.0 0.0 0.0 0.0"
+		"Type"	"NumberValue"
+		"DefaultValue"	"AbilityCooldown"
 	}
 
 	"AbilityDuration"
 	{
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"PerLevel"
-		"DefaultValue"	"0.0 0.0 0.0 0.0"
+		"Type"	"NumberValue"
+		"DefaultValue"	"AbilityDuration"
 	}
 
 	"AbilitySharedCooldown"
@@ -260,16 +260,16 @@
 	{
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"PerLevel"
-		"DefaultValue"	"0 0 0 0"
+		"Type"	"NumberValue"
+		"DefaultValue"	"AbilityDamage"
 	}
 
 	"AbilityManaCost"
 	{
 		"Category"	"Misc"
 		"Description"	"No Description Set"
-		"Type"	"PerLevel"
-		"DefaultValue"	"0 0 0 0"
+		"Type"	"NumberValue"
+		"DefaultValue"	"AbilityManaCost"
 	}
 
 	"AbilityModifierSupportValue"
@@ -303,20 +303,7 @@
 		"Description"	"No Description Set"
 		"Type"	"AbilityActionCollection"
 		"DefaultValue"	""
-		"Actions"
-		{
-			"OnSpellStart"				"0"
-			"OnChannelSucceeded"		"0"
-			"OnChannelInterrupted"		"0"
-			"OnChannelFinish"			"0"
-			"OnToggleOn"				"0"
-			"OnAbilityPhaseStart"		"0"
-			"OnOwnerDied"				"0"
-			"OnOwnerSpawned"			"0"
-			"OnUpgrade"					"0"
-			"OnProjectileHitUnit"		"0"
-			"OnProjectileFinish"		"0"
-		}
+		
 	}
 	
 }

@@ -30,7 +30,7 @@ namespace WorldSmith.DataClasses
 			get
 			{
 				KeyValue kv = GetSubkey("PitchYawRoll");
-				return (kv == null ? new NumberValue("0 0 0") : kv.GetNumberValue());
+				return (kv == null ? new NumberValue("PitchYawRoll") : kv.GetNumberValue());
 			}
 			set
 			{

@@ -423,12 +423,13 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(typeof(PerLevel), "0.0 0.0 0.0 0.0")]
-		public PerLevel AbilityCastPoint
+		[DefaultValue(typeof(NumberValue), "AbilityCastPoint")]
+		public NumberValue AbilityCastPoint
 		{
 			get
 			{
-				return default(PerLevel);
+				KeyValue kv = GetSubkey("AbilityCastPoint");
+				return (kv == null ? new NumberValue("AbilityCastPoint") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -444,12 +445,13 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(typeof(PerLevel), "0.0 0.0 0.0 0.0")]
-		public PerLevel AbilityChannelTime
+		[DefaultValue(typeof(NumberValue), "AbilityChannelTime")]
+		public NumberValue AbilityChannelTime
 		{
 			get
 			{
-				return default(PerLevel);
+				KeyValue kv = GetSubkey("AbilityChannelTime");
+				return (kv == null ? new NumberValue("AbilityChannelTime") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -465,12 +467,13 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(typeof(PerLevel), "0.0 0.0 0.0 0.0")]
-		public PerLevel AbilityCooldown
+		[DefaultValue(typeof(NumberValue), "AbilityCooldown")]
+		public NumberValue AbilityCooldown
 		{
 			get
 			{
-				return default(PerLevel);
+				KeyValue kv = GetSubkey("AbilityCooldown");
+				return (kv == null ? new NumberValue("AbilityCooldown") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -486,12 +489,13 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(typeof(PerLevel), "0.0 0.0 0.0 0.0")]
-		public PerLevel AbilityDuration
+		[DefaultValue(typeof(NumberValue), "AbilityDuration")]
+		public NumberValue AbilityDuration
 		{
 			get
 			{
-				return default(PerLevel);
+				KeyValue kv = GetSubkey("AbilityDuration");
+				return (kv == null ? new NumberValue("AbilityDuration") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -529,12 +533,13 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(typeof(PerLevel), "0 0 0 0")]
-		public PerLevel AbilityDamage
+		[DefaultValue(typeof(NumberValue), "AbilityDamage")]
+		public NumberValue AbilityDamage
 		{
 			get
 			{
-				return default(PerLevel);
+				KeyValue kv = GetSubkey("AbilityDamage");
+				return (kv == null ? new NumberValue("AbilityDamage") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -550,12 +555,13 @@ namespace WorldSmith.DataClasses
 
 		[Category("Misc")]
 		[Description("No Description Set")]
-		[DefaultValue(typeof(PerLevel), "0 0 0 0")]
-		public PerLevel AbilityManaCost
+		[DefaultValue(typeof(NumberValue), "AbilityManaCost")]
+		public NumberValue AbilityManaCost
 		{
 			get
 			{
-				return default(PerLevel);
+				KeyValue kv = GetSubkey("AbilityManaCost");
+				return (kv == null ? new NumberValue("AbilityManaCost") : kv.GetNumberValue());
 			}
 			set
 			{

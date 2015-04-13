@@ -30,7 +30,7 @@ namespace WorldSmith.DataClasses
 			get
 			{
 				KeyValue kv = GetSubkey("Radius");
-				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+				return (kv == null ? new NumberValue("Radius") : kv.GetNumberValue());
 			}
 			set
 			{

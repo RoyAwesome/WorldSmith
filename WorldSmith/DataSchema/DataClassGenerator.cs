@@ -324,7 +324,7 @@ namespace WorldSmith.DataSchema
                 else if(type == "NumberValue")
                 {
                     csFile.AppendLine("KeyValue kv = GetSubkey(\"" + c.Key + "\");");
-                    csFile.AppendLine("\t\t\t\treturn (kv == null ? new NumberValue(" + c["DefaultValue"].GetLiteralString() + ") : kv.GetNumberValue());");
+                    csFile.AppendLine("\t\t\t\treturn (kv == null ? new NumberValue(\"" + c.Key + "\") : kv.GetNumberValue());");
                 }
                 else if(type == "bool")
                 {

@@ -30,7 +30,7 @@ namespace WorldSmith.DataClasses
 			get
 			{
 				KeyValue kv = GetSubkey("CleavePercent");
-				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+				return (kv == null ? new NumberValue("CleavePercent") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -52,7 +52,7 @@ namespace WorldSmith.DataClasses
 			get
 			{
 				KeyValue kv = GetSubkey("CleaveRadius");
-				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+				return (kv == null ? new NumberValue("CleaveRadius") : kv.GetNumberValue());
 			}
 			set
 			{

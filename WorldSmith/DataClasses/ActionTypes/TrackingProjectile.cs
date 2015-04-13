@@ -74,7 +74,7 @@ namespace WorldSmith.DataClasses
 			get
 			{
 				KeyValue kv = GetSubkey("VisionRadius");
-				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+				return (kv == null ? new NumberValue("VisionRadius") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -118,7 +118,7 @@ namespace WorldSmith.DataClasses
 			get
 			{
 				KeyValue kv = GetSubkey("MoveSpeed");
-				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+				return (kv == null ? new NumberValue("MoveSpeed") : kv.GetNumberValue());
 			}
 			set
 			{

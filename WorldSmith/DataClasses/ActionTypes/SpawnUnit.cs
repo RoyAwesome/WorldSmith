@@ -52,7 +52,7 @@ namespace WorldSmith.DataClasses
 			get
 			{
 				KeyValue kv = GetSubkey("UnitCount");
-				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+				return (kv == null ? new NumberValue("UnitCount") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -74,7 +74,7 @@ namespace WorldSmith.DataClasses
 			get
 			{
 				KeyValue kv = GetSubkey("SpawnRadius");
-				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+				return (kv == null ? new NumberValue("SpawnRadius") : kv.GetNumberValue());
 			}
 			set
 			{
@@ -96,7 +96,7 @@ namespace WorldSmith.DataClasses
 			get
 			{
 				KeyValue kv = GetSubkey("Duration");
-				return (kv == null ? new NumberValue("") : kv.GetNumberValue());
+				return (kv == null ? new NumberValue("Duration") : kv.GetNumberValue());
 			}
 			set
 			{

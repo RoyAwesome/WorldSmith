@@ -193,7 +193,6 @@
     <Compile Include="DataClasses\ScriptTypes\DotaModifierParser.cs" />
     <Compile Include="DataClasses\ScriptTypes\DotaUnit.cs" />
     <Compile Include="DataClasses\PropertyTypes\AbilitySpecial.cs" />
-    <Compile Include="DataClasses\PropertyTypes\PerLevel.cs" />
     <Compile Include="Dialogs\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
