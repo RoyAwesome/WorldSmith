@@ -19,14 +19,20 @@ namespace WorldSmith.NodeGraph
             set;
         }
 
+        public NodeItem OuputPin
+        {
+            get;
+            private set;
+        }
+
         public VariableNode(BaseActionVariable var)
             : base(var.Name)
         {
             Variable = var;
             HeaderColor = System.Drawing.Brushes.DarkGreen;
 
-            var OutputItem = new NodeLabelItem("Value", NodeItemType.Output);
-            AddItem(OutputItem);
+            OuputPin = new NodeLabelItem("Value", NodeItemType.Output);
+            AddItem(OuputPin);
         }
 
     }

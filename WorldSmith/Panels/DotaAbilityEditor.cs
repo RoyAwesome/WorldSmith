@@ -230,6 +230,14 @@ namespace WorldSmith.Panels
                         varNode.PerformLayout(g);
                         graphControl1.AddNode(varNode);
 
+                        //Connect the variable's output with the var it's in
+                        var vpin = ActionNode.GetPinForVariable("%" + actionVariable.Name);
+                        if (vpin != null)
+                        {
+                            graphControl1.Connect(varNode.OuputPin, vpin);
+                        }
+
+
 
                         columnHeight += varNode.Bounds.Height + VariableSpacing;
                     }

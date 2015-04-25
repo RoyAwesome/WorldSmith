@@ -47,6 +47,23 @@ namespace WorldSmith.NodeGraph
             this.HeaderColor = System.Drawing.Brushes.SteelBlue;
         }
 
+        public NodeItem GetPinForVariable(string varName)
+        {
+           
+            PropertyInfo[] p = DotaAction.GetType().GetProperties();
+            foreach (var prop in p)
+            {
+                if (prop.PropertyType == typeof(NumberValue))
+                {
+                    var nv = prop.GetValue(DotaAction) as NumberValue;
+                    if (nv.IsVariable && nv.Value == varName)
+                        return InputItems.Where(x => x is NodeNumericSliderItem).Cast<NodeNumericSliderItem>().FirstOrDefault(x => x.Text == prop.Name);
+                    }
+            }
+
+            return null;
+        }
+
         private void AddNodeElements()
         {
             Type t = DotaAction.GetType();
