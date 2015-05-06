@@ -2,3 +2,6 @@
 	path = NodeGraph
 	url = git://github.com/RoyAwesome/Graph
 	branch = master
+[submodule "KVLib"]
+	path = KVLib
+	url = git://github.com/RoyAwesome/KVLib.git

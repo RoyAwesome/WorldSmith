@@ -82,10 +82,6 @@
     <Reference Include="KopiLua">
       <HintPath>..\Libs\KopiLua.dll</HintPath>
     </Reference>
-    <Reference Include="KVLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libs\KVLib.dll</HintPath>
-    </Reference>
     <Reference Include="LibGit2Sharp">
       <HintPath>..\packages\LibGit2Sharp.0.22.0-pre20150324065655\lib\net40\LibGit2Sharp.dll</HintPath>
     </Reference>
@@ -95,10 +91,6 @@
     </Reference>
     <Reference Include="ScintillaNET">
       <HintPath>..\Libs\ScintillaNET.dll</HintPath>
-    </Reference>
-    <Reference Include="Sprache, Version=1.10.0.35, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libs\Sprache.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -504,6 +496,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\KVLib\KVLib\KVLib.csproj">
+      <Project>{482f47e3-83c1-4884-88bb-3d66b157ed23}</Project>
+      <Name>KVLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NodeGraph\Graph\Graph.csproj">
       <Project>{e4cc63d8-127d-4bc9-80e0-ccb3e9da06dc}</Project>
       <Name>Graph</Name>
