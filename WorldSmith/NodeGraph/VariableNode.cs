@@ -19,7 +19,7 @@ namespace WorldSmith.NodeGraph
             set;
         }
 
-        public NodeItem OuputPin
+        public NodeItem OutputPin
         {
             get;
             private set;
@@ -31,8 +31,8 @@ namespace WorldSmith.NodeGraph
             Variable = var;
             HeaderColor = System.Drawing.Brushes.DarkGreen;
 
-            OuputPin = new NodeLabelItem("Value", NodeItemType.Output);
-            AddItem(OuputPin);
+            OutputPin = new NodeLabelItem("Value", NodeItemType.Output);
+            AddItem(OutputPin);
         }
 
     }

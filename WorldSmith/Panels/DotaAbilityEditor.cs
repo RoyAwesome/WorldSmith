@@ -218,30 +218,39 @@ namespace WorldSmith.Panels
 
                     ConnectTargets(EventNode, ActionNode);
 
-                    var Vars = ActionVariables(kvAction, Ability);
-                    foreach(var actionVariable in Vars)
+
+                    var varRefs = ActionNode.VariableReferences;
+
+                    foreach(var Ref in varRefs)
                     {
-                        
                         var pos = previousCol;
                         pos.Y += columnHeight;
 
-                        var varNode = new VariableNode(actionVariable);
+                        //Get the data variable for this reference
+                        var actionVariable = ability.ActionList.Variables.FirstOrDefault(x => x.Name == Ref.VariableName.Replace("%", ""));
+                        if (actionVariable == null)
+                        {
+                            MessageBox.Show("Found a reference to " + Ref.VariableName + "but could not find it in the variable table!");
+                            continue;
+                        }
+
+                        //Create the variable node and add it to the graph
+                        VariableNode varNode = new VariableNode(actionVariable);
                         varNode.Location = pos;
                         varNode.PerformLayout(g);
                         graphControl1.AddNode(varNode);
 
-                        //Connect the variable's output with the var it's in
-                        var vpin = ActionNode.GetPinForVariable("%" + actionVariable.Name);
-                        if (vpin != null)
+                        //Connect it's output to the referenced input pins
+
+                        foreach(var inputPin in Ref.InputPins)
                         {
-                            graphControl1.Connect(varNode.OuputPin, vpin);
+                            graphControl1.Connect(varNode.OutputPin, inputPin);
                         }
-
-
 
                         columnHeight += varNode.Bounds.Height + VariableSpacing;
                     }
 
+                  
                     //Move the pen right to place the next action node
                     previousCol = col;
                     col.X = ActionNode.Bounds.Right + ColumnSpacing;
@@ -272,17 +281,7 @@ namespace WorldSmith.Panels
             
         }
 
-        private IEnumerable<BaseActionVariable> ActionVariables(BaseAction action, DotaAbility ability)
-        {
-            foreach (var VariableRef in action.VariableReferences())
-            {
-                var v = ability.ActionList.Variables.FirstOrDefault(x => x.Name == VariableRef.Replace("%", ""));
-                if (v == null) continue;
-                yield return v;
-            }
-
-        }
-
+       
 
 
         #endregion

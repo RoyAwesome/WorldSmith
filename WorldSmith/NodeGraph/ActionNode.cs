@@ -37,6 +37,13 @@ namespace WorldSmith.NodeGraph
             set;
         }
 
+        public class VariableRefInfo
+        {
+            public string VariableName;
+            public NodeItem[] InputPins;
+        }
+
+        public List<VariableRefInfo> VariableReferences = new List<VariableRefInfo>();
 
         public ActionNode(BaseAction action)
             : base(action.ClassName)
@@ -45,23 +52,64 @@ namespace WorldSmith.NodeGraph
             AddNodeElements();
 
             this.HeaderColor = System.Drawing.Brushes.SteelBlue;
+
+            RefreshVariableRefs();
         }
 
-        public NodeItem GetPinForVariable(string varName)
+
+        public void RefreshVariableRefs()
         {
-           
-            PropertyInfo[] p = DotaAction.GetType().GetProperties();
-            foreach (var prop in p)
+            VariableReferences.Clear();
+
+            Type t = DotaAction.GetType();
+
+            //Loop through all of this action's properties and add node elements for each property type
+            PropertyInfo[] properties = t.GetProperties();
+
+            foreach (PropertyInfo prop in properties)
             {
+                //Skip DotaDataObject's properties as they don't go into the node
+                if (prop.Name == "ClassName") continue;
+                if (prop.Name == "KeyValue") continue;
+                if (prop.Name == "ObjectInfo") continue;
+                if (prop.Name == "Target") continue; //Skip target because we handled it already
+
+
                 if (prop.PropertyType == typeof(NumberValue))
                 {
-                    var nv = prop.GetValue(DotaAction) as NumberValue;
-                    if (nv.IsVariable && nv.Value == varName)
-                        return InputItems.Where(x => x is NodeNumericSliderItem).Cast<NodeNumericSliderItem>().FirstOrDefault(x => x.Text == prop.Name);
-                    }
-            }
+                    NumberValue nv = prop.GetMethod.Invoke(DotaAction, new object[] { }) as NumberValue;
 
-            return null;
+                    if(nv.IsVariable)
+                    {
+                        //Check to see if we have a variable reference in our list
+                        VariableRefInfo varRef = VariableReferences.FirstOrDefault(x => x.VariableName == nv.Value);
+                        if (varRef != null) //varRef is not null, so we can just add this pin to the reference list
+                        {
+                            //Get the pin for this property
+                            NodeItem pin = this.Items.FirstOrDefault(x => (string)x.Tag == prop.Name);
+
+                            List<NodeItem> pins = new List<NodeItem>(varRef.InputPins);
+                            pins.Add(pin);
+                            varRef.InputPins = pins.ToArray();                            
+                        }
+                        else //We don't have a reference entry fo this one.  Lets add it
+                        {
+                            varRef = new VariableRefInfo();
+                            varRef.VariableName = nv.Value;
+
+                            //Get the pin for this property
+                            NodeItem pin = this.Items.FirstOrDefault(x => (string)x.Tag == prop.Name);
+
+                            varRef.InputPins = new NodeItem[] { pin };
+
+                            VariableReferences.Add(varRef);
+                        }
+
+                    }
+
+                }
+            }
+            
         }
 
         private void AddNodeElements()
@@ -97,7 +145,7 @@ namespace WorldSmith.NodeGraph
                 NodeItem item = null;
                 if (prop.PropertyType == typeof(NumberValue))
                 {
-                    item = new NodeNumericSliderItem(prop.Name, 20, 20, 0, 100, 0, NodeItemType.Input);
+                    item = new NodeNumericSliderItem(prop.Name, 20, 20, 0, 100, 0, NodeItemType.Input);                    
                 }
                 if(prop.PropertyType == typeof(TargetKey))
                 {
@@ -109,6 +157,8 @@ namespace WorldSmith.NodeGraph
                 }
 
                 if(item == null) item = new NodeLabelItem(prop.Name, NodeItemType.Input);
+
+                item.Tag = prop.Name;
                 this.AddItem(item);
 
             }
