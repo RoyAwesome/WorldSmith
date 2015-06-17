@@ -210,6 +210,14 @@
 		"Type"	"NumberValue"
 		"DefaultValue"	""
 	}
+
+	"FixedDistance"
+	{	
+		"Category"	"Misc"
+		"Description"	"int"
+		"Type"	"NumberValue"
+		"DefaultValue"	""
+	}
 	
 
 }

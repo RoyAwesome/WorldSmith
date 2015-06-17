@@ -394,5 +394,27 @@ namespace WorldSmith.DataClasses
 			}
 		}
 
+		[Category("Misc")]
+		[Description("int")]
+		[DefaultValue(typeof(NumberValue), "")]
+		public NumberValue FixedDistance
+		{
+			get
+			{
+				KeyValue kv = GetSubkey("FixedDistance");
+				return (kv == null ? new NumberValue("FixedDistance") : kv.GetNumberValue());
+			}
+			set
+			{
+				KeyValue kv = GetSubkey("FixedDistance");
+				if(kv == null)
+				{
+					kv = new KeyValue("FixedDistance");
+					KeyValue.AddChild(kv);
+				}
+				kv.Set(value);
+			}
+		}
+
 	}
 }
