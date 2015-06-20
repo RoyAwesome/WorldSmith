@@ -13,7 +13,7 @@ namespace WorldSmith.NodeGraph
 {
     class VariableNode : Node
     {
-        BaseActionVariable Variable
+        public BaseActionVariable Variable
         {
             get;
             set;
@@ -31,7 +31,7 @@ namespace WorldSmith.NodeGraph
             Variable = var;
             HeaderColor = System.Drawing.Brushes.DarkGreen;
 
-            OutputPin = new NodeLabelItem("Value", NodeItemType.Output);
+            OutputPin = new NumberValueItem("Value", NodeItemType.Output);
             AddItem(OutputPin);
         }
 

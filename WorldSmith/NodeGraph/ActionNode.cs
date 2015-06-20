@@ -54,6 +54,28 @@ namespace WorldSmith.NodeGraph
             this.HeaderColor = System.Drawing.Brushes.SteelBlue;
 
             RefreshVariableRefs();
+
+           
+        }
+
+        public void PinConnectedToVariable(VariableNode otherNode, string property)
+        {
+            Type t = DotaAction.GetType();
+            var prop = t.GetProperty(property);
+
+            if (prop == null)
+            {
+                throw new ArgumentException("Property must be a valid KV property");
+            }
+
+            if(prop.PropertyType == typeof(NumberValue))
+            {
+                var nv = new NumberValue("%" + otherNode.Variable.Name);
+
+                prop.SetMethod.Invoke(DotaAction, new object[] { nv });
+                
+            }
+
         }
 
 
@@ -145,7 +167,7 @@ namespace WorldSmith.NodeGraph
                 NodeItem item = null;
                 if (prop.PropertyType == typeof(NumberValue))
                 {
-                    item = new NodeNumericSliderItem(prop.Name, 20, 20, 0, 100, 0, NodeItemType.Input);                    
+                    item = new NumberValueItem(prop.Name, 20, 20, 0, 100, 0, NodeItemType.Input);                    
                 }
                 if(prop.PropertyType == typeof(TargetKey))
                 {

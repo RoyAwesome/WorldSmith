@@ -17,18 +17,51 @@ using WorldSmith.NodeGraph.Items;
 
 namespace WorldSmith.Panels
 {
+
+    public class ActionCompatStrategy : ICompatibilityStrategy
+    {
+        public bool CanConnect(NodeConnector from, NodeConnector to)
+        {
+            if (from.Item.GetType() == to.Item.GetType()) return true;
+            return false;
+        }
+    }
+
     public partial class DotaAbilityEditor : DockContent, IEditor
     {
         public DotaAbilityEditor()
         {
             InitializeComponent();
 
-            graphControl1.CompatibilityStrategy = new AlwaysCompatible();
+            graphControl1.CompatibilityStrategy = new ActionCompatStrategy();
 
             AddEvents();
             AddActions();
 
             this.FormClosing += DotaAbilityEditor_FormClosing;
+
+            graphControl1.ConnectionAdded += GraphControl1_ConnectionAdded;
+        }
+
+        bool GeneratingGraph = false;
+
+        private void GraphControl1_ConnectionAdded(object sender, AcceptNodeConnectionEventArgs e)
+        {
+            if (GeneratingGraph) return;
+            Console.WriteLine("Connected " + e.Connection.From.Node.Title + " to " + e.Connection.To.Node.Title);
+
+            if(((e.Connection.From.Node is VariableNode && e.Connection.To.Node is ActionNode)
+                || (e.Connection.To.Node is VariableNode && e.Connection.From.Node is ActionNode))) //If we are connecting a variable to a action
+            {
+                var to = e.Connection.To.Node is ActionNode ? e.Connection.To : e.Connection.From;
+
+                var from = e.Connection.From.Node is VariableNode ? e.Connection.From : e.Connection.To;
+
+                (to.Node as ActionNode).PinConnectedToVariable(from.Node as VariableNode, (string)to.Item.Tag);
+            } 
+         
+
+            ActiveDocument.DocumentEdited(this);
         }
 
         private void DotaAbilityEditor_FormClosing(object sender, FormClosingEventArgs e)
@@ -171,6 +204,8 @@ namespace WorldSmith.Panels
 
         private void PlaceEvents()
         {
+            GeneratingGraph = true;
+
             PointF Position = new PointF(EventColumn, 0);
             Graphics g = graphControl1.GetLayoutGraphics();
 
@@ -262,6 +297,7 @@ namespace WorldSmith.Panels
 
             }
 
+            GeneratingGraph = false;
         }
 
         private void ConnectTargets(EventNode Event, ActionNode Action)
