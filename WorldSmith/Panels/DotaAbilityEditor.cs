@@ -22,7 +22,8 @@ namespace WorldSmith.Panels
     {
         public bool CanConnect(NodeConnector from, NodeConnector to)
         {
-            if (from.Item.GetType() == to.Item.GetType()) return true;
+            if (from.Item.ItemType == to.Item.ItemType) return false;
+            if (from.Item.GetType() == to.Item.GetType()) return true;            
             return false;
         }
     }
