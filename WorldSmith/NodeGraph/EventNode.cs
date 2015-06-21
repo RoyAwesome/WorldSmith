@@ -43,27 +43,27 @@ namespace WorldSmith.NodeGraph
         {
             if(Event.Targets.HasFlag(DotaEvent.TargetsFlags.ATTACKER))
             {
-                var TargetPin = new TargetNodeItem("Attacker", NodeItemType.Output);
+                var TargetPin = new TargetNodeItem(new TargetKey("Attacker"));
                 AddItem(TargetPin);
             }
             if (Event.Targets.HasFlag(DotaEvent.TargetsFlags.CASTER))
             {
-                var TargetPin = new TargetNodeItem("Caster", NodeItemType.Output);
+                var TargetPin = new TargetNodeItem(new TargetKey("Caster"));
                 AddItem(TargetPin);
             }
             if (Event.Targets.HasFlag(DotaEvent.TargetsFlags.PROJECTILE))
             {
-                var TargetPin = new TargetNodeItem("Projectile", NodeItemType.Output);
+                var TargetPin = new TargetNodeItem(new TargetKey("Projectile"));
                 AddItem(TargetPin);
             }
             if (Event.Targets.HasFlag(DotaEvent.TargetsFlags.TARGET))
             {
-                var TargetPin = new TargetNodeItem("Target", NodeItemType.Output);
+                var TargetPin = new TargetNodeItem(new TargetKey("Target"));
                 AddItem(TargetPin);
             }
             if (Event.Targets.HasFlag(DotaEvent.TargetsFlags.UNIT))
             {
-                var TargetPin = new TargetNodeItem("Unit", NodeItemType.Output);
+                var TargetPin = new TargetNodeItem(new TargetKey("Unit"));
                 AddItem(TargetPin);
             }
         }

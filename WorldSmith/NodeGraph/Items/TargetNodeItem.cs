@@ -6,12 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using WorldSmith.DataClasses;
 
 namespace WorldSmith.NodeGraph.Items
 {
     class TargetNodeItem : NodeItem
     {
         public string Text
+        {
+            get;
+            set;
+        }
+
+        public TargetKey Target
         {
             get;
             set;
@@ -27,6 +34,13 @@ namespace WorldSmith.NodeGraph.Items
             : base(type)
         {
             Text = text;
+        }
+
+        public TargetNodeItem(TargetKey target)
+            : base(NodeItemType.Output)
+        {
+            Text = target.Preset;
+            Target = target;
         }
 
         public override void RenderContent(Graphics graphics)

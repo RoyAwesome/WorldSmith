@@ -58,7 +58,7 @@ namespace WorldSmith.NodeGraph
            
         }
 
-        public void PinConnectedToVariable(VariableNode otherNode, string property)
+        public void PinConnected(NodeItem fromConnect, string property)
         {
             Type t = DotaAction.GetType();
             var prop = t.GetProperty(property);
@@ -67,17 +67,30 @@ namespace WorldSmith.NodeGraph
             {
                 throw new ArgumentException("Property must be a valid KV property");
             }
-
-            if(prop.PropertyType == typeof(NumberValue))
+            if(fromConnect.Node is VariableNode)
             {
-                var nv = new NumberValue("%" + otherNode.Variable.Name);
+                if (prop.PropertyType == typeof(NumberValue))
+                {
+                    var vn = fromConnect.Node as VariableNode;
+                    var nv = new NumberValue("%" + vn.Variable.Name);
 
-                prop.SetMethod.Invoke(DotaAction, new object[] { nv });
-                
+                    prop.SetMethod.Invoke(DotaAction, new object[] { nv });
+
+                }
+            }
+            if(fromConnect is TargetNodeItem)
+            {
+                if(prop.PropertyType == typeof(TargetKey))
+                {
+                    var target = (fromConnect as TargetNodeItem).Target;
+
+                    prop.SetMethod.Invoke(DotaAction, new object[] { target });
+
+                }
             }
 
         }
-
+                       
 
         public void RefreshVariableRefs()
         {
@@ -152,6 +165,7 @@ namespace WorldSmith.NodeGraph
             if (target != null)
             {
                 TargetPin = new TargetNodeItem(target.Name, NodeItemType.Input);
+                TargetPin.Tag = "Target";
                 this.AddItem(TargetPin);
             }
 

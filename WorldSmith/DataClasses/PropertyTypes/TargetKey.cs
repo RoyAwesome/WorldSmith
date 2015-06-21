@@ -274,6 +274,12 @@ namespace WorldSmith.DataClasses
             }
         }
 
+        public TargetKey(string Preset)
+            : base(new KeyValue("Target") + Preset)
+        {
+
+        }
+
     
         public TargetKey(KeyValue kv)
             : base(kv)

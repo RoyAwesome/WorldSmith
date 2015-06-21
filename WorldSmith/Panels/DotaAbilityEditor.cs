@@ -42,25 +42,53 @@ namespace WorldSmith.Panels
             this.FormClosing += DotaAbilityEditor_FormClosing;
 
             graphControl1.ConnectionAdded += GraphControl1_ConnectionAdded;
+           
         }
 
+      
+
         bool GeneratingGraph = false;
+
+        private NodeItem GetInputItem(NodeItem A, NodeItem B)
+        {
+            if (A.ItemType == B.ItemType) throw new ArgumentException("A and B are the same connection type!");
+            if (A.ItemType == NodeItemType.Input) return A;
+            if (B.ItemType == NodeItemType.Input) return B;
+            throw new ArgumentException("No Input type!");
+        }
+        private NodeItem GetOutputItem(NodeItem A, NodeItem B)
+        {
+            if (A.ItemType == B.ItemType) throw new ArgumentException("A and B are the same connection type!");
+            if (A.ItemType == NodeItemType.Output) return A;
+            if (B.ItemType == NodeItemType.Output) return B;
+            throw new ArgumentException("No Output type!");
+        }
 
         private void GraphControl1_ConnectionAdded(object sender, AcceptNodeConnectionEventArgs e)
         {
             if (GeneratingGraph) return;
-            Console.WriteLine("Connected " + e.Connection.From.Node.Title + " to " + e.Connection.To.Node.Title);
+           
+            var to = GetInputItem(e.Connection.From.Item, e.Connection.To.Item);
+            var from = GetOutputItem(e.Connection.From.Item, e.Connection.To.Item);
 
-            if(((e.Connection.From.Node is VariableNode && e.Connection.To.Node is ActionNode)
-                || (e.Connection.To.Node is VariableNode && e.Connection.From.Node is ActionNode))) //If we are connecting a variable to a action
+            //Clear all other connections.  This is to prevent multiple connections from attaching to the same pin.  
+            //Only the latest connection will provide data. 
+            List<NodeConnection> connections = new List<NodeConnection>(to.Connector.Connectors);                
+            foreach (var con in connections)
             {
-                var to = e.Connection.To.Node is ActionNode ? e.Connection.To : e.Connection.From;
+                if (con == e.Connection) continue; // Skip our connection, we want to keep it
+                graphControl1.Disconnect(con);
+            }
+            
 
-                var from = e.Connection.From.Node is VariableNode ? e.Connection.From : e.Connection.To;
+            Console.WriteLine("Connected " + from.Node.Title + " to " + to.Node.Title + "'s " + to.Tag);
 
-                (to.Node as ActionNode).PinConnectedToVariable(from.Node as VariableNode, (string)to.Item.Tag);
-            } 
-         
+            if(to.Node is ActionNode) //If the to node is an action node, notify it that a pin was connected
+            {
+                var an = to.Node as ActionNode;
+
+                an.PinConnected(from, (string)to.Tag);
+            }                     
 
             ActiveDocument.DocumentEdited(this);
         }
