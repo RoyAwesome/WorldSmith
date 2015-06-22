@@ -15,10 +15,16 @@ namespace WorldSmith.DataClasses
 
         }
 
+        public DotaActionCollection(string Event)
+            : base(Event)
+        {
+
+        }
+
 
         public override IEnumerator<BaseAction> GetEnumerator()
         {
-            foreach (KeyValue kv in KeyValues.Children)
+            foreach (KeyValue kv in KeyValue.Children)
             {
                 if (!kv.HasChildren) continue;
                 BaseAction obj = DotaActionFactory.CreateNewAction(kv.Key, kv);

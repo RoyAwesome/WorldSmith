@@ -117,7 +117,14 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(DotaActionCollection);
+				KeyValue kv = GetSubkey("OnSpawn");
+                if (kv == null)
+                {
+                    var dac = new DotaActionCollection("OnSpawn");
+                    this.KeyValue.AddChild(dac.KeyValue);
+                    return dac;
+                }
+                return new DotaActionCollection(kv); 
 			}
 			set
 			{

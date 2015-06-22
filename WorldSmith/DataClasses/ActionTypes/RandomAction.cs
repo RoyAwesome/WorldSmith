@@ -102,7 +102,14 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(DotaActionCollection);
+				KeyValue kv = GetSubkey("OnSuccess");
+                if (kv == null)
+                {
+                    var dac = new DotaActionCollection("OnSuccess");
+                    this.KeyValue.AddChild(dac.KeyValue);
+                    return dac;
+                }
+                return new DotaActionCollection(kv); 
 			}
 			set
 			{
@@ -123,7 +130,14 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(DotaActionCollection);
+				KeyValue kv = GetSubkey("OnFailure");
+                if (kv == null)
+                {
+                    var dac = new DotaActionCollection("OnFailure");
+                    this.KeyValue.AddChild(dac.KeyValue);
+                    return dac;
+                }
+                return new DotaActionCollection(kv); 
 			}
 			set
 			{

@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataClasses\ActionTypes\BaseActionExt.cs" />
+    <Compile Include="NodeGraph\AbilityGraphNode.cs" />
     <Compile Include="NodeGraph\Items\NumberValueItem.cs" />
     <Compile Include="Utils\CheckForUpdate.cs" />
     <Compile Include="DataClasses\Actions\DotaActionCollection.cs" />

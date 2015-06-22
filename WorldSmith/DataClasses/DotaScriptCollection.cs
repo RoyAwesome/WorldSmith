@@ -14,11 +14,11 @@ namespace WorldSmith.DataClasses
         {
             get
             {
-                return KeyValues.Key;
+                return KeyValue.Key;
             }
         }
 
-        public KeyValue KeyValues
+        public KeyValue KeyValue
         {
             get;
             private set;
@@ -26,12 +26,18 @@ namespace WorldSmith.DataClasses
 
         public DotaScriptCollection(KeyValue kv)
         {
-            KeyValues = kv;
+            KeyValue = kv;
+        }
+
+        public DotaScriptCollection(string Classname)
+            : this(new KeyValue(Classname).MakeEmptyParent())
+        {
+
         }
 
         public virtual IEnumerator<T> GetEnumerator()
         {
-            foreach(KeyValue kv in KeyValues.Children)
+            foreach(KeyValue kv in KeyValue.Children)
             {
                 T obj = typeof(T).GetConstructor(new Type[] { typeof(KeyValue) }).Invoke(new object[] { kv }) as T;
                 yield return obj;
@@ -40,7 +46,7 @@ namespace WorldSmith.DataClasses
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            foreach (KeyValue kv in KeyValues.Children)
+            foreach (KeyValue kv in KeyValue.Children)
             {
                 T obj = typeof(T).GetConstructor(new Type[] { typeof(KeyValue) }).Invoke(new object[] { kv }) as T;
                 yield return obj;

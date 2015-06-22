@@ -29,7 +29,14 @@ namespace WorldSmith.DataClasses
 		{
 			get
 			{
-				return default(DotaActionCollection);
+				KeyValue kv = GetSubkey("Action");
+                if (kv == null)
+                {
+                    var dac = new DotaActionCollection("Action");
+                    this.KeyValue.AddChild(dac.KeyValue);
+                    return dac;
+                }
+                return new DotaActionCollection(kv); 
 			}
 			set
 			{

@@ -11,7 +11,7 @@ using WorldSmith.DataClasses;
 
 namespace WorldSmith.NodeGraph
 {
-    class VariableNode : Node
+    public class VariableNode : AbilityGraphNode
     {
         public BaseActionVariable Variable
         {

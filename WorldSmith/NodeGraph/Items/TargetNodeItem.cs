@@ -10,7 +10,7 @@ using WorldSmith.DataClasses;
 
 namespace WorldSmith.NodeGraph.Items
 {
-    class TargetNodeItem : NodeItem
+    public class TargetNodeItem : NodeItem
     {
         public string Text
         {

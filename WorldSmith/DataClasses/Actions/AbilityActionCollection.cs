@@ -72,12 +72,27 @@ namespace WorldSmith.DataClasses
         }
             
         
+        public DotaActionCollection GetOrCreateCollection(DotaEvent Event)
+        {
+            var dac = GetActionCollection(Event);
+            if(dac == null)
+            {
+                dac = new DotaActionCollection(Event.ClassName);
+                Ability.KeyValue.AddChild(dac.KeyValue);
+            }
+
+            return dac;
+        }
+
         public DotaActionCollection GetActionCollection(DotaEvent Event)
         {
             if (!Event.EventAppliesTo.HasFlag(DotaEvent.EventAppliesToFlags.ABILITY)) return null;
 
             KeyValue actionCollection = Ability.KeyValue[Event.ClassName];
-            if (actionCollection == null) return null; //No action collection at that key
+            if (actionCollection == null) //No action collection at that key
+            {
+                return null;
+            }
 
             return new DotaActionCollection(actionCollection);
         }

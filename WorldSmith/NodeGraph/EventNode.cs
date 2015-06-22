@@ -10,25 +10,28 @@ using WorldSmith.DataClasses;
 
 namespace WorldSmith.NodeGraph
 {
-    class EventNode : Node
+    public class EventNode : AbilityGraphNode
     {
-
-        public ExecuteNodeItem OutputExecute
-        {
-            get;
-            set;
-        }
-
+             
         public DotaEvent Event
         {
             get;
             set;
         }
 
-        public EventNode(DotaEvent Event)
+        public DotaActionCollection ActionCollection
+        {
+            get;
+            set;
+        }
+            
+
+        public EventNode(DotaEvent Event, DotaActionCollection BackingCollection)
             : base(Event.ClassName)
         {
             this.Event = Event;
+            this.ActionCollection = BackingCollection;
+
 
             this.HeaderColor = System.Drawing.Brushes.Brown;
 
@@ -86,6 +89,7 @@ namespace WorldSmith.NodeGraph
         public void AddExecPin()
         {
             OutputExecute = new ExecuteNodeItem("Event", NodeItemType.Output);
+            OutputExecute.ActionCollection = ActionCollection; //Assign our action collection, as we are an endpoint
             this.AddItem(OutputExecute);          
         }
               

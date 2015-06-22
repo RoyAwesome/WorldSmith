@@ -346,6 +346,20 @@ namespace WorldSmith.DataSchema
                     csFile.AppendLine("KeyValue kv = GetSubkey(\"" + c.Key + "\");");
                     csFile.AppendLine("\t\t\t\treturn (kv == null ? new TargetKey() : kv.GetTargetKey());");
                 }
+                else if(type == "DotaActionCollection")
+                {
+                    string cs = @"KeyValue kv = GetSubkey(""%Class"");
+                if (kv == null)
+                {
+                    var dac = new DotaActionCollection(""%Class"");
+                    this.KeyValue.AddChild(dac.KeyValue);
+                    return dac;
+                }
+                return new DotaActionCollection(kv); ";
+
+                    cs = cs.Replace("%Class", c.Key);
+                    csFile.AppendLine(cs);
+                }
                 //TODO: Add other getters here.  Probably need to do some extensions to KeyValue
 
                 else

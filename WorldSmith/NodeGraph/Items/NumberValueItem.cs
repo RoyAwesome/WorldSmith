@@ -9,7 +9,7 @@ using System.Drawing;
 
 namespace WorldSmith.NodeGraph.Items
 {
-    class NumberValueItem : NodeNumericSliderItem
+    public class NumberValueItem : NodeNumericSliderItem
     {
         public NumberValueItem(string text, float sliderSize, float textSize, float minValue, float maxValue, float defaultValue, NodeItemType type)
             : base(text, sliderSize, textSize, minValue, maxValue, defaultValue, type)

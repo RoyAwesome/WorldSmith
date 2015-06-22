@@ -11,25 +11,14 @@ using WorldSmith.NodeGraph.Items;
 
 namespace WorldSmith.NodeGraph
 {
-    class ActionNode : Node
+    public class ActionNode : AbilityGraphNode
     {
         public BaseAction DotaAction
         {
             get;
             private set;
         }
-
-        public ExecuteNodeItem OutputExecute
-        {
-            get;
-            private set;
-        }
-
-        public ExecuteNodeItem InputExecute
-        {
-            get;
-            private set;
-        }
+               
 
         public TargetNodeItem TargetPin
         {
@@ -190,6 +179,10 @@ namespace WorldSmith.NodeGraph
                 if(prop.PropertyType == typeof(DotaActionCollection))
                 {
                     item = new ExecuteNodeItem(prop.Name, NodeItemType.Output);
+
+                    var ex = item as ExecuteNodeItem;
+                    ex.ActionCollection = prop.GetMethod.Invoke(DotaAction, new object[] { }) as DotaActionCollection; //Assign this execute node as the end point
+                                                                                                                        //for an action collection execute chain
                 }
 
                 if(item == null) item = new NodeLabelItem(prop.Name, NodeItemType.Input);

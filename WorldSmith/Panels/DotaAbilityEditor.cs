@@ -42,6 +42,7 @@ namespace WorldSmith.Panels
             this.FormClosing += DotaAbilityEditor_FormClosing;
 
             graphControl1.ConnectionAdded += GraphControl1_ConnectionAdded;
+         
            
         }
 
@@ -83,14 +84,74 @@ namespace WorldSmith.Panels
 
             Console.WriteLine("Connected " + from.Node.Title + " to " + to.Node.Title + "'s " + to.Tag);
 
-            if(to.Node is ActionNode) //If the to node is an action node, notify it that a pin was connected
+            if(!(to is ExecuteNodeItem) && to.Node is ActionNode) //If the to node is an action node, notify it that a pin was connected
             {
                 var an = to.Node as ActionNode;
 
                 an.PinConnected(from, (string)to.Tag);
-            }                     
+            }      
+            
+            //If we are connecting execute nodes, lets walk back                
+            if(from is ExecuteNodeItem)
+            {
 
+                var executeItem = from as ExecuteNodeItem;
+
+              
+                if (executeItem.ActionCollection != null) //We are directly connected to the root
+                {
+                    OnExecuteNodeChanged(from as ExecuteNodeItem);
+                }
+                else   //Walk back the connection chain to find the execute node with the action collection
+                {
+                    executeItem = (executeItem.Node as AbilityGraphNode).InputExecute;
+
+                    while (executeItem != null && executeItem.ActionCollection == null) //Keep moving backwards until we either are null or we have a action collection
+                    {
+                        var connection = executeItem.Connector.Connectors.FirstOrDefault();
+                        if (connection == null)
+                        {
+                            executeItem = null;
+                            break;
+                        }
+                       
+                         executeItem = connection.From.Item as ExecuteNodeItem;
+
+                        if(executeItem.ActionCollection == null)
+                        {
+                            executeItem = (executeItem.Node as AbilityGraphNode).InputExecute;
+                        }
+
+                    }
+
+                    if (executeItem != null && executeItem.ActionCollection != null) //We've walked back to an action node and we aren't null, so it's an Event node.  
+                    {
+                        OnExecuteNodeChanged(executeItem); 
+                    }
+
+                }
+
+                
+               
+
+              
+
+            }
+
+            
             ActiveDocument.DocumentEdited(this);
+        }
+
+
+
+        public void OnExecuteNodeChanged(ExecuteNodeItem RootExecuteNode)
+        {
+
+            //DotaEvent dotaEvent = eventNode.Event;
+
+            
+
+
         }
 
         private void DotaAbilityEditor_FormClosing(object sender, FormClosingEventArgs e)
@@ -161,7 +222,10 @@ namespace WorldSmith.Panels
 
             var SelectedNode = treeView1.SelectedNode;
 
+            if (SelectedNode == null) return; //If we don't have a selection, don't bother with this.  
+
             Node Node = null;
+
 
             if ((string)SelectedNode.Tag == "Action")
             {
@@ -172,7 +236,7 @@ namespace WorldSmith.Panels
             if ((string)SelectedNode.Tag == "Event")
             {
                 var Event = DotaData.Events.FirstOrDefault(x => x.ClassName == SelectedNode.Text);
-                Node = new EventNode(Event);
+                Node = new EventNode(Event, Ability.ActionList.GetOrCreateCollection(Event));
             }
             if ((string)SelectedNode.Tag == "Variable")
             {
@@ -249,7 +313,7 @@ namespace WorldSmith.Panels
                     Event.Targets = Event.Targets | DotaEvent.TargetsFlags.TARGET;
                 }
 
-                var EventNode = new EventNode(Event);
+                var EventNode = new EventNode(Event, Ability.ActionList.GetActionCollection(Event));
                 EventNode.Location = Position;
 
                

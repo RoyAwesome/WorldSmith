@@ -6,16 +6,25 @@ using System.Text;
 using System.Threading.Tasks;
 using Graph;
 using System.Drawing.Drawing2D;
+using WorldSmith.DataClasses;
 
 namespace WorldSmith.NodeGraph.Items
 {
-    class ExecuteNodeItem : NodeItem
+    public class ExecuteNodeItem : NodeItem
     {
         public string Text
         {
             get;
             set;
         }
+        
+        public DotaActionCollection ActionCollection
+        {
+            get;
+            set;
+        }
+        
+
         public override Color MainColor
         {
             get
