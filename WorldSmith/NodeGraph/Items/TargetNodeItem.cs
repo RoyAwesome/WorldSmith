@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using WorldSmith.DataClasses;
+using System.Globalization;
 
 namespace WorldSmith.NodeGraph.Items
 {
@@ -38,8 +39,8 @@ namespace WorldSmith.NodeGraph.Items
 
         public TargetNodeItem(TargetKey target)
             : base(NodeItemType.Output)
-        {
-            Text = target.Preset;
+        {            
+            Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(target.Preset.ToLower());
             Target = target;
         }
 

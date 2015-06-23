@@ -130,11 +130,7 @@ namespace WorldSmith.Panels
                     }
 
                 }
-
                 
-               
-
-              
 
             }
 
@@ -146,10 +142,25 @@ namespace WorldSmith.Panels
 
         public void OnExecuteNodeChanged(ExecuteNodeItem RootExecuteNode)
         {
+            //Clear the Root execute node, then walk through it's connections and add the entries to collection
 
-            //DotaEvent dotaEvent = eventNode.Event;
+            DotaActionCollection ActionCollection = RootExecuteNode.ActionCollection;
 
-            
+            ActionCollection.Clear();
+
+            var connection = RootExecuteNode.Connector.Connectors.FirstOrDefault();   
+            while(connection != null)
+            {
+                ActionNode node = connection.To.Node as ActionNode;
+
+                if (node == null) break;
+                ActionCollection.Add(node.DotaAction);
+
+                connection = node.OutputExecute.Connector.Connectors.FirstOrDefault();                
+
+            }
+
+            Console.WriteLine("Complete Collection: " + ActionCollection.ToString());
 
 
         }

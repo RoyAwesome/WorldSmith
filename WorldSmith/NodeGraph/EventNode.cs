@@ -44,31 +44,15 @@ namespace WorldSmith.NodeGraph
 
         private void AddTargetNodes()
         {
-            if(Event.Targets.HasFlag(DotaEvent.TargetsFlags.ATTACKER))
+            string s = Event.Targets.ToString();
+            var split = s.Split(',');
+
+            foreach(string t in split)
             {
-                var TargetPin = new TargetNodeItem(new TargetKey("Attacker"));
+                var TargetPin = new TargetNodeItem(new TargetKey(t));
                 AddItem(TargetPin);
             }
-            if (Event.Targets.HasFlag(DotaEvent.TargetsFlags.CASTER))
-            {
-                var TargetPin = new TargetNodeItem(new TargetKey("Caster"));
-                AddItem(TargetPin);
-            }
-            if (Event.Targets.HasFlag(DotaEvent.TargetsFlags.PROJECTILE))
-            {
-                var TargetPin = new TargetNodeItem(new TargetKey("Projectile"));
-                AddItem(TargetPin);
-            }
-            if (Event.Targets.HasFlag(DotaEvent.TargetsFlags.TARGET))
-            {
-                var TargetPin = new TargetNodeItem(new TargetKey("Target"));
-                AddItem(TargetPin);
-            }
-            if (Event.Targets.HasFlag(DotaEvent.TargetsFlags.UNIT))
-            {
-                var TargetPin = new TargetNodeItem(new TargetKey("Unit"));
-                AddItem(TargetPin);
-            }
+                      
         }
         
         private void AddSpecialPins()

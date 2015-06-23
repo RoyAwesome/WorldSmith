@@ -63,5 +63,18 @@ namespace WorldSmith
             TargetKey tk = new TargetKey(kv);
             return tk;
         }
+
+        public static void Set(this KeyValue kv, TargetKey tc)
+        {
+            if(tc.IsPreset)
+            {
+                kv.Set(tc.Preset);
+            }
+            else
+            {
+                kv.ClearChildren();
+                kv.AddChildren(tc.KeyValue.Children);
+            }
+        }
     }
 }

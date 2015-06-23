@@ -28,6 +28,14 @@ namespace WorldSmith.DataClasses
             }
         }
 
+        public bool IsPreset
+        {
+            get
+            {
+                return !KeyValue.HasChildren;
+            }
+        }
+
         public enum ShapeE
         {
             CIRCLE,
@@ -288,7 +296,7 @@ namespace WorldSmith.DataClasses
         }
 
         public TargetKey()
-            : base(new KeyValue("Target") + "Caster")
+            : base(new KeyValue("Target") + "CASTER")
         {
 
         }

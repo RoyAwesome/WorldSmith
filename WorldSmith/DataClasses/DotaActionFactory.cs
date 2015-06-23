@@ -35,14 +35,19 @@ namespace WorldSmith.DataClasses
 
             Type actionType = FactoryDictionary[name];
 
+            BaseAction action = null;
+
             if(kv == null)
             {
-                return actionType.GetConstructor(new Type[] { typeof(string) }).Invoke(new object[] { name }) as BaseAction;
+                action =  actionType.GetConstructor(new Type[] { typeof(string) }).Invoke(new object[] { name }) as BaseAction;
             }
             else
             {
-                return actionType.GetConstructor(new Type[] { typeof(KeyValue) }).Invoke(new object[] { kv }) as BaseAction;
+                action =  actionType.GetConstructor(new Type[] { typeof(KeyValue) }).Invoke(new object[] { kv }) as BaseAction;
             }
+
+            action.KeyValue.MakeEmptyParent();
+            return action;
         }
 
     }
