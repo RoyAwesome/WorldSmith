@@ -5,6 +5,8 @@ Open source Dota 2 Mod Editor inspired by Warcraft 3's World Edit.
 
 You can contact me on IRC at #dota2mods on irc.gamesurge.net.  
 
+Looking for builds?  [You can get the latest build here](http://rhoyne.cloudapp.net:8010/Dev/)
+
 
 ## Contributing
 
@@ -41,9 +43,7 @@ Without a few people, this project would be much much harder.  In no particular 
 
 ## Compiling the Source
 
-All major dependencies are included in the repository.  They are 
-* [KVLib] - Valve Key-Value parsing library in C#
-* [Sprache] - Monadic Parsing library for C# 
+All major dependencies are included in the repository.  You may have to update submodules if you have errors with KVLib and Graph.  
 
 Worldsmith also relies on some NuGet packages.  If you are using Visual Studio 2012 or 2013, this will be automatically handled.  If not, you need to install NuGet and restore the dependencies. 
 
@@ -61,6 +61,4 @@ I greatly appreciate pull requests, but I ask contributers to follow some guidel
 
 
 
-[KVLib]: https://github.com/RoyAwesome/KVLib
-[Sprache]: https://github.com/sprache/Sprache
 [Donate]: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WF8XJ8SVQ9UAU&lc=US&item_name=Garrett%20Fleenor&item_number=Worldsmith&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
