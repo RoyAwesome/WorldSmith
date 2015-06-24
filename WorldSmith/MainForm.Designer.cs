@@ -81,6 +81,7 @@
             this.vS2003Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2003Theme();
             this.vS2005Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2005Theme();
             this.vS2012LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2012LightTheme();
+            this.vS2012ToolStripExtender1 = new DockSample.VS2012ToolStripExtender();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 

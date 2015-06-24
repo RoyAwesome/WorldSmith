@@ -96,7 +96,7 @@ namespace WorldSmith.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("dota_ugc\\game\\dota_addons\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("game\\dota_addons\\")]
         public string BaseAddonDir {
             get {
                 return ((string)(this["BaseAddonDir"]));
