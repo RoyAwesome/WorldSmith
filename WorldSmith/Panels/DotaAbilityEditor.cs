@@ -17,16 +17,7 @@ using WorldSmith.NodeGraph.Items;
 
 namespace WorldSmith.Panels
 {
-
-    public class ActionCompatStrategy : ICompatibilityStrategy
-    {
-        public bool CanConnect(NodeConnector from, NodeConnector to)
-        {
-            if (from.Item.ItemType == to.Item.ItemType) return false;
-            if (from.Item.GetType() == to.Item.GetType()) return true;            
-            return false;
-        }
-    }
+      
 
     public partial class DotaAbilityEditor : DockContent, IEditor
     {
@@ -38,6 +29,7 @@ namespace WorldSmith.Panels
 
             AddEvents();
             AddActions();
+            AddCustomCategories();
 
             this.FormClosing += DotaAbilityEditor_FormClosing;
 
@@ -227,6 +219,34 @@ namespace WorldSmith.Panels
 
         }
 
+        private void AddCustomCategories()
+        {
+            TreeNode n = treeView1.Nodes["Targets"];
+            if(n == null)
+            {
+                n = treeView1.Nodes.Add("Targets");
+                n.Tag = "Folder";
+            }
+
+            n.Nodes.Clear();
+
+            var c = new TreeNode();
+            c.Text = "Line Target";
+            c.Name = "line";
+            c.Tag = "Target";
+            n.Nodes.Add(c);
+
+            c = new TreeNode()
+            {
+                Text = "Circle Target",
+                Name = "circle",
+                Tag = "Target",
+            };
+
+            n.Nodes.Add(c);
+
+        }
+
         private void treeView1_ItemDrag(object sender, ItemDragEventArgs e)
         {
             if (e.Button != MouseButtons.Left) return;
@@ -255,6 +275,21 @@ namespace WorldSmith.Panels
                 Node = new VariableNode(Var);
 
             }
+            if((string)SelectedNode.Tag == "Target")
+            {
+                var Target = new TargetKey();
+                if (SelectedNode.Name == "line")
+                {
+                    Target.Shape = TargetKey.ShapeE.LINE;
+                }
+                else if(SelectedNode.Name == "circle")
+                {
+                    Target.Shape = TargetKey.ShapeE.CIRCLE;
+                }
+                
+                Node = new CustomTargetNode(SelectedNode.Name, Target);
+            }
+                
 
             Node.Location = new PointF(0, 0);
             this.DoDragDrop(Node, DragDropEffects.Copy);
@@ -425,5 +460,15 @@ namespace WorldSmith.Panels
 
 
         #endregion
+    }
+
+    public class ActionCompatStrategy : ICompatibilityStrategy
+    {
+        public bool CanConnect(NodeConnector from, NodeConnector to)
+        {
+            if (from.Item.ItemType == to.Item.ItemType) return false;
+            if (from.Item.GetType() == to.Item.GetType()) return true;
+            return false;
+        }
     }
 }

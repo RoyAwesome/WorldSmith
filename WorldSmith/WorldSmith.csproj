@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="DataClasses\ActionTypes\BaseActionExt.cs" />
     <Compile Include="NodeGraph\AbilityGraphNode.cs" />
+    <Compile Include="NodeGraph\CustomTargetNode.cs" />
     <Compile Include="NodeGraph\Items\NumberValueItem.cs" />
     <Compile Include="Utils\CheckForUpdate.cs" />
     <Compile Include="DataClasses\Actions\DotaActionCollection.cs" />
@@ -119,7 +120,9 @@
     <Compile Include="NodeGraph\Items\ExecuteNodeItem.cs" />
     <Compile Include="NodeGraph\Items\TargetNodeItem.cs" />
     <Compile Include="NodeGraph\VariableNode.cs" />
-    <Compile Include="Panels\DotaAbilityEditor.cs" />
+    <Compile Include="Panels\DotaAbilityEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Panels\DotaAbilityEditor.Designer.cs">
       <DependentUpon>DotaAbilityEditor.cs</DependentUpon>
     </Compile>
