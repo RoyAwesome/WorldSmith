@@ -38,6 +38,8 @@ namespace WorldSmith
             InitializeComponent();
             InitTabs();
 
+            //Initialize the VS2012 ToolStrip for theme support
+            this.vS2012ToolStripExtender1 = new DockSample.VS2012ToolStripExtender();
 
             // Create a dummy context menu
             _contextMenu = new ContextMenuStrip();
@@ -120,6 +122,10 @@ namespace WorldSmith
 
         public void LoadProject(string path)
         {
+            if (this.Text != "Worldsmith")
+            {
+                UnloadProject(); //This prevents some duplicated stuff
+            }
             if(!Directory.Exists(path))
             {
                 Console.WriteLine("Error: Directory does not exists. \"" + path + "\"");
