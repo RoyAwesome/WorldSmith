@@ -170,6 +170,7 @@ namespace WorldSmith.Panels
 
             if (Path.GetExtension(path) == ".txt") return true;
             if (Path.GetExtension(path) == ".lua") return true;
+            if (Path.GetExtension(path) == ".kv") return true;
 
             return false;
         }

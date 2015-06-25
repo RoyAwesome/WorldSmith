@@ -159,7 +159,13 @@ namespace WorldSmith
 
         public void NotifyDocumentModified(IEditor source)
         {
-
+            if (ActiveDocument.IsEdited)
+            {
+                if (this.TabText.EndsWith("*") == false)
+                {
+                    this.TabText = this.TabText + "*";
+                }
+            }
         }
 
         public void NotifyDocumentSaved(IEditor source)
