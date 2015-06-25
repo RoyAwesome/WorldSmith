@@ -60,7 +60,10 @@ namespace WorldSmith
             ConsoleForm = new ConsoleForm();
             ConsoleForm.Show(dockPanel, DockState.DockBottom);
             Program.ConsoleRedirect.Output = ConsoleForm;
-           
+
+            projectExplorerToolStripMenuItem.Enabled = false;
+            objectBrowserToolStripMenuItem.Enabled = false;
+
             //Create the start page
             ShowStartPage();
         }
@@ -147,6 +150,9 @@ namespace WorldSmith
             string addonName = Path.GetFileName(path.Remove(path.Length - 1));
             this.Text = "Worldsmith - " + addonName;
 
+            projectExplorerToolStripMenuItem.Enabled = true;
+            objectBrowserToolStripMenuItem.Enabled = true;
+
             AddToRecentAddonsList(addonName);
             UpdateStartPage(); 
 
@@ -172,6 +178,10 @@ namespace WorldSmith
             ShowStartPage();
 
             this.Text = "Worldsmith";
+
+            projectExplorerToolStripMenuItem.Enabled = false;
+            objectBrowserToolStripMenuItem.Enabled = false;
+
             Console.WriteLine("Successfully unloaded project: " + closingPath);
         }
 
