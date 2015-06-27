@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblRecentAddons = new System.Windows.Forms.Label();
             this.lblStart = new System.Windows.Forms.Label();
             this.lblNewAddon = new System.Windows.Forms.Label();
             this.lblLoadAddon = new System.Windows.Forms.Label();
             this.recentAddonsFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblRecentAddons
@@ -89,6 +93,20 @@
             this.recentAddonsFlowPanel.Size = new System.Drawing.Size(148, 100);
             this.recentAddonsFlowPanel.TabIndex = 6;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.closeToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(104, 26);
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+            // 
             // StartPageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -99,9 +117,12 @@
             this.Controls.Add(this.lblNewAddon);
             this.Controls.Add(this.lblStart);
             this.Controls.Add(this.lblRecentAddons);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "StartPageForm";
+            this.TabPageContextMenuStrip = this.contextMenuStrip1;
             this.TabText = "Start Page";
             this.Text = "Start Page";
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,8 +135,7 @@
         private System.Windows.Forms.Label lblNewAddon;
         private System.Windows.Forms.Label lblLoadAddon;
         private System.Windows.Forms.FlowLayoutPanel recentAddonsFlowPanel;
-
-
-
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
     }
 }

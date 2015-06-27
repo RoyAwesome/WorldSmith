@@ -110,7 +110,20 @@ namespace WorldSmith.Panels
             rootNode.Nodes.Clear();
 
             RecursivePopulateFromProject(ref rootNode, projectPath);
-
+            string[] files = Directory.GetFiles(projectPath);
+            foreach (string f in files)
+            {
+                String name = Path.GetFileName(f);
+                TreeNode file = new TreeNode()
+                {
+                    Name = name,
+                    Text = name,
+                    ImageIndex = 0,
+                    Tag = f,
+                    ContextMenu = file_context_menu,
+                };
+                rootNode.Nodes.Add(file);
+            }
             rootNode.Expand();
         }
 
