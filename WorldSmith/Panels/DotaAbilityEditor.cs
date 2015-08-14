@@ -251,12 +251,13 @@ namespace WorldSmith.Panels
         {
             if (e.Button != MouseButtons.Left) return;
 
-            var SelectedNode = treeView1.SelectedNode;
+            //Ignore non-TreeNode objects being dragged
+            if (!(e.Item is TreeNode)) return;
 
-            if (SelectedNode == null) return; //If we don't have a selection, don't bother with this.  
+            //Get the dragged item from the event
+            var SelectedNode = e.Item as TreeNode;
 
             Node Node = null;
-
 
             if ((string)SelectedNode.Tag == "Action")
             {
@@ -286,14 +287,16 @@ namespace WorldSmith.Panels
                 {
                     Target.Shape = TargetKey.ShapeE.CIRCLE;
                 }
-                
+
                 Node = new CustomTargetNode(SelectedNode.Name, Target);
             }
-                
 
-            Node.Location = new PointF(0, 0);
-            this.DoDragDrop(Node, DragDropEffects.Copy);
-
+            //The node can be null if an item with an unknown tag was drag-dropped
+            if (Node != null)
+            {
+                Node.Location = new PointF(0, 0);
+                this.DoDragDrop(Node, DragDropEffects.Copy);
+            }
         }
 
         private void AbilityChanged()
