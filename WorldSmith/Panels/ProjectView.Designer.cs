@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node3");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Node1", new System.Windows.Forms.TreeNode[] {
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Project", 4, 4, new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Dota 2 VPK", 3, 3);
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node3");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node1", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Project", 4, 4, new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Dota 2 VPK", 3, 3);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectView));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.images = new System.Windows.Forms.ImageList(this.components);
@@ -44,7 +44,6 @@
             this.context_add = new System.Windows.Forms.MenuItem();
             this.context_add_folder = new System.Windows.Forms.MenuItem();
             this.context_add_lua = new System.Windows.Forms.MenuItem();
-            this.context_add_actionscript = new System.Windows.Forms.MenuItem();
             this.context_add_externalresource = new System.Windows.Forms.MenuItem();
             this.menuItem14 = new System.Windows.Forms.MenuItem();
             this.context_codemap = new System.Windows.Forms.MenuItem();
@@ -65,8 +64,6 @@
             this.file_context_menu = new System.Windows.Forms.ContextMenu();
             this.file_context_open = new System.Windows.Forms.MenuItem();
             this.file_context_openwith = new System.Windows.Forms.MenuItem();
-            this.menuItem3 = new System.Windows.Forms.MenuItem();
-            this.file_context_codemap = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.file_context_history = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
@@ -76,6 +73,7 @@
             this.file_context_rename = new System.Windows.Forms.MenuItem();
             this.menuItem12 = new System.Windows.Forms.MenuItem();
             this.file_context_properties = new System.Windows.Forms.MenuItem();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.SuspendLayout();
             // 
             // treeView1
@@ -86,23 +84,23 @@
             this.treeView1.Indent = 13;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            treeNode6.Name = "Node3";
-            treeNode6.Text = "Node3";
-            treeNode7.Name = "Node1";
-            treeNode7.Text = "Node1";
-            treeNode8.Name = "Node2";
-            treeNode8.Text = "Node2";
-            treeNode9.ImageIndex = 4;
-            treeNode9.Name = "project";
-            treeNode9.SelectedImageIndex = 4;
-            treeNode9.Text = "Project";
-            treeNode10.ImageIndex = 3;
-            treeNode10.Name = "vpk";
-            treeNode10.SelectedImageIndex = 3;
-            treeNode10.Text = "Dota 2 VPK";
+            treeNode1.Name = "Node3";
+            treeNode1.Text = "Node3";
+            treeNode2.Name = "Node1";
+            treeNode2.Text = "Node1";
+            treeNode3.Name = "Node2";
+            treeNode3.Text = "Node2";
+            treeNode4.ImageIndex = 4;
+            treeNode4.Name = "project";
+            treeNode4.SelectedImageIndex = 4;
+            treeNode4.Text = "Project";
+            treeNode5.ImageIndex = 3;
+            treeNode5.Name = "vpk";
+            treeNode5.SelectedImageIndex = 3;
+            treeNode5.Text = "Dota 2 VPK";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10});
+            treeNode4,
+            treeNode5});
             this.treeView1.SelectedImageIndex = 0;
             this.treeView1.Size = new System.Drawing.Size(284, 579);
             this.treeView1.TabIndex = 0;
@@ -145,7 +143,7 @@
             this.context_add.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.context_add_folder,
             this.context_add_lua,
-            this.context_add_actionscript,
+            this.menuItem1,
             this.context_add_externalresource});
             this.context_add.Text = "Add...";
             // 
@@ -159,12 +157,6 @@
             this.context_add_lua.Index = 1;
             this.context_add_lua.Text = "Lua Script";
             this.context_add_lua.Click += new System.EventHandler(this.context_add_lua_Click);
-            // 
-            // context_add_actionscript
-            // 
-            this.context_add_actionscript.Enabled = false;
-            this.context_add_actionscript.Index = 2;
-            this.context_add_actionscript.Text = "ActionScript";
             // 
             // context_add_externalresource
             // 
@@ -273,8 +265,6 @@
             this.file_context_menu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.file_context_open,
             this.file_context_openwith,
-            this.menuItem3,
-            this.file_context_codemap,
             this.menuItem5,
             this.file_context_history,
             this.menuItem7,
@@ -297,65 +287,60 @@
             this.file_context_openwith.Index = 1;
             this.file_context_openwith.Text = "Open With...";
             // 
-            // menuItem3
-            // 
-            this.menuItem3.Index = 2;
-            this.menuItem3.Text = "-";
-            // 
-            // file_context_codemap
-            // 
-            this.file_context_codemap.Enabled = false;
-            this.file_context_codemap.Index = 3;
-            this.file_context_codemap.Text = "Show Code Map";
-            // 
             // menuItem5
             // 
-            this.menuItem5.Index = 4;
+            this.menuItem5.Index = 2;
             this.menuItem5.Text = "-";
             // 
             // file_context_history
             // 
             this.file_context_history.Enabled = false;
-            this.file_context_history.Index = 5;
+            this.file_context_history.Index = 3;
             this.file_context_history.Text = "View History";
             // 
             // menuItem7
             // 
-            this.menuItem7.Index = 6;
+            this.menuItem7.Index = 4;
             this.menuItem7.Text = "-";
             // 
             // file_context_cut
             // 
             this.file_context_cut.Enabled = false;
-            this.file_context_cut.Index = 7;
+            this.file_context_cut.Index = 5;
             this.file_context_cut.Text = "Cut";
             // 
             // file_context_copy
             // 
             this.file_context_copy.Enabled = false;
-            this.file_context_copy.Index = 8;
+            this.file_context_copy.Index = 6;
             this.file_context_copy.Text = "Copy";
             // 
             // file_context_delete
             // 
-            this.file_context_delete.Index = 9;
+            this.file_context_delete.Index = 7;
             this.file_context_delete.Text = "Delete";
             // 
             // file_context_rename
             // 
-            this.file_context_rename.Index = 10;
+            this.file_context_rename.Index = 8;
             this.file_context_rename.Text = "Rename";
             // 
             // menuItem12
             // 
-            this.menuItem12.Index = 11;
+            this.menuItem12.Index = 9;
             this.menuItem12.Text = "-";
             // 
             // file_context_properties
             // 
             this.file_context_properties.Enabled = false;
-            this.file_context_properties.Index = 12;
+            this.file_context_properties.Index = 10;
             this.file_context_properties.Text = "Properties";
+            // 
+            // menuItem1
+            // 
+            this.menuItem1.Enabled = false;
+            this.menuItem1.Index = 2;
+            this.menuItem1.Text = "Panorama File";
             // 
             // ProjectView
             // 
@@ -363,6 +348,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 579);
             this.Controls.Add(this.treeView1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ProjectView";
             this.TabText = "Project View";
             this.Text = "Project View";
@@ -394,13 +380,10 @@
         private System.Windows.Forms.MenuItem context_codemap;
         private System.Windows.Forms.MenuItem menuItem19;
         private System.Windows.Forms.MenuItem context_add_folder;
-        private System.Windows.Forms.MenuItem context_add_actionscript;
         private System.Windows.Forms.MenuItem context_add_externalresource;
         private System.Windows.Forms.ContextMenu file_context_menu;
         private System.Windows.Forms.MenuItem file_context_open;
         private System.Windows.Forms.MenuItem file_context_openwith;
-        private System.Windows.Forms.MenuItem menuItem3;
-        private System.Windows.Forms.MenuItem file_context_codemap;
         private System.Windows.Forms.MenuItem menuItem5;
         private System.Windows.Forms.MenuItem file_context_history;
         private System.Windows.Forms.MenuItem menuItem7;
@@ -410,6 +393,6 @@
         private System.Windows.Forms.MenuItem file_context_rename;
         private System.Windows.Forms.MenuItem menuItem12;
         private System.Windows.Forms.MenuItem file_context_properties;
-
+        private System.Windows.Forms.MenuItem menuItem1;
     }
 }

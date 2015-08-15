@@ -38,17 +38,17 @@ namespace WorldSmith.LuaUtils
         }
         private void cutButton_Click(object sender, EventArgs e)
         {
-            scintilla1.Clipboard.Cut();
+            scintilla1.Cut();            
         }
      
         private void copyButton_Click(object sender, EventArgs e)
         {
-            scintilla1.Clipboard.Copy();
+            scintilla1.Copy();
         }
 
         private void pasteButton_Click(object sender, EventArgs e)
         {
-            scintilla1.Clipboard.Paste();
+            scintilla1.Paste();
         }
 
         public void UpdateConsole(string text)

@@ -49,6 +49,7 @@ namespace WorldSmith
             this.FormClosed += TextEditor_FormClosed;
 
             scintilla1.Margins[0].Width = 20;
+            
         }
 
         private void Scintilla1_TextChanged(object sender, EventArgs e)
@@ -95,13 +96,13 @@ namespace WorldSmith
         {
             if (Filename.EndsWith(".lua"))
             {
-                scintilla1.ConfigurationManager.Language = "lua";               
+                scintilla1.LexerLanguage = "lua";               
             }
             else
             {
-                scintilla1.ConfigurationManager.Language = "null";
+                scintilla1.LexerLanguage = "null";
             }
-            scintilla1.ConfigurationManager.Configure();
+           
             scintilla1.Invalidate();
         }
 
@@ -115,13 +116,13 @@ namespace WorldSmith
             if (value)
             {
                 saveButton.Enabled = false;
-                scintilla1.IsReadOnly = true;
+                scintilla1.ReadOnly = true;
                 saveButton.ToolTipText = "Cannot Save, File is read only";
             }
             else
             {
                 saveButton.Enabled = true;
-                scintilla1.IsReadOnly = false;
+                scintilla1.ReadOnly = false;
                 saveButton.ToolTipText = "Save";
             }
         }
@@ -129,7 +130,7 @@ namespace WorldSmith
 
         private void cutButton_Click(object sender, EventArgs e)
         {
-            scintilla1.Clipboard.Cut();
+            scintilla1.Cut();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -142,12 +143,12 @@ namespace WorldSmith
 
         private void copyButton_Click(object sender, EventArgs e)
         {
-            scintilla1.Clipboard.Copy();
+            scintilla1.Copy();
         }
 
         private void pasteButton_Click(object sender, EventArgs e)
         {
-            scintilla1.Clipboard.Paste();
+            scintilla1.Paste();
         }
 
         public Document ActiveDocument
