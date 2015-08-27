@@ -40,7 +40,7 @@ namespace WorldSmith.Documents
             if (!EditorAlreadyOpen)
             {
                 editor.OpenDocument(this);
-                editor.UpdateEditorStyle();
+                //editor.UpdateEditorStyle();
                 editor.TabText = Name;
                 editor.Show(MainForm.PrimaryDockingPanel, DockState.Document);
             }
