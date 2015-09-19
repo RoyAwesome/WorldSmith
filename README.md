@@ -47,7 +47,7 @@ All major dependencies are included in the repository.  You may have to update s
 
 Worldsmith also relies on some NuGet packages.  If you are using Visual Studio 2012 or 2013, this will be automatically handled.  If not, you need to install NuGet and restore the dependencies. 
 
-Worldsmith was created with Visual Studio 2013.
+Worldsmith was created with Visual Studio 2015.
 
 If you change any of the data schemas, be sure to run the ClassGen build target.  This will update the data class definitions.
 
