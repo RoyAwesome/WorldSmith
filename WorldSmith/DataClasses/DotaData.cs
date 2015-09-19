@@ -16,7 +16,7 @@ namespace WorldSmith.DataClasses
             + "//Get WorldSmith at http://www.worldsmith.net" + Environment.NewLine + Environment.NewLine;
 
 
-        public static string VPKPath = "game" + Path.DirectorySeparatorChar + "dota_imported" + Path.DirectorySeparatorChar + "pak01_dir.vpk";
+        public static string VPKPath = "game" + Path.DirectorySeparatorChar + "dota" + Path.DirectorySeparatorChar + "pak01_dir.vpk";
 
         #region Unit Data Lists
         public static List<DotaUnit> AllUnits = new List<DotaUnit>();

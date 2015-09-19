@@ -76,7 +76,7 @@ namespace WorldSmith
         private enum LUA_STYLES
         {
             STYLE_DEFAULT,
-            STYLE_KEYWORD, //not used yet
+            STYLE_KEYWORD,
             STYLE_IDENTIFIER,
             STYLE_NUMBER,
             STYLE_STRING,
@@ -129,14 +129,14 @@ namespace WorldSmith
                         else
                         {
 
-                            scintilla1.SetStyling(1, (int)LUA_STYLES.STYLE_DEFAULT); //0 is default apparently
+                            scintilla1.SetStyling(1, (int)LUA_STYLES.STYLE_DEFAULT);
                         }
                         break;
                     case LUA_STATES.STATE_STRING:
                         if (c == '"')
                         {
                             length++;
-                            scintilla1.SetStyling(length, (int)LUA_STYLES.STYLE_STRING); //4 is String apparently
+                            scintilla1.SetStyling(length, (int)LUA_STYLES.STYLE_STRING);
                             length = 0;
                             state = LUA_STATES.STATE_UNKNOWN;
                         }
@@ -152,7 +152,7 @@ namespace WorldSmith
                         }
                         else
                         {
-                            scintilla1.SetStyling(length, (int)LUA_STYLES.STYLE_NUMBER); //2 is Number apparently
+                            scintilla1.SetStyling(length, (int)LUA_STYLES.STYLE_NUMBER);
                             length = 0;
                             state = LUA_STATES.STATE_UNKNOWN;
                             goto REPROCESS;
